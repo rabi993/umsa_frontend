@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account List</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f4f4f4;
+    }
+
+    .btn {
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
+      color: white;
+    }
+
+    .btn-edit {
+      background-color: #4CAF50;
+    }
+
+    .btn-delete {
+      background-color: #f44336;
+    }
+  </style>
+</head>
+<body>
+  <h1>Account List</h1>
+  <table id="accountTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Account No</th>
+        <th>Total Credit</th>
+        <th>Total Debit</th>
+        <th>Final Cash</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Dynamic rows will be injected here -->
+    </tbody>
+  </table>
+
+  <script>
+    // Fetch account data and populate the table
+    async function fetchAccounts() {
+      const response = await fetch('http://127.0.0.1:8000/account/');
+      const data = await response.json();
+
+      const tableBody = document.getElementById('accountTable').querySelector('tbody');
+      tableBody.innerHTML = ''; // Clear the table body before adding rows
+
+      data.forEach(account => {
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+          <td>${account.id}</td>
+          <td>${account.account_no}</td>
+          <td>${account.total_credit}</td>
+          <td>${account.total_debit}</td>
+          <td>${account.final_cash}</td>
+          <td>${new Date(account.created_at).toLocaleString()}</td>
+          <td>${new Date(account.updated_at).toLocaleString()}</td>
+          <td>
+            <button class="btn btn-edit" onclick="editAccount(${account.id})">Edit</button>
+            <button class="btn btn-delete" onclick="deleteAccount(${account.id})">Delete</button>
+          </td>
+        `;
+
+        tableBody.appendChild(row);
+      });
+    }
+
+    // Function to edit an account
+    function editAccount(accountId) {
+      alert(`Edit account with ID: ${accountId}`);
+      // Implement edit logic or redirect to edit page
+    }
+
+    // Function to delete an account
+    async function deleteAccount(accountId) {
+      const confirmDelete = confirm(`Are you sure you want to delete account ID: ${accountId}?`);
+      if (confirmDelete) {
+        const response = await fetch(`http://127.0.0.1:8000/account/${accountId}/`, {
+          method: 'DELETE',
+        });
+
+        if (response.ok) {
+          alert('Account deleted successfully!');
+          fetchAccounts(); // Refresh the table after deletion
+        } else {
+          alert('Failed to delete account.');
+        }
+      }
+    }
+
+    // Fetch accounts on page load
+    fetchAccounts();
+  </script>
+</body>
+</html>
