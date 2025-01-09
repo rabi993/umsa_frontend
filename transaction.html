@@ -28,6 +28,7 @@
             <tr>
                 <th>ID</th>
                 <th>TRX ID</th>
+                <th>User</th>
                 <th>Reference</th>
                 <th>Amount</th>
                 <th>Type</th>
@@ -80,6 +81,7 @@
                             <tr>
                                 <td>${transaction.id}</td>
                                 <td>${transaction.trx_id}</td>
+                                <td>${transaction.user}</td>
                                 <td>${transaction.reference || ''}</td>
                                 <td>${transaction.amount}</td>
                                 <td>${transaction.typys}</td>
@@ -107,6 +109,7 @@
             const url = id ? `${apiUrl}${id}/` : apiUrl;
 
             const transactionData = {
+                user: localStorage.getItem("user_id"),
                 trx_id: document.getElementById("trxId").value,
                 reference: document.getElementById("reference").value,
                 amount: document.getElementById("amount").value,

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -132,6 +132,178 @@
 
                     if (!response.ok) throw new Error('Failed to delete record');
 
+                    await loadBloodRecords();
+                } catch (error) {
+                    console.error('Error deleting record:', error);
+                    alert('Failed to delete record.');
+                }
+            }
+        }
+
+        // Initial load of blood records
+        loadBloodRecords();
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Records</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Blood Donation Records</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Blood Group</th>
+                    <th>Last Donate Date</th>
+                    <th>Available For Donate Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="blood-table-body"></tbody>
+        </table>
+
+        <h3>Add Blood Donation Record</h3>
+        <form id="blood-form">
+            <div class="mb-3">
+                <label for="last_donate_date" class="form-label">Last Donate Date:</label>
+                <input type="date" class="form-control" id="last_donate_date" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Record</button>
+        </form>
+    </div>
+
+    <script>
+        const tableBody = document.getElementById('blood-table-body');
+        const form = document.getElementById('blood-form');
+
+        // Get CSRF token for Django
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        const csrftoken = getCookie('csrftoken');
+
+        // Function to fetch and display blood records
+        async function loadBloodRecords() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/blood/');
+                if (!response.ok) throw new Error('Failed to fetch records');
+                const data = await response.json();
+
+                // Clear table body
+                tableBody.innerHTML = '';
+
+                // Populate table rows
+                data.forEach(record => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${record.id}</td>
+                        <td>${record.username}</td>
+                        <td>${record.email}</td>
+                        <td>${record.first_name}</td>
+                        <td>${record.last_name}</td>
+                        <td>${record.blood_group}</td>
+                        <td>${record.last_donate_date || 'N/A'}</td>
+                        <td>${record.available_for_donate_date || 'N/A'}</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm" onclick="editRecord(${record.id})">Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteRecord(${record.id})">Delete</button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching records:', error);
+                alert('Failed to load records.');
+            }
+        }
+
+        // Function to add a new blood record
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const lastDonateDate = document.getElementById('last_donate_date').value;
+
+            try {
+                const response = await fetch('http://127.0.0.1:8000/blood/add/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrftoken,
+                    },
+                    body: JSON.stringify({ last_donate_date: lastDonateDate }),
+                });
+
+                if (!response.ok) throw new Error('Failed to add record');
+
+                await loadBloodRecords();
+                form.reset();
+            } catch (error) {
+                console.error('Error adding record:', error);
+                alert('Failed to add record.');
+            }
+        });
+
+        // Function to edit a blood record
+        async function editRecord(id) {
+            try {
+                const response = await fetch(`http://127.0.0.1:8000/blood/${id}/`);
+                if (!response.ok) throw new Error('Failed to fetch record');
+                const record = await response.json();
+
+                const newDate = prompt('Enter new Last Donate Date (YYYY-MM-DD):', record.last_donate_date || '');
+                if (newDate) {
+                    const updateResponse = await fetch(`http://127.0.0.1:8000/blood/${id}/edit/`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': csrftoken,
+                        },
+                        body: JSON.stringify({ last_donate_date: newDate }),
+                    });
+
+                    if (!updateResponse.ok) throw new Error('Failed to edit record');
+                    await loadBloodRecords();
+                }
+            } catch (error) {
+                console.error('Error editing record:', error);
+                alert('Failed to edit record.');
+            }
+        }
+
+        // Function to delete a blood record
+        async function deleteRecord(id) {
+            if (confirm('Are you sure you want to delete this record?')) {
+                try {
+                    const response = await fetch(`http://127.0.0.1:8000/blood/${id}/delete/`, {
+                        method: 'DELETE',
+                        headers: {
+                            'X-CSRFToken': csrftoken,
+                        },
+                    });
+
+                    if (!response.ok) throw new Error('Failed to delete record');
                     await loadBloodRecords();
                 } catch (error) {
                     console.error('Error deleting record:', error);
