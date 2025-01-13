@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .form-container {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h3>Add event</h3>
+    <form id="post_form" onsubmit="handleAddPost(event)">
+        <div>
+            <label for="postOwner">event Owner:</label>
+            <input type="text" id="postOwner" readonly>
+        </div>
+        <div>
+            <label for="postTitle">Title:</label>
+            <input type="text" id="postTitle" placeholder="Enter post title" required>
+        </div>
+        <div>
+            <label for="postContent">Content:</label>
+            <textarea id="postContent" placeholder="Enter post description" required></textarea>
+        </div>
+        <div>
+            <label for="held_on">Held On:</label>
+            <input type="datetime-local" id="held_on" required>
+        </div>
+        <div>
+            <label for="postImage">Image:</label>
+            <input type="file" id="postImage" accept="image/*" required>
+        </div>
+        <button type="submit">Add event</button>
+    </form>
+    <div id="form-message"></div>
+
+    <h3>Post List</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Post Owner</th>
+                <th>Content</th>
+                <th>Image</th>
+                <th>Held On</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="posts-list">
+            <tr>
+                <td colspan="7">Loading Events...</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="event.js"></script>
+</body>
+</html>
