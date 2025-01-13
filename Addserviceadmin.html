@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADD service</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="..."
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+
+    
+  </head>
+  <body>
+    
+    <main>
+      
+        <div class="container mt-4">
+          <h3>Service List</h3>
+          <table id="service-table" class="table table-striped">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="service-list"></tbody>
+          </table>
+        </div>
+        
+        <h3 id="form-title">Add Service</h3>
+        <form id="service_form" onsubmit="handleAddService(event)">
+          <input type="hidden" id="serviceId" /> <!-- Hidden field for service ID -->
+
+          <div class="mb-3">
+            <label for="serviceName" class="form-label">Service Name</label>
+            <input
+              type="text"
+              id="serviceName"
+              class="form-control"
+              placeholder="Write service name"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="serviceDescription" class="form-label">Service Description</label>
+            <textarea
+              id="serviceDescription"
+              class="form-control"
+              rows="3"
+              placeholder="Write service description"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="serviceImage" class="form-label">Service Image</label>
+            <input
+              type="file"
+              id="serviceImage"
+              class="form-control"
+              accept="image/*"
+              required
+            />
+            <img id="imagePreview" src="" alt="Image Preview" style="width: 100px; height: 100px;" />
+          </div>
+          <button type="submit" class="btn btn-primary" id="addServiceButton">Add Service</button>
+        </form>
+
+      
+    
+  </main>
+  <footer class="">
+    <hr />
+    <p class="text-center mt-3">
+      <small>Copyright © Flower's World. All Rights Reserved</small>
+    </p>
+  </footer>
+    
+      
+      
+  
+     
+
+    
+    
+
+    <!-- add script file  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
+
+    
+    <script src="./Addserviceadmin.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"
+      integrity="..."
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
+    
+    
+  </body>
+</html>
