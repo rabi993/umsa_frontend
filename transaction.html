@@ -22,13 +22,15 @@
     </style>
 </head>
 <body>
-    <h1>Transaction List</h1>
+    <h1>All Transaction List</h1>
     <table id="transactionTable">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>TRX ID</th>
-                <th>User</th>
+                <th>TRX_ID</th>
+                <th>User_ID</th>
+                <th>Username</th>
+                <th>fullname</th>
                 <th>Reference</th>
                 <th>Amount</th>
                 <th>Type</th>
@@ -36,70 +38,197 @@
                 <th>Media</th>
                 <th>Purpose</th>
                 <th>Comment</th>
+                <th>created_at</th>
+                <th>updated_at</th>
                 <th>Approved</th>
-                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <h1>My Transaction List</h1>
+    <table id="myTransactionTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TRX_ID</th>
+                <th>User_ID</th>
+                <th>Username</th>
+                <th>fullname</th>
+                <th>Reference</th>
+                <th>Amount</th>
+                <th>Type</th>
+                <th>Source</th>
+                <th>Media</th>
+                <th>Purpose</th>
+                <th>Comment</th>
+                <th>created_at</th>
+                <th>updated_at</th>
+                <th>Approved</th>
             </tr>
         </thead>
         <tbody>
         </tbody>
     </table>
 
-    <h2>Add / Edit Transaction</h2>
+    <h2>Add Donate</h2>
     <form id="transactionForm">
         <input type="hidden" id="transactionId">
         <label>TRX ID: <input type="text" id="trxId" required></label><br>
         <label>Reference: <input type="text" id="reference"></label><br>
         <label>Amount: <input type="number" id="amount" required></label><br>
-        <label>Type: 
+        <input type="hidden" id="typys" value="credit">
+        <!-- <label>Type: 
             <select id="typys" required>
                 <option value="credit">Credit</option>
                 <option value="debit">Debit</option>
             </select>
-        </label><br>
+        </label><br> -->
         <label>Source: <input type="text" id="sourcePeople"></label><br>
         <label>Media: <input type="text" id="media"></label><br>
         <label>Purpose: <input type="text" id="purpose"></label><br>
         <label>Comment: <input type="text" id="comment"></label><br>
-        <label>Approved: 
-            <input type="checkbox" id="approved">
-        </label><br>
+        <!-- <label>Approved: 
+            <input type="checkbox " id="approved">
+        </label><br> -->
+        
+        <input type="hidden" id="approved">
+        
         <button type="submit">Save</button>
     </form>
 
     <script>
+        
         const apiUrl = "http://127.0.0.1:8000/transaction/";
+        const apiUrlUser = "http://127.0.0.1:8000/users/";
 
-        // Fetch and display transactions
         function fetchTransactions() {
             fetch(apiUrl)
                 .then(response => response.json())
-                .then(data => {
+                .then(transactions => {
                     const tableBody = document.querySelector("#transactionTable tbody");
                     tableBody.innerHTML = ""; // Clear table
-                    data.forEach(transaction => {
-                        const row = `
-                            <tr>
-                                <td>${transaction.id}</td>
-                                <td>${transaction.trx_id}</td>
-                                <td>${transaction.user}</td>
-                                <td>${transaction.reference || ''}</td>
-                                <td>${transaction.amount}</td>
-                                <td>${transaction.typys}</td>
-                                <td>${transaction.source_people || ''}</td>
-                                <td>${transaction.media || ''}</td>
-                                <td>${transaction.purpose || ''}</td>
-                                <td>${transaction.comment || ''}</td>
-                                <td>${transaction.approved ? "Yes" : "No"}</td>
-                                <td>
-                                    <button onclick="editTransaction(${transaction.id})">Edit</button>
-                                    <button onclick="deleteTransaction(${transaction.id})">Delete</button>
-                                </td>
-                            </tr>
-                        `;
-                        tableBody.insertAdjacentHTML('beforeend', row);
+
+                    transactions.forEach(transaction => {
+                        // Fetch user details for each transaction
+                        fetch(`${apiUrlUser}${transaction.user}/`)
+                            .then(response => response.json())
+                            .then(user => {
+                                // Extract username and fullname
+                                const username = user.username || "N/A";
+                                const first_name = user.first_name || "N/A";
+                                const last_name = user.last_name || "N/A";
+
+                                // Create a row for the transaction
+                                const row = `
+                                    <tr>
+                                        <td>${transaction.id}</td>
+                                        <td>${transaction.trx_id}</td>
+                                        <td>${transaction.user}</td>
+                                        <td>${username}</td>
+                                        <td>${first_name} ${last_name}</td>
+                                        <td>${transaction.reference || ''}</td>
+                                        <td>${transaction.amount}</td>
+                                        <td>${transaction.typys}</td>
+                                        <td>${transaction.source_people || ''}</td>
+                                        <td>${transaction.media || ''}</td>
+                                        <td>${transaction.purpose || ''}</td>
+                                        <td>${transaction.comment || ''}</td>
+                                        <td>${transaction.created_at || ''}</td>
+                                        <td>${transaction.updated_at || ''}</td>
+                                        <td>${transaction.approved ? "Yes" : "No"}</td>
+                                    </tr>
+                                `;
+
+                                // Append the row to the table
+                                tableBody.insertAdjacentHTML("beforeend", row);
+                            })
+                            .catch(error => {
+                                console.error(`Error fetching user details for user ID ${transaction.user}:`, error);
+                            });
                     });
+                })
+                .catch(error => {
+                    console.error("Error fetching transactions:", error);
                 });
         }
+        function fetchTransactions1() {
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector("#myTransactionTable tbody");
+                    tableBody.innerHTML = ""; // Clear table
+
+                    // Get the logged-in user ID from localStorage
+                    const loggedInUserId = localStorage.getItem("user_id");
+                    console.log("Logged-in user ID:", loggedInUserId);
+
+                    // Check if loggedInUserId exists
+                    if (!loggedInUserId) {
+                        console.error("No logged-in user found!");
+                        return;
+                    }
+
+                    let userFound = false;
+
+                    // Iterate over the transactions
+                    data.forEach(transaction => {
+                        // Adjust this based on the structure of the 'user' field
+                        const transactionUserId = transaction.user.id || transaction.user;
+                         
+
+                        if (transactionUserId === parseInt(loggedInUserId)) {
+                            userFound = true;
+
+                            fetch(`${apiUrlUser}${transaction.user}/`)
+                                .then(response => response.json())
+                                .then(user => {
+                                    // Extract username and fullname
+                                    const username = user.username || "N/A";
+                                    const first_name = user.first_name || "N/A";
+                                    const last_name = user.last_name || "N/A";
+
+                                    // Create a row for the transaction
+                                    const row = `
+                                        <tr>
+                                            <td>${transaction.id}</td>
+                                            <td>${transaction.trx_id}</td>
+                                            <td>${transaction.user}</td>
+                                            <td>${username}</td>
+                                            <td>${first_name} ${last_name}</td>
+                                            <td>${transaction.reference || ''}</td>
+                                            <td>${transaction.amount}</td>
+                                            <td>${transaction.typys}</td>
+                                            <td>${transaction.source_people || ''}</td>
+                                            <td>${transaction.media || ''}</td>
+                                            <td>${transaction.purpose || ''}</td>
+                                            <td>${transaction.comment || ''}</td>
+                                            <td>${transaction.created_at || ''}</td>
+                                            <td>${transaction.updated_at || ''}</td>
+                                            <td>${transaction.approved ? "Yes" : "No"}</td>
+                                        </tr>
+                                    `;
+
+                                    // Append the row to the table
+                                    tableBody.insertAdjacentHTML("beforeend", row);
+                                })
+                                .catch(error => {
+                                    console.error(`Error fetching user details for user ID ${transaction.user}:`, error);
+                                });                                                       
+                        }
+                    });
+
+                    if (!userFound) {
+                        tableBody.innerHTML = `<tr><td colspan="13">No transactions found for your account.</td></tr>`;
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching transactions:", error);
+                });
+        }
+
+        
+
 
         // Add or edit a transaction
         document.getElementById("transactionForm").addEventListener("submit", function(event) {
@@ -135,37 +264,9 @@
                 }
             });
         });
-
-        // Edit a transaction
-        function editTransaction(id) {
-            fetch(`${apiUrl}${id}/`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById("transactionId").value = data.id;
-                    document.getElementById("trxId").value = data.trx_id;
-                    document.getElementById("reference").value = data.reference;
-                    document.getElementById("amount").value = data.amount;
-                    document.getElementById("typys").value = data.typys;
-                    document.getElementById("sourcePeople").value = data.source_people;
-                    document.getElementById("media").value = data.media;
-                    document.getElementById("purpose").value = data.purpose;
-                    document.getElementById("comment").value = data.comment;
-                    document.getElementById("approved").checked = data.approved;
-                });
-        }
-
-        // Delete a transaction
-        function deleteTransaction(id) {
-            fetch(`${apiUrl}${id}/`, { method: "DELETE" })
-                .then(response => {
-                    if (response.ok) {
-                        fetchTransactions();
-                    }
-                });
-        }
-
         // Initial fetch
         fetchTransactions();
+        fetchTransactions1();
     </script>
 </body>
 </html>
