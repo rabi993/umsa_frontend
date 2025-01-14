@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us Form</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="..."
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css"
+    rel="stylesheet"
+    crossorigin="anonymous"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="banner-container container">
+      <div class="banner row">
+        <div class="banner-left col-lg-5 col-md-5">
+          <h1>Providing Quality<br />Flowers World</h1>
+          <p class="w-50 m-auto">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at
+            nunc feugiat, pretium quam malesuada, luctus ex. Duis eu dui
+            rhoncus, faucibus diam ac, iaculis urna. Phasellus pellentesque
+            dui in suscipit eleifend.
+          </p>
+        </div>
+        <div class="banner-img col-lg-7 col-md-7">
+          <img class="bn-img img-fluid py-2" src="./Images/contact.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div style="margin-top: 0px;" class="login-container container">
+    <div class="col-md-7">
+      <h1 class="title mt-5">Please write to us</h1>
+      <form id="contact-form" onsubmit="handleContact(event)">
+        <p id="error" class="text-danger"></p>
+        <input id="name" type="text" class="form-control mb-3" placeholder="Name" required />
+        <input
+          id="phone"
+          type="text"
+          class="form-control mb-3"
+          placeholder="Phone"
+          pattern="[0-9]{11}"
+          title="Enter a valid 11-digit phone number"
+          required
+        />
+        <textarea id="address" class="form-control mb-3" placeholder="Address" rows="4" required></textarea>
+        <textarea id="content" class="form-control mb-3" placeholder="Message" rows="4" required></textarea>
+        <input type="submit" class="btn btn-primary" value="Submit" />
+      </form>
+    </div>
+    <div class="col-md-5">
+      <img class="w-50 h-50" src="./Images/login.png" alt="" />
+    </div>
+  </div>
+
+  <script>
+    // Function to get the value of an input field by its ID
+    const getValue = (id) => document.getElementById(id).value;
+
+    // Function to handle the contact form submission
+    const handleContact = (event) => {
+      event.preventDefault(); // Prevent default form submission
+
+      const name = getValue("name");
+      const phone = getValue("phone");
+      const address = getValue("address");
+      const content = getValue("content");
+
+      if (!name || !phone || !address || !content) {
+        document.getElementById("error").innerText = "All fields are required!";
+        return;
+      }
+
+      const info = { name, phone, address, content };
+
+      // Send form data to the server
+      fetch("http://127.0.0.1:8000/contact_us/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(info),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to submit the form. Please try again.");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data); // Log the server's response
+          alert("Contact form submitted successfully!");
+          document.querySelector("form").reset(); // Reset form fields
+          document.getElementById("error").innerText = ""; // Clear error message
+        })
+        .catch((error) => {
+          console.error(error);
+          document.getElementById("error").innerText =
+            "An error occurred. Please try again.";
+        });
+    };
+  </script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"
+    integrity="sha512-pMNxjrrUOMvcmfwE6S8wroAWXZcllEYcBLf1m5SvI8BG+LKyHNDsnrtXZAbYaIQX9+R29FQqkCn+jrBLYBdksA=="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
+    crossorigin="anonymous"
+    defer
+  ></script>
+</body>
+</html>

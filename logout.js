@@ -28,6 +28,7 @@ const handlelogOut = () => {
       // Clear all localStorage items
       localStorage.removeItem("token");
       localStorage.removeItem("user_id");
+      localStorage.removeItem("people_id");
       // localStorage.removeItem("people_id");
       localStorage.removeItem("username");
 
