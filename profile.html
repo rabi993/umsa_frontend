@@ -48,7 +48,58 @@
       <h3 class="text-center"><b>Your All Donation History </b></h3>
       <hr class="container">
 
-      <div class="container my-3 text-center "></div>
+      <div class="container my-3 text-center ">
+        
+        <table id="myTransactionTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TRX_ID</th>
+                    <th>User_ID</th>
+                    <th>Username</th>
+                    <th>fullname</th>
+                    <th>Reference</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                    <th>Source</th>
+                    <th>Media</th>
+                    <th>Purpose</th>
+                    <th>Comment</th>
+                    <th>created_at</th>
+                    <th>updated_at</th>
+                    <th>Approved</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <h2>Donate</h2>
+        <form id="transactionForm">
+            <input type="hidden" id="transactionId">
+            <label>TRX ID: <input type="text" id="trxId" required></label><br>
+            <label>Reference: <input type="text" id="reference"></label><br>
+            <label>Amount: <input type="number" id="amount" required></label><br>
+            <input type="hidden" id="typys" value="credit">
+            <!-- <label>Type: 
+                <select id="typys" required>
+                    <option value="credit">Credit</option>
+                    <option value="debit">Debit</option>
+                </select>
+            </label><br> -->
+            <label>Source: <input type="text" id="sourcePeople"></label><br>
+            <label>Media: <input type="text" id="media"></label><br>
+            <label>Purpose: <input type="text" id="purpose"></label><br>
+            <label>Comment: <input type="text" id="comment"></label><br>
+            <!-- <label>Approved: 
+                <input type="checkbox " id="approved">
+            </label><br> -->
+            
+            <input type="hidden" id="approved">
+            
+            <button type="submit">Save</button>
+        </form>
+      </div>
     </header>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -159,5 +210,127 @@
           });
       });
     </script>
+    <script>
+        
+      const apiUrl = "http://127.0.0.1:8000/transaction/";
+      const apiUrlUser = "http://127.0.0.1:8000/users/";
+
+       
+      function fetchTransactions1() {
+          fetch(apiUrl)
+              .then(response => response.json())
+              .then(data => {
+                  const tableBody = document.querySelector("#myTransactionTable tbody");
+                  tableBody.innerHTML = ""; // Clear table
+
+                  // Get the logged-in user ID from localStorage
+                  const loggedInUserId = localStorage.getItem("user_id");
+                  console.log("Logged-in user ID:", loggedInUserId);
+
+                  // Check if loggedInUserId exists
+                  if (!loggedInUserId) {
+                      console.error("No logged-in user found!");
+                      return;
+                  }
+
+                  let userFound = false;
+
+                  // Iterate over the transactions
+                  data.forEach(transaction => {
+                      // Adjust this based on the structure of the 'user' field
+                      const transactionUserId = transaction.user.id || transaction.user;
+                       
+
+                      if (transactionUserId === parseInt(loggedInUserId)) {
+                          userFound = true;
+
+                          fetch(`${apiUrlUser}${transaction.user}/`)
+                              .then(response => response.json())
+                              .then(user => {
+                                  // Extract username and fullname
+                                  const username = user.username || "N/A";
+                                  const first_name = user.first_name || "N/A";
+                                  const last_name = user.last_name || "N/A";
+
+                                  // Create a row for the transaction
+                                  const row = `
+                                      <tr>
+                                          <td>${transaction.id}</td>
+                                          <td>${transaction.trx_id}</td>
+                                          <td>${transaction.user}</td>
+                                          <td>${username}</td>
+                                          <td>${first_name} ${last_name}</td>
+                                          <td>${transaction.reference || ''}</td>
+                                          <td>${transaction.amount}</td>
+                                          <td>${transaction.typys}</td>
+                                          <td>${transaction.source_people || ''}</td>
+                                          <td>${transaction.media || ''}</td>
+                                          <td>${transaction.purpose || ''}</td>
+                                          <td>${transaction.comment || ''}</td>
+                                          <td>${transaction.created_at || ''}</td>
+                                          <td>${transaction.updated_at || ''}</td>
+                                          <td>${transaction.approved ? "Yes" : "No"}</td>
+                                      </tr>
+                                  `;
+
+                                  // Append the row to the table
+                                  tableBody.insertAdjacentHTML("beforeend", row);
+                              })
+                              .catch(error => {
+                                  console.error(`Error fetching user details for user ID ${transaction.user}:`, error);
+                              });                                                       
+                      }
+                  });
+
+                  if (!userFound) {
+                      tableBody.innerHTML = `<tr><td colspan="13">No transactions found for your account.</td></tr>`;
+                  }
+              })
+              .catch(error => {
+                  console.error("Error fetching transactions:", error);
+              });
+      }
+
+      
+
+
+      // Add or edit a transaction
+      document.getElementById("transactionForm").addEventListener("submit", function(event) {
+          event.preventDefault();
+          const id = document.getElementById("transactionId").value;
+          const method = id ? "PUT" : "POST";
+          const url = id ? `${apiUrl}${id}/` : apiUrl;
+
+          const transactionData = {
+              user: localStorage.getItem("user_id"),
+              trx_id: document.getElementById("trxId").value,
+              reference: document.getElementById("reference").value,
+              amount: document.getElementById("amount").value,
+              typys: document.getElementById("typys").value,
+              source_people: document.getElementById("sourcePeople").value,
+              media: document.getElementById("media").value,
+              purpose: document.getElementById("purpose").value,
+              comment: document.getElementById("comment").value,
+              approved: document.getElementById("approved").checked
+          };
+
+          fetch(url, {
+              method: method,
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify(transactionData),
+          })
+          .then(response => {
+              if (response.ok) {
+                  fetchTransactions();
+                  document.getElementById("transactionForm").reset();
+              }
+          });
+      });
+      // Initial fetch
+      
+      fetchTransactions1();
+  </script>
   </body>
 </html>

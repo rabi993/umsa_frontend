@@ -1,90 +1,73 @@
-const API_URL = "http://127.0.0.1:8000/people/"; // Base URL for your API
+const API_URL = "http://127.0.0.1:8000/people/";
+const userAPI_URL = "http://127.0.0.1:8000/users/";
 
-// Fetch and display the people list
+// Fetch users and filter people based on user ID
 function fetchPeople() {
-    axios.get(`${API_URL}list/`)
-        .then(response => {
-            const people = response.data;
-            const tableBody = document.getElementById('peopleTable');
-            tableBody.innerHTML = ''; // Clear the table
-            people.forEach((person, index) => {
-                tableBody.innerHTML += `
-                    <tr>
-                        <td>${index + 1}</td>
-                        <td>${person.user}</td>
-                        <td>${person.mobile_no}</td>
-                        <td>${person.blood_group || 'N/A'}</td>
-                        <td>${person.designation || 'N/A'}</td>
-                        <td>
-                            <button class="btn btn-warning btn-sm" onclick="showEditModal(${person.id})">Edit</button>
-                            <button class="btn btn-danger btn-sm" onclick="deletePerson(${person.id})">Delete</button>
-                        </td>
-                    </tr>`;
-            });
+    axios
+        .get(userAPI_URL) // Fetch users
+        .then((userResponse) => {
+            const users = userResponse.data; // List of users
+
+            axios
+                .get(`${API_URL}list/`) // Fetch people
+                .then((peopleResponse) => {
+                    const people = peopleResponse.data;
+                    const tableBody = document.getElementById("peopleTable");
+                    tableBody.innerHTML = ""; // Clear the table
+
+                    people.forEach((person) => {
+                        // Find the matching user by ID
+                        const matchedUser = users.find((user) => user.id === person.user);
+
+                        if (matchedUser) {
+                            tableBody.innerHTML += `
+                                <tr>
+                                    <td>${matchedUser.id}</td>
+                                    <td>${matchedUser.username || "N/A"}</td>
+                                    <td>${matchedUser.first_name || "N/A"} ${matchedUser.last_name || ""}</td>
+                                    <td>${matchedUser.email || "N/A"}</td>
+                                    <td>${person.mobile_no || "N/A"}</td>
+                                    <td>${person.village || "N/A"}</td>
+                                    <td>${person.livesIn || "N/A"}</td>
+                                    <td>${person.blood_group || "N/A"}</td>
+                                    <td>${person.last_blood_donate_date || "N/A"}</td>
+                                    <td>
+                                        ${
+                                          person.image
+                                            ? `<img src="${person.image}" alt="Profile Image" class="img-fluid rounded" style="max-height: 50px;">`
+                                            : "No Image"
+                                        }
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-warning btn-sm" onclick="deletePerson(${person.id})">Delete</button>
+                                    </td>
+                                </tr>
+                            `;
+                        }
+                    });
+                })
+                .catch((error) => {
+                    console.error("Error fetching people:", error);
+                });
         })
-        .catch(error => console.error("Error fetching people:", error));
-}
-
-// Show Add Modal
-function showAddModal() {
-    document.getElementById('modalTitle').textContent = "Add New Person";
-    document.getElementById('peopleForm').reset();
-    document.getElementById('saveButton').onclick = () => savePerson();
-    const modal = new bootstrap.Modal(document.getElementById('peopleModal'));
-    modal.show();
-}
-
-// Show Edit Modal
-function showEditModal(id) {
-    axios.get(`${API_URL}${id}/`)
-        .then(response => {
-            const person = response.data;
-            document.getElementById('mobile_no').value = person.mobile_no;
-            document.getElementById('blood_group').value = person.blood_group;
-            document.getElementById('designation').value = person.designation;
-            document.getElementById('modalTitle').textContent = "Edit Person";
-            document.getElementById('saveButton').onclick = () => savePerson(id);
-            const modal = new bootstrap.Modal(document.getElementById('peopleModal'));
-            modal.show();
-        })
-        .catch(error => console.error("Error fetching person:", error));
-}
-
-// Save (Add or Update) Person
-function savePerson(id = null) {
-    const mobile_no = document.getElementById('mobile_no').value;
-    const blood_group = document.getElementById('blood_group').value;
-    const designation = document.getElementById('designation').value;
-
-    const data = { mobile_no, blood_group, designation };
-
-    if (id) {
-        // Update existing person
-        axios.put(`${API_URL}${id}/`, data)
-            .then(() => {
-                fetchPeople();
-                const modal = bootstrap.Modal.getInstance(document.getElementById('peopleModal'));
-                modal.hide();
-            })
-            .catch(error => console.error("Error updating person:", error));
-    } else {
-        // Add new person
-        axios.post(`${API_URL}list/`, data)
-            .then(() => {
-                fetchPeople();
-                const modal = bootstrap.Modal.getInstance(document.getElementById('peopleModal'));
-                modal.hide();
-            })
-            .catch(error => console.error("Error adding person:", error));
-    }
+        .catch((error) => {
+            console.error("Error fetching users:", error);
+        });
 }
 
 // Delete Person
 function deletePerson(id) {
     if (confirm("Are you sure you want to delete this person?")) {
-        axios.delete(`${API_URL}${id}/`)
-            .then(() => fetchPeople())
-            .catch(error => console.error("Error deleting person:", error));
+        axios
+            .delete(`${API_URL}${id}/`)
+            .then(() => {
+                alert("Person deleted successfully.");
+                fetchPeople(); // Refresh the list
+            })
+            .catch((error) => {
+                console.error("Error deleting person:", error);
+                alert("Failed to delete person. Please try again.");
+            });
     }
 }
 
