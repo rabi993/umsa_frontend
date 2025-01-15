@@ -92,7 +92,7 @@ const handleLogin = (event) => {
       if (data.token && data.user_id) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("user_id", data.user_id);
-        alert("Welcome! Flower's World. You are Successfully Logged in")
+        alert("Welcome! UMSA Family. You are Successfully Logged in")
         
 
         // Use `user_id` to fetch user details
@@ -115,9 +115,9 @@ const handleLogin = (event) => {
 
             localStorage.setItem("username", userData.username);
             if (userData.is_superuser) {
-              window.location.href = "http://127.0.0.1:5500/post.html";
+              window.location.href = "http://127.0.0.1:5500/Addserviceadmin.html";
             } else {
-              window.location.href = "http://127.0.0.1:5500/transaction.html";
+              window.location.href = "http://127.0.0.1:5500/index.html";
               
             }
           })
@@ -126,7 +126,7 @@ const handleLogin = (event) => {
             alert("Failed to retrieve user details. Please try again.");
           });
       } else {
-        alert("Unexpected response from the server. Please try again.");
+        alert("Password or username incorrect ! Unexpected response from the server. Please try again.");
       }
     })
     .catch((error) => {

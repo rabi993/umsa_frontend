@@ -1,18 +1,21 @@
 const fetchPosts = () => {
-  const postsList = document.getElementById("posts-list");
-  postsList.innerHTML = `<tr><td colspan="7">Loading notices...</td></tr>`;
-
-  fetch("http://127.0.0.1:8000/notice/")
-      .then(response => {
-          if (!response.ok) throw new Error("Failed to fetch notices.");
-          return response.json();
+    const postsList = document.getElementById("posts-list");
+    postsList.innerHTML = `<tr><td colspan="7">Loading posts...</td></tr>`;
+  
+    fetch("http://127.0.0.1:8000/notice/list/")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch posts.");
+        }
+        return response.json();
       })
-      .then(data => {
-          postsList.innerHTML = "";
-          if (data.length === 0) {
-              postsList.innerHTML = `<tr><td colspan="7">No notices available.</td></tr>`;
-          } else {
-              data.forEach(post => {
+      .then((data) => {
+        const posts = data.results; // Extract the posts array from the results field
+        postsList.innerHTML = "";
+        if (posts.length === 0) {
+          postsList.innerHTML = `<tr><td colspan="7">No posts available.</td></tr>`;
+        } else {
+          posts.forEach((post) => {
                   const row = document.createElement("tr");
                   const isImage = /\.(jpg|jpeg|png|gif)$/i.test(post.file);
                   const isPDF = /\.pdf$/i.test(post.file);

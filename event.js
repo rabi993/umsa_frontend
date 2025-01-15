@@ -1,43 +1,45 @@
-const fetchPosts = () => {
-  const postsList = document.getElementById("posts-list");
-  postsList.innerHTML = `<tr><td colspan="7">Loading posts...</td></tr>`;
 
-  fetch("http://127.0.0.1:8000/event/")
-      .then(response => {
-          if (!response.ok) {
-              throw new Error("Failed to fetch posts.");
-          }
-          return response.json();
+const fetchPosts = () => {
+    const postsList = document.getElementById("posts-list");
+    postsList.innerHTML = `<tr><td colspan="7">Loading posts...</td></tr>`;
+  
+    fetch("http://127.0.0.1:8000/event/list/")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch posts.");
+        }
+        return response.json();
       })
-      .then(data => {
-          postsList.innerHTML = "";
-          if (data.length === 0) {
-              postsList.innerHTML = `<tr><td colspan="7">No posts available.</td></tr>`;
-          } else {
-              data.forEach(post => {
-                  const row = document.createElement("tr");
-                  row.innerHTML = `
-                      <td>${post.id}</td>
-                      <td>${post.name}</td>
-                      <td>${post.user || "Anonymous"}</td>
-                      <td>${post.description}</td>
-                      <td><img src="${post.image}" alt="Post Image" style="width: 100px; height: 100px;"></td>
-                      <td>${new Date(post.held_on).toLocaleString()}</td>
-                      <td>
-                          <button onclick='handleEditPost(${JSON.stringify(post)})'>Edit</button>
-                          <button onclick='handleDeletePost(${post.id})'>Delete</button>
-                      </td>
-                  `;
-                  postsList.appendChild(row);
-              });
-          }
+      .then((data) => {
+        const posts = data.results; // Extract the posts array from the results field
+        postsList.innerHTML = "";
+        if (posts.length === 0) {
+          postsList.innerHTML = `<tr><td colspan="7">No posts available.</td></tr>`;
+        } else {
+          posts.forEach((post) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+              <td>${post.id}</td>
+              <td>${post.name}</td>
+              <td>${post.user || "Anonymous"}</td>
+              <td>${post.description}</td>
+              <td><img src="${post.image}" alt="Post Image" style="width: 100px; height: 100px;"></td>
+              <td>${new Date(post.held_on).toLocaleString()}</td>
+              <td>
+                <button onclick='handleEditPost(${JSON.stringify(post)})'>Edit</button>
+                <button onclick='handleDeletePost(${post.id})'>Delete</button>
+              </td>
+            `;
+            postsList.appendChild(row);
+          });
+        }
       })
-      .catch(error => {
-          console.error("Error fetching posts:", error);
-          postsList.innerHTML = `<tr><td colspan="7">Error loading posts.</td></tr>`;
+      .catch((error) => {
+        console.error("Error fetching posts:", error);
+        postsList.innerHTML = `<tr><td colspan="7">Error loading posts.</td></tr>`;
       });
 };
-
+  
 const handleAddPost = async (event) => {
   event.preventDefault();
   const formMessage = document.getElementById("form-message");
@@ -72,7 +74,7 @@ const handleAddPost = async (event) => {
       const imageUrl = imgbbData.data.url;
 
       const postData = { user, name: title, description: content, held_on: heldOn, image: imageUrl };
-      const response = await fetch("http://127.0.0.1:8000/event/", {
+      const response = await fetch("http://127.0.0.1:8000/event/list/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(postData),
@@ -127,7 +129,7 @@ const handleEditPost = (post) => {
               image: imageUrl , 
           };
 
-          const response = await fetch(`http://127.0.0.1:8000/event/${post.id}/`, {
+          const response = await fetch(`http://127.0.0.1:8000/event/list/${post.id}/`, {
               method: "PUT",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(updatedPost),
@@ -148,7 +150,7 @@ const handleEditPost = (post) => {
 
 const handleDeletePost = (id) => {
   if (confirm("Are you sure you want to delete this post?")) {
-      fetch(`http://127.0.0.1:8000/event/${id}/`, { method: "DELETE" })
+      fetch(`http://127.0.0.1:8000/event/list/${id}/`, { method: "DELETE" })
           .then(response => {
               if (!response.ok) throw new Error("Failed to delete post.");
               alert("Post deleted successfully!");
