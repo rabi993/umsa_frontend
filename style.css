@@ -29,7 +29,7 @@ nav{
     text-align: center;
     justify-content: space-around;
     align-items: center;
-    background: linear-gradient(rgb(13, 96, 96),rgb(79, 211, 211));
+    background: linear-gradient(rgb(37, 120, 134),rgb(22, 198, 210));
     box-shadow: 4px 4px 8px gray;
     border-radius:10px;
     /* padding: 30px; */
@@ -41,6 +41,8 @@ nav{
     margin-right: 20px;
     border-radius: 20px;
 }
+
+
 /* .service-container{ */
     /* width: 1000px;
     margin: auto; */
@@ -200,6 +202,11 @@ border-radius:100px;
     width: 100%;
     font-weight: 500;
     
+    
+}
+.dash-btn:hover{
+    background-color: #135366;
+    color: #bcccce;
     
 }
 .dash-btn a{

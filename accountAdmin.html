@@ -47,16 +47,16 @@
 <body>
   <nav  class="navbar navbar-expand-lg  py-3 fixed-top ">
     <div class="container-fluid container">
-        <a class="navbar-brand lgo " href="index.html">
+        <a class="navbar-brand lgo " href="AdminPanel.html">
             <img src="./images/umsal.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
-            UMSA
+            UMSA Admin Dashboard
           </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse " id="navbarNavDropdown">
         <ul class="navbar-nav justify-content-center w-100 gap-2">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link "  href="index.html">Home</a>
           </li>
           <li class="nav-item dropdown">
@@ -89,18 +89,18 @@
             <a class="nav-link aut_menu1" href="people.html">Members</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link aut_menu bg-secondary" href="account.html">Exchequer</a>
-          </li>
+            <a class="nav-link aut_menu" href="account.html">Exchequer</a>
+          </li> -->
         </ul>  
         <ul  class=" navbar-nav ms-auto gap-2">
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link sign-menu" href="registration.html">Sign_Up</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link login-menu" href="login.html">Login</a>
-            </li>
+            </li> -->
             <li class="nav-item">
-                <a class=" nav-link profile-menu d-none" href="profile.html">Profile</a>
+                <a class=" nav-link profile-menu d-none" href="profileAdmin.html">Profile</a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link logout-menu d-none" onclick="handlelogOut()" href="#" >Logout</a>
@@ -110,24 +110,103 @@
       
     </div>
   </nav>
-  <h1 style="padding-top: 130px;">Account List</h1>
-  <table id="accountTable">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Account No</th>
-        <th>Total Credit</th>
-        <th>Total Debit</th>
-        <th>Final Cash</th>
-        <th>Created At</th>
-        <th>Updated At</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Dynamic rows will be injected here -->
-    </tbody>
-  </table>
+ 
+  <main style="padding-top: 95px;">
+    <div class="d-flex ">
+        <div class="col-md-1 bg-secondary px-2 ">
+          <div>
+            <a class="btn btn-info border rounded mt-1 mb-1 dash-btn" href="adminPanel.html">Dashboard</a>
+            </div>
+            <div>
+                <a class="btn btn-secondary border rounded mt-1 mb-1 dash-btn" href="accountAdmin.html">Exchequer</a>
+            </div>
+            <div>
+                <a class="btn btn-info border rounded mb-1 dash-btn" href="category.html">Category</a>
+            </div>
+            <div>
+                <a class="btn btn-info border rounded mb-1 dash-btn" href="addcontactus.html">Contact Us</a>
+            </div>
+            <div>
+                <a class="btn btn-info border rounded mb-1 dash-btn" href="Addserviceadmin.html">Services</a>
+            </div>
+            <div>
+                <a class="btn btn-info border rounded mb-1 dash-btn" href="event.html">Event</a>
+            </div>
+            <div>
+                <a class="btn btn-info border rounded mb-1 dash-btn" href="notice.html">Notice</a>
+            </div>
+            <div>
+                <a class="btn btn-info border rounded mb-1 dash-btn" href="post.html">Posts</a>
+            </div>
+            <div>
+                <a class="btn btn-info border rounded mb-1 dash-btn" href="banner.html">Banner</a>
+            </div>
+            <div>
+                <a class="btn btn-info border rounded mb-1 dash-btn" href="users.html">All Users</a>
+            </div>
+            <div>
+                <a class="btn btn-info border rounded mb-1 dash-btn" href="people.html">Members</a>
+            </div>
+            <div>
+                <a class="btn btn-info border rounded mb-1 dash-btn" href="transactionAdmin.html">Transactions</a>
+            </div>
+            <div>
+                <a class="btn btn-info border rounded mb-1 dash-btn" href="updateProfileAdmin.html">Update Profile</a>
+            </div>
+            <div>
+                <a class="btn btn-info border rounded mb-1 dash-btn" href="PostComment.html">Post Comment</a>
+            </div>
+            <div>
+                <a class="btn btn-info border rounded mb-1 dash-btn" href="EventComment.html">Event Comment</a>
+            </div>
+            <div>
+                <a class="btn btn-info border rounded mb-1 dash-btn" href="NoticeComment.html">Notice Comment</a>
+            </div>
+      
+        </div>
+        <div class="col-md-11">
+            <!-- dashboard details -->
+            <h1 class="text-center">Account List</h1>
+            <table class="mt-3 " id="accountTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Account No</th>
+                  <th>Total Credit</th>
+                  <th>Total Debit</th>
+                  <th>Final Cash</th>
+                  <th>Created At</th>
+                  <th>Updated At</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Dynamic rows will be injected here -->
+              </tbody>
+            </table>
+            
+            <div class="banner-container ">
+              <div class="banner">
+                <div class="banner-img">
+                  <img class="bn-img m-auto py-3" src="./Images/umsal.png" alt="" />
+                </div>
+                
+              </div>
+            </div>
+              
+        </div>
+    </div>
+
+  
+  
+</main>
+<footer class="">
+  <hr />
+  <p class="text-center mt-3">
+    <small>Copyright © Smartcare. All Rights Reserved</small>
+  </p>
+</footer>
+  
 
   <script>
     // Fetch account data and populate the table
