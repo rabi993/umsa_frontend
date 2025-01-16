@@ -201,7 +201,7 @@
 
     if (!userId) {
         alert('Please log in first.');
-        window.location.href = '/login';
+        window.location.href = '/login.html';
     } else {
         (async function verifyAdmin() {
             try {
@@ -212,7 +212,7 @@
                     fetchUsers();
                 } else {
                     alert('Please log in as Admin.');
-                    window.location.href = '/login';
+                    window.location.href = '/login.html';
                 }
             } catch (error) {
                 console.error('Error verifying admin:', error);
