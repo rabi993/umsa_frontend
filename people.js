@@ -39,7 +39,9 @@ function fetchPeople() {
                                         }
                                     </td>
                                     <td>
-                                        <button class="btn btn-warning btn-sm" onclick="deletePerson(${person.id})">Delete</button>
+                                        <a class="btn btn-warning btn-sm" href="userProfile.html?personId=${person.id}" target="_blank">View Profile</a>
+
+                                        
                                     </td>
                                 </tr>
                             `;
@@ -55,21 +57,7 @@ function fetchPeople() {
         });
 }
 
-// Delete Person
-function deletePerson(id) {
-    if (confirm("Are you sure you want to delete this person?")) {
-        axios
-            .delete(`${API_URL}${id}/`)
-            .then(() => {
-                alert("Person deleted successfully.");
-                fetchPeople(); // Refresh the list
-            })
-            .catch((error) => {
-                console.error("Error deleting person:", error);
-                alert("Failed to delete person. Please try again.");
-            });
-    }
-}
+
 
 // Initialize
 fetchPeople();

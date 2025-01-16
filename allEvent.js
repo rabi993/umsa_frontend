@@ -37,24 +37,57 @@ const loadFlowers = (search = "") => {
     flowersContainer.innerHTML = ""; // Clear previous content if any
   
     sortedflowers.forEach((flower, index) => {
-      
+      const userApiUrl = `http://127.0.0.1:8000/users/`;
+    
+      // Create a div for each flower card first
       const div = document.createElement("div");
       div.classList.add("flower-card", "col-12", "col-md-6", "col-lg-4");
-      div.innerHTML = `
-        <img class="flow-img" src="${flower.image}" alt="${flower.name}" />
-        
-        <h4>${flower.name}</h4>
-        <small style="color: grey; margin: 0px;font-size:10px;">Author : ${flower.user}</small>
-        <p style="color: grey; margin: 0px;">${flower.description.slice(0, 50)}...</p>
-        <a style="text-decoration: none; " class="btn btn-success rounded  mt-1" href="eventDetails.html?eventId=${flower.id}">Details</a>
-          
-        
-      `;
-      flowersContainer.appendChild(div);
+    
+      // Fetch user data for the flower's author
+      fetch(userApiUrl)
+        .then((userResponse) => {
+          if (!userResponse.ok) {
+            throw new Error("Error fetching user data");
+          }
+          return userResponse.json();
+        })
+        .then((users) => {
+          // Find the associated user
+          const user = users.find((u) => u.username === flower.user);
+    
+          if (user) {
+            const fullName = `${user.first_name} ${user.last_name}`;
+          div.innerHTML = `
+            <img class="flow-img" src="${flower.image}" alt="${flower.name}" />
+            
+            <h4>${flower.name}</h4>
+            <small style="color: grey; margin: 0px;font-size:10px;">Author : ${flower.user}</small>
+            <small style="color: grey; margin: 0px; font-size:10px;"> ${fullName}</small>
+            <p style="color: grey; margin: 0px;">${flower.description.slice(0, 50)}...</p>
+            <p style="color: green; margin: 0px; font-weight: bold;">Held On: ${formatDateTime(flower.held_on)}</p>
+            <a style="text-decoration: none; " class="btn btn-info rounded  mt-1" href="eventDetails.html?eventId=${flower.id}">Details</a>
+              
+            
+          `;
+          } else {
+            console.error("No matching user found for the person.");
+          }
+    
+          // Append the flower card to the container after the fullName is set
+          flowersContainer.appendChild(div);
+        })
+        .catch((error) => {
+          console.error("Error fetching user details:", error);
+        });
     });
   };
   
 
+  function formatDateTime(dateTimeString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
+    const date = new Date(dateTimeString);
+    return date.toLocaleDateString('en-US', options);
+  }
   
   
   const handleSearch = () => {

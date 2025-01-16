@@ -47,16 +47,16 @@
 <body>
   <nav  class="navbar navbar-expand-lg  py-3 fixed-top ">
     <div class="container-fluid container">
-        <a class="navbar-brand lgo " href="AdminPanel.html">
+        <a class="navbar-brand lgo " href="index.html">
             <img src="./images/umsal.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
-            UMSA Admin Dashboard
+            UMSA
           </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse " id="navbarNavDropdown">
         <ul class="navbar-nav justify-content-center w-100 gap-2">
-          <!-- <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link "  href="index.html">Home</a>
           </li>
           <li class="nav-item dropdown">
@@ -80,27 +80,27 @@
               About Us
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item ndropdown-item" href="contactus.html">About Us</a></li>
+              <li><a class="dropdown-item ndropdown-item" href="aboutUs.html">About Us</a></li>
               <li><a class="dropdown-item ndropdown-item" href="service.html">Services</a></li>
               <li><a class="dropdown-item ndropdown-item" href="contactus.html">Contact Us</a></li>
             </ul>
           </li>
           <li class="nav-item ">
-            <a class="nav-link aut_menu1" href="people.html">Members</a>
+            <a class="nav-link aut_menu1 bg-secondary" href="people.html">Members</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link aut_menu" href="account.html">Exchequer</a>
-          </li> -->
+            <a class="nav-link aut_menu " href="account.html">Exchequer</a>
+          </li>
         </ul>  
         <ul  class=" navbar-nav ms-auto gap-2">
-            <!-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link sign-menu" href="registration.html">Sign_Up</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link login-menu" href="login.html">Login</a>
-            </li> -->
+            </li>
             <li class="nav-item">
-                <a class=" nav-link profile-menu d-none" href="profileAdmin.html">Profile</a>
+                <a class=" nav-link profile-menu d-none" href="profile.html">Profile</a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link logout-menu d-none" onclick="handlelogOut()" href="#" >Logout</a>
@@ -111,100 +111,33 @@
     </div>
   </nav>
  
-  <main style="padding-top: 95px;">
-    <div class="d-flex ">
-        <div class="col-md-1 bg-secondary px-2 ">
-          <div>
-            <a class="btn btn-info border rounded mt-1 mb-1 dash-btn" href="adminPanel.html">Dashboard</a>
-            </div>
-            <div>
-                <a class="btn btn-info border rounded mt-1 mb-1 dash-btn" href="accountAdmin.html">Exchequer</a>
-            </div>
-            <div>
-                <a class="btn btn-info border rounded mb-1 dash-btn" href="category.html">Category</a>
-            </div>
-            <div>
-                <a class="btn btn-info border rounded mb-1 dash-btn" href="addcontactus.html">Contact Us</a>
-            </div>
-            <div>
-                <a class="btn btn-info border rounded mb-1 dash-btn" href="Addserviceadmin.html">Services</a>
-            </div>
-            <div>
-                <a class="btn btn-info border rounded mb-1 dash-btn" href="event.html">Event</a>
-            </div>
-            <div>
-                <a class="btn btn-info border rounded mb-1 dash-btn" href="notice.html">Notice</a>
-            </div>
-            <div>
-                <a class="btn btn-info border rounded mb-1 dash-btn" href="post.html">Posts</a>
-            </div>
-            <div>
-                <a class="btn btn-info border rounded mb-1 dash-btn" href="banner.html">Banner</a>
-            </div>
-            <div>
-                <a class="btn btn-info border rounded mb-1 dash-btn" href="users.html">All Users</a>
-            </div>
-            <div>
-                <a class="btn btn-secondary border rounded mb-1 dash-btn" href="people.html">Members</a>
-            </div>
-            <div>
-                <a class="btn btn-info border rounded mb-1 dash-btn" href="transactionAdmin.html">Transactions</a>
-            </div>
-            <div>
-                <a class="btn btn-info border rounded mb-1 dash-btn" href="updateProfileAdmin.html">Update Profile</a>
-            </div>
-            <div>
-                <a class="btn btn-info border rounded mb-1 dash-btn" href="PostComment.html">Post Comment</a>
-            </div>
-            <div>
-                <a class="btn btn-info border rounded mb-1 dash-btn" href="EventComment.html">Event Comment</a>
-            </div>
-            <div>
-                <a class="btn btn-info border rounded mb-1 dash-btn" href="NoticeComment.html">Notice Comment</a>
-            </div>
-      
-        </div>
-        <div class="col-md-11">
-            <!-- dashboard details -->
-            <div style="padding-top: 30px;" class="container ">
-              <h1 class="text-center">People Management</h1>
-              <table class="table table-striped">
-                  <thead>
-                      <tr>
-                          <th>ID</th>
-                          <th>Username</th>
-                          <th>Name</th>
-                          <th>Email</th>
-                          <th>Mobile</th>
-                          <th>Village</th>
-                          <th>City</th>
-                          <th>Blood Group</th>
-                          <th>Last Donation</th>
-                          <th>Profile Image</th>
-                          <th>Action</th>
-                      </tr>
-                  </thead>
-                  <tbody id="peopleTable">
-                      <!-- Data will be populated here -->
-                  </tbody>
-              </table>
-              
-              
-              
-          </div>
-              
-        </div>
-    </div>
+  <div style="padding-top: 130px;" class="container mt-5">
+    <h1 class="text-center">People Management</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Village</th>
+                <th>City</th>
+                <th>Blood Group</th>
+                <th>Last Donation</th>
+                <th>Profile Image</th>
+                <th>View Profile</th>
+            </tr>
+        </thead>
+        <tbody id="peopleTable">
+            
+        </tbody>
+    </table>
+    
+    
+    
+</div>
 
-  
-  
-</main>
-<footer class="">
-  <hr />
-  <p class="text-center mt-3">
-    <small>Copyright © Smartcare. All Rights Reserved</small>
-  </p>
-</footer>
   
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script> 
@@ -277,7 +210,7 @@
                   About Us
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item ndropdown-item" href="contactus.html">About Us</a></li>
+                  <li><a class="dropdown-item ndropdown-item" href="aboutUs.html">About Us</a></li>
                   <li><a class="dropdown-item ndropdown-item" href="service.html">Services</a></li>
                   <li><a class="dropdown-item ndropdown-item" href="contactus.html">Contact Us</a></li>
                 </ul>

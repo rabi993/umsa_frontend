@@ -77,7 +77,7 @@
                   About Us
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item ndropdown-item" href="contactus.html">About Us</a></li>
+                  <li><a class="dropdown-item ndropdown-item" href="aboutUs.html">About Us</a></li>
                   <li><a class="dropdown-item ndropdown-item" href="service.html">Services</a></li>
                   <li><a class="dropdown-item ndropdown-item" href="contactus.html">Contact Us</a></li>
                 </ul>
@@ -112,7 +112,7 @@
           <a target="" class="text-white text-decoration-none btn btn-info border rounded p-2" href="changepass.html">Change Password</a>
           <a target="" class="text-white text-decoration-none btn btn-secondary border rounded p-2" href="updateProfile.html">Update Your Profile</a>
         </div>
-        <div id="user-card-container" class="d-flex justify-content-center"></div>
+        <div id="user-card-container" class=" w-100 m-auto"></div>
       </div>
 
       <h3 class="text-center"><b>Your All Donation History </b></h3>
@@ -220,47 +220,62 @@
                 // Create the card element
                 const card = document.createElement("div");
                 card.className = "card p-3 shadow-lg";
-                card.style.width = "25rem";
+                // card.style.width = "25rem";
 
                 // Populate the card with user and people details
                 card.innerHTML = `
                   <div class="card-body">
-                    <h5 class="card-title text-center">${user.first_name || "N/A"} ${user.last_name || "N/A"}'s Profile</h5>
-                    <div class="card-text w-25 m-auto">
-                      ${
-                        people.image
-                          ? `<img src="${people.image}" alt="Profile Image" class="img-fluid rounded mt-2" style="max-height: 200px;">`
-                          : "<p class='text-muted'>No image available</p>"
-                      }
+                    <h5 class="card-title fs-1 pb-3 text-center">${user.first_name || "N/A"} ${user.last_name || "N/A"}'s Profile</h5>
+                    <hr/>
+                    <div class="d-flex flex-wrap justify-content-around">
+                      <div class="col-12 col-md-4 col-lg-4">
+                        <div class="card-text w-100 m-auto">
+                          ${
+                            people.image
+                              ? `<img src="${people.image}" alt="Profile Image" class="img-fluid rounded mt-2" style="max-height: 100px;">`
+                              : "<p class='text-muted'>No image available</p>"
+                          }
+                        </div>
+                        <h6 class="mt-3">User Details:</h6>
+                        <p class="card-text"><strong>ID:</strong> ${user.id}</p>
+                        <p class="card-text"><strong>Username:</strong> ${user.username}</p>
+                        <p class="card-text"><strong>First Name:</strong> ${user.first_name || "N/A"}</p>
+                        <p class="card-text"><strong>Last Name:</strong> ${user.last_name || "N/A"}</p>
+                        <p class="card-text"><strong>Email:</strong> ${user.email}</p>
+                        <p class="card-text"><strong>Role:</strong> ${user.is_superuser ? "Admin/Superuser" : "User"}</p>
+                      </div>
+
+                      <div class="col-12 col-md-4 col-lg-4">
+                        <h6 class="mt-3">Profile Details:</h6>
+                        <p class="card-text"><strong>Profile ID:</strong> ${people.id}</p>
+                        <p class="card-text"><strong>Mobile:</strong> ${people.mobile_no || "N/A"}</p>
+                        <p class="card-text"><strong>Village:</strong> ${people.village || "N/A"}</p>
+                        <p class="card-text"><strong>Union:</strong> ${people.union || "N/A"}</p>
+                        <p class="card-text"><strong>Ward:</strong> ${people.word || "N/A"}</p>
+                        <p class="card-text"><strong>City:</strong> ${people.livesIn || "N/A"}</p>
+                        <p class="card-text"><strong>Marital Status:</strong> ${people.marital_status || "N/A"}</p>
+                        <p class="card-text"><strong>Job Title:</strong> ${people.designation || "N/A"}</p>
+                        <p class="card-text"><strong>Works At:</strong> ${people.worksat || "N/A"}</p>
+
+                        
+                      </div>
+
+                      <div class="col-12 col-md-4 col-lg-4">
+                        <p class="card-text"><strong>Date of Birth:</strong> ${people.birth_date || "N/A"}</p>
+                        <p class="card-text"><strong>Blood Group:</strong> ${people.blood_group || "N/A"}</p>
+                        <p class="card-text"><strong>Last Donation:</strong> ${people.last_blood_donate_date || "N/A"}</p>
+                        <p class="card-text"><strong>Next Eligible Donation:</strong> ${people.available_for_donate_date || "N/A"}</p>
+                        <p class="card-text"><strong>University:</strong> ${people.varsity || "N/A"}</p>
+                        <p class="card-text"><strong>Subject:</strong> ${people.subject || "N/A"}</p>
+                        <p class="card-text"><strong>Session:</strong> ${people.session || "N/A"}</p>
+                        <p class="card-text"><strong>Edu Complete:</strong> ${people.complete ? "Yes" : "No"}</p>
+                        <p class="card-text"><strong>CV:</strong> <a href="${people.cv}" target="_blank">Download CV</a></p>
+                        <p class="card-text"><strong>Association Post:</strong> ${people.association_post || "N/A"}</p>
+                      </div>
                     </div>
-                    <h6 class="mt-3">User Details:</h6>
-                    <p class="card-text"><strong>ID:</strong> ${user.id}</p>
-                    <p class="card-text"><strong>Username:</strong> ${user.username}</p>
-                    <p class="card-text"><strong>First Name:</strong> ${user.first_name || "N/A"}</p>
-                    <p class="card-text"><strong>Last Name:</strong> ${user.last_name || "N/A"}</p>
-                    <p class="card-text"><strong>Email:</strong> ${user.email}</p>
-                    <p class="card-text"><strong>Role:</strong> ${user.is_superuser ? "Admin/Superuser" : "User"}</p>
+                    <hr/>
+
                     
-                    <h6 class="mt-3">Profile Details:</h6>
-                    <p class="card-text"><strong>Profile ID:</strong> ${people.id}</p>
-                    <p class="card-text"><strong>Mobile:</strong> ${people.mobile_no || "N/A"}</p>
-                    <p class="card-text"><strong>Village:</strong> ${people.village || "N/A"}</p>
-                    <p class="card-text"><strong>Union:</strong> ${people.union || "N/A"}</p>
-                    <p class="card-text"><strong>Ward:</strong> ${people.word || "N/A"}</p>
-                    <p class="card-text"><strong>City:</strong> ${people.livesIn || "N/A"}</p>
-                    <p class="card-text"><strong>Date of Birth:</strong> ${people.birth_date || "N/A"}</p>
-                    <p class="card-text"><strong>Blood Group:</strong> ${people.blood_group || "N/A"}</p>
-                    <p class="card-text"><strong>Last Donation:</strong> ${people.last_blood_donate_date || "N/A"}</p>
-                    <p class="card-text"><strong>Next Eligible Donation:</strong> ${people.available_for_donate_date || "N/A"}</p>
-                    <p class="card-text"><strong>Marital Status:</strong> ${people.marital_status || "N/A"}</p>
-                    <p class="card-text"><strong>Job Title:</strong> ${people.designation || "N/A"}</p>
-                    <p class="card-text"><strong>Works_at:</strong> ${people.worksat || "N/A"}</p>
-                    <p class="card-text"><strong>University:</strong> ${people.varsity || "N/A"}</p>
-                    <p class="card-text"><strong>Subject:</strong> ${people.subject || "N/A"}</p>
-                    <p class="card-text"><strong>Session:</strong> ${people.session || "N/A"}</p>
-                    <p class="card-text"><strong>Edu Complete:</strong> ${people.complete ? "Yes" : "No"}</p>
-                    <p class="card-text"><strong>CV:</strong> <a href="${people.cv}" target="_blank">Download CV</a></p>
-                    <p class="card-text"><strong>Association Post:</strong> ${people.association_post || "N/A"}</p>
                   </div>
 
                 `;

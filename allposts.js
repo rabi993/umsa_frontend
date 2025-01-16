@@ -36,28 +36,76 @@ const loadFlowers = (search = "") => {
     const flowersContainer = document.getElementById("flowers");
     flowersContainer.innerHTML = ""; // Clear previous content if any
   
-    sortedflowers.forEach((flower, index) => {
+    // sortedflowers.forEach((flower, index) => {
       
-      const div = document.createElement("div");
-      div.classList.add("flower-card", "col-12", "col-md-6", "col-lg-4");
-      div.innerHTML = `
-        <img class="flow-img" src="${flower.image}" alt="${flower.title}" />
+      
+      
+    //   const div = document.createElement("div");
+    //   div.classList.add("flower-card", "col-12", "col-md-6", "col-lg-4");
+    //   div.innerHTML = `
+    //     <img class="flow-img" src="${flower.image}" alt="${flower.title}" />
         
         
         
-        <h4>${flower.title}</h4>
-        <small style="color: grey; margin: 0px;font-size:10px;">Author : ${flower.user}</small>
-        <div>${flower.category.map((item) => `<button class="btn btn-info rounded btn-sm ">${item}</button>`).join("")}</div>
+    //     <h4>${flower.title}</h4>
+    //     <small style="color: grey; margin: 0px;font-size:10px;">Author : ${flower.user}</small>
+    //     <p style="color: grey; margin: 0px;">Created at ${flower.created_at}</p>
+    //     <div>${flower.category.map((item) => `<button class="btn btn-info rounded btn-sm ">${item}</button>`).join("")}</div>
         
-        <p style="color: grey; margin: 0px;">${flower.content.slice(0, 50)}...</p>
+    //     <p style="color: grey; margin: 0px;">${flower.content.slice(0, 50)}...</p>
         
         
-        <a style="text-decoration: none; " class="btn btn-success rounded  mt-1" href="postDetails.html?postId=${flower.id}">Details</a>
+    //     <a style="text-decoration: none; " class="btn btn-success rounded  mt-1" href="postDetails.html?postId=${flower.id}">Details</a>
           
         
-      `;
-      flowersContainer.appendChild(div);
+    //   `;
+    //   flowersContainer.appendChild(div);
+    // });
+    sortedflowers.forEach((flower, index) => {
+      const userApiUrl = `http://127.0.0.1:8000/users/`;
+    
+      // Create a div for each flower card first
+      const div = document.createElement("div");
+      div.classList.add("flower-card", "col-12", "col-md-6", "col-lg-4");
+    
+      // Fetch user data for the flower's author
+      fetch(userApiUrl)
+        .then((userResponse) => {
+          if (!userResponse.ok) {
+            throw new Error("Error fetching user data");
+          }
+          return userResponse.json();
+        })
+        .then((users) => {
+          // Find the associated user
+          const user = users.find((u) => u.username === flower.user);
+    
+          if (user) {
+            const fullName = `${user.first_name} ${user.last_name}`;
+    
+            // Now we can safely add the full name and other details to the card
+            div.innerHTML = `
+              <img class="flow-img" src="${flower.image}" alt="${flower.title}" />
+              <h4>${flower.title}</h4>
+              <small style="color: grey; margin: 0px; font-size:10px;">Author : ${flower.user}</small></br>
+              <small style="color: grey; margin: 0px; font-size:10px;"> ${fullName}</small>
+              <small style="color: grey; margin: 0px; font-size:10px;">Created at ${flower.created_at}</small>
+              <div>${flower.category.map((item) => `<button class="btn btn-info rounded btn-sm">${item}</button>`).join("")}</div>
+              <p style="color: grey; margin: 0px;">${flower.content.slice(0, 30)}...</p>
+              <a style="text-decoration: none;" class="btn btn-success rounded mt-1" href="postDetails.html?postId=${flower.id}">Details</a>
+            `;
+          } else {
+            console.error("No matching user found for the person.");
+          }
+    
+          // Append the flower card to the container after the fullName is set
+          flowersContainer.appendChild(div);
+        })
+        .catch((error) => {
+          console.error("Error fetching user details:", error);
+        });
     });
+    
   };
   
 

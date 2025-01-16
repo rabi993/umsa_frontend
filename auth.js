@@ -115,7 +115,7 @@ const handleLogin = (event) => {
 
             localStorage.setItem("username", userData.username);
             if (userData.is_superuser) {
-              window.location.href = "http://127.0.0.1:5500/Addserviceadmin.html";
+              window.location.href = "http://127.0.0.1:5500/AdminPanel.html";
             } else {
               window.location.href = "http://127.0.0.1:5500/index.html";
               
