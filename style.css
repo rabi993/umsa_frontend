@@ -9,7 +9,8 @@ li{
 }
 nav{
     background-color:rgb(46, 127, 142);
-    /* background-color:rgb(9, 113, 113); */
+    /* background-color:rgb(137, 10, 88); */
+    /* background-color:rgb(10, 109, 69); */
     
 
 }
@@ -30,13 +31,53 @@ nav{
     justify-content: space-around;
     align-items: center;
     background: linear-gradient(rgb(37, 120, 134),rgb(22, 198, 210));
+    /* background: linear-gradient(rgb(17, 125, 78),rgb(4, 130, 90)); */
+    box-shadow: 4px 4px 8px gray;
+    border-radius:10px;
+    /* padding: 30px; */
+}
+.banner2{
+    /* height: 450px; */
+    margin: auto;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    background-image:  url("./Images/download.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+
+    box-shadow: 4px 4px 8px gray;
+    border-radius:10px;
+    /* padding: 30px; */
+}
+.banner3{
+    /* height: 450px; */
+    margin: auto;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    background-image:  url("./Images/bbb.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
+
     box-shadow: 4px 4px 8px gray;
     border-radius:10px;
     /* padding: 30px; */
 }
 .bn-img{
-    /* width: 650px;
-    height: 400px; */
+    /* width: 400px; */
+    height: 400px;
+    
+    margin-right: 20px;
+    border-radius: 20px;
+}
+.bn-img2{
+    width: 400px;
+    height: 400px;
     
     margin-right: 20px;
     border-radius: 20px;
@@ -78,7 +119,16 @@ nav{
     /* padding: 30px; */
 }
 .flower-card{
-    width: 250px;
+    width: 550px;
+
+    height: 400px;
+    box-shadow: 4px 4px 8px gray;
+    border-radius: 10px;
+    text-align:center;
+    padding: 5px;
+}
+.event_card{
+    width: 400px;
 
     height: 350px;
     box-shadow: 4px 4px 8px gray;
@@ -87,9 +137,14 @@ nav{
     padding: 5px;
 }
 .flow-img{
-    width: 200px;
-    height: 130px;
-    border-radius: 50px;
+    width: 400px;
+    height: 240px;
+    border-radius: 10px;
+}
+.event-img{
+    width: 390px;
+    height: 180px;
+    border-radius: 10px;
 }
 #search{
     padding:10px;

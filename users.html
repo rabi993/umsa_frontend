@@ -276,6 +276,60 @@
 
     window.onload = fetchUsers;
 
+    // const handleStatus = async (userId, email, isActive) => {
+    // try {
+    //     const response = await fetch(`http://127.0.0.1:8000/users/${userId}/`, {
+    //     method: 'PATCH',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({ is_active: !isActive }),
+    //     });
+
+    //     if (response.ok) {
+    //     const updatedUser = await response.json();
+    //     const newStatus = updatedUser.is_active ? 'Activated' : 'Deactivated';
+
+    //     // Send email notification
+    //     await sendEmailNotification(email, newStatus);
+
+    //     alert(`User status changed to: ${newStatus}`);
+    //     fetchUsers();
+    //     } else {
+    //     const errorData = await response.json();
+    //     alert(`Error: ${errorData.detail || 'Failed to update user status.'}`);
+    //     }
+    // } catch (error) {
+    //     console.error('Error updating status:', error);
+    //     alert('Network error. Please try again.');
+    // }
+    // };
+
+    // const sendEmailNotification = async (email, status) => {
+    // try {
+    //     const response = await fetch('http://127.0.0.1:8000/users/send-email/', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({ email, status }),
+    //     });
+
+    //     if (response.ok) {
+    //     alert(`Notification email sent to ${email}`);
+    //     } else {
+    //     const errorData = await response.json();
+    //     alert(`Error: ${errorData.error || 'Failed to send email notification.'}`);
+    //     }
+    // } catch (error) {
+    //     console.error('Error sending email:', error);
+    //     alert('Network error. Please try again.');
+    // }
+    // };
+
+    // window.onload = fetchUsers;
+
+
 </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="logout.js"></script>

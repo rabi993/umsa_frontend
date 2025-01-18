@@ -41,7 +41,7 @@ const loadFlowers = (search = "") => {
     
       // Create a div for each flower card first
       const div = document.createElement("div");
-      div.classList.add("flower-card", "col-12", "col-md-6", "col-lg-4");
+      div.classList.add("event_card", "col-12", "col-md-6", "col-lg-4");
     
       // Fetch user data for the flower's author
       fetch(userApiUrl)
@@ -58,12 +58,12 @@ const loadFlowers = (search = "") => {
           if (user) {
             const fullName = `${user.first_name} ${user.last_name}`;
           div.innerHTML = `
-            <img class="flow-img" src="${flower.image}" alt="${flower.name}" />
+            <img class="event-img" src="${flower.image}" alt="${flower.name}" />
             
             <h4>${flower.name}</h4>
-            <small style="color: grey; margin: 0px;font-size:10px;">Author : ${flower.user}</small>
-            <small style="color: grey; margin: 0px; font-size:10px;"> ${fullName}</small>
-            <p style="color: grey; margin: 0px;">${flower.description.slice(0, 50)}...</p>
+            <p style="color: black; margin: 0px; font-size:15px;">Author : ${fullName} </p>
+            
+            <p style="color: grey; margin: 0px;font-size:12px;">${flower.description.slice(0, 50)}...</p>
             <p style="color: green; margin: 0px; font-weight: bold;">Held On: ${formatDateTime(flower.held_on)}</p>
             <a style="text-decoration: none; " class="btn btn-info rounded  mt-1" href="eventDetails.html?eventId=${flower.id}">Details</a>
               

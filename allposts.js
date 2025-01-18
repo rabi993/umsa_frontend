@@ -87,11 +87,9 @@ const loadFlowers = (search = "") => {
             div.innerHTML = `
               <img class="flow-img" src="${flower.image}" alt="${flower.title}" />
               <h4>${flower.title}</h4>
-              <small style="color: grey; margin: 0px; font-size:10px;">Author : ${flower.user}</small></br>
-              <small style="color: grey; margin: 0px; font-size:10px;"> ${fullName}</small>
-              <small style="color: grey; margin: 0px; font-size:10px;">Created at ${flower.created_at}</small>
-              <div>${flower.category.map((item) => `<button class="btn btn-info rounded btn-sm">${item}</button>`).join("")}</div>
-              <p style="color: grey; margin: 0px;">${flower.content.slice(0, 30)}...</p>
+              <p style="color: black; margin: 0px; font-size:15px;">Author : ${fullName}  <small style="color: grey; margin: 0px; font-size:10px;"> ${formatDateTime(flower.created_at)}</small> ${flower.category.map((item) => `${item}`).join("")}</p>
+            
+              <p style="color: grey; margin: 0px;" class="px-2">${flower.content.slice(0, 100)}...</p>
               <a style="text-decoration: none;" class="btn btn-success rounded mt-1" href="postDetails.html?postId=${flower.id}">Details</a>
             `;
           } else {
@@ -138,3 +136,8 @@ const loadFlowers = (search = "") => {
     loadCategory();
   });
 
+  function formatDateTime(dateTimeString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
+    const date = new Date(dateTimeString);
+    return date.toLocaleDateString('en-US', options);
+  }
