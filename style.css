@@ -7,6 +7,30 @@ body{
 li{
     list-style: none;
 }
+/* ////////////for table////////////// */
+.table-bordered td, .table-bordered th{
+    border : 1px solid #b5b2b2;
+}
+.table-head{
+    background-color: orangered;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.winner__table{
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 567px) {
+
+    .winner__table{
+    font-size: 12px;
+    }
+    
+}
+/* /////////////// */
 nav{
     background-color:#FFFFFF;
     /* background-color:rgb(137, 10, 88); */
@@ -159,20 +183,26 @@ nav{
 }
 .title{
     font-size: 44px;
-    color: rgb(9, 113, 113);
+    color: orangered;
     text-align: center;
 
 }
-.tora{
-    /* background-image:url("./Images/ba-removebg-preview.png") ; */
-    background-image:url("./Images/bbbbb.png") ;
-    /* background-image:url("./Images/ban2.jpg") ; */
-    background-repeat: no-repeat;
+.allflower-card2{
+    width: 500px;
 
+    height: 450px;
+    box-shadow: 4px 4px 8px gray;
+    /* border-radius: 10px; */
+    text-align:center;
+    padding: 5px;
+    background-color: #e8e8e8;
+}
+.allflow-img2{
+    width: 490px;
+    height: 280px;
+    /* border-radius: 10px; */
+    border-bottom: 1px solid gray;
     
-    border-radius: 15px;
-    /* margin-top: 50px; */
-    /* padding: 30px; */
 }
 .flower-card{
     width: 550px;
@@ -439,5 +469,6 @@ border-radius:100px;
     /* background-color: orangered; */
 }
 .btcn{
-    background-color: #0f7a4f ;
+    background-color: rgb(244, 132, 92) ;
 }
+

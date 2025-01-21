@@ -41,7 +41,7 @@
           <div class="nav-link"><a class="text-decoration-none textgray hov" href="contactus.html">Contact Us</a></div>
           <div class=""><a class="nav-link login-menu px-2" href="login.html"><b>🔒 Login</b></a></div>
           <div class=""><a class="nav-link sign-menu" href="registration.html"><b>👤 Sign_Up</b></a></div>
-          <div class=""><a class="nav-link profile-menu d-none px-2" href="profile.html"><b>☺ Profile</b></a></div>
+          <div class=""><a class="nav-link profile-menu d-none px-2 text-white" href="dashboard.html"><b>☺ Profile</b></a></div>
           <div class=""><a class="nav-link logout-menu d-none" onclick="handlelogOut()" href="#" ><b>⏻ Logout</b></a></div>
           
         
@@ -127,11 +127,12 @@
         <div class="banner-container ">
             <div class=" row">
               <div class=" dash_bar col-md-2 col-lg-2" style="padding: 5px 10px 10px 10px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                <div style="background-color:orangered; "><a class="text-light"  href="dashboard.html">Profile</a></div>
-                <div><a href="AddFlowersUser.html">Add Flower</a></div>
-                <div><a href="saleDetails.html">Sale details</a></div>
-                <div><a href="myOrders.html">My Orders</a></div>
-                <div><a href="reviews.html">All Reviews</a></div>
+                <div class="btc"><a class="text-light"  href="dashboard.html">Profile</a></div>
+                <div><a href="updateProfile.html">Update Profile</a></div>
+                <div><a href="changepass.html">Change Password</a></div>
+                <div><a href="MyDonateHistory.html">My Donate History</a></div>
+                <div><a href="myDonate.html">donate</a></div>
+                <div><a href="addPostUser.html">Add Post</a></div>
                 
               </div>
               <div class="  col-md-10 col-lg-10">
@@ -145,61 +146,6 @@
                     <div id="user-card-container" class=" w-100 m-auto"></div>
                   </div>
             
-                  <h3 class="text-center"><b>Your All Donation History </b></h3>
-                  <hr class="container">
-            
-                  <div class="container my-3 text-center ">
-                    
-                    <table id="myTransactionTable">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>TRX_ID</th>
-                                <th>User_ID</th>
-                                <th>Username</th>
-                                <th>fullname</th>
-                                <th>Reference</th>
-                                <th>Amount</th>
-                                <th>Type</th>
-                                <th>Source</th>
-                                <th>Media</th>
-                                <th>Purpose</th>
-                                <th>Comment</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
-                                <th>Approved</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-            
-                    <h2>Donate</h2>
-                    <form id="transactionForm">
-                        <input type="hidden" id="transactionId">
-                        <label>TRX ID: <input type="text" id="trxId" required></label><br>
-                        <label>Reference: <input type="text" id="reference"></label><br>
-                        <label>Amount: <input type="number" id="amount" required></label><br>
-                        <input type="hidden" id="typys" value="credit">
-                        <!-- <label>Type: 
-                            <select id="typys" required>
-                                <option value="credit">Credit</option>
-                                <option value="debit">Debit</option>
-                            </select>
-                        </label><br> -->
-                        <label>Source: <input type="text" id="sourcePeople"></label><br>
-                        <label>Media: <input type="text" id="media"></label><br>
-                        <label>Purpose: <input type="text" id="purpose"></label><br>
-                        <label>Comment: <input type="text" id="comment"></label><br>
-                        <!-- <label>Approved: 
-                            <input type="checkbox " id="approved">
-                        </label><br> -->
-                        
-                        <input type="hidden" id="approved">
-                        
-                        <button type="submit">Save</button>
-                    </form>
-                  </div>
                 </div>
               </div>
             </div>

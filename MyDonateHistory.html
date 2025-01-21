@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Password Change</title>
+    <title>My Donate History</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css"
@@ -16,72 +16,6 @@
       rel="stylesheet"
       crossorigin="anonymous"
     />
-    <style>
-      /* General form styling */
-      form {
-        max-width: 400px; /* Limit form width */
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #f9f9f9;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-    
-      /* Form group spacing */
-      .form-group {
-        margin-bottom: 15px;
-      }
-    
-      /* Labels */
-      form label {
-        display: block;
-        font-weight: bold;
-        font-size: 14px;
-        margin-bottom: 5px;
-        color: #555;
-      }
-    
-      /* Inputs */
-      form input[type="password"] {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 14px;
-        box-sizing: border-box;
-      }
-    
-      /* Button styling */
-      .btn-submit {
-        width: 100%;
-        padding: 12px;
-        font-size: 16px;
-        font-weight: bold;
-        color: #fff;
-        background-color: orangered;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
-    
-      .btn-submit:hover {
-        background-color: rgb(213, 96, 54);
-      }
-    
-      /* Responsive design */
-      @media (max-width: 576px) {
-        form {
-          padding: 15px;
-        }
-        .btn-submit {
-          font-size: 14px;
-        }
-      }
-    </style>
-    
     
 
     <link rel="stylesheet" href="style.css" />
@@ -194,33 +128,46 @@
             <div class=" row">
               <div class=" dash_bar col-md-2 col-lg-2" style="padding: 5px 10px 10px 10px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                 <div ><a class=""  href="dashboard.html">Profile</a></div>
-                <div ><a  href="updateProfile.html">Update Profile</a></div>
-                <div class="btc"><a class="text-light" href="changepass.html">Change Password</a></div>
-                <div class=""><a  href="MyDonateHistory.html">My Donate History</a></div>
+                <div ><a href="updateProfile.html">Update Profile</a></div>
+                <div><a href="changepass.html">Change Password</a></div>
+                <div class="btc"><a class="text-light" href="MyDonateHistory.html">My Donate History</a></div>
                 <div><a href="myDonate.html">donate</a></div>
                 <div><a href="addPostUser.html">Add Post</a></div>
                 
               </div>
               <div class="  col-md-10 col-lg-10">
-                <h2 class="text-center">Change Password</h2>
-                <form class="w-50 m-auto" id="change-password-form">
-                  <div class="form-group">
-                    <label for="old-password">Old Password:</label>
-                    <input type="password" id="old-password" name="old_password" required>
+                <div class="container ">
+                  <h3 class="text-center"><b>My All Donation History </b></h3>
+                  <hr class="container">
+            
+                  <div class="container my-3 text-center ">
+                    
+                    <div class="table-responsive  ">
+                        <table id="myTransactionTable" class="table table-bordered   table-striped" style="margin-top:0px">
+                            <thead >
+                                <tr class="winner__table" >
+                                    <th style="background-color: orangered;">ID</th>
+                                    <th style="background-color: orangered;" >TRX_ID</th>
+                                    <th style="background-color: orangered;" >fullname</th>
+                                    <th style="background-color: orangered;" >Reference</th>
+                                    <th style="background-color: orangered;" >Amount</th>
+                                    <th style="background-color: orangered;" >Type</th>
+                                    <th style="background-color: orangered;" >Source</th>
+                                    <th style="background-color: orangered;" >Media</th>
+                                    <th style="background-color: orangered;" >Purpose</th>
+                                    <th style="background-color: orangered;" >Comment</th>
+                                    <th style="background-color: orangered;" >created_at</th>
+                                    <th style="background-color: orangered;" >updated_at</th>
+                                    <th style="background-color: orangered;" >Approved</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    
                   </div>
-                  <div class="form-group">
-                    <label for="new-password">New Password:</label>
-                    <input type="password" id="new-password" name="new_password" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="confirm-new-password">Confirm New Password:</label>
-                    <input type="password" id="confirm-new-password" name="confirm_new_password" required>
-                  </div>
-                  <button class="btn-submit" type="submit">Change Password</button>
-                </form>
-                
-                <div class="mb-3 text-center border rounded-2 p-4 btcn text-white mt-3" id="message"></div>
-              
+                </div>
               </div>
             </div>
           </div>
@@ -271,18 +218,18 @@
           <small>Copyright © UMSA Family. All Rights Reserved</small>
         </p>
     </footer>
+    
+    <script src="./logout.js"></script>
+    <script src="./index.js"></script>
+    <script src="./index2.js"></script>
+    <script src="./dashboard.js"></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
       crossorigin="anonymous"
       defer
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="./logout.js"></script>
-    <script src="./index.js"></script>
-    <script src="./index2.js"></script>
-    <script src="./changepass.js"></script>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
 
     
@@ -290,148 +237,3 @@
     
   </body>
 </html>
-
-
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Change Password</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="..."
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css"
-      rel="stylesheet"
-      crossorigin="anonymous"
-    />
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  
-  
-  <link rel="stylesheet" href="style.css">
-
-    
-  </head>
-  <body>
-    <nav  class="navbar navbar-expand-lg  py-3 fixed-top ">
-      <div class="container-fluid container">
-          <a class="navbar-brand lgo " href="index.html">
-              <img src="./images/umsal.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
-              UMSA
-            </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse " id="navbarNavDropdown">
-          <ul class="navbar-nav justify-content-center w-100 gap-2">
-            <li class="nav-item">
-              <a class="nav-link "  href="index.html">Home</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle aut_menu4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Posts
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item ndropdown-item" href="allposts.html">Posts</a></li>
-                <li><a class="dropdown-item ndropdown-item" href="allEvent.html">Upcoming Events</a></li>
-                <li><a class="dropdown-item ndropdown-item" href="allNotice.html">Notice</a></li>
-              </ul>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link aut_menu3" href="transaction.html">Donate</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link aut_menu2" href="blood.html">Blood</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                About Us
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item ndropdown-item" href="aboutUs.html">About Us</a></li>
-                <li><a class="dropdown-item ndropdown-item" href="service.html">Services</a></li>
-                <li><a class="dropdown-item ndropdown-item" href="contactus.html">Contact Us</a></li>
-              </ul>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link aut_menu1" href="people.html">Members</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link aut_menu" href="account.html">Exchequer</a>
-            </li>
-          </ul>  
-          <ul  class=" navbar-nav ms-auto gap-2">
-              <li class="nav-item">
-                  <a class="nav-link sign-menu" href="registration.html">Sign_Up</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link login-menu" href="login.html">Login</a>
-              </li>
-              <li class="nav-item">
-                  <a class=" nav-link profile-menu d-none bg-secondary" href="profile.html">Profile</a>
-              </li>
-              <li class="nav-item ">
-                  <a class="nav-link logout-menu d-none" onclick="handlelogOut()" href="#" >Logout</a>
-              </li>
-          </ul>
-        </div>
-        
-      </div>
-    </nav>
-    
-    
-      
-    
-      
-        <div style="padding-top: 130px;" id="change-password-container">
-          <h2 class="text-center">Change Password</h2>
-          <form class="w-50  m-auto border rounded-2 p-5" id="change-password-form">
-              <div>
-                  <label class=" mb-3" for="old-password">Old Password:</label>
-                  <input class="rounded-2 mb-3" type="password" id="old-password" name="old_password" required>
-              </div>
-              <div>
-                  <label class=" mb-3" for="new-password">New Password:</label>
-                  <input class="rounded-2 mb-3" type="password" id="new-password" name="new_password" required>
-              </div>
-              <div>
-                  <label  class=" mb-3" for="confirm-new-password">Confirm New Password:</label>
-                  <input class="rounded-2 mb-3" type="password" id="confirm-new-password" name="confirm_new_password" required>
-              </div>
-              <button class="btn btn-info mb-3" type="submit">Change Password</button>
-          </form>
-          <div class="mb-3 text-center border rounded-2 p-4 bg-secondary text-white mt-3" id="message"></div>
-        
-     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
-
-    <script src="./changepass.js"></script>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"
-      integrity="..."
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <script src=""></script>
-    <script src="index.js"></script>
-  
-    
-    
-  </body>
-</html> -->

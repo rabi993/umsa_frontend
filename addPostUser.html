@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Password Change</title>
+    <title>Update Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css"
@@ -19,7 +19,7 @@
     <style>
       /* General form styling */
       form {
-        max-width: 400px; /* Limit form width */
+        max-width: 800px; /* Limit form width */
         margin: 0 auto;
         padding: 20px;
         background-color: #f9f9f9;
@@ -156,7 +156,7 @@
           </ul>  
           <ul  class=" navbar-nav ms-auto gap-2">
               
-              <li  class="nav-item pt-1">
+              <li  class="nav-item pt-1 ">
                 <a style="background-color: orangered ; border-radius: 5px;" class="nav-link aut_menu3 text-white " href="transaction.html">Donate</a>
               </li>
               <li class="nav-item dropdown">
@@ -195,32 +195,74 @@
               <div class=" dash_bar col-md-2 col-lg-2" style="padding: 5px 10px 10px 10px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                 <div ><a class=""  href="dashboard.html">Profile</a></div>
                 <div ><a  href="updateProfile.html">Update Profile</a></div>
-                <div class="btc"><a class="text-light" href="changepass.html">Change Password</a></div>
+                <div ><a  href="changepass.html">Change Password</a></div>
                 <div class=""><a  href="MyDonateHistory.html">My Donate History</a></div>
                 <div><a href="myDonate.html">donate</a></div>
-                <div><a href="addPostUser.html">Add Post</a></div>
+                <div class="btc"><a class="text-light" href="addPostUser.html">Add Post</a></div>
                 
               </div>
               <div class="  col-md-10 col-lg-10">
-                <h2 class="text-center">Change Password</h2>
-                <form class="w-50 m-auto" id="change-password-form">
-                  <div class="form-group">
-                    <label for="old-password">Old Password:</label>
-                    <input type="password" id="old-password" name="old_password" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="new-password">New Password:</label>
-                    <input type="password" id="new-password" name="new_password" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="confirm-new-password">Confirm New Password:</label>
-                    <input type="password" id="confirm-new-password" name="confirm_new_password" required>
-                  </div>
-                  <button class="btn-submit" type="submit">Change Password</button>
+                <h3 style="padding-top: 0px;" class="title ">Add Post</h3>
+                <form class="" id="post_form" onsubmit="handleAddPost(event)">
+                    <div class="mb-3">
+                    <label for="postOwner" class="form-label">Post_Owner:</label>
+                    
+                    <input
+                        type="text"
+                        id="postOwner"
+                        class="form-control"
+                        placeholder="postOwner"
+                        readonly
+                    />
+                    </div>
+                    <div class="mb-3">
+                    <label for="postTitle" class="form-label">Title</label>
+                    <input type="text" id="postTitle" class="form-control" placeholder="Enter post title" required>
+                    </div>
+                    <div class="mb-3">
+                    <label for="postContent" class="form-label">Content</label>
+                    <textarea id="postContent" class="form-control" rows="3" placeholder="Enter post description" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                    <label for="postImage" class="form-label">Image</label>
+                    <input type="file" id="postImage" class="form-control" accept="image/*" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                    <label for="postCategory" class="form-label">Category</label>
+                    <select id="postCategory" class="form-select" multiple required></select>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Add Post</button>
                 </form>
+                <div id="form-message" class="mt-3"></div>
+
+
                 
-                <div class="mb-3 text-center border rounded-2 p-4 btcn text-white mt-3" id="message"></div>
-              
+                <h3 class="text-center py-3">My Post List</h3>
+                
+                <div class="table-responsive  ">
+                    <table id="posts-table" class="table table-bordered   table-striped" style="width: 95%; margin: auto;">
+                        <thead >
+                            <tr class="winner__table " >        
+                                <th style="background-color: orangered;">ID</th>
+                                <th style="background-color: orangered;">Post_Owner</th>
+                                <th style="background-color: orangered;">Title</th>
+                                <th style="background-color: orangered;">Content</th>
+                                <th style="background-color: orangered;">Image</th>
+                                <th style="background-color: orangered;">Category</th>
+                                <th style="background-color: orangered;">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody id="posts-list">
+                            <tr>
+                                <td colspan="8" class="text-center">Loading Posts...</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
               </div>
             </div>
           </div>
@@ -280,7 +322,7 @@
     <script src="./logout.js"></script>
     <script src="./index.js"></script>
     <script src="./index2.js"></script>
-    <script src="./changepass.js"></script>
+    <script src="./addPostUser.js"></script>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
@@ -290,148 +332,3 @@
     
   </body>
 </html>
-
-
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Change Password</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="..."
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css"
-      rel="stylesheet"
-      crossorigin="anonymous"
-    />
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  
-  
-  <link rel="stylesheet" href="style.css">
-
-    
-  </head>
-  <body>
-    <nav  class="navbar navbar-expand-lg  py-3 fixed-top ">
-      <div class="container-fluid container">
-          <a class="navbar-brand lgo " href="index.html">
-              <img src="./images/umsal.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
-              UMSA
-            </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse " id="navbarNavDropdown">
-          <ul class="navbar-nav justify-content-center w-100 gap-2">
-            <li class="nav-item">
-              <a class="nav-link "  href="index.html">Home</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle aut_menu4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Posts
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item ndropdown-item" href="allposts.html">Posts</a></li>
-                <li><a class="dropdown-item ndropdown-item" href="allEvent.html">Upcoming Events</a></li>
-                <li><a class="dropdown-item ndropdown-item" href="allNotice.html">Notice</a></li>
-              </ul>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link aut_menu3" href="transaction.html">Donate</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link aut_menu2" href="blood.html">Blood</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                About Us
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item ndropdown-item" href="aboutUs.html">About Us</a></li>
-                <li><a class="dropdown-item ndropdown-item" href="service.html">Services</a></li>
-                <li><a class="dropdown-item ndropdown-item" href="contactus.html">Contact Us</a></li>
-              </ul>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link aut_menu1" href="people.html">Members</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link aut_menu" href="account.html">Exchequer</a>
-            </li>
-          </ul>  
-          <ul  class=" navbar-nav ms-auto gap-2">
-              <li class="nav-item">
-                  <a class="nav-link sign-menu" href="registration.html">Sign_Up</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link login-menu" href="login.html">Login</a>
-              </li>
-              <li class="nav-item">
-                  <a class=" nav-link profile-menu d-none bg-secondary" href="profile.html">Profile</a>
-              </li>
-              <li class="nav-item ">
-                  <a class="nav-link logout-menu d-none" onclick="handlelogOut()" href="#" >Logout</a>
-              </li>
-          </ul>
-        </div>
-        
-      </div>
-    </nav>
-    
-    
-      
-    
-      
-        <div style="padding-top: 130px;" id="change-password-container">
-          <h2 class="text-center">Change Password</h2>
-          <form class="w-50  m-auto border rounded-2 p-5" id="change-password-form">
-              <div>
-                  <label class=" mb-3" for="old-password">Old Password:</label>
-                  <input class="rounded-2 mb-3" type="password" id="old-password" name="old_password" required>
-              </div>
-              <div>
-                  <label class=" mb-3" for="new-password">New Password:</label>
-                  <input class="rounded-2 mb-3" type="password" id="new-password" name="new_password" required>
-              </div>
-              <div>
-                  <label  class=" mb-3" for="confirm-new-password">Confirm New Password:</label>
-                  <input class="rounded-2 mb-3" type="password" id="confirm-new-password" name="confirm_new_password" required>
-              </div>
-              <button class="btn btn-info mb-3" type="submit">Change Password</button>
-          </form>
-          <div class="mb-3 text-center border rounded-2 p-4 bg-secondary text-white mt-3" id="message"></div>
-        
-     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
-
-    <script src="./changepass.js"></script>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"
-      integrity="..."
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <script src=""></script>
-    <script src="index.js"></script>
-  
-    
-    
-  </body>
-</html> -->

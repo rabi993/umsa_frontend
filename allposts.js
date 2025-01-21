@@ -66,7 +66,7 @@ const loadFlowers = (search = "") => {
     
       // Create a div for each flower card first
       const div = document.createElement("div");
-      div.classList.add("flower-card", "col-12", "col-md-6", "col-lg-4");
+      div.classList.add("allflower-card2", "col-12", "col-md-6", "col-lg-6");
     
       // Fetch user data for the flower's author
       fetch(userApiUrl)
@@ -85,11 +85,12 @@ const loadFlowers = (search = "") => {
     
             // Now we can safely add the full name and other details to the card
             div.innerHTML = `
-              <img class="flow-img" src="${flower.image}" alt="${flower.title}" />
+              <img class="allflow-img2" src="${flower.image}" alt="${flower.title}" />
               <h4>${flower.title}</h4>
               <p style="color: black; margin: 0px; font-size:15px;">Author : ${fullName}  <small style="color: grey; margin: 0px; font-size:10px;"> ${formatDateTime(flower.created_at)}</small> ${flower.category.map((item) => `${item}`).join("")}</p>
-            
-              <p style="color: grey; margin: 0px;" class="px-2">${flower.content.slice(0, 100)}...</p>
+              <div>
+                <small style="color: grey; font-size:12px;" class="px-2">${flower.content.slice(0, 100)}...</small>
+              </div>
               <a style="text-decoration: none;" class="btn btn-success rounded mt-1" href="postDetails.html?postId=${flower.id}">Details</a>
             `;
           } else {
@@ -117,7 +118,7 @@ const loadFlowers = (search = "") => {
         data.forEach((item) => {
           const li = document.createElement("li");
           li.classList.add("dropdown-item");
-          li.innerHTML = `<button class="btn btn-info" onclick="loadFlowers('${item.name}')">${item.name}</button>`;
+          li.innerHTML = `<button style="width:100%; margin:auto;" class="btn btc" onclick="loadFlowers('${item.name}')">${item.name}</button>`;
           parent.appendChild(li);
         });
       })

@@ -186,61 +186,61 @@
         <div class="col-md-11">
             <!-- dashboard details -->
             <h3 style="padding-top: 30px;" class=" text-center">Add Post</h3>
-    <form class="text-center w-50 m-auto" id="post_form" onsubmit="handleAddPost(event)">
-        <div class="mb-3">
-        <label for="postOwner" class="form-label">Post_Owner:</label>
-        
-        <input
-            type="text"
-            id="postOwner"
-            class="form-control"
-            placeholder="postOwner"
-            readonly
-        />
-        </div>
-        <div class="mb-3">
-        <label for="postTitle" class="form-label">Title</label>
-        <input type="text" id="postTitle" class="form-control" placeholder="Enter post title" required>
-        </div>
-        <div class="mb-3">
-        <label for="postContent" class="form-label">Content</label>
-        <textarea id="postContent" class="form-control" rows="3" placeholder="Enter post description" required></textarea>
-        </div>
-        <div class="mb-3">
-        <label for="postImage" class="form-label">Image</label>
-        <input type="file" id="postImage" class="form-control" accept="image/*" required>
-        </div>
-        
-        <div class="mb-3">
-        <label for="postCategory" class="form-label">Category</label>
-        <select id="postCategory" class="form-select" multiple required></select>
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Add Post</button>
-    </form>
-    <div id="form-message" class="mt-3"></div>
+            <form class="text-center w-50 m-auto" id="post_form" onsubmit="handleAddPost(event)">
+                <div class="mb-3">
+                <label for="postOwner" class="form-label">Post_Owner:</label>
+                
+                <input
+                    type="text"
+                    id="postOwner"
+                    class="form-control"
+                    placeholder="postOwner"
+                    readonly
+                />
+                </div>
+                <div class="mb-3">
+                <label for="postTitle" class="form-label">Title</label>
+                <input type="text" id="postTitle" class="form-control" placeholder="Enter post title" required>
+                </div>
+                <div class="mb-3">
+                <label for="postContent" class="form-label">Content</label>
+                <textarea id="postContent" class="form-control" rows="3" placeholder="Enter post description" required></textarea>
+                </div>
+                <div class="mb-3">
+                <label for="postImage" class="form-label">Image</label>
+                <input type="file" id="postImage" class="form-control" accept="image/*" required>
+                </div>
+                
+                <div class="mb-3">
+                <label for="postCategory" class="form-label">Category</label>
+                <select id="postCategory" class="form-select" multiple required></select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Add Post</button>
+            </form>
+            <div id="form-message" class="mt-3"></div>
 
 
-    
-    <h3 class="text-center py-3">Post List</h3>
-    <table id="posts-table" class="pb-3 table table-bordered table-striped">
-        <thead>
-        <tr>
-            <th >ID</th>
-            <th>Title</th>
-            <th>Post_Owner</th>
-            <th>Content</th>
-            <th>Image</th>
-            <th>Category</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody id="posts-list">
-        <tr>
-            <td colspan="8" class="text-center">Loading Posts...</td>
-        </tr>
-        </tbody>
-    </table>
+            
+            <h3 class="text-center py-3">Post List</h3>
+            <table id="posts-table" class="pb-3 table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th >ID</th>
+                    <th>Title</th>
+                    <th>Post_Owner</th>
+                    <th>Content</th>
+                    <th>Image</th>
+                    <th>Category</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody id="posts-list">
+                <tr>
+                    <td colspan="8" class="text-center">Loading Posts...</td>
+                </tr>
+                </tbody>
+            </table>
            
               
         </div>

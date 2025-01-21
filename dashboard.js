@@ -157,8 +157,6 @@ function fetchTransactions1() {
                                 <tr>
                                     <td>${transaction.id}</td>
                                     <td>${transaction.trx_id}</td>
-                                    <td>${transaction.user}</td>
-                                    <td>${username}</td>
                                     <td>${first_name} ${last_name}</td>
                                     <td>${transaction.reference || ''}</td>
                                     <td>${transaction.amount}</td>
@@ -167,8 +165,8 @@ function fetchTransactions1() {
                                     <td>${transaction.media || ''}</td>
                                     <td>${transaction.purpose || ''}</td>
                                     <td>${transaction.comment || ''}</td>
-                                    <td>${transaction.created_at || ''}</td>
-                                    <td>${transaction.updated_at || ''}</td>
+                                    <td>${formatDate(transaction.created_at) || ''}</td>
+                                    <td>${formatDate(transaction.updated_at) || ''}</td>
                                     <td>${transaction.approved ? "Yes" : "No"}</td>
                                 </tr>
                             `;
@@ -192,42 +190,24 @@ function fetchTransactions1() {
 }
 
 
-
-
-// Add or edit a transaction
-document.getElementById("transactionForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    const id = document.getElementById("transactionId").value;
-    const method = id ? "PUT" : "POST";
-    const url = id ? `${apiUrl}${id}/` : apiUrl;
-
-    const transactionData = {
-        user: localStorage.getItem("user_id"),
-        trx_id: document.getElementById("trxId").value,
-        reference: document.getElementById("reference").value,
-        amount: document.getElementById("amount").value,
-        typys: document.getElementById("typys").value,
-        source_people: document.getElementById("sourcePeople").value,
-        media: document.getElementById("media").value,
-        purpose: document.getElementById("purpose").value,
-        comment: document.getElementById("comment").value,
-        approved: document.getElementById("approved").checked
-    };
-
-    fetch(url, {
-        method: method,
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(transactionData),
-    })
-    .then(response => {
-        if (response.ok) {
-            fetchTransactions();
-            document.getElementById("transactionForm").reset();
-        }
-    });
-});
 // Initial fetch
 
 fetchTransactions1();
+
+
+function formatDate(timestamp) {
+    if (!timestamp) return ''; // Handle empty or null values
+
+    const date = new Date(timestamp);
+    let hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12; // Convert to 12-hour format
+    const formattedMinutes = minutes.toString().padStart(2, '0');
+
+    // Format the date as YYYY-MM-DD
+    const formattedDate = date.toISOString().split('T')[0];
+
+    // Combine the date and time
+    return `${formattedDate} ${hours}:${formattedMinutes} ${ampm}`;
+  }

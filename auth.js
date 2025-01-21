@@ -92,6 +92,7 @@ const handleLogin = (event) => {
       if (data.token && data.user_id) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("user_id", data.user_id);
+        setPeople();
         alert("Welcome! UMSA Family. You are Successfully Logged in")
         
 
@@ -133,4 +134,41 @@ const handleLogin = (event) => {
       console.error("Login error:", error);
       alert(error.message);
     });
+
+    
 };
+
+function setPeople() {
+  const userId = localStorage.getItem("user_id"); // Get the user ID from local storage
+
+  // Validate if userId exists
+  if (!userId) {
+    console.error("No user ID found in local storage");
+    return; // Exit the function early if userId is not found
+  }
+
+  // Fetch the list of people and find the relevant person for the user
+  fetch("http://127.0.0.1:8000/people/list/")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Error fetching people list: ${response.statusText}`);
+      }
+      return response.json();
+    })
+    .then((peoples) => {
+      const person = peoples.find((p) => p.user == userId);
+
+      if (!person) {
+        throw new Error("No associated person found for the user");
+      }
+
+      // Store the person ID in localStorage if found
+      localStorage.setItem("people_id", person.id);
+      console.log("People ID saved successfully:", person.id);
+
+      return person;
+    })
+    .catch((error) => {
+      console.error("Error:", error.message);
+    });
+}
