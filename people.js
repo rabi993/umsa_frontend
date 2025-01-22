@@ -39,7 +39,7 @@ function fetchPeople() {
                                         }
                                     </td>
                                     <td>
-                                        <a class="btn btn-warning btn-sm" href="userProfile.html?personId=${person.id}" target="_blank">View Profile</a>
+                                        <a class="btn btc btn-sm" href="userProfile.html?personId=${person.id}" target="_blank">View Profile</a>
 
                                         
                                     </td>

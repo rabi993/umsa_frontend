@@ -42,7 +42,7 @@ const loadFlowers = (search = "") => {
     
       // Create a div for each flower card first
       const div = document.createElement("div");
-      div.classList.add("flower-card", "col-12", "col-md-6", "col-lg-4");
+      div.classList.add("notice-card", "col-12", "col-md-6", "col-lg-4");
     
       // Fetch user data for the flower's author
       fetch(userApiUrl)
@@ -59,18 +59,19 @@ const loadFlowers = (search = "") => {
           if (user) {
             const fullName = `${user.first_name} ${user.last_name}`;
 
-          div.innerHTML = `
-            <img class="flow-img" src="${flower.image}" alt="${flower.name}" />
+            div.innerHTML = `
+            
             
             <h4>${flower.name}</h4>
             <small style="color: grey; margin: 0px;font-size:10px;">Author : ${flower.user}</small></br>
             <small style="color: grey; margin: 0px; font-size:10px;"> ${fullName}</small>
             <small style="color: grey; margin: 0px; font-size:10px;">Created at ${flower.created_at}</small>
-            <p style="color: grey; margin: 0px;">${flower.description.slice(0, 50)}...</p>
-            <a style="text-decoration: none; " class="btn btn-success rounded  mt-1" href="noticeDetails.html?noticeId=${flower.id}">Details</a>
+            <p style="color: grey; margin: 0px;">${flower.description.slice(0, 100)}...</p>
+            <img class="notice-img img-fluid" src="${flower.file}" alt="${flower.name}" />
+            <a style="text-decoration: none; " class="btn btc rounded  mt-1" href="noticeDetails.html?noticeId=${flower.id}">Details</a>
+                
               
-            
-          `;
+            `;
           } else {
                 console.error("No matching user found for the person.");
               }

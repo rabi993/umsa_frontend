@@ -599,9 +599,11 @@ document.addEventListener("DOMContentLoaded", function () {
               .then((response) => {
                 if (response.ok) {
                   alert("Profile updated successfully.");
+                  window.location.href = "http://127.0.0.1:5500/dashboard.html";
                 } else {
                   alert("Failed to update profile.");
                 }
+                
               })
               .catch((error) => console.error("Error updating People data:", error));
           })

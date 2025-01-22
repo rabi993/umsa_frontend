@@ -41,7 +41,7 @@ fetch("http://127.0.0.1:8000/people/list/")
         // Populate the card with user and people details
         card.innerHTML = `
             <div class="card-body">
-            <h5 class="card-title fs-1 pb-3 text-center">${user.first_name || "N/A"} ${user.last_name || "N/A"}'s Profile</h5>
+            <h5 class="card-title title fs-1 pb-3 text-center">${user.first_name || "N/A"} ${user.last_name || "N/A"}'s Profile</h5>
             <hr/>
             <div class="d-flex flex-wrap justify-content-around">
                 <div class="col-12 col-md-4 col-lg-4">

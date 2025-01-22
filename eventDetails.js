@@ -60,7 +60,7 @@ const displayDetails = (flower) => {
   );
   div.innerHTML = `
     <div class="flower-img img-fluid col-md-4 col-lg-4">
-      <img src="${flower.image}" alt="Flower Image" />
+      <img class="hov" src="${flower.image}" alt="Flower Image" />
     </div>
     <div class="doc-info col-md-4 col-lg-4 py-4 px-4">
       <h4>${flower.name}</h4>
