@@ -32,8 +32,8 @@ const fetchPosts = () => {
               
               <td>
                 <div class ="d-flex ">
-                  <button class="btn btn-info" onclick='handleEditpost(${JSON.stringify(post)})'>Edit</button>
-                  <button class="btn btn-danger mx-3" onclick='handleDeletepost(${post.id})'>Delete</button>
+                  <button class="btn btcn" onclick='handleEditpost(${JSON.stringify(post)})'>Edit</button>
+                  <button class="btn btc mx-3" onclick='handleDeletepost(${post.id})'>Delete</button>
                 </div>
               </td>
             `;

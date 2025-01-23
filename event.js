@@ -26,8 +26,11 @@ const fetchPosts = () => {
               <td><img src="${post.image}" alt="Post Image" style="width: 100px; height: 100px;"></td>
               <td>${new Date(post.held_on).toLocaleString()}</td>
               <td>
-                <button onclick='handleEditPost(${JSON.stringify(post)})'>Edit</button>
-                <button onclick='handleDeletePost(${post.id})'>Delete</button>
+                <div class="d-flex justify-content-center gap-2">
+                  <button class="btn btcn" onclick='handleEditPost(${JSON.stringify(post)})'>Edit</button>
+                  <button class="btn btc" onclick='handleDeletePost(${post.id})'>Delete</button>
+                </div>
+                
               </td>
             `;
             postsList.appendChild(row);

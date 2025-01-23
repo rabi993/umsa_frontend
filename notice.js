@@ -26,14 +26,16 @@ const fetchPosts = () => {
                       <td>${post.user || "Anonymous"}</td>
                       <td>${post.description}</td>
                       <td>
-                          ${isImage ? `<img src="${post.file}" alt="Notice File" class="file-preview">` : 
+                          ${isImage ? `<img src="${post.file}" alt="Notice File" class="file-preview img-fluid w-25">` : 
                               isPDF ? `<a href="${post.file}" target="_blank">View PDF</a>` : 
                               `<a href="${post.file}" target="_blank">Download File</a>`}
                       </td>
                       <td>${new Date(post.created_at).toLocaleString()}</td>
                       <td>
-                          <button onclick='handleEditPost(${JSON.stringify(post)})'>Edit</button>
-                          <button onclick='handleDeletePost(${post.id})'>Delete</button>
+                        <div class="d-flex justify-content-center gap-2">
+                          <button class="btn btcn" onclick='handleEditPost(${JSON.stringify(post)})'>Edit</button>
+                          <button class="btn btc" onclick='handleDeletePost(${post.id})'>Delete</button>
+                        </div>
                       </td>
                   `;
                   postsList.appendChild(row);
