@@ -1,5 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transaction Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="..."
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <style>
+        /* General form styling */
+        form {
+          padding: 10px;
+          background-color: #f9f9f9;
+          border: 1px solid #ddd;
+          border-radius: 10px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Labels */
+        form label {
+          display: block;
+          font-weight: bold;
+          font-size: 14px;
+          margin-bottom: 0px;
+          color: #555;
+        }
+      
+        /* Inputs */
+        form input[type="text"],
+        form input[type="number"],
+        form input[type="hidden"] {
+          width: 100%;
+          padding: 5px;
+          margin-bottom: 5px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 14px;
+          box-sizing: border-box;
+        }
+      
+        /* Button styling */
+        form button {
+          width: 100%;
+          padding: 10px 15px;
+          font-size: 16px;
+          color: #fff;
+          background-color: orangered;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+      
+        form button:hover {
+          background-color: rgb(213, 96, 54);
+        }
+      
+        /* Add spacing for better alignment */
+        form label,
+        form input {
+          margin-top: 2px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg-dark align-text-center pt-3 align-middle">
+      <div class="d-flex justify-content-around row   text-white container m-auto ">
+        <div class="col-lg-4 col-md-4">
+          <div class="d-flex justify-content-start  gap-2  ">
+            <img class="bg-white contact"  src="./images/icon/email.png" alt="">
+            <img class="bg-white contact"  src="./images/icon/yt.png" alt="">
+            <img class="bg-white contact"  src="./images/icon/fb.png" alt="">
+            <img class="bg-white contact"  src="./images/icon/in.png" alt="">
+            <img class="bg-white contact"  src="./images/icon/telegram.png" alt="">
+            <img class="ms-3 bg-white contact"  src="./images/icon/phone.png" alt="">
+            <b class="nav-link">+880-2353-352-555</b>
+  
+          </div>
+        </div>
+        <div class="d-flex justify-content-end gap-2 col-lg-6 col-md-6 text-white">
+          
+          <div class=""><a class="nav-link login-menu px-2" href="login.html"><b>🔒 Login</b></a></div><p class="text-dark"> | </p>
+          <div class=""><a class="nav-link sign-menu" href="registration.html"><b>👤 Sign_Up</b></a></div>
+          <div class=""><a class="nav-link profile-menu d-none px-2" href="profileAdmin.html"><b>☺ Profile</b></a></div><p class="text-dark"> | </p>
+          <div class=""><a class="nav-link logout-menu d-none" onclick="handlelogOut()" href="#" ><b>⏻ Logout</b></a></div>
+          
+        
+        </div>
+      </div>
+    </div>
+    <nav  class="navbar navbar-expand-lg  py-3 sticky-top ">
+      <div class="container-fluid container">
+          <a class="navbar-brand lgo  " href="index.html">
+              <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
+              UMSA
+            </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNavDropdown">
+           
+          <ul  class=" navbar-nav ms-auto gap-2">
+              
+              
+              <li class="nav-item dropdown">
+                <a  class="nav-link pt-3 obtni" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <!-- <img class="obtnp" style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; border: 2px solid orangered; border-radius:28px; background-color: #ffff;" src="./Images/profile.png" alt=""> -->
+                    
+                    <img
+                    id="profile_icon"
+                    style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; border: 2px solid orangered; border-radius:28px; background-color: #ffff; "
+                    src="./Images/profile.png"
+                    alt="Default Profile"
+                    />
+                    <img
+                    id="profile_icon2"
+                    style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; display: none; border-radius: 50%; border: 2px solid #F95441;"
+                    src=""
+                    alt="User Profile"
+                    />
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item ndropdown-item  menu profile-menu1 d-none nav-item2" href="profileAdmin.html">Profile</a></li>
+                  <li><a class="dropdown-item ndropdown-item menu login-menu1 nav-item2" href="login.html">Login</a></li>
+                  <li><a class="dropdown-item ndropdown-item menu sign-menu1 nav-item2" href="registration.html">Sign_Up</a></li>
+                  <li><a class="dropdown-item ndropdown-item menu logout-menu1 d-none nav-item2" onclick="handlelogOut()" href="#">Logout</a></li>
+                </ul>
+              </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+     
+      <main class="pt-3">
+        <div class="d-flex ">
+          <div style="background-color: #E8E8E8;" class="col-md-2  px-2 ">
+            <div>
+              <a style="border-bottom:1px solid gray;" class="btn  mt-1 mb-1 dash-btn" href="adminPanel.html">Dashboard</a>
+            </div>
+              <div>
+                <a style="border-bottom:1px solid gray;" class="btn  mt-1 mb-1 dash-btn" href="accountAdmin.html">Exchequer</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1  dash-btn" href="category.html">Category</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn  mt-1 mb-1 dash-btn" href="addcontactus.html">Contact Us</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn  mt-1 mb-1 dash-btn" href="Addserviceadmin.html">Services</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="event.html">Event</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="notice.html">Notice</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="post.html">Posts</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn  mt-1 mb-1 dash-btn" href="banner.html">Banner</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn  mt-1 mb-1 dash-btn" href="users.html">All Users</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn  mt-1 mb-1 dash-btn" href="peopleAdmin.html">Members</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn btc mt-1 mb-1 dash-btn" href="transactionAdmin.html">Transactions</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="profileAdmin.html">My Profile</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="PostComment.html">Post Comment</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="EventComment.html">Event Comment</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="NoticeComment.html">Notice Comment</a>
+              </div>
+        
+            </div>
+            <div class="col-md-10 pt-1">
+              <!-- dashboard details -->
+              <h1 class="title">Add Credit/Debit</h1>
+              <form  class="text-center w-25 m-auto pb-3" id="transactionForm">
+                <input type="hidden" id="transactionId">
+                <label>TRX ID: </label>
+                <input type="text" id="trxId" required>
+                <label>Reference: </label>
+                <input type="text" id="reference">
+                <label>Amount: </label>
+                <input type="number" id="amount" required>
+                <label>Type: 
+                    <select class="p-2 rounded-2" id="typys" required>
+                        <option class="btn btc" value="credit">Credit</option>
+                        <option class="btn btc" value="debit">Debit</option>
+                    </select>
+                </label>
+                <label>Source: </label>
+                <input type="text" id="sourcePeople">
+                <label>Media: </label>
+                <input type="text" id="media">
+                <label>Purpose: </label>
+                <input type="text" id="purpose">
+                <label>Comment: </label>
+                <input type="text" id="comment">
+                <!-- <label>Approved: 
+                    <input type="checkbox " id="approved">
+                </label><br> -->
+                
+                <input type="hidden" id="approved">
+                
+                <button class="btn btc " type="submit">Save</button>
+            </form>
+              <h1 class="title">Transaction list Management</h1>
+              <div class="table-responsive  ">
+                <table id="transactionTable" class=" table table-bordered m-3 m-auto  table-striped">
+                  <thead>
+                    <tr class="winner__table text-center">
+                        <th style="background-color: #F95441;">ID</th>
+                        <th style="background-color: #F95441;">TRX ID</th>
+                        <th style="background-color: #F95441;">User</th>
+                        <th style="background-color: #F95441;">Reference</th>
+                        <th style="background-color: #F95441;">Amount</th>
+                        <th style="background-color: #F95441;">Type</th>
+                        <th style="background-color: #F95441;">Source</th>
+                        <th style="background-color: #F95441;">Media</th>
+                        <th style="background-color: #F95441;">Purpose</th>
+                        <th style="background-color: #F95441;">Comment</th>
+                        <th style="background-color: #F95441;">Approved</th>
+                        <th style="background-color: #F95441;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody ></tbody>
+                </table>
+              </div>
+              
+              
+            
+          </div>
+      </div>
+
+      
+      
+    </main>
+    
+    <footer class="">
+      <hr />
+      <p class="text-center mt-3">
+        <small>Copyright © Smartcare. All Rights Reserved</small>
+      </p>
+    </footer>
+    <script>
+        const apiUrl = "http://127.0.0.1:8000/transaction/";
+    
+        // Fetch and display transactions
+        function fetchTransactions() {
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector("#transactionTable tbody");
+                    tableBody.innerHTML = ""; // Clear table
+                    data.forEach(transaction => {
+                        const row = `
+                            <tr>
+                                <td>${transaction.id}</td>
+                                <td>${transaction.trx_id}</td>
+                                <td>${transaction.user}</td>
+                                <td>${transaction.reference || ''}</td>
+                                <td>${transaction.amount}</td>
+                                <td>${transaction.typys}</td>
+                                <td>${transaction.source_people || ''}</td>
+                                <td>${transaction.media || ''}</td>
+                                <td>${transaction.purpose || ''}</td>
+                                <td>${transaction.comment || ''}</td>
+                                <td>${transaction.approved ? "Yes" : "No"} </td>
+                                <td>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <button class="btn btc" onclick="approveTransaction(${transaction.id})">Approve</button>
+                                        <button class="btn btcn" onclick="editTransaction(${transaction.id})">Edit</button>
+                                        <button class="btn btc" onclick="deleteTransaction(${transaction.id})">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        `;
+                        tableBody.insertAdjacentHTML('beforeend', row);
+                    });
+                });
+        }
+    
+        // Add or edit a transaction
+        document.getElementById("transactionForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const id = document.getElementById("transactionId").value;
+            const method = id ? "PUT" : "POST";
+            const url = id ? `${apiUrl}${id}/` : apiUrl;
+    
+            const transactionData = {
+                user: localStorage.getItem("user_id"),
+                trx_id: document.getElementById("trxId").value,
+                reference: document.getElementById("reference").value,
+                amount: document.getElementById("amount").value,
+                typys: document.getElementById("typys").value,
+                source_people: document.getElementById("sourcePeople").value,
+                media: document.getElementById("media").value,
+                purpose: document.getElementById("purpose").value,
+                comment: document.getElementById("comment").value,
+                approved: document.getElementById("approved").checked
+            };
+    
+            fetch(url, {
+                method: method,
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(transactionData),
+            })
+            .then(response => {
+                if (response.ok) {
+                    fetchTransactions();
+                    document.getElementById("transactionForm").reset();
+                }
+            });
+        });
+    
+        // Edit a transaction
+        function editTransaction(id) {
+            fetch(`${apiUrl}${id}/`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("transactionId").value = data.id;
+                    document.getElementById("trxId").value = data.trx_id;
+                    document.getElementById("reference").value = data.reference;
+                    document.getElementById("amount").value = data.amount;
+                    document.getElementById("typys").value = data.typys;
+                    document.getElementById("sourcePeople").value = data.source_people;
+                    document.getElementById("media").value = data.media;
+                    document.getElementById("purpose").value = data.purpose;
+                    document.getElementById("comment").value = data.comment;
+                    document.getElementById("approved").checked = data.approved;
+                });
+        }
+    
+        // Approve a transaction
+        function approveTransaction(id) {
+            fetch(`${apiUrl}${id}/`, {
+                method: "PATCH", // Ensure the server supports PATCH for partial updates
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ approved: true }), // Send only the 'approved' field to update
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json(); // Parse response JSON
+                } else {
+                    throw new Error(`Failed to approve the transaction with ID: ${id}`);
+                }
+            })
+            .then(() => {
+                fetchTransactions(); // Refresh the transaction list on success
+            })
+            .catch(error => {
+                console.error("Error approving transaction:", error);
+                alert("Unable to approve the transaction. Please check your server or request.");
+            });
+        }
+    
+    
+        // Delete a transaction
+        function deleteTransaction(id) {
+            fetch(`${apiUrl}${id}/`, { method: "DELETE" })
+                .then(response => {
+                    if (response.ok) {
+                        fetchTransactions();
+                    }
+                });
+        }
+    
+        // Initial fetch
+        fetchTransactions();
+    </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+      <script src="logout.js"></script>
+      <script src="index.js"></script>
+    
+</body>
+</html>
+
+
+
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,49 +483,10 @@
       </button>
       <div class="collapse navbar-collapse " id="navbarNavDropdown">
         <ul class="navbar-nav justify-content-center w-100 gap-2">
-          <!-- <li class="nav-item">
-            <a class="nav-link "  href="index.html">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle aut_menu4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Posts
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item ndropdown-item" href="allposts.html">Posts</a></li>
-              <li><a class="dropdown-item ndropdown-item" href="allEvent.html">Upcoming Events</a></li>
-              <li><a class="dropdown-item ndropdown-item" href="allNotice.html">Notice</a></li>
-            </ul>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link aut_menu3" href="transaction.html">Donate</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link aut_menu2" href="blood.html">Blood</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              About Us
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item ndropdown-item" href="aboutUs.html">About Us</a></li>
-              <li><a class="dropdown-item ndropdown-item" href="service.html">Services</a></li>
-              <li><a class="dropdown-item ndropdown-item" href="contactus.html">Contact Us</a></li>
-            </ul>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link aut_menu1" href="people.html">Members</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link aut_menu" href="account.html">Exchequer</a>
-          </li> -->
+          
         </ul>  
         <ul  class=" navbar-nav ms-auto gap-2">
-            <!-- <li class="nav-item">
-                <a class="nav-link sign-menu" href="registration.html">Sign_Up</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link login-menu" href="login.html">Login</a>
-            </li> -->
+           
             <li class="nav-item">
                 <a class=" nav-link profile-menu d-none" href="profileAdmin.html">Profile</a>
             </li>
@@ -182,7 +553,6 @@
       
         </div>
         <div class="col-md-11">
-            <!-- dashboard details -->
             <h1 class="text-center py-3">Transaction List</h1>
     <table id="transactionTable">
         <thead>
@@ -221,9 +591,7 @@
         <label>Media: <input type="text" id="media"></label><br>
         <label>Purpose: <input type="text" id="purpose"></label><br>
         <label>Comment: <input type="text" id="comment"></label><br>
-        <!-- <label>Approved: 
-            <input type="checkbox " id="approved">
-        </label><br> -->
+        
         
         <input type="hidden" id="approved">
         
@@ -386,7 +754,7 @@
 
 
 
-
+ -->
 
 <!-- 
 <!DOCTYPE html>

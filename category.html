@@ -1,5 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Category Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="..."
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg-dark align-text-center pt-3 align-middle">
+      <div class="d-flex justify-content-around row   text-white container m-auto ">
+        <div class="col-lg-4 col-md-4">
+          <div class="d-flex justify-content-start  gap-2  ">
+            <img class="bg-white contact"  src="./images/icon/email.png" alt="">
+            <img class="bg-white contact"  src="./images/icon/yt.png" alt="">
+            <img class="bg-white contact"  src="./images/icon/fb.png" alt="">
+            <img class="bg-white contact"  src="./images/icon/in.png" alt="">
+            <img class="bg-white contact"  src="./images/icon/telegram.png" alt="">
+            <img class="ms-3 bg-white contact"  src="./images/icon/phone.png" alt="">
+            <b class="nav-link">+880-2353-352-555</b>
+  
+          </div>
+        </div>
+        <div class="d-flex justify-content-end gap-2 col-lg-6 col-md-6 text-white">
+          
+          <div class=""><a class="nav-link login-menu px-2" href="login.html"><b>🔒 Login</b></a></div><p class="text-dark"> | </p>
+          <div class=""><a class="nav-link sign-menu" href="registration.html"><b>👤 Sign_Up</b></a></div>
+          <div class=""><a class="nav-link profile-menu d-none px-2" href="profileAdmin.html"><b>☺ Profile</b></a></div><p class="text-dark"> | </p>
+          <div class=""><a class="nav-link logout-menu d-none" onclick="handlelogOut()" href="#" ><b>⏻ Logout</b></a></div>
+          
+        
+        </div>
+      </div>
+    </div>
+    <nav  class="navbar navbar-expand-lg  py-3 sticky-top ">
+      <div class="container-fluid container">
+          <a class="navbar-brand lgo  " href="index.html">
+              <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
+              UMSA
+            </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNavDropdown">
+           
+          <ul  class=" navbar-nav ms-auto gap-2">
+              
+              
+              <li class="nav-item dropdown">
+                <a  class="nav-link pt-3 obtni" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <!-- <img class="obtnp" style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; border: 2px solid orangered; border-radius:28px; background-color: #ffff;" src="./Images/profile.png" alt=""> -->
+                    
+                    <img
+                    id="profile_icon"
+                    style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; border: 2px solid orangered; border-radius:28px; background-color: #ffff; "
+                    src="./Images/profile.png"
+                    alt="Default Profile"
+                    />
+                    <img
+                    id="profile_icon2"
+                    style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; display: none; border-radius: 50%; border: 2px solid #F95441;"
+                    src=""
+                    alt="User Profile"
+                    />
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item ndropdown-item  menu profile-menu1 d-none nav-item2" href="profileAdmin.html">Profile</a></li>
+                  <li><a class="dropdown-item ndropdown-item menu login-menu1 nav-item2" href="login.html">Login</a></li>
+                  <li><a class="dropdown-item ndropdown-item menu sign-menu1 nav-item2" href="registration.html">Sign_Up</a></li>
+                  <li><a class="dropdown-item ndropdown-item menu logout-menu1 d-none nav-item2" onclick="handlelogOut()" href="#">Logout</a></li>
+                </ul>
+              </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+     
+      <main class="pt-3">
+        <div class="d-flex ">
+          <div style="background-color: #E8E8E8;" class="col-md-2  px-2 ">
+            <div>
+              <a style="border-bottom:1px solid gray;" class="btn  mt-1 mb-1 dash-btn" href="adminPanel.html">Dashboard</a>
+            </div>
+              <div>
+                <a style="border-bottom:1px solid gray;" class="btn  mt-1 mb-1 dash-btn" href="accountAdmin.html">Exchequer</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 btc dash-btn" href="category.html">Category</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="addcontactus.html">Contact Us</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="Addserviceadmin.html">Services</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="event.html">Event</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="notice.html">Notice</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="post.html">Posts</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="banner.html">Banner</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="users.html">All Users</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="peopleAdmin.html">Members</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="transactionAdmin.html">Transactions</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="profileAdmin.html">My Profile</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="PostComment.html">Post Comment</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="EventComment.html">Event Comment</a>
+              </div>
+              <div>
+                  <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="NoticeComment.html">Notice Comment</a>
+              </div>
+        
+            </div>
+            <div class="col-md-10 pt-1">
+              <!-- dashboard details -->
+              
+              <h1 class="title">Category Management</h1>
+              <div class="table-responsive  ">
+                <table class="container table table-bordered w-50 m-auto  table-striped">
+                  <thead>
+                    <tr class="winner__table text-center">
+                      <th style="background-color: #F95441;">ID</th>
+                      <th style="background-color: #F95441;">Name</th>
+                      <th style="background-color: #F95441;">Slug</th>
+                      <th style="background-color: #F95441;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="category-table-body">
+                    <!-- Dynamic rows will be injected here -->
+                  </tbody>
+                </table>
+              </div>
+            
+              <div class="container mt-5">
+            
+                <h3 class="title">Add Category</h3>
+                <form class="w-25 m-auto" id="category-form">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="slug" class="form-label">Slug:</label>
+                        <input type="text" class="form-control" id="slug" required>
+                    </div>
+                    <button type="submit" class="btn btc">Add Category</button>
+                </form>
+            </div>
+
+
+
+
+
+
+          </div>
+      </div>
+
+      
+      
+    </main>
+    <footer class="">
+      <hr />
+      <p class="text-center mt-3">
+        <small>Copyright © Smartcare. All Rights Reserved</small>
+      </p>
+    </footer>
+    <script>
+        const tableBody = document.getElementById('category-table-body');
+        const form = document.getElementById('category-form');
+    
+        // Fetch and display categories
+        async function loadCategories() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/category/');
+                if (!response.ok) throw new Error('Failed to fetch categories');
+                const data = await response.json();
+    
+                // Clear the table body
+                tableBody.innerHTML = '';
+    
+                // Populate the table rows
+                data.forEach(category => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${category.id}</td>
+                        <td>${category.name}</td>
+                        <td>${category.slug}</td>
+                        <td>
+                            <button class="btn btc btn-sm" onclick="editCategory(${category.id})">Edit</button>
+                            <button class="btn btc btn-sm" onclick="deleteCategory(${category.id})">Delete</button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching categories:', error);
+                alert('Failed to load categories.');
+            }
+        }
+    
+        // Add a new category
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const slug = document.getElementById('slug').value;
+    
+            try {
+                const response = await fetch('http://127.0.0.1:8000/category/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, slug }),
+                });
+    
+                if (!response.ok) throw new Error('Failed to add category');
+    
+                await loadCategories();
+                form.reset();
+            } catch (error) {
+                console.error('Error adding category:', error);
+                alert('Failed to add category.');
+            }
+        });
+    
+        // Edit a category
+        async function editCategory(id) {
+            const newName = prompt('Enter new name:');
+            const newSlug = prompt('Enter new slug:');
+            if (newName && newSlug) {
+                try {
+                    const response = await fetch(`http://127.0.0.1:8000/category/${id}/`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ name: newName, slug: newSlug }),
+                    });
+    
+                    if (!response.ok) throw new Error('Failed to edit category');
+    
+                    await loadCategories();
+                } catch (error) {
+                    console.error('Error editing category:', error);
+                    alert('Failed to edit category.');
+                }
+            }
+        }
+    
+        // Delete a category
+        async function deleteCategory(id) {
+            if (confirm('Are you sure you want to delete this category?')) {
+                try {
+                    const response = await fetch(`http://127.0.0.1:8000/category/${id}/`, {
+                        method: 'DELETE',
+                    });
+    
+                    if (!response.ok) throw new Error('Failed to delete category');
+    
+                    await loadCategories();
+                } catch (error) {
+                    console.error('Error deleting category:', error);
+                    alert('Failed to delete category.');
+                }
+            }
+        }
+    
+        // Initial load
+        loadCategories();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="./logout.js"></script>
+    <!-- <script src="./index.js"></script> -->
+    <script src="./AdminPanel.js"></script>
+    
+</body>
+</html>
+
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,49 +368,10 @@
       </button>
       <div class="collapse navbar-collapse " id="navbarNavDropdown">
         <ul class="navbar-nav justify-content-center w-100 gap-2">
-          <!-- <li class="nav-item">
-            <a class="nav-link "  href="index.html">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle aut_menu4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Posts
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item ndropdown-item" href="allposts.html">Posts</a></li>
-              <li><a class="dropdown-item ndropdown-item" href="allEvent.html">Upcoming Events</a></li>
-              <li><a class="dropdown-item ndropdown-item" href="allNotice.html">Notice</a></li>
-            </ul>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link aut_menu3" href="transaction.html">Donate</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link aut_menu2" href="blood.html">Blood</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              About Us
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item ndropdown-item" href="aboutUs.html">About Us</a></li>
-              <li><a class="dropdown-item ndropdown-item" href="service.html">Services</a></li>
-              <li><a class="dropdown-item ndropdown-item" href="contactus.html">Contact Us</a></li>
-            </ul>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link aut_menu1" href="people.html">Members</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link aut_menu" href="account.html">Exchequer</a>
-          </li> -->
+          
         </ul>  
         <ul  class=" navbar-nav ms-auto gap-2">
-            <!-- <li class="nav-item">
-                <a class="nav-link sign-menu" href="registration.html">Sign_Up</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link login-menu" href="login.html">Login</a>
-            </li> -->
+            
             <li class="nav-item">
                 <a class=" nav-link profile-menu d-none" href="profileAdmin.html">Profile</a>
             </li>
@@ -165,7 +438,7 @@
       
         </div>
         <div class="col-md-11">
-            <!-- dashboard details -->
+            
             <div class="container mt-5">
                 <h2>Category Management</h2>
                 <table class="table table-bordered">
@@ -466,4 +739,4 @@
         loadCategories();
     </script>
 </body>
-</html> -->
+</html> --> -->

@@ -44,10 +44,10 @@ function fetchPeople() {
                                     <td>
                                         <div class="d-flex gap-1">
                                             <div>
-                                                <a class="btn btn-info btn-sm" href="userProfileAdmin.html?personId=${person.id}" target="_blank">Profile</a>
+                                                <a class="btn btc btn-sm" href="userProfileAdmin.html?personId=${person.id}" target="_blank">Profile</a>
                                             </div>
                                             <div>
-                                                <button class="btn btn-danger btn-sm" onclick="deletePerson(${person.id})">Delete</button>
+                                                <button class="btn btc btn-sm" onclick="deletePerson(${person.id})">Delete</button>
                                             </div>
                                         </div>
                                     </td>

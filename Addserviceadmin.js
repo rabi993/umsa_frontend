@@ -23,8 +23,8 @@ const fetchServices = () => {
             <td>${service.name}</td>
             <td>${service.description}</td>
             <td>
-              <button class="btn btn-warning btn-sm mx-1" onclick="handleEditService('${service.id}', '${service.name}', '${service.description}', '${service.image}')">Edit</button>
-              <button class="btn btn-danger btn-sm mx-1" onclick="handleDeleteService('${service.id}')">Delete</button>
+              <button class="btn btc btn-sm mx-1" onclick="handleEditService('${service.id}', '${service.name}', '${service.description}', '${service.image}')">Edit</button>
+              <button class="btn btc btn-sm mx-1" onclick="handleDeleteService('${service.id}')">Delete</button>
             </td>
           `;
 

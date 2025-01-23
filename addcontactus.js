@@ -22,7 +22,7 @@ const fetchContactUs = () => {
               <td>${contact.address}</td>
               <td>${contact.content}</td>
               <td>
-                <button class="btn btn-danger btn-sm" onclick="deleteContactUs(${contact.id})">Delete</button>
+                <button class="btn btc btn-sm" onclick="deleteContactUs(${contact.id})">Delete</button>
               </td>
             `;
             contactUsList.appendChild(row);

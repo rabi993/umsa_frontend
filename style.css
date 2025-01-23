@@ -108,7 +108,7 @@ nav{
     text-align: center;
     justify-content: space-around;
     align-items: center;
-    background: linear-gradient(rgb(37, 120, 134),rgb(22, 198, 210));
+    background: linear-gradient(rgb(224, 98, 52),rgb(220, 127, 93),rgb(203, 93, 52));
     /* background: linear-gradient(rgb(17, 125, 78),rgb(4, 130, 90)); */
     box-shadow: 4px 4px 8px gray;
     border-radius:10px;
@@ -348,11 +348,11 @@ border-radius:100px;
     
     
 }
-.dash-btn:hover{
+/* .dash-btn:hover{
     background-color: #135366;
     color: #bcccce;
     
-}
+} */
 .dash-btn a{
     text-decoration: none;
     color: #0e2e38;
