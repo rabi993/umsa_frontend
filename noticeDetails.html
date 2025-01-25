@@ -49,47 +49,52 @@
         </div>
       </div>
     </div>
-    <nav  class="navbar navbar-expand-lg  py-3 sticky-top ">
+    <nav  class="navbar   py-3 sticky-top ">
       <div class="container-fluid container">
           <a class="navbar-brand lgo  " href="index.html">
               <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
               UMSA
             </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse " id="navbarNavDropdown">
-          <ul class="navbar-nav justify-content-center w-100 gap-2">
-            <li class="nav-item ">
-              <a class="nav-link "   href="index.html">Home</a>
-            </li>
-            <li class="nav-item dropdown activpage">
-              <a class="nav-link dropdown-toggle aut_menu4 textp" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Posts
-              </a>
-              <ul class="dropdown-menu">
-                <li ><a class="dropdown-item ndropdown-item nav-item2 " href="allposts.html">Posts</a></li>
-                <li ><a class="dropdown-item ndropdown-item nav-item2 " href="allEvent.html">Upcoming Events</a></li>
-                <li class="activpage "><a class="dropdown-item ndropdown-item nav-item2 textp" href="allNotice.html">Notice</a></li>
-              </ul>
-            </li>
-            
-            <li class="nav-item dropdown ">
-              <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Pages
-              </a>
-              <ul class="dropdown-menu">
-                <li ><a class="dropdown-item  ndropdown-item nav-item2" href="aboutUs.html">About Us</a></li>
-                <li><a class="dropdown-item   ndropdown-item nav-item2" href="service.html">Services</a></li>
-                <li  ><a class="dropdown-item  ndropdown-item nav-item2" href="contactus.html">Contact Us</a></li>
-                <li><a class="dropdown-item ndropdown-item aut_menu2 nav-item2" href="blood.html">Blood</a></li>
-                <li><a class="dropdown-item ndropdown-item aut_menu1 nav-item2" href="people.html">Members</a></li>
-                <li><a class="dropdown-item ndropdown-item aut_menu nav-item2" href="account.html">Exchequer</a></li>
-              </ul>
-            </li>
-            
-          </ul>  
-          <ul  class=" navbar-nav ms-auto gap-2">
+        <div  class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <a class="navbar-brand lgo m-auto ps-3 pe " href="index.html">
+              <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
+              UMSA
+            </a>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div style="width: 60%; margin: auto;" class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 ">
+              <li class="nav-item ">
+                <a class="nav-link "   href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown activpage">
+                <a class="nav-link dropdown-toggle aut_menu4 textp" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Posts
+                </a>
+                <ul class="dropdown-menu">
+                  <li ><a class="dropdown-item ndropdown-item nav-item2 " href="allposts.html">Posts</a></li>
+                  <li ><a class="dropdown-item ndropdown-item nav-item2 " href="allEvent.html">Upcoming Events</a></li>
+                  <li class="activpage "><a class="dropdown-item ndropdown-item nav-item2 textp" href="allNotice.html">Notice</a></li>
+                </ul>
+              </li>
+              
+              <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Pages
+                </a>
+                <ul class="dropdown-menu">
+                  <li ><a class="dropdown-item  ndropdown-item nav-item2" href="aboutUs.html">About Us</a></li>
+                  <li><a class="dropdown-item   ndropdown-item nav-item2" href="service.html">Services</a></li>
+                  <li  ><a class="dropdown-item  ndropdown-item nav-item2" href="contactus.html">Contact Us</a></li>
+                  <li><a class="dropdown-item ndropdown-item aut_menu2 nav-item2" href="blood.html">Blood</a></li>
+                  <li><a class="dropdown-item ndropdown-item aut_menu1 nav-item2" href="people.html">Members</a></li>
+                  <li><a class="dropdown-item ndropdown-item aut_menu nav-item2" href="account.html">Exchequer</a></li>
+                </ul>
+              </li>
               
               <li  class="nav-item pt-1">
                 <a style="background-color: orangered ; border-radius: 5px;" class="nav-link aut_menu3 text-white " href="transaction.html">Donate</a>
@@ -118,6 +123,25 @@
                   <li><a class="dropdown-item ndropdown-item menu logout-menu1 d-none nav-item2" onclick="handlelogOut()" href="#">Logout</a></li>
                 </ul>
               </li>
+
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <nav  class="navbar navbar-expand-lg  py-3 sticky-top ">
+      <div class="container-fluid container">
+          <a class="navbar-brand lgo  " href="index.html">
+              <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
+              UMSA
+            </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarNavDropdown">
+          <ul class="navbar-nav justify-content-center w-100 gap-2">
+            
           </ul>
         </div>
         

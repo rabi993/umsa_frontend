@@ -41,80 +41,167 @@
     </style>
   </head>
   <body>
-    <header>
-      <nav  class="navbar navbar-expand-lg  py-3 fixed-top ">
-        <div class="container-fluid container">
-            <a class="navbar-brand lgo " href="index.html">
-                <img src="./images/umsal.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
-                UMSA
-              </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse " id="navbarNavDropdown">
-            <ul class="navbar-nav justify-content-center w-100 gap-2">
-              <li class="nav-item">
-                <a class="nav-link "  href="index.html">Home</a>
+    <div class="bg-dark align-text-center pt-3 align-middle">
+      <div class="d-flex justify-content-around row   text-white container m-auto ">
+        <div class="col-lg-4 col-md-4">
+          <div class="d-flex justify-content-start  gap-2  ">
+            <img class="bg-white contact"  src="./images/icon/email.png" alt="">
+            <img class="bg-white contact"  src="./images/icon/yt.png" alt="">
+            <img class="bg-white contact"  src="./images/icon/fb.png" alt="">
+            <img class="bg-white contact"  src="./images/icon/in.png" alt="">
+            <img class="bg-white contact"  src="./images/icon/telegram.png" alt="">
+            <img class="ms-3 bg-white contact"  src="./images/icon/phone.png" alt="">
+            <b class="nav-link">+880-2353-352-555</b>
+  
+          </div>
+        </div>
+        <div class="d-flex justify-content-end gap-2 col-lg-6 col-md-6 text-white">
+          <div class="nav-link"><a class="text-decoration-none textgray hov"  href="aboutUs.html">About Us</a></div><p> | </p>
+          <div class="nav-link"><a class="text-decoration-none textgray hov" href="service.html">Services</a></div><p> | </p>
+          <div class="nav-link"><a class="text-decoration-none textgray hov" href="contactus.html">Contact Us</a></div>
+          <div class=""><a class="nav-link login-menu px-2" href="login.html"><b>🔒 Login</b></a></div>
+          <div class=""><a class="nav-link sign-menu" href="registration.html"><b>👤 Sign_Up</b></a></div>
+          <div class=""><a class="nav-link profile-menu d-none px-2" href="dashboard.html"><b>☺ Profile</b></a></div>
+          <div class=""><a class="nav-link logout-menu d-none" onclick="handlelogOut()" href="#" ><b>⏻ Logout</b></a></div>
+          
+        
+        </div>
+      </div>
+    </div>
+    <nav  class="navbar   py-3 sticky-top ">
+      <div class="container-fluid container">
+          <a class="navbar-brand lgo  " href="index.html">
+              <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
+              UMSA
+            </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div  class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <a class="navbar-brand lgo m-auto ps-3 pe " href="index.html">
+              <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
+              UMSA
+            </a>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div style="width: 60%; margin: auto;" class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 ">
+              <li class="nav-item ">
+                <a class="nav-link "   href="index.html">Home</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle aut_menu4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle aut_menu4 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Posts
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item ndropdown-item" href="allposts.html">Posts</a></li>
-                  <li><a class="dropdown-item ndropdown-item" href="allEvent.html">Upcoming Events</a></li>
-                  <li><a class="dropdown-item ndropdown-item" href="allNotice.html">Notice</a></li>
+                  <li><a class="dropdown-item ndropdown-item nav-item2" href="allposts.html">Posts</a></li>
+                  <li><a class="dropdown-item ndropdown-item nav-item2" href="allEvent.html">Upcoming Events</a></li>
+                  <li><a class="dropdown-item ndropdown-item nav-item2" href="allNotice.html">Notice</a></li>
                 </ul>
               </li>
-              <li class="nav-item ">
-                <a class="nav-link aut_menu3" href="transaction.html">Donate</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link aut_menu2" href="blood.html">Blood</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  About Us
+              
+              <li class="nav-item dropdown activpage">
+                <a class="nav-link dropdown-toggle textp" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Pages
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item ndropdown-item" href="aboutUs.html">About Us</a></li>
-                  <li><a class="dropdown-item ndropdown-item" href="service.html">Services</a></li>
-                  <li><a class="dropdown-item ndropdown-item" href="contactus.html">Contact Us</a></li>
+                  <li ><a class="dropdown-item  ndropdown-item nav-item2" href="aboutUs.html">About Us</a></li>
+                  <li><a class="dropdown-item   ndropdown-item nav-item2" href="service.html">Services</a></li>
+                  <li  ><a class="dropdown-item  ndropdown-item nav-item2" href="contactus.html">Contact Us</a></li>
+                  <li ><a class="dropdown-item ndropdown-item aut_menu2 nav-item2 " href="blood.html">Blood</a></li>
+                  <li class="activpage "><a class="dropdown-item ndropdown-item aut_menu1 nav-item2 textp" href="people.html">Members</a></li>
+                  <li ><a class="dropdown-item ndropdown-item aut_menu nav-item2 " href="account.html">Exchequer</a></li>
                 </ul>
               </li>
-              <li class="nav-item ">
-                <a class="nav-link aut_menu1 bg-secondary" href="people.html">Members</a>
+              
+              <li  class="nav-item pt-1">
+                <a style="background-color: orangered ; border-radius: 5px;" class="nav-link aut_menu3 text-white " href="transaction.html">Donate</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link aut_menu" href="account.html">Exchequer</a>
+              <li class="nav-item dropdown">
+                <a  class="nav-link pt-3 obtni" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    
+                    
+                    <img
+                    id="profile_icon"
+                    style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; border: 2px solid orangered; border-radius:28px; background-color: #ffff; "
+                    src="./Images/profile.png"
+                    alt="Default Profile"
+                    />
+                    <img
+                    id="profile_icon2"
+                    style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; display: none; border-radius: 50%; border: 2px solid #F95441;"
+                    src=""
+                    alt="User Profile"
+                    />
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item ndropdown-item  menu dash-menu d-none nav-item2" href="dashboard.html">Dashboard</a></li>
+                  <li><a class="dropdown-item ndropdown-item menu login-menu1 nav-item2" href="login.html">Login</a></li>
+                  <li><a class="dropdown-item ndropdown-item menu registration-menu1 nav-item2" href="registration.html">Sign_Up</a></li>
+                  <li><a class="dropdown-item ndropdown-item menu logout-menu1 d-none nav-item2" onclick="handlelogOut()" href="#">Logout</a></li>
+                </ul>
               </li>
-            </ul>  
-            <ul  class=" navbar-nav ms-auto gap-2">
-                <li class="nav-item">
-                    <a class="nav-link sign-menu " href="registration.html">Sign_Up</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link login-menu " href="login.html">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class=" nav-link profile-menu d-none " href="profile.html">Profile</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link logout-menu d-none" onclick="handlelogOut()" href="#" >Logout</a>
-                </li>
+
+
             </ul>
           </div>
-          
         </div>
-      </nav>
-      <div style="padding-top: 50px;"  class="container my-5">
-        
-        <div id="user-card-container" class="d-flex justify-content-center"></div>
       </div>
+    </nav>
+    <div style="padding-top: 0px;"  class="container my-3">
+      
+      <div id="user-card-container" class="d-flex justify-content-center"></div>
+    </div>
 
       
       
-    </header>
+    <footer style="background-color: #222222; color: aliceblue;" class="p-5 ">
+      <div style="width: 90%;" class="  m-auto row p-5">
+        <div  class="col-md-6">
+          <h5>Address</h5>
+          <p>No: 58 A, East Madison Street, Baltimore, MD,<br>USA 4508</p>
+          <p>0000 - 123 - 456789</p>
+          <p>info@example.com</p>
+          <div class="icons">
+            <img class="icon bg-white contact" src="./Images/icon/email.png" alt="" />
+            <img class="icon bg-white contact" src="./Images/icon/yt.png" alt="" />
+            <img class="icon bg-white contact" src="./Images/icon/fb.png" alt="" />
+            <img class="icon bg-white contact" src="./Images/icon/in.png" alt="" />
+            <img class="icon bg-white contact" src="./Images/icon/telegram.png" alt="" />
+            <img class="icon bg-white contact" src="./Images/icon/whatsapp.png" alt="" />
+          </div>
+        </div>
+        <div class="col-md-2">
+          <h5>Help</h5>
+          <li>Information</li>
+          <li>Advanced Search</li>
+          <li>Help & Faq's</li>
+          <li>Store Location</li>
+          <li>Order & Return</li>
+        </div>
+        <div class="col-md-2">
+          <h5>Support</h5>
+          <li>Services</li>
+          <li>Clothing</li>
+          <li>Bags</li>
+          <li>Shoes</li>
+          <li>Accessories</li>
+        </div>
+        <div class="col-md-2">
+          <h5>Information</h5>
+          <li>Contact Us</li>
+          <li>About Us</li>
+          <li>Careers</li>
+          <li>Refund & Return</li>
+          <li>Deliveries</li>
+        </div>
+      </div>
+      <hr/>
+      <p class="text-center mt-3">
+        <small>Copyright © UMSA Family. All Rights Reserved</small>
+      </p>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script

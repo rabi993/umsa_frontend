@@ -478,3 +478,18 @@ border-radius:100px;
     background-color: rgb(244, 132, 92) ;
     color: white;
 }
+.custom-offcanvas {
+    width: 10%;
+  }
+
+  /* Adjust width for smaller devices */
+  @media (max-width: 768px) {
+    .custom-offcanvas {
+      width: 50%;
+    }
+  }
+
+  .dropdown-item:active {
+    background-color: white !important; /* Change background to white */
+    color: black !important;          /* Ensure text color is readable */
+  }

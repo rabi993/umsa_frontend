@@ -48,69 +48,57 @@
         </div>
       </div>
     </div>
-    <nav  class="navbar navbar-expand-lg  py-3 sticky-top ">
+    <nav  class="navbar   py-3 sticky-top ">
       <div class="container-fluid container">
           <a class="navbar-brand lgo  " href="index.html">
               <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
               UMSA
             </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse " id="navbarNavDropdown">
-          <ul class="navbar-nav justify-content-center w-100 gap-2">
-            <li class="nav-item ">
-              <a class="nav-link "   href="index.html">Home</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle aut_menu4 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Posts
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item ndropdown-item nav-item2" href="allposts.html">Posts</a></li>
-                <li><a class="dropdown-item ndropdown-item nav-item2" href="allEvent.html">Upcoming Events</a></li>
-                <li><a class="dropdown-item ndropdown-item nav-item2" href="allNotice.html">Notice</a></li>
-              </ul>
-            </li>
-            <!-- <li class="nav-item ">
-              <a class="nav-link aut_menu3" href="transaction.html">Donate</a>
-            </li> -->
-            <!-- <li class="nav-item">
-              <a class="nav-link aut_menu2" href="blood.html">Blood</a>
-            </li> -->
-            <li class="nav-item dropdown activpage">
-              <a class="nav-link dropdown-toggle textp" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Pages
-              </a>
-              <ul class="dropdown-menu">
-                <li class="activpage "><a class="dropdown-item textp  ndropdown-item nav-item2" href="aboutUs.html">About Us</a></li>
-                <li><a class="dropdown-item ndropdown-item nav-item2" href="service.html">Services</a></li>
-                <li><a class="dropdown-item ndropdown-item nav-item2" href="contactus.html">Contact Us</a></li>
-                <li><a class="dropdown-item ndropdown-item aut_menu2 nav-item2" href="blood.html">Blood</a></li>
-                <li><a class="dropdown-item ndropdown-item aut_menu1 nav-item2" href="people.html">Members</a></li>
-                <li><a class="dropdown-item ndropdown-item aut_menu nav-item2" href="account.html">Exchequer</a></li>
-              </ul>
-            </li>
-            <!-- <li class="nav-item ">
-              <a class="nav-link aut_menu1" href="people.html">Members</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link aut_menu" href="account.html">Exchequer</a>
-            </li> -->
-          </ul>  
-          <ul  class=" navbar-nav ms-auto gap-2">
-              <!-- <li class="nav-item">
-                  <a class="nav-link sign-menu" href="registration.html">Sign_Up</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link login-menu" href="login.html">Login</a>
-              </li>
-              <li class="nav-item">
-                  <a class=" nav-link profile-menu d-none" href="profile.html">Profile</a>
-              </li> 
+        <div  class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <a class="navbar-brand lgo m-auto ps-3 pe " href="index.html">
+              <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
+              UMSA
+            </a>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div style="width: 60%; margin: auto;" class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 ">
               <li class="nav-item ">
-                  <a class="nav-link logout-menu d-none" onclick="handlelogOut()" href="#" >Logout</a>
+                <a class="nav-link "   href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle aut_menu4 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Posts
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item ndropdown-item nav-item2" href="allposts.html">Posts</a></li>
+                  <li><a class="dropdown-item ndropdown-item nav-item2" href="allEvent.html">Upcoming Events</a></li>
+                  <li><a class="dropdown-item ndropdown-item nav-item2" href="allNotice.html">Notice</a></li>
+                </ul>
+              </li>
+              <!-- <li class="nav-item ">
+                <a class="nav-link aut_menu3" href="transaction.html">Donate</a>
               </li> -->
+              <!-- <li class="nav-item">
+                <a class="nav-link aut_menu2" href="blood.html">Blood</a>
+              </li> -->
+              <li class="nav-item dropdown activpage">
+                <a class="nav-link dropdown-toggle textp" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Pages
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="activpage "><a class="dropdown-item textp  ndropdown-item nav-item2" href="aboutUs.html">About Us</a></li>
+                  <li><a class="dropdown-item ndropdown-item nav-item2" href="service.html">Services</a></li>
+                  <li><a class="dropdown-item ndropdown-item nav-item2" href="contactus.html">Contact Us</a></li>
+                  <li><a class="dropdown-item ndropdown-item aut_menu2 nav-item2" href="blood.html">Blood</a></li>
+                  <li><a class="dropdown-item ndropdown-item aut_menu1 nav-item2" href="people.html">Members</a></li>
+                  <li><a class="dropdown-item ndropdown-item aut_menu nav-item2" href="account.html">Exchequer</a></li>
+                </ul>
+              </li>
               <li  class="nav-item pt-1">
                 <a style="background-color: orangered ; border-radius: 5px;" class="nav-link aut_menu3 text-white " href="transaction.html">Donate</a>
               </li>
@@ -138,11 +126,15 @@
                   <li><a class="dropdown-item ndropdown-item menu logout-menu1 d-none nav-item2" onclick="handlelogOut()" href="#">Logout</a></li>
                 </ul>
               </li>
-          </ul>
+
+
+
+            </ul>
+          </div>
         </div>
-        
       </div>
     </nav>
+    
 
     <div class="  text-center text-light" >
       <div style="width: 100%; margin: auto; height: 300px;  background-image: url(./Images/umsabannercrop.jpg); background-repeat: no-repeat; background-position: center; padding-top: 140px;" class=" row">
@@ -168,7 +160,7 @@
               <div class="w-25 m-auto">
                   <img  class="img-fluid " src="./Images/title-image.png" alt="">
               </div>
-              <h1>Perfect gift for your beloved</h1>
+              <h4>Perfect gift for your beloved</h4>
               <p>Adipiscing bibendum est ultricies integer quis auctor elit. Purus non enim praesent elementum facilisis leo vel fringilla est.</p>
           </div>
           <div class="row justify-content-center m-auto gap-4">
@@ -201,28 +193,28 @@
           <div ><img style="width: 40px; height: 40px;margin-left: 125px;" src="./Images/about/add.png" alt=""></div>
           <div class="text-center">
             <h2>940+</h2>
-            <h4>Items Sold</h4>
+            <h5>Items Sold</h5>
           </div>
       </div>
       <div class="col-lg-3 col-md-3 m-auto gap-2">
           <div ><img style="width: 40px; height: 40px;margin-left: 125px;" src="./Images/about/minus.png" alt=""></div>
           <div class="text-center">
             <h2>4,000+</h2>
-            <h4>CUSTOMER BASE</h4>
+            <h5>CUSTOMER BASE</h5>
           </div>
       </div>
       <div class=" col-lg-3 col-md-3 m-auto gap-2">
           <div ><img style="width: 40px; height: 40px;margin-left: 125px;" src="./Images/about/round.png" alt=""></div>
           <div class="text-center">
             <h2>150+</h2>
-            <h4>PLATINUM MEMBERS</h4>
+            <h5>PLATINUM MEMBERS</h5>
           </div>
       </div>
       <div class="col-lg-3 col-md-3  m-auto gap-2">
         <div ><img style="width: 40px; height: 40px;margin-left: 125px;" src="./Images/about/technical-support.png" alt=""></div>
         <div class="text-center">
           <h2>900+</h2>
-          <h4>GIFT VOUCHERS</h4>
+          <h5>GIFT VOUCHERS</h5>
         </div>
       </div>
       
@@ -230,10 +222,10 @@
   
   <div class="w-100 " style="background-image: url(./Images/abou-8_5db39707-abfc-43b6-b83e-e86804e03446.jpg); background-repeat: no-repeat;">
   
-      <div style="padding: 50px 20px 50px 150px; " class="w-50">
+      <div style="padding: 100px 20px 50px 150px; " class="w-50">
           <div class="">
-              <h2>100% FRESH BEAUTY DELIVERED</h2>
-              <h5>100% FRESH BEAUTY DELIVERED Enjoy your shopping, enjoy togetherness...</h5><br>
+              <h4>100% FRESH BEAUTY DELIVERED</h4>
+              <h6>100% FRESH BEAUTY DELIVERED Enjoy your shopping,<br>enjoy togetherness...</h6><br>
           </div>
           <div  class="accordion " id="accordionPanelsStayOpenExample">
               <div class="accordion-item">

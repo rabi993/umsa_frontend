@@ -17,7 +17,19 @@
       crossorigin="anonymous"
     />
     
-
+    <style>
+      /* Default width for larger devices */
+      .custom-offcanvas {
+        width: 10%;
+      }
+    
+      /* Adjust width for smaller devices */
+      @media (max-width: 768px) {
+        .custom-offcanvas {
+          width: 50%;
+        }
+      }
+    </style>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -54,17 +66,16 @@
               <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
               UMSA
             </a>
-            <a style="text-decoration: none;" class="p-2 ms-auto mx-4 text-white btc btn" href="myDonate.html">Donate</a>
-        <button style="background-color: orangered;" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span  class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
         <div  class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
-
             <a class="navbar-brand lgo m-auto ps-3 pe " href="index.html">
               <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
               UMSA
             </a>
+            <!-- <h5 class="offcanvas-title" id="offcanvasNavbarLabel">UMSA</h5> -->
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div style="width: 60%; margin: auto;" class="offcanvas-body">
@@ -121,22 +132,13 @@
                   <li><a class="dropdown-item ndropdown-item menu logout-menu1 d-none nav-item2" onclick="handlelogOut()" href="#">Logout</a></li>
                 </ul>
               </li>
+
+
             </ul>
           </div>
-        </div>
-      </div>
-    </nav>
 
-    <!-- <nav  class="navbar navbar-expand-lg  py-3 sticky-top ">
-      <div class="container-fluid container">
-          <a class="navbar-brand lgo  " href="index.html">
-              <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
-              UMSA
-            </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse " id="navbarNavDropdown">
+        </div>
+        <!-- <div class="collapse navbar-collapse " id="navbarNavDropdown">
           <ul class="navbar-nav justify-content-center w-100 gap-2">
             <li class="nav-item activpage">
               <a class="nav-link textp"   href="index.html">Home</a>
@@ -165,16 +167,13 @@
                 <li><a class="dropdown-item ndropdown-item aut_menu nav-item2" href="account.html">Exchequer</a></li>
               </ul>
             </li>
-            
           </ul>  
           <ul  class=" navbar-nav ms-auto gap-2">
-              
               <li  class="nav-item pt-1">
                 <a style="background-color: orangered ; border-radius: 5px;" class="nav-link aut_menu3 text-white " href="transaction.html">Donate</a>
               </li>
               <li class="nav-item dropdown">
                 <a  class="nav-link pt-3 obtni" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    
                     <img
                     id="profile_icon"
                     style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; border: 2px solid orangered; border-radius:28px; background-color: #ffff; "
@@ -196,14 +195,14 @@
                 </ul>
               </li>
           </ul>
-        </div>
+        </div> -->
         
       </div>
-    </nav> -->
+    </nav>
 
     <div   class="banner-containerfirst ">
       <div class="bannerL row d-flex justify-content-around">
-        <div style="padding-top: 70px;" class="banner-left col-md-4 col-lg-6">
+        <div style="padding-top: 220px;" class="banner-left col-md-4 col-lg-6">
           <h1 style="font-size: 70px;font-weight: 700; color:white; ">
             Welcome to Our
             <br />
@@ -212,8 +211,7 @@
           <p class="w-75 m-auto text-light">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at
             nunc feugiat, pretium quam malesuada, luctus ex.
-          </p> <br><br> <br>
-          <a style="width: 200px; font-size: x-large; font-weight: 700; text-decoration: none;" class="text-white btn btc px-4 py-3 " href="myDonate.html">Donate</a>
+          </p>
         </div>
         <div class="  col-md-8 col-lg-6">
           <img  class=" img-fluid pt-1" src="./Images/umsal.png" alt="" />
