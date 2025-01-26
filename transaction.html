@@ -64,7 +64,7 @@
           padding: 10px 15px;
           font-size: 16px;
           color: #fff;
-          background-color: orangered;
+          background-color: darkgreen;
           border: none;
           border-radius: 5px;
           cursor: pointer;
@@ -72,7 +72,7 @@
         }
       
         form button:hover {
-          background-color: rgb(213, 96, 54);
+          background-color: mediumseagreen;
         }
       
         /* Add spacing for better alignment */
@@ -111,13 +111,14 @@
       </div>
     </div>
   </div>
-  <nav  class="navbar   py-3 sticky-top ">
+  <nav  class="navbar navbar-dark  py-3 sticky-top ">
     <div class="container-fluid container">
         <a class="navbar-brand lgo  " href="index.html">
             <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
             UMSA
           </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <a style="text-decoration: none;" class="p-2 ms-auto mx-4 text-white btc btn" href="myDonate.html">Donate</a>
+<button style="background-color: darkgreen;" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div  class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -159,21 +160,21 @@
             </li>
             
             <li  class="nav-item pt-1 activpage">
-              <a style="background-color: orangered ; border-radius: 5px;" class="nav-link aut_menu3 text-white " href="transaction.html">Donate</a>
+              <a style="background-color: darkgreen ; border-radius: 5px;" class="nav-link aut_menu3 text-white " href="transaction.html">Donate</a>
             </li>
             <li class="nav-item dropdown">
               <a  class="nav-link pt-3 obtni" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <!-- <img class="obtnp" style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; border: 2px solid orangered; border-radius:28px; background-color: #ffff;" src="./Images/profile.png" alt=""> -->
+                  <!-- <img class="obtnp" style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; border: 2px solid darkgreen; border-radius:28px; background-color: #ffff;" src="./Images/profile.png" alt=""> -->
                   
                   <img
                   id="profile_icon"
-                  style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; border: 2px solid orangered; border-radius:28px; background-color: #ffff; "
+                  style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; border: 2px solid darkgreen; border-radius:28px; background-color: #ffff; "
                   src="./Images/profile.png"
                   alt="Default Profile"
                   />
                   <img
                   id="profile_icon2"
-                  style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; display: none; border-radius: 50%; border: 2px solid #F95441;"
+                  style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; display: none; border-radius: 50%; border: 2px solid darkgreen"
                   src=""
                   alt="User Profile"
                   />
@@ -198,11 +199,11 @@
           <table class="container table table-bordered   table-striped" id="accountTable">
             <thead>
               <tr class="winner__table">
-                <th style="background-color: #F95441;">Total Credit</th>
-                <th style="background-color: #F95441;">Total Debit</th>
-                <th style="background-color: #F95441;">Final Cash</th>
-                <th style="background-color: #F95441;">Created At</th>
-                <th style="background-color: #F95441;">Updated At</th>
+                <th style="background-color: darkgreen">Total Credit</th>
+                <th style="background-color: darkgreen">Total Debit</th>
+                <th style="background-color: darkgreen">Final Cash</th>
+                <th style="background-color: darkgreen">Created At</th>
+                <th style="background-color: darkgreen">Updated At</th>
               </tr>
             </thead>
             <tbody>
@@ -271,21 +272,21 @@
       <table id="transactionTable" class="container table table-bordered   table-striped" id="accountTable">
         <thead>
           <tr class="winner__table">
-              <th style="background-color: orangered;">ID</th>
-              <th style="background-color: orangered;">TRX_ID</th>
-              <th style="background-color: orangered;">User_ID</th>
-              <th style="background-color: orangered;">Username</th>
-              <th style="background-color: orangered;">fullname</th>
-              <th style="background-color: orangered;">Reference</th>
-              <th style="background-color: orangered;">Amount</th>
-              <th style="background-color: orangered;">Type</th>
-              <th style="background-color: orangered;">Source</th>
-              <th style="background-color: orangered;">Media</th>
-              <th style="background-color: orangered;">Purpose</th>
-              <th style="background-color: orangered;">Comment</th>
-              <th style="background-color: orangered;">created_at</th>
-              <th style="background-color: orangered;">updated_at</th>
-              <th style="background-color: orangered;">Approved</th>
+              <th style="background-color: darkgreen;">ID</th>
+              <th style="background-color: darkgreen;">TRX_ID</th>
+              <th style="background-color: darkgreen;">User_ID</th>
+              <th style="background-color: darkgreen;">Username</th>
+              <th style="background-color: darkgreen;">fullname</th>
+              <th style="background-color: darkgreen;">Reference</th>
+              <th style="background-color: darkgreen;">Amount</th>
+              <th style="background-color: darkgreen;">Type</th>
+              <th style="background-color: darkgreen;">Source</th>
+              <th style="background-color: darkgreen;">Media</th>
+              <th style="background-color: darkgreen;">Purpose</th>
+              <th style="background-color: darkgreen;">Comment</th>
+              <th style="background-color: darkgreen;">created_at</th>
+              <th style="background-color: darkgreen;">updated_at</th>
+              <th style="background-color: darkgreen;">Approved</th>
           </tr>
         </thead>
         <tbody>
@@ -298,19 +299,19 @@
       <table id="myTransactionTable" class="container table table-bordered   table-striped" id="accountTable">
         <thead>
           <tr class="winner__table">
-            <th style="background-color: orangered;">ID</th>
-            <th style="background-color: orangered;">TRX_ID</th>
-            <th style="background-color: orangered;">fullname</th>
-            <th style="background-color: orangered;">Reference</th>
-            <th style="background-color: orangered;">Amount</th>
-            <th style="background-color: orangered;">Type</th>
-            <th style="background-color: orangered;">Source</th>
-            <th style="background-color: orangered;">Media</th>
-            <th style="background-color: orangered;">Purpose</th>
-            <th style="background-color: orangered;">Comment</th>
-            <th style="background-color: orangered;">created_at</th>
-            <th style="background-color: orangered;">updated_at</th>
-            <th style="background-color: orangered;">Approved</th>
+            <th style="background-color: darkgreen;">ID</th>
+            <th style="background-color: darkgreen;">TRX_ID</th>
+            <th style="background-color: darkgreen;">fullname</th>
+            <th style="background-color: darkgreen;">Reference</th>
+            <th style="background-color: darkgreen;">Amount</th>
+            <th style="background-color: darkgreen;">Type</th>
+            <th style="background-color: darkgreen;">Source</th>
+            <th style="background-color: darkgreen;">Media</th>
+            <th style="background-color: darkgreen;">Purpose</th>
+            <th style="background-color: darkgreen;">Comment</th>
+            <th style="background-color: darkgreen;">created_at</th>
+            <th style="background-color: darkgreen;">updated_at</th>
+            <th style="background-color: darkgreen;">Approved</th>
           </tr> 
         </thead>
         <tbody>

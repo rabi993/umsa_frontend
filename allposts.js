@@ -91,7 +91,7 @@ const loadFlowers = (search = "") => {
               <div>
                 <small style="color: grey; font-size:12px;" class="px-2">${flower.content.slice(0, 100)}...</small>
               </div>
-              <a style="text-decoration: none;" class="btn btc rounded mt-1" href="postDetails.html?postId=${flower.id}">Details</a>
+              <a style="text-decoration: none;" class="btn btc rounded mt-1 text-white" href="postDetails.html?postId=${flower.id}">Details</a>
             `;
           } else {
             console.error("No matching user found for the person.");
@@ -118,7 +118,7 @@ const loadFlowers = (search = "") => {
         data.forEach((item) => {
           const li = document.createElement("li");
           li.classList.add("dropdown-item");
-          li.innerHTML = `<button style="width:100%; margin:auto;" class="btn btc" onclick="loadFlowers('${item.name}')">${item.name}</button>`;
+          li.innerHTML = `<button style="width:100%; margin:auto;" class="btn btc text-white" onclick="loadFlowers('${item.name}')">${item.name}</button>`;
           parent.appendChild(li);
         });
       })

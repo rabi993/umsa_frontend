@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UMSA Landing Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="..."
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    
+    <style>
+      /* Default width for larger devices */
+      .custom-offcanvas {
+        width: 10%;
+      }
+    
+      /* Adjust width for smaller devices */
+      @media (max-width: 768px) {
+        .custom-offcanvas {
+          width: 50%;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg-dark align-text-center pt-3 align-middle">
+      <div class="d-flex justify-content-around row   text-white container m-auto ">
+        <div class="col-lg-4 col-md-4">
+          <div class="d-flex justify-content-start  gap-2  ">
+            <img class="bg-white contact"  src="./images/icon/email.png" alt="">
+            <img class="bg-white contact"  src="./images/icon/yt.png" alt="">
+            <img class="bg-white contact"  src="./images/icon/fb.png" alt="">
+            <img class="bg-white contact"  src="./images/icon/in.png" alt="">
+            <img class="bg-white contact"  src="./images/icon/telegram.png" alt="">
+            <img class="ms-3 bg-white contact"  src="./images/icon/phone.png" alt="">
+            <b class="nav-link">+880-2353-352-555</b>
+  
+          </div>
+        </div>
+        <div class="d-flex justify-content-end gap-2 col-lg-6 col-md-6 text-white">
+          <div class="nav-link"><a class="text-decoration-none textgray hov"  href="aboutUs.html">About Us</a></div><p> | </p>
+          <div class="nav-link"><a class="text-decoration-none textgray hov" href="service.html">Services</a></div><p> | </p>
+          <div class="nav-link"><a class="text-decoration-none textgray hov" href="contactus.html">Contact Us</a></div>
+          <div class=""><a class="nav-link login-menu px-2" href="login.html"><b>🔒 Login</b></a></div>
+          <div class=""><a class="nav-link sign-menu" href="registration.html"><b>👤 Sign_Up</b></a></div>
+          <div class=""><a class="nav-link profile-menu d-none px-2" href="dashboard.html"><b>☺ Profile</b></a></div>
+          <div class=""><a class="nav-link logout-menu d-none" onclick="handlelogOut()" href="#" ><b>⏻ Logout</b></a></div>
+          
+        
+        </div>
+      </div>
+    </div>
+    <nav  class="navbar navbar-dark  py-3 sticky-top ">
+      <div class="container-fluid container">
+          <a class="navbar-brand lgo  " href="index.html">
+              <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
+              UMSA
+            </a>
+            <a style="text-decoration: none;" class="p-2 ms-auto mx-4 text-white btc btn" href="myDonate.html">Donate</a>
+        <button style="background-color: darkgreen;" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div  class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <a class="navbar-brand lgo m-auto ps-3 pe " href="index.html">
+              <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
+              UMSA
+            </a>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div style="width: 60%; margin: auto;" class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 ">
+              
+
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>

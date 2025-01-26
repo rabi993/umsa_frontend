@@ -12,7 +12,9 @@ li{
     border : 1px solid #b5b2b2;
 }
 .table-head{
-    background-color: orangered;
+    background-color: darkgreen;
+    color: white;
+    /* background-color: darkgreen; */
 }
 
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
@@ -21,6 +23,10 @@ li{
 
 .winner__table{
     white-space: nowrap;
+    
+}
+.winner__table th{
+    color: white;
 }
 
 @media screen and (max-width: 567px) {
@@ -56,7 +62,7 @@ nav{
 
 .dash_bar div a:hover {
     color: #fff;
-    background-color: orangered;
+    background-color: darkgreen;
     border-radius: 5px;
     padding: 5px 20px;
     width: 80%;
@@ -108,7 +114,7 @@ nav{
     text-align: center;
     justify-content: space-around;
     align-items: center;
-    background: linear-gradient(rgb(224, 98, 52),rgb(220, 127, 93),rgb(203, 93, 52));
+    background: linear-gradient(darkgreen,mediumseagreen,darkgreen);
     /* background: linear-gradient(rgb(17, 125, 78),rgb(4, 130, 90)); */
     box-shadow: 4px 4px 8px gray;
     border-radius:10px;
@@ -183,7 +189,7 @@ nav{
 }
 .title{
     font-size: 44px;
-    color: orangered;
+    color: darkgreen;
     text-align: center;
 
 }
@@ -408,21 +414,21 @@ border-radius:100px;
     font-weight: 700;
     font-size: xx-large;
     /* color: #16583e; */
-    /* color: orangered; */
-    color: orangered;
+    /* color: darkgreen; */
+    color: darkgreen;
     /* border: 2px solid #bcccce;
     border-radius: 15px; */
 }
 
 .nav-item:hover{
     font-weight: 650;
-    color: orangered;
-    border-bottom:5px solid orangered;
+    color: darkgreen;
+    border-bottom:5px solid darkgreen;
     border-radius: 5%;
 
 }
 .activpage{
-    border-bottom:5px solid orangered;
+    border-bottom:5px solid darkgreen;
     border-radius: 5%;
 }
 .nav-item2{
@@ -431,7 +437,7 @@ border-radius:100px;
 }
 .nav-item2:hover{
     font-weight: 650;
-    color: orangered;
+    color: darkgreen;
     border-radius: 5%;
 
 }
@@ -462,20 +468,23 @@ border-radius:100px;
     transition: transform 0.3s ease-in-out; /* Smooth animation */
 }
 .textp{
-    color:orangered ;
+    color:darkgreen ;
 }
 .texts{
     color:#0f7a4f ;
 }
 .btc{
-    background-color: orangered;
-    /* background-color: orangered; */
+    /* background-color: #04AA6D; */
+    background-color: darkgreen;
+    /* background-color: darkgreen; */
 }
 .btcn{
-    background-color: rgb(244, 132, 92) ;
+    /* background-color: rgb(244, 132, 92) ; */
+    background-color: forestgreen ;
 }
 .btn:hover{
-    background-color: rgb(244, 132, 92) ;
+    background-color: forestgreen ;
+    /* background-color: rgb(244, 132, 92) ; */
     color: white;
 }
 .custom-offcanvas {

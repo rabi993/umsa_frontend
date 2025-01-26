@@ -1,8 +1,10 @@
+
+
 body{
     background-color:white;
 }
 .login-container{
-    height:100vh;
+    /* height:100vh; */
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -11,19 +13,20 @@ body{
     margin: auto;
 }
 .input{
-    padding: 15px 25px;
-    border: none;
-    margin: 10px;
-    box-shadow: 4px 4px 8px gray;
-    border-radius: 5px;
+    padding: 10px 10px;
+    border: 1px solid mediumseagreen;
+    margin: 5px;
+    width: 80%;
+    /* box-shadow: 4px 4px 8px gray; */
+    /* border-radius: 5px; */
 }
 .submit-btn{
     padding: 15px 25px;
-    width:85%;
+    width:80%;
+    margin: 10px;
     margin: auto;
     border: none;
-    background-color: orangered;
+    background-color: #F95441;
     color: white;
     font-size: 20px;
-    border-radius: 10px;
 }

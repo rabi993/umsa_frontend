@@ -68,7 +68,7 @@ const loadFlowers = (search = "") => {
             <small style="color: grey; margin: 0px; font-size:10px;">Created at ${flower.created_at}</small>
             <p style="color: grey; margin: 0px;">${flower.description.slice(0, 100)}...</p>
             <img class="notice-img img-fluid" src="${flower.file}" alt="${flower.name}" />
-            <a style="text-decoration: none; " class="btn btc rounded  mt-1" href="noticeDetails.html?noticeId=${flower.id}">Details</a>
+            <a style="text-decoration: none; " class="btn btc rounded text-white mt-1" href="noticeDetails.html?noticeId=${flower.id}">Details</a>
                 
               
             `;
