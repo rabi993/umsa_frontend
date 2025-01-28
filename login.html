@@ -50,26 +50,27 @@
         </div>
       </div>
     </div>
-    <nav  class="navbar navbar-dark  py-3 sticky-top ">
+    <nav  class="navbar navbar-dark navbar-expand-lg  py-3 sticky-top ">
       <div class="container-fluid container">
           <a class="navbar-brand lgo  " href="index.html">
               <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
               UMSA
             </a>
-        <a style="text-decoration: none;" class="p-2 ms-auto mx-4 text-white btc btn" href="myDonate.html">Donate</a>
-<button style="background-color: darkgreen;" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+            <!-- <a style="text-decoration: none;" class="p-2 ms-auto mx-4 text-white btc btn" href="myDonate.html">Donate</a> -->
+        <button style="background-color: #3BCF93;" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span  class="navbar-toggler-icon"></span>
         </button>
-        <div  class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
-            <a class="navbar-brand lgo m-auto ps-3 pe " href="index.html">
-              <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
-              UMSA
-            </a>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div style="width: 60%; margin: auto;" class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 ">
+        <div  class="offcanvas offcanvas-end custom-offcanvas w-50 me-auto" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div  class="offcanvas-header  gap-3 ">
+
+          <a class="navbar-brand lgo    " href="index.html">
+            <img src="./images/umsalogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top ">
+            UMSA
+          </a>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div style="width: 100%; " class="offcanvas-body  m-auto">
+            <ul class="navbar-nav justify-content-end flex-grow-1 ms-auto gap-3">
               <li class="nav-item ">
                 <a class="nav-link "   href="index.html">Home</a>
               </li>
@@ -99,21 +100,21 @@
               </li>
               
               <li  class="nav-item pt-1">
-                <a style="background-color: darkgreen ; border-radius: 5px;" class="nav-link aut_menu3 text-white " href="transaction.html">Donate</a>
+                <a style="background-color: #3BCF93 ; border-radius: 5px;" class="nav-link aut_menu3 text-white " href="transaction.html">Donate</a>
               </li>
               <li class="nav-item dropdown">
                 <a  class="nav-link pt-3 obtni" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <!-- <img class="obtnp" style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; border: 2px solid darkgreen; border-radius:28px; background-color: #ffff;" src="./Images/profile.png" alt=""> -->
+                    <!-- <img class="obtnp" style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; border: 2px solid #3BCF93; border-radius:28px; background-color: #ffff;" src="./Images/profile.png" alt=""> -->
                     
                     <img
                     id="profile_icon"
-                    style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; border: 2px solid darkgreen; border-radius:28px; background-color: #ffff; "
+                    style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; border: 2px solid #3BCF93; border-radius:28px; background-color: #ffff; "
                     src="./Images/profile.png"
                     alt="Default Profile"
                     />
                     <img
                     id="profile_icon2"
-                    style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; display: none; border-radius: 50%; border: 2px solid darkgreen"
+                    style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; display: none; border-radius: 50%; border: 2px solid #3BCF93"
                     src=""
                     alt="User Profile"
                     />
@@ -136,7 +137,7 @@
 
     <div class="login-container">
       <div class="col-md-6">
-        <h4 class="px-1 mt-5">Please Login</h4>
+        <h4 class="px-1 mt-1">Please Login</h4>
         <form action="">
 
           <input value="rabiul" id="login-username" type="text" class="input" placeholder="username" required />
@@ -147,17 +148,14 @@
         </form>
       </div>
       <div class="col-md-6">
-        <img class="w-100" src="./Images/undraw_mobile-login_4ntr.png" alt="" />
+        <img class="w-100" src="./Images/undraw_login_wqkt.png" alt="" />
       </div>
     </div>
     
-    <footer style="background-color: #222222; color: aliceblue;" class="p-5 ">
-      <div style="width: 90%;" class="  m-auto row p-5">
-        <div  class="col-md-6">
-          <h5>Address</h5>
-          <p>No: 58 A, East Madison Street, Baltimore, MD,<br>USA 4508</p>
-          <p>0000 - 123 - 456789</p>
-          <p>info@example.com</p>
+    <footer style="background-color: #222222; color: aliceblue;" class="pt-4 pb-2">
+      <div  class="   ">
+        <div  class="w-75 m-auto text-center">
+          <img style="width: 10%;" class=" m-auto pb-3 img-fluid" src="./images/umsal.png" alt="">
           <div class="icons">
             <img class="icon bg-white contact" src="./Images/icon/email.png" alt="" />
             <img class="icon bg-white contact" src="./Images/icon/yt.png" alt="" />
@@ -167,34 +165,10 @@
             <img class="icon bg-white contact" src="./Images/icon/whatsapp.png" alt="" />
           </div>
         </div>
-        <div class="col-md-2">
-          <h5>Help</h5>
-          <li>Information</li>
-          <li>Advanced Search</li>
-          <li>Help & Faq's</li>
-          <li>Store Location</li>
-          <li>Order & Return</li>
-        </div>
-        <div class="col-md-2">
-          <h5>Support</h5>
-          <li>Services</li>
-          <li>Clothing</li>
-          <li>Bags</li>
-          <li>Shoes</li>
-          <li>Accessories</li>
-        </div>
-        <div class="col-md-2">
-          <h5>Information</h5>
-          <li>Contact Us</li>
-          <li>About Us</li>
-          <li>Careers</li>
-          <li>Refund & Return</li>
-          <li>Deliveries</li>
-        </div>
+        
       </div>
-      <hr/>
       <p class="text-center mt-3">
-        <small>Copyright © UMSA Family. All Rights Reserved</small>
+        <small>Copyright © 2025 UMSA Family. All Rights Reserved</small>
       </p>
   </footer>
 

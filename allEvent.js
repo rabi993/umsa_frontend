@@ -64,7 +64,7 @@ const loadFlowers = (search = "") => {
             <p style="color: black; margin: 0px; font-size:15px;">Author : ${fullName} </p>
             
             <p style="color: grey; margin: 0px;font-size:12px;">${flower.description.slice(0, 50)}...</p>
-            <p style="color: green; margin: 0px; font-weight: bold;">Held On: ${formatDateTime(flower.held_on)}</p>
+            <p style="color: #3BCF93; margin: 0px; font-weight: bold;">Held On: ${formatDateTime(flower.held_on)}</p>
             <a style="text-decoration: none; " class="btn btc rounded text-white mt-1" href="eventDetails.html?eventId=${flower.id}">Details</a>
               
             

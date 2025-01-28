@@ -14,8 +14,8 @@ body{
 }
 .input{
     padding: 10px 10px;
-    border: 1px solid mediumseagreen;
-    margin: 5px;
+    border: 1px solid mediumsea#3BCF93;
+    margin: 10px 5px;
     width: 80%;
     /* box-shadow: 4px 4px 8px gray; */
     /* border-radius: 5px; */
