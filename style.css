@@ -61,11 +61,11 @@ nav{
 }
 
 .dash_bar div a:hover {
-    color: #fff;
-    background-color: #3BCF93;
-    border-radius: 5px;
-    padding: 5px 20px;
-    width: 80%;
+    color: #3BCF93;
+    /* background-color: #3BCF93; */
+    /* border-radius: 5px; */
+    /* padding: 5px 20px; */
+    /* width: 80%; */
     
 }
 
