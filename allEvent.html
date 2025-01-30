@@ -138,8 +138,29 @@
       </div>
     </nav>
     
-    <h1 style="padding-top:0px ;"  class="title">Our Upcoming Events</h1>
-    <div  class="  row d-flex justify-content-center ">
+    <!-- <h1 style="padding-top:0px ;"  class="title">Our Upcoming Events</h1> -->
+    <div class="container d-flex justify-content-end my-3   ">
+      <div class="col-lg-8 col-md-8">
+        <h3 class="px-2 pt-2">Our Upcoming Events</h3>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <div class="d-flex justify-content-end gap-2 ">
+          <input id="search" type="text" style="border: 1px solid #F95441;" class="rounded-2  bg-light " placeholder="Search..." onkeydown="if(event.key === 'Enter') handleSearch()" />
+          <button class="btn rounded-2 btc me-3 text-white" onclick="handleSearch()">Search</button>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div id="flowers" class="flowers d-flex row pb-3  container justify-content-center  mb-2 m-auto"></div>
+    <div id="nodata" class="nodata text-center" style="display: none;">
+      <img src="./Images/nodata.png" alt="No data" />
+      <p>No results found</p>
+    </div>
+    <div id="spinner" class="loading text-center" style="display: none;">
+      <h4>Loading...</h4>
+    </div>
+    <!-- <div  class="  row d-flex justify-content-center ">
       
       <div class="col-lg-12">
         <div class=" mb-3 ps-5 w-75 m-auto">
@@ -195,7 +216,7 @@
           </div>
         </div>
       </div>
-    </div> 
+    </div>  -->
     
     <footer style="background-color: #222222; color: aliceblue;" class="pt-4 pb-2 ">
       <div  class="   ">

@@ -555,7 +555,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Update user details
         fetch(userApiUrl, {
-          method: "PATCH",
+          method: "PUT",
           headers: {
             "Authorization": `Bearer ${localStorage.getItem("access_token")}`,
             "Content-Type": "application/json", // Ensure the correct Content-Type

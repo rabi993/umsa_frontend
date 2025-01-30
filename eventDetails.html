@@ -140,7 +140,7 @@
     
      <div style="padding-top: 0px;" id="flower-details"></div>
  
-     <div class="review-form-container container mt-4 w-50">
+     <!-- <div class="review-form-container container mt-4 w-50">
        <h5>Submit Your Comment</h5>
        <form id="review-form" onsubmit="handleReviewSubmission(event)">
          <input type="hidden" id="commentor" />
@@ -157,9 +157,82 @@
          </div>
          <button type="submit" class="btn btc text-white">Submit</button>
        </form>
+     </div> -->
+     <div class="review-container container p-5  m-auto">
+      <h4 class="text-center">Event Comment</h4>
+      <p class="description text-center w-50 m-auto">
+        What our members say about this post!
+      </p>
+      <div class="reviews">
+        <div
+          class="swiffy-slider slider-item-show3 slider-item-reveal slider-nav-outside  slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation  slider-item-first-visible"
+        >
+          <ul id="flower-details-review" class="slider-container py-4"></ul>
+
+          <button
+            type="button"
+            class="slider-nav"
+            aria-label="Go left"
+          ></button>
+          <button
+            type="button"
+            class="slider-nav slider-nav-next"
+            aria-label="Go right"
+          ></button>
+
+          <div class="slider-indicators"></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="exampleModalLabel">Write Comment</h5>
+           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         
+         
+         
+          <form class="p-4 "  id="review-form" onsubmit="handleReviewSubmission(event)">
+            <input type="hidden" id="commentor" />
+            <input type="hidden" id="postId" />
+            <div class="mb-3">
+              <label for="reviewBody" class="form-label">Your Comment</label>
+              <textarea
+                id="reviewBody"
+                class="form-control"
+                rows="3"
+                placeholder="Write your comment here"
+                required
+              ></textarea>
+            </div>
+            <button type="button" class="btn btcn text-white" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btc text-white">Submit</button>
+          </form>
+           
+           
+       </div>
      </div>
- 
-     <div class="review-container container p-5 mt-5 m-auto">
+   </div>
+    <div style="padding-top: 0px;"  class=" mt-3 px-5  ">
+     
+      <div class=" mb-3 ps-5 w-75 m-auto">
+         
+        <input id="search" type="text" class="rounded-2  bg-light border" placeholder="Search..." onkeydown="if(event.key === 'Enter') handleSearch()" />
+        <button class="btn rounded-2 btc text-white" onclick="handleSearch()">Search</button>
+      </div>
+   </div> 
+   <hr style="height: 5px; background-color: #000; border: none;" />
+       <div id="flowers" class="flowers d-flex row gap-3 pb-3   justify-content-around"></div>
+       <div id="nodata" class="nodata text-center" style="display: none;">
+         <img src="./Images/nodata.png" alt="No data" />
+         <p>No results found</p>
+       </div>
+       <div id="spinner" class="loading text-center" style="display: none;">
+         <h4>Loading...</h4>
+       </div>
+     <!-- <div class="review-container container p-5 mt-5 m-auto">
        <h4 style="color: #3BCF93;" class="text-center">All Comments</h4>
        <p class="description text-center w-50 m-auto">
          What our clients say about this post!
@@ -205,7 +278,7 @@
           <h4>Loading...</h4>
         </div>
       </div>
-    </div> 
+    </div>  -->
     <footer style="background-color: #222222; color: aliceblue;" class="pt-4 pb-2 ">
       <div  class="   ">
         <div  class="w-75 m-auto text-center">

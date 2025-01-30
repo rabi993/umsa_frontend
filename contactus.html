@@ -17,7 +17,38 @@
       rel="stylesheet"
       crossorigin="anonymous"
     />
-    
+    <style>
+      body{
+          background-color:white;
+      }
+      .login-container{
+          /* height:100vh; */
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          align-items:center;
+          width:75%;
+          margin: auto;
+      }
+      .input{
+          padding: 10px 10px;
+          border: 1px solid #3BCF93;
+          margin: 10px 5px;
+          width: 80%;
+          /* box-shadow: 4px 4px 8px gray; */
+          /* border-radius: 5px; */
+      }
+      .submit-btn{
+          padding: 15px 25px;
+          width:80%;
+          margin: 10px;
+          margin: auto;
+          border: none;
+          background-color: #F95441;
+          color: white;
+          font-size: 20px;
+      }
+    </style>
 
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -158,8 +189,70 @@
         
       </div>
     </div>
+    <div class="py-5">
+      <div class="container">
+          
+          <div class="row justify-content-center m-auto gap-2">
+            <div style="border:1px solid #3BCF93; padding: 30px;" class=" col-lg-3 col-md-3 m-auto gap-2 mx-3 ">
+                <div ><img style="width: 40px; height: 40px;margin-left: 115px;" src="./Images/phone-call.png" alt=""></div>
+                <div class="text-center">
+                  <h3>Phone</h3>
+                  <h6>Toll-Free: 0000 - 123 - 456789</h6>
+                  <h6>Fax: 0000 - 123 - 456789</h6>
+                </div>
+            </div>
+            <div style="border:1px solid #3BCF93; padding: 30px;" class=" col-lg-3 col-md-3 m-auto gap-2 mx-3">
+                <div ><img style="width: 40px; height: 40px;margin-left: 115px;" src="./Images/email.png" alt=""></div>
+                <div class="text-center">
+                  <h3>Email</h3>
+                  <h6>info@example.com</h6>
+                  <h6>support@example.com</h6>
+                </div>
+            </div>
+            <div style="border:1px solid #3BCF93; padding: 30px;" class=" col-lg-3 col-md-3 m-auto gap-2 mx-3">
+                <div ><img style="width: 40px; height: 40px;margin-left: 115px;" src="./Images/pin.png" alt=""></div>
+                <div class="text-center">
+                  <h3>Address</3>
+                  <h6>No: 58 A, East Madison Street,</h6>
+                  <h6>Baltimore, MD, USA 4508</h6>
+                </div>
+            </div>
+              
+              
+          </div>
 
-    <div style="margin-top: 0px;" class="login-container container d-flex justify-content-center">
+
+      </div>
+  </div>
+
+  <!-- contact form -->
+  <div style="margin-top: -50px;" class="mb-5 login-container container row d-flex justify-content-center">
+    <div class="col-lg-6 col-md-6">
+      <h4 class=" mt-5 px-2">Please write to us</h4>
+      <form action="" onsubmit="handlecontact(event)">
+        <p id="error" class="text-danger"></p>
+        <input id="name" type="text" class="input" placeholder="Name" required />
+        
+        <input
+          id="phone"
+          type="text"
+          class="input"
+          placeholder="Phone"
+          pattern="[0-9]{11}" 
+          title="Enter a valid 10-digit phone number"
+          required
+        />
+        <textarea id="content" class="input" placeholder="Message" rows="4" required></textarea>
+        <input type="submit" style="font-size: 20px;"  class="btc input text-white" value="Submit" />
+      </form>
+      
+    </div>
+    <div class="col-lg-5 col-md-5 ">
+      <img class="img-fluid" src="./Images/undraw_contact-us_kcoa (1).png" alt="" />
+    </div>
+  </div>
+    
+    <!-- <div style="margin-top: 0px;" class="login-container container d-flex justify-content-center">
       <div class="col-md-7">
         <h1 class="title ">Please write to us</h1>
         <form id="contact-form" onsubmit="handleContact(event)">
@@ -215,123 +308,30 @@
   
   
       </div>
-  </div>
-  
-  <div style="width: 90%;" class="d-flex row justify-content-center m-auto p-4">
-      <div class="col-lg-3 col-md-3 m-auto gap-2">
-          <div ><img style="width: 40px; height: 40px;margin-left: 125px;" src="./Images/about/add.png" alt=""></div>
-          <div class="text-center">
-            <h2>940+</h2>
-            <h4>Items Sold</h4>
-          </div>
-      </div>
-      <div class="col-lg-3 col-md-3 m-auto gap-2">
-          <div ><img style="width: 40px; height: 40px;margin-left: 125px;" src="./Images/about/minus.png" alt=""></div>
-          <div class="text-center">
-            <h2>4,000+</h2>
-            <h4>CUSTOMER BASE</h4>
-          </div>
-      </div>
-      <div class=" col-lg-3 col-md-3 m-auto gap-2">
-          <div ><img style="width: 40px; height: 40px;margin-left: 125px;" src="./Images/about/round.png" alt=""></div>
-          <div class="text-center">
-            <h2>150+</h2>
-            <h4>PLATINUM MEMBERS</h4>
-          </div>
-      </div>
-      <div class="col-lg-3 col-md-3  m-auto gap-2">
-        <div ><img style="width: 40px; height: 40px;margin-left: 125px;" src="./Images/about/technical-support.png" alt=""></div>
-        <div class="text-center">
-          <h2>900+</h2>
-          <h4>GIFT VOUCHERS</h4>
-        </div>
-      </div>
-      
+  </div> -->
+  <div class="row justify-content-center m-auto gap-4 mb-5 pb-2">
+    <div class="col-lg-3 col-md-4">
+        <img class="img-fluid obtni" src="./Images/about/about001.webp" alt="">
     </div>
+    <div class="col-lg-3 col-md-4">
+        <img class="img-fluid obtni" src="./Images/about/about002.webp" alt="">
+    </div>
+    <div class="col-lg-3 col-md-4">
+        <img class="img-fluid obtni" src="./Images/about/about003.webp" alt="">
+    </div>
+    <div class="col-lg-3 col-md-4">
+        <img class="img-fluid obtni" src="./Images/about/about04.webp" alt="">
+    </div>
+    <div class="col-lg-3 col-md-4">
+        <img class="img-fluid obtni" src="./Images/about/about05.webp" alt="">
+    </div>
+    <div class="col-lg-3 col-md-4">
+        <img class="img-fluid obtni" src="./Images/about/about06.webp" alt="">
+    </div>
+</div>
   
-  <div class="w-100 " style="background-image: url(./Images/abou-8_5db39707-abfc-43b6-b83e-e86804e03446.jpg); background-repeat: no-repeat;">
   
-      <div style="padding: 50px 20px 50px 150px; " class="w-50">
-          <div class="">
-              <h2>100% FRESH BEAUTY DELIVERED</h2>
-              <h5>100% FRESH BEAUTY DELIVERED Enjoy your shopping, enjoy togetherness...</h5><br>
-          </div>
-          <div  class="accordion " id="accordionPanelsStayOpenExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                      Curabitur ullamcorper ultricies nisi.
-                  </button>
-                </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-                  <div class="accordion-body">
-                      Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus.
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                      Viverra suspendisse potenti nullam ac
-                  </button>
-                </h2>
-                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
-                  <div class="accordion-body">
-                      Viverra suspendisse potenti nullam ac tortor vitae. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat.
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-                      Condimentum mattis pellentesque id
-                  </button>
-                </h2>
-                <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
-                  <div class="accordion-body">
-                      Condimentum mattis pellentesque id nibh tortor. Tempus egestas sed sed risus pretium quam. Ultrices tincidunt arcu non sodales neque.
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
-                      Nec dui nunc mattis enim ut.
-                  </button>
-                </h2>
-                <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
-                  <div class="accordion-body">
-                      Nec dui nunc mattis enim ut. Cursus euismod quis viverra nibh cras pulvinar mattis. Ultrices in iaculis nunc sed augue lacus viverra.
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
-                      Egestas integer eget aliquet nibh
-                  </button>
-                </h2>
-                <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse">
-                  <div class="accordion-body">
-                      Egestas integer eget aliquet nibh. Sed lectus vestibulum mattis ullamcorper. Posuere lorem ipsum dolor sit.
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
-                      Malesuada fames ac turpis egestas
-                  </button>
-                </h2>
-                <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse">
-                  <div class="accordion-body">
-                      Malesuada fames ac turpis egestas maecenas pharetra convallis. Congue eu consequat ac felis donec et odio pellentesque diam.
-                  </div>
-                </div>
-              </div>
-          </div>
-        </div>
-      </div>
+  
 
       
     

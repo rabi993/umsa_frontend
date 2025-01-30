@@ -193,18 +193,18 @@ nav{
     text-align: center;
 
 }
-.allflower-card2{
-    width: 500px;
+/* .allflower-card2{ */
+    /* width: 550px; */
 
-    height: 450px;
-    box-shadow: 4px 4px 8px gray;
+    /* height: 450px; */
+    /* box-shadow: 4px 4px 8px gray; */
     /* border-radius: 10px; */
-    text-align:center;
-    padding: 5px;
-    background-color: #e8e8e8;
-}
+    /* text-align:center; */
+    /* padding: 5px; */
+    /* background-color: #e8e8e8; */
+/* } */
 .allflow-img2{
-    width: 490px;
+    width: 100%;
     height: 280px;
     /* border-radius: 10px; */
     border-bottom: 1px solid gray;
@@ -219,15 +219,15 @@ nav{
     text-align:center;
     padding: 5px;
 }
-.event_card{
+/* .event_card{
     width: 550px;
 
     height: 460px;
     box-shadow: 4px 4px 8px gray;
-    /* border-radius: 10px; */
+    border-radius: 10px;
     text-align:center;
     padding: 5px;
-}
+} */
 .notice-img{
     width: 540px;
     height: 303px;
@@ -235,7 +235,7 @@ nav{
     border-top: 1px solid gray;
 }
 .event-img{
-    width: 540px;
+    width: 100%;
     height: 303px;
     /* border-radius: 10px; */
     border-bottom: 1px solid gray;
@@ -257,16 +257,16 @@ nav{
     display: none;
 }
 .review-card{
-    width: 200px;
-    height: 300px;
+    width: 300px;
+    height: 150px;
     box-shadow: 4px 4px 8px  gray;
-    border-radius:15px;
-    text-align: center;
+    border-radius:5px;
+    /* text-align: center; */
     padding-bottom: 5px;
     padding-right: 5px;
     padding-left: 5px;
-    padding-top: 45px;
-    background: #bcccce;
+    /* padding-top: 45px; */
+    /* background: #bcccce; */
 }
 .review-card img{
     width: 80px;
@@ -280,8 +280,8 @@ footer{
 }
 
 .flower-img img{
-width: 350px;
-height: 250px;
+width: 100%;
+height: 300px;
 /* border-radius: 70px; */
 }
 /* .doc-info{

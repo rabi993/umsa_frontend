@@ -41,7 +41,7 @@ const loadFlowers = (search = "") => {
     
       // Create a div for each flower card first
       const div = document.createElement("div");
-      div.classList.add("event_card", "col-12", "col-md-6", "col-lg-6");
+      div.classList.add("event_card", "col-12", "col-md-6", "col-lg-6","my-4");
     
       // Fetch user data for the flower's author
       fetch(userApiUrl)
@@ -58,9 +58,9 @@ const loadFlowers = (search = "") => {
           if (user) {
             const fullName = `${user.first_name} ${user.last_name}`;
           div.innerHTML = `
-            <img class="event-img img-fluid  hov" src="${flower.image}" alt="${flower.name}" />
+            <img class="event-img img-fluid  " src="${flower.image}" alt="${flower.name}" />
             
-            <h4>${flower.name}</h4>
+            <h5>${flower.name}</h5>
             <p style="color: black; margin: 0px; font-size:15px;">Author : ${fullName} </p>
             
             <p style="color: grey; margin: 0px;font-size:12px;">${flower.description.slice(0, 50)}...</p>

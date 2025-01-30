@@ -22,9 +22,9 @@ const loadServices = () => {
 
     services.forEach((service) => {
       const div = document.createElement("div");
-      div.classList.add("col-lg-6", "col-md-6", "col-sm-12", "mb-4");
+      div.classList.add("col-lg-6", "col-md-6", "col-sm-12", "my-5");
       div.innerHTML = `
-        <div class="card shadow h-100" >
+        <div class="  h-100" >
           <div class="ratio ratio-16x9">
             <img
               src="${service.image}"
@@ -34,8 +34,8 @@ const loadServices = () => {
             />
           </div>
           <div class="card-body">
-            <h3 class="card-title h5">${service.name || "Unnamed Service"}</h3>
-            <p class="card-text">
+            <h6 class="card-title h5">${service.name || "Unnamed Service"}</h6>
+            <p class="card-text" style="font-size:14px;">
               ${service.description ? service.description : "No description available."}
             </p>
             

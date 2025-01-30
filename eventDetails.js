@@ -32,11 +32,12 @@ const flowerReview = async (reviews) => {
 
       // Create review card
       const div = document.createElement("div");
-      div.classList.add("review-card");
+      div.classList.add("review-card","px-3");
       div.innerHTML = `
-        <h4>${fullName}</h4>
-        <p>${review.body.slice(0, 100)}</p>
-        <h6>${new Date(review.created).toLocaleString()}</h6>
+        <h6 style="padding-top:15px;">${fullName} <small style="font-size:10px;">${new Date(review.created).toLocaleString()}</small></h6> 
+        <hr/>
+        
+        <p style="font-size:14px; padding-top:5px;">${review.body.slice(0, 100)}</p>
       `;
       parent.appendChild(div);
     } catch (error) {
@@ -59,8 +60,8 @@ const displayDetails = (flower) => {
     "justify-content-center"
   );
   div.innerHTML = `
-    <div class="flower-img img-fluid col-md-4 col-lg-4">
-      <img class="hov" src="${flower.image}" alt="Flower Image" />
+    <div class="flower-img img-fluid col-md-6 col-lg-6">
+      <img class="" src="${flower.image}" alt="Flower Image" />
     </div>
     <div class="doc-info col-md-4 col-lg-4 py-4 px-4">
       <h4>${flower.name}</h4>
@@ -68,6 +69,7 @@ const displayDetails = (flower) => {
       <h6>Created at: ${flower.created_at}</h6>
       <h6>Author: ${flower.user}</h6>
       <p>${flower.description}</p>
+      <button  class="btn btc text-white"data-bs-toggle="modal" data-bs-target="#exampleModal1">Write Comment</button>
     </div>
   `;
   parent.appendChild(div);
