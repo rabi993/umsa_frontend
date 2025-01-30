@@ -153,15 +153,11 @@
               </div>
         
             </div>
-            <div class="col-md-10 pt-1">
+            <div class="col-md-10 p-5">
               <!-- dashboard details -->
-              <div class="container ">
-                <div class="d-flex justify-content-center gap-3 my-1">
-                  <a target="" class="text-white text-decoration-none btn btc border rounded p-2" href="updateProfileAdmin.html">Update Profile</a>
-                </div>
-              </div>
+              
               <div id="change-password-container">
-                <h2 class="text-center">Change Password</h2>
+                <h2 class="text-center mb-3">Change Password</h2>
                 <form class="w-50  m-auto border rounded-2 p-5" id="change-password-form">
                     <div>
                         <label class=" mb-3" for="old-password">Old Password:</label>
@@ -175,7 +171,13 @@
                         <label  class=" mb-3" for="confirm-new-password">Confirm New Password:</label>
                         <input class="rounded-2 mb-3" type="password" id="confirm-new-password" name="confirm_new_password" required>
                     </div>
-                    <button class="btn btc mb-3" type="submit">Change Password</button>
+                    
+                    <div class="container d-flex justify-content-center gap-3 pt-4">
+                      <p class="btn btc mb-3 text-white" type="submit">Change Password</p>
+                      
+                      <p><a target="" class="text-white text-decoration-none btn btc border rounded " href="updateProfileAdmin.html">Update Profile</a></p>
+                      
+                    </div>
                 </form>
                 <div class="mb-3" id="message"></div>
               

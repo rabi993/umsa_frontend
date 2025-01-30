@@ -143,12 +143,15 @@
               </div>
         
             </div>
-            <div class="col-md-10 pt-1">
+            <div class="col-md-10 p-5">
               <!-- dashboard details -->
+              <div class="d-flex justify-content-center row">
+
               
-              <h1 class="title">Service Management</h1>
-              <div class="table-responsive  ">
-                <table  class="container table table-bordered w-50 m-auto  table-striped">
+              
+              <div class="table-responsive  col-md-6 col-lg-6">
+                <h3 class="text-center m-3">Banner Management</h3>
+                <table  class=" table table-bordered w-100 m-auto  table-striped">
                   <thead>
                     <tr class="winner__table text-center">
                       <th style="background-color: #3BCF93">ID</th>
@@ -164,10 +167,11 @@
               </div>
               
             
-              <div class="container mt-5">
+              <div class="container col-md-6 col-lg-6">
             
-                <h3 class="title">Add Banner</h3>
-                <form class="w-50 m-auto" id="banner-form">
+                
+                <form class="w-100 m-auto border  rounded p-3" id="banner-form">
+                    <h3 class="text-center mb-3">Add Banner</h3>
                     <div class="mb-3">
                         <label for="name" class="form-label">Name:</label>
                         <input type="text" class="form-control" id="name" required>
@@ -180,9 +184,12 @@
                         <label for="image" class="form-label">Image URL:</label>
                         <input type="url" class="form-control" id="image" required>
                     </div>
-                    <button type="submit" class="btn btc">Add Banner</button>
+                    <div class="d-flex justify-content-center py-3">
+                        <button type="submit" class="btn btc py-2 px-3">Add Banner</button>
+                    </div>
                 </form>
-            </div>
+             </div>
+           </div>
 
 
 

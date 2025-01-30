@@ -143,51 +143,53 @@
               </div>
         
             </div>
-            <div class="col-md-10 pt-1">
+            <div class="col-md-10 py-5">
               <!-- dashboard details -->
-              
-              <h1 class="title">Category Management</h1>
-              <div class="table-responsive  ">
-                <table id="contactus-table" class="container table table-bordered w-50 m-auto  table-striped">
-                  <thead>
-                    <tr class="winner__table text-center">
-                      <th style="background-color: #3BCF93">ID</th>
-                      <th style="background-color: #3BCF93">Name</th>
-                      <th style="background-color: #3BCF93">Phone</th>
-                      <th style="background-color: #3BCF93">Address</th>
-                      <th style="background-color: #3BCF93">Message</th>
-                      <th style="background-color: #3BCF93">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody id="contactus-list">
-                    <!-- Dynamic rows will be injected here -->
-                  </tbody>
-                </table>
+              <div class="d-flex justify-content-center row">
+                  <div class="table-responsive col-lg-6 col-md-6 ">
+                    <h3 class="text-center mb-4">Contact us Management</h3>
+                    <table id="contactus-table" class=" table table-bordered w-75 m-auto  table-striped">
+                      <thead>
+                        <tr class="winner__table text-center">
+                          <th style="background-color: #3BCF93">ID</th>
+                          <th style="background-color: #3BCF93">Name</th>
+                          <th style="background-color: #3BCF93">Phone</th>
+                          <th style="background-color: #3BCF93">Address</th>
+                          <th style="background-color: #3BCF93">Message</th>
+                          <th style="background-color: #3BCF93">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody id="contactus-list">
+                        <!-- Dynamic rows will be injected here -->
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                
+                  <div class="col-lg-6 col-md-6 ">
+                    <form class="w-75 m-auto border rounded pt-3 pb-4 px-4" id="contactus_form" onsubmit="handleAddContactUs(event)">
+                      <h3 class="text-center mb-4">Add Contactus</h3>
+                      <div class="mb-3">
+                        <label for="contactName" class="form-label">Name</label>
+                        <input type="text" id="contactName" class="form-control" placeholder="Enter your name" required>
+                      </div>
+                      <div class="mb-3">
+                        <label for="contactPhone" class="form-label">Phone</label>
+                        <input type="text" id="contactPhone" class="form-control" placeholder="Enter your phone number" required>
+                      </div><div class="mb-3">
+                        <label for="contactAddress" class="form-label">Address</label>
+                        <textarea id="contactAddress" class="form-control" rows="3" placeholder="Enter your Address" required></textarea>
+                      </div>
+                      <div class="mb-3">
+                        <label for="contactContent" class="form-label">Message</label>
+                        <textarea id="contactContent" class="form-control" rows="3" placeholder="Enter your message" required></textarea>
+                      </div>
+                      <button type="submit" class="btn btc">Submit</button>
+                    </form>
+                </div>
               </div>
               
-            
-              <div class="container mt-5">
-            
-                <h3 class="title">Add Contactus</h3>
-                <form class="w-50 m-auto" id="contactus_form" onsubmit="handleAddContactUs(event)">
-                  <div class="mb-3">
-                    <label for="contactName" class="form-label">Name</label>
-                    <input type="text" id="contactName" class="form-control" placeholder="Enter your name" required>
-                  </div>
-                  <div class="mb-3">
-                    <label for="contactPhone" class="form-label">Phone</label>
-                    <input type="text" id="contactPhone" class="form-control" placeholder="Enter your phone number" required>
-                  </div><div class="mb-3">
-                    <label for="contactAddress" class="form-label">Address</label>
-                    <textarea id="contactAddress" class="form-control" rows="3" placeholder="Enter your Address" required></textarea>
-                  </div>
-                  <div class="mb-3">
-                    <label for="contactContent" class="form-label">Message</label>
-                    <textarea id="contactContent" class="form-control" rows="3" placeholder="Enter your message" required></textarea>
-                  </div>
-                  <button type="submit" class="btn btc">Submit</button>
-                </form>
-            </div>
+              
 
 
 

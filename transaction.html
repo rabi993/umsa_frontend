@@ -33,7 +33,7 @@
           padding: 10px;
           background-color: #f9f9f9;
           border: 1px solid #ddd;
-          border-radius: 10px;
+          border-radius: 5px;
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         /* Labels */
@@ -41,7 +41,7 @@
           display: block;
           font-weight: bold;
           font-size: 14px;
-          margin-bottom: 0px;
+          margin-bottom: 10px;
           color: #555;
         }
       
@@ -59,7 +59,7 @@
         }
       
         /* Button styling */
-        form button {
+        /* form button {
           width: 100%;
           padding: 10px 15px;
           font-size: 16px;
@@ -69,7 +69,7 @@
           border-radius: 5px;
           cursor: pointer;
           transition: background-color 0.3s ease;
-        }
+        } */
       
         form button:hover {
           background-color: mediumsea#3BCF93;
@@ -195,8 +195,8 @@
     </div>
   </nav>
   
-      <h1 style="padding-top: 15px;" class="title">Latest Exchequer!</h1>
-      <div class="table-responsive  ">
+      <h3  class="text-center my-5">Latest Exchequer!</h3>
+      <div class="table-responsive  mb-5">
           <table class="container table table-bordered   table-striped" id="accountTable">
             <thead>
               <tr class="winner__table">
@@ -240,8 +240,9 @@
         </tbody>
     </table> -->
 
-    <h2 class="title">Donate</h2>
-    <form class="w-50 mx-auto " id="transactionForm">
+    
+    <form class="w-25 mx-auto mb-5" id="transactionForm">
+        <h3 class="text-center ">Donate</h3>
         <input type="hidden" id="transactionId">
         <label>TRX ID: <input type="text" id="trxId" required></label>
         <label>Reference: <input type="text" id="reference"></label>
@@ -263,13 +264,38 @@
         
         <input type="hidden" id="approved">
         
-        <button type="submit">Send</button>
+        <div class="w-25 m-auto my-4">
+          <button class="btn btc px-4 py-2 text-white " type="submit">Send</button>
+        </div>
     </form>
+    <h5 class="text-center mb-5">My Transaction List</h5>
+    <div class="table-responsive  mb-5">
+      <table id="myTransactionTable" class="container table table-bordered   table-striped" id="accountTable">
+        <thead>
+          <tr class="winner__table">
+            <th style="background-color: #3BCF93;">ID</th>
+            <th style="background-color: #3BCF93;">TRX_ID</th>
+            <th style="background-color: #3BCF93;">fullname</th>
+            <th style="background-color: #3BCF93;">Reference</th>
+            <th style="background-color: #3BCF93;">Amount</th>
+            <th style="background-color: #3BCF93;">Type</th>
+            <th style="background-color: #3BCF93;">Source</th>
+            <th style="background-color: #3BCF93;">Media</th>
+            <th style="background-color: #3BCF93;">Purpose</th>
+            <th style="background-color: #3BCF93;">Comment</th>
+            <th style="background-color: #3BCF93;">created_at</th>
+            <th style="background-color: #3BCF93;">updated_at</th>
+            <th style="background-color: #3BCF93;">Approved</th>
+          </tr> 
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
 
-
-    <h1 style="padding-top: 10px;" class="title">All Transaction List</h1>
+    <h3 class="text-center mb-5">All Transaction List</h3>
     
-    <div class="table-responsive  ">
+    <div class="table-responsive  mb-5">
       <table id="transactionTable" class="container table table-bordered   table-striped" id="accountTable">
         <thead>
           <tr class="winner__table">
@@ -295,30 +321,7 @@
       </table> 
     </div>
   
-    <h1 class="title">My Transaction List</h1>
-    <div class="table-responsive  ">
-      <table id="myTransactionTable" class="container table table-bordered   table-striped" id="accountTable">
-        <thead>
-          <tr class="winner__table">
-            <th style="background-color: #3BCF93;">ID</th>
-            <th style="background-color: #3BCF93;">TRX_ID</th>
-            <th style="background-color: #3BCF93;">fullname</th>
-            <th style="background-color: #3BCF93;">Reference</th>
-            <th style="background-color: #3BCF93;">Amount</th>
-            <th style="background-color: #3BCF93;">Type</th>
-            <th style="background-color: #3BCF93;">Source</th>
-            <th style="background-color: #3BCF93;">Media</th>
-            <th style="background-color: #3BCF93;">Purpose</th>
-            <th style="background-color: #3BCF93;">Comment</th>
-            <th style="background-color: #3BCF93;">created_at</th>
-            <th style="background-color: #3BCF93;">updated_at</th>
-            <th style="background-color: #3BCF93;">Approved</th>
-          </tr> 
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-    </div>
+    
     <footer style="background-color: #222222; color: aliceblue;" class="pt-4 pb-2 ">
       <div  class="   ">
         <div  class="w-75 m-auto text-center">

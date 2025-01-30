@@ -143,41 +143,45 @@
               </div>
         
             </div>
-            <div class="col-md-10 pt-1">
+            <div class="col-md-10 py-5">
               <!-- dashboard details -->
-              
-              <h1 class="title">Category Management</h1>
-              <div class="table-responsive  ">
-                <table class="container table table-bordered w-50 m-auto  table-striped">
-                  <thead>
-                    <tr class="winner__table text-center">
-                      <th style="background-color: #3BCF93">ID</th>
-                      <th style="background-color: #3BCF93">Name</th>
-                      <th style="background-color: #3BCF93">Slug</th>
-                      <th style="background-color: #3BCF93">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody id="category-table-body">
-                    <!-- Dynamic rows will be injected here -->
-                  </tbody>
-                </table>
+              <div class="d-flex justify-content-center row">
+                <div class="table-responsive  col-lg-6 col-md-6">
+                    <h3 class="text-center">Category List</h3>
+                    <table class=" table table-bordered w-75 m-auto  table-striped">
+                      <thead>
+                        <tr class="winner__table text-center">
+                          <th style="background-color: #3BCF93">ID</th>
+                          <th style="background-color: #3BCF93">Name</th>
+                          <th style="background-color: #3BCF93">Slug</th>
+                          <th style="background-color: #3BCF93">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody id="category-table-body">
+                        <!-- Dynamic rows will be injected here -->
+                      </tbody>
+                    </table>
+                  </div>
+                
+                  <div class="  col-lg-6 col-md-6">
+                    <form class="w-75 m-auto border rounded p-4" id="category-form">
+                        <h3 class="text-center">Add Category</h3>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="slug" class="form-label">Slug:</label>
+                            <input type="text" class="form-control" id="slug" required>
+                        </div>
+                        <div class="w-50 m-auto d-flex  justify-content-center py-4">
+                            <button type="submit" class="btn btc py-2 px-3">Add Category</button>
+                        </div>
+                    </form>
+                   </div>
               </div>
-            
-              <div class="container mt-5">
-            
-                <h3 class="title">Add Category</h3>
-                <form class="w-25 m-auto" id="category-form">
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name:</label>
-                        <input type="text" class="form-control" id="name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="slug" class="form-label">Slug:</label>
-                        <input type="text" class="form-control" id="slug" required>
-                    </div>
-                    <button type="submit" class="btn btc">Add Category</button>
-                </form>
-            </div>
+              
+              
 
 
 

@@ -30,7 +30,7 @@
           display: block;
           font-weight: bold;
           font-size: 14px;
-          margin-bottom: 0px;
+          margin-bottom: 10px;
           color: #555;
         }
       
@@ -40,7 +40,7 @@
         form input[type="hidden"] {
           width: 100%;
           padding: 5px;
-          margin-bottom: 5px;
+          margin-bottom: 10px;
           border: 1px solid #ccc;
           border-radius: 5px;
           font-size: 14px;
@@ -48,7 +48,7 @@
         }
       
         /* Button styling */
-        form button {
+        /* form button {
           width: 100%;
           padding: 10px 15px;
           font-size: 16px;
@@ -58,7 +58,7 @@
           border-radius: 5px;
           cursor: pointer;
           transition: background-color 0.3s ease;
-        }
+        } */
       
         form button:hover {
           background-color: mediumsea#3BCF93;
@@ -68,6 +68,7 @@
         form label,
         form input {
           margin-top: 2px;
+          margin-bottom: 10px;
         }
     </style>
 
@@ -196,10 +197,11 @@
               </div>
         
             </div>
-            <div class="col-md-10 pt-1">
+            <div class="col-md-10 p-5">
               <!-- dashboard details -->
-              <h1 class="title">Add Post</h1>
-              <form class="text-center w-50 m-auto" id="post_form" onsubmit="handleAddPost(event)">
+              
+              <form class=" w-50 m-auto" id="post_form" onsubmit="handleAddPost(event)">
+                <h3 class="text-center my-3">Add Post</h3>
                 <div class="mb-3">
                 <label for="postOwner" class="form-label">Post_Owner:</label>
                 
@@ -229,10 +231,12 @@
                 <select id="postCategory" class="form-select" multiple required></select>
                 </div>
                 
-                <button type="submit" class="btn btc">Add Post</button>
+                <div class="d-flex justify-content-center p-4">
+                  <button type="submit" class="btn btc px-3 py-2">Add Post</button>
+                </div>
             </form>
             <div id="form-message" class="mt-3"></div>
-              <h1 class="title">Post list Management</h1>
+              <h3 class="text-center py-4">Post list Management</h3>
               <div class="table-responsive  ">
                 <table id="posts-table" class=" table table-bordered m-3 m-auto  table-striped">
                   <thead>

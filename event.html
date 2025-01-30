@@ -40,7 +40,7 @@
         form input[type="hidden"] {
           width: 100%;
           padding: 5px;
-          margin-bottom: 5px;
+          margin-bottom: 15px;
           border: 1px solid #ccc;
           border-radius: 5px;
           font-size: 14px;
@@ -48,7 +48,7 @@
         }
         
         /* Button styling */
-        form button {
+        /* form button {
           width: 100%;
           padding: 10px 15px;
           font-size: 16px;
@@ -58,7 +58,7 @@
           border-radius: 5px;
           cursor: pointer;
           transition: background-color 0.3s ease;
-        }
+        } */
       
         form button:hover {
           background-color: mediumsea#3BCF93;
@@ -68,6 +68,7 @@
         form label,
         form input {
           margin-top: 2px;
+          margin-bottom: 10px;
         }
     </style>
 
@@ -198,8 +199,9 @@
             </div>
             <div class="col-md-10 pt-1">
               <!-- dashboard details -->
-              <h1 class="title">Add Event</h1>
+              
               <form class="w-25 m-auto" id="post_form" onsubmit="handleAddPost(event)">
+                <h3 class="text-center m-3">Add Event</h3>
                 <div>
                     <label for="postOwner">event Owner:</label>
                     <input type="text" id="postOwner" readonly>
@@ -220,10 +222,12 @@
                     <label for="postImage">Image:</label>
                     <input type="file" id="postImage" accept="image/*" required>
                 </div><br>
-                <button  type="submit">Add event</button>
+                <div class="d-flex justify-content-center w-100 m-auto">
+                  <button class="btn btc py-2 px-3"  type="submit">Add event</button>
+                </div>
             </form>
             <div id="form-message"></div>
-              <h1 class="title">Event list Management</h1>
+              <h3 class="text-center my-4">Event list Management</h3>
               <div class="table-responsive  ">
                 <table id="posts-table" class=" table table-bordered m-3 m-auto  table-striped">
                   <thead>

@@ -143,66 +143,70 @@
               </div>
         
             </div>
-            <div class="col-md-10 pt-1">
+            <div class="col-md-10 p-5">
               <!-- dashboard details -->
-              
-              <h1 class="title">Service Management</h1>
-              <div class="table-responsive  ">
-                <table id="service-table" class="container table table-bordered w-50 m-auto  table-striped">
-                  <thead>
-                    <tr class="winner__table text-center">
-                      <th style="background-color: #3BCF93">ID</th>
-                      <th style="background-color: #3BCF93">Name</th>
-                      <th style="background-color: #3BCF93">Description</th>
-                      <th style="background-color: #3BCF93">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody id="service-list">
-                    <!-- Dynamic rows will be injected here -->
-                  </tbody>
-                </table>
-              </div>
+              <div class="d-flex justify-content-center row">
+                <div class="table-responsive col-lg-6 col-md-6 ">
+                  <h3 class="text-center my-4">Service Management</h3>
+                  <table id="service-table" class=" table table-bordered w-100 m-auto  table-striped">
+                    <thead>
+                      <tr class="winner__table text-center">
+                        <th style="background-color: #3BCF93">ID</th>
+                        <th style="background-color: #3BCF93">Name</th>
+                        <th style="background-color: #3BCF93">Description</th>
+                        <th style="background-color: #3BCF93">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="service-list">
+                      <!-- Dynamic rows will be injected here -->
+                    </tbody>
+                  </table>
+                </div>
               
             
-              <div class="container mt-5">
-            
-                <h3 class="title">Add Service</h3>
-                <form class="w-50 m-auto mb-3" id="service_form" onsubmit="handleAddService(event)">
-                  <input type="hidden" id="serviceId" /> <!-- Hidden field for service ID -->
-        
-                  <div class="mb-3">
-                    <label for="serviceName" class="form-label">Service Name</label>
-                    <input
-                      type="text"
-                      id="serviceName"
-                      class="form-control"
-                      placeholder="Write service name"
-                      required
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="serviceDescription" class="form-label">Service Description</label>
-                    <textarea
-                      id="serviceDescription"
-                      class="form-control"
-                      rows="3"
-                      placeholder="Write service description"
-                      required
-                    ></textarea>
-                  </div>
-                  <div class="mb-3">
-                    <label for="serviceImage" class="form-label">Service Image</label>
-                    <input
-                      type="file"
-                      id="serviceImage"
-                      class="form-control"
-                      accept="image/*"
-                      required
-                    />
-                    <img id="imagePreview" src="" alt="Image Preview" style="width: 100px; height: 100px;" />
-                  </div>
-                  <button type="submit" class="btn btc" id="addServiceButton">Add Service</button>
-                </form>
+                <div class=" col-lg-6 col-md-6">
+              
+                  
+                  <form class="w-75 m-auto border rounded p-3" id="service_form" onsubmit="handleAddService(event)">
+                    <h3 class="text-center mt-2 mb-4">Add Service</h3>
+                    <input type="hidden" id="serviceId" /> <!-- Hidden field for service ID -->
+          
+                    <div class="mb-3">
+                      <label for="serviceName" class="form-label">Service Name</label>
+                      <input
+                        type="text"
+                        id="serviceName"
+                        class="form-control"
+                        placeholder="Write service name"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="serviceDescription" class="form-label">Service Description</label>
+                      <textarea
+                        id="serviceDescription"
+                        class="form-control"
+                        rows="3"
+                        placeholder="Write service description"
+                        required
+                      ></textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label for="serviceImage" class="form-label">Service Image</label>
+                      <input
+                        type="file"
+                        id="serviceImage"
+                        class="form-control"
+                        accept="image/*"
+                        required
+                      />
+                      <img id="imagePreview" src="" alt="Image Preview" style="width: 100px; height: 100px;" />
+                    </div>
+                    <div class="d-flex justify-content-center py-4 w-100 m-auto">
+                      <button type="submit" class="btn btc px-3 py-2" id="addServiceButton">Add Service</button>
+                    </div>
+                  </form>
+                </div>
             </div>
 
 

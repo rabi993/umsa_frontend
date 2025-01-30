@@ -30,7 +30,7 @@
           display: block;
           font-weight: bold;
           font-size: 14px;
-          margin-bottom: 0px;
+          margin-bottom: 10px;
           color: #555;
         }
       
@@ -40,7 +40,7 @@
         form input[type="hidden"] {
           width: 100%;
           padding: 5px;
-          margin-bottom: 5px;
+          margin-bottom: 10px;
           border: 1px solid #ccc;
           border-radius: 5px;
           font-size: 14px;
@@ -48,7 +48,7 @@
         }
       
         /* Button styling */
-        form button {
+        /* form button {
           width: 100%;
           padding: 10px 15px;
           font-size: 16px;
@@ -58,7 +58,7 @@
           border-radius: 5px;
           cursor: pointer;
           transition: background-color 0.3s ease;
-        }
+        } */
       
         form button:hover {
           background-color: mediumsea#3BCF93;
@@ -68,6 +68,7 @@
         form label,
         form input {
           margin-top: 2px;
+          margin-bottom: 10px;
         }
     </style>
 
@@ -196,10 +197,10 @@
               </div>
         
             </div>
-            <div class="col-md-10 pt-1">
+            <div class="col-md-10 py-5">
               <!-- dashboard details -->
-              <h1 class="title">Add Credit/Debit</h1>
-              <form  class="text-center w-25 m-auto pb-3" id="transactionForm">
+              <h3 class="text-center mb-3">Add Credit/Debit</h3>
+              <form  class="w-25 m-auto pb-3" id="transactionForm">
                 <input type="hidden" id="transactionId">
                 <label>TRX ID: </label>
                 <input type="text" id="trxId" required>
@@ -227,9 +228,11 @@
                 
                 <input type="hidden" id="approved">
                 
-                <button class="btn btc " type="submit">Save</button>
+                <div class="d-flex justify-content-center py-3">
+                    <button class="btn btc px-3 py-2 " type="submit">Save</button>
+                </div>
             </form>
-              <h1 class="title">Transaction list Management</h1>
+              <h3 class="text-center my-4">Transaction list Management</h3>
               <div class="table-responsive  ">
                 <table id="transactionTable" class=" table table-bordered m-3 m-auto  table-striped">
                   <thead>
