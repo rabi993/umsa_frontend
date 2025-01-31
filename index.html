@@ -16,6 +16,64 @@
       rel="stylesheet"
       crossorigin="anonymous"
     />
+    <style>
+      #transactionForm {
+            margin-top: 20px;
+        }
+        
+        /* General form styling */
+        form {
+          padding: 10px;
+          background-color: #f9f9f9;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        /* Labels */
+        form label {
+          display: block;
+          font-weight: bold;
+          font-size: 14px;
+          margin-bottom: 10px;
+          color: #555;
+        }
+      
+        /* Inputs */
+        form input[type="text"],
+        form input[type="number"],
+        form input[type="hidden"] {
+          width: 100%;
+          padding: 5px;
+          margin-bottom: 5px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 14px;
+          box-sizing: border-box;
+        }
+      
+        /* Button styling */
+        /* form button {
+          width: 100%;
+          padding: 10px 15px;
+          font-size: 16px;
+          color: #fff;
+          background-color: #3BCF93;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        } */
+      
+        form button:hover {
+          background-color: mediumsea#3BCF93;
+        }
+      
+        /* Add spacing for better alignment */
+        form label,
+        form input {
+          margin-top: 2px;
+        }
+    </style>
     
 
     <link rel="stylesheet" href="style.css" />
@@ -215,13 +273,52 @@
             nunc feugiat, pretium quam malesuada, luctus ex.
           </p>  -->
           <br><br> <br>
-          <a style="width: 200px; font-size: x-large; font-weight: 700; text-decoration: none;border-radius: none;"  onmouseover="this.style.backgroundColor='mediumsea#3BCF93'" onmouseout="this.style.backgroundColor='#3BCF93'" class="text-white  btc px-4 py-3 " href="myDonate.html">Donate</a>
+          <a style="width: 200px; font-size: x-large; font-weight: 700; text-decoration: none;border-radius: none;"  onmouseover="this.style.backgroundColor='mediumsea#3BCF93'" onmouseout="this.style.backgroundColor='#3BCF93'" class="text-white  btc px-4 py-3 " data-bs-toggle="modal" data-bs-target="#donateModal">Donate</a>
         </div>
         <div class="  col-md-8 col-lg-6">
           <img style="width: 250px; height: 250px; margin-top: 120px;" class=" img-fluid pt-1" src="./Images/umsal.png" alt="" />
         </div>
       </div>
     </div> 
+    <div class="modal fade" id="donateModal" tabindex="-1" aria-labelledby="donateModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="donateModalLabel">Donate</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+          <form class="w-100 m-auto " id="transactionFormToDonate">
+                      <h3 class="text-center my-4">Donate</h3>
+                      <input type="hidden" id="transactionId">
+                      <label>TRX ID: <input type="text" id="trxId" required></label>
+                      <label>Reference: <input type="text" id="reference"></label>
+                      <label>Amount: <input type="number" id="amount" required></label>
+                      <input type="hidden" id="typys" value="credit">
+                      <!-- <label>Type: 
+                          <select id="typys" required>
+                              <option value="credit">Credit</option>
+                              <option value="debit">Debit</option>
+                          </select>
+                      </label><br> -->
+                      <label>Source: <input type="text" id="sourcePeople"></label>
+                      <label>Media: <input type="text" id="media"></label>
+                      <label>Purpose: <input type="text" id="purpose"></label>
+                      <label>Comment: <input type="text" id="comment"></label>
+                      <!-- <label>Approved: 
+                          <input type="checkbox " id="approved">
+                      </label><br> -->
+                      
+                      <input type="hidden" id="approved">
+                      
+                      <div class="d-flex justify-content-center py-4">
+                        <button class="btn btc px-3 py-2" type="submit">Send</button>
+                      </div>
+                  </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="d-flex justify-content-center row text-white">
       <div style="background-color: #3BCF93; padding: 80px 70px ;" class=" col-md-4 col-lg-4 ">
         <h3>We’ve been tackling poverty in communities to build better lives</h3>
@@ -486,10 +583,62 @@
       </p>
   </footer>
 
-    <!-- <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"
-      integrity="..."
-    ></script> -->
+  <script>
+    const apiUrl = "http://127.0.0.1:8000/transaction/";
+
+    document.getElementById("transactionFormToDonate").addEventListener("submit", function (event) {
+        event.preventDefault();
+        
+        const id = document.getElementById("transactionId").value;
+        const method = id ? "PUT" : "POST";
+        const url = id ? `${apiUrl}${id}/` : apiUrl;
+
+        const transactionData = {
+            user: localStorage.getItem("user_id"),
+            trx_id: document.getElementById("trxId").value,
+            reference: document.getElementById("reference").value,
+            amount: document.getElementById("amount").value,
+            typys: document.getElementById("typys").value,
+            source_people: document.getElementById("sourcePeople").value,
+            media: document.getElementById("media").value,
+            purpose: document.getElementById("purpose").value,
+            comment: document.getElementById("comment").value,
+            approved: document.getElementById("approved").checked
+        };
+
+        fetch(url, {
+            method: method,
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(transactionData),
+        })
+        .then(response => {
+            console.log("Response Status:", response.status); // Debugging line
+
+            if (!response.ok) {
+                return response.json().then(errData => {
+                    console.error("Error Response:", errData); // Log error response
+                    throw new Error("Transaction Failed! ❌");
+                });
+            }
+            return response.json(); // Convert response to JSON
+        })
+        .then(data => {
+            console.log("Transaction Success:", data); // Debugging line
+
+            alert("Transaction data has Delivered ,Need Admin Aproval");
+            document.getElementById("transactionFormToDonate").reset(); // Clear form
+            fetchTransactions(); // Refresh transaction list
+
+            // Close modal (Bootstrap)
+            var modal = bootstrap.Modal.getInstance(document.getElementById("donateModal"));
+            modal.hide();
+        })
+        
+    });
+</script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
       crossorigin="anonymous"

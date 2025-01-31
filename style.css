@@ -405,6 +405,9 @@ border-radius:100px;
     color:gray;
     text-align: center;
 }
+.nav-link:hover{
+    color: #3BCF93;
+}
 .ndropdown-item{
     font-weight: 500;
     font-size: large;
@@ -418,6 +421,9 @@ border-radius:100px;
     color: #3BCF93;
     /* border: 2px solid #bcccce;
     border-radius: 15px; */
+}
+.lgo img{
+    margin-top: 2px;
 }
 
 .nav-item:hover{
@@ -440,6 +446,12 @@ border-radius:100px;
     color: #3BCF93;
     border-radius: 5%;
 
+}
+.obtn{
+    margin-bottom: 20px;
+}
+.obtn:hover{
+    color: #2be399;
 }
 .obtni:hover{
     

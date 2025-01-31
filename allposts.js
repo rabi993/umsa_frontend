@@ -118,7 +118,7 @@ const loadFlowers = (search = "") => {
         data.forEach((item) => {
           const li = document.createElement("li");
           li.classList.add("dropdown-item");
-          li.innerHTML = `<button style="width:75%; " class="btn ms-auto text-start text-black " onclick="loadFlowers('${item.name}')">♦️ ${item.name}</button>`;
+          li.innerHTML = `<button style="width:75%; " class="btn ms-auto text-start text-black " onclick="loadFlowers('${item.name}')">🟩 ${item.name}</button>`;
           parent.appendChild(li);
         });
       })

@@ -22,7 +22,12 @@
         }
         th, td {
             padding: 10px;
-            text-align: left;
+            text-align: center;
+
+
+        }
+        td {
+          font-size: 13px;
         }
         #transactionForm {
             margin-top: 20px;
@@ -195,11 +200,14 @@
     </div>
   </nav>
   
-      <h3  class="text-center my-5">Latest Exchequer!</h3>
+      <div class="d-flex justify-content-between mt-5 mb-4 container m-auto">
+        <h3  class="text-center ">Latest Exchequer!</h3>
+        <button type="button" class="btn btc" data-bs-toggle="modal" data-bs-target="#donateModal">Donation Form</button>     
+      </div>
       <div class="table-responsive  mb-5">
-          <table class="container table table-bordered   table-striped" id="accountTable">
+          <table class="container table table-bordered text-center  table-striped" id="accountTable">
             <thead>
-              <tr class="winner__table">
+              <tr class="winner__table ">
                 <th style="background-color: #3BCF93">Total Credit</th>
                 <th style="background-color: #3BCF93">Total Debit</th>
                 <th style="background-color: #3BCF93">Final Cash</th>
@@ -207,68 +215,94 @@
                 <th style="background-color: #3BCF93">Updated At</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody >
               <!-- Dynamic rows will be injected here -->
             </tbody>
           </table>
       </div>
-        
-  
+      
+      <div class="modal fade" id="donateModal" tabindex="-1" aria-labelledby="donateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="donateModalLabel">Donate</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form id="transactionForm">
+                <input type="hidden" id="transactionId">
+                <label>TRX ID: <input type="text" id="trxId" class="form-control" required></label>
+                <label>Reference: <input type="text" id="reference" class="form-control"></label>
+                <label>Amount: <input type="number" id="amount" class="form-control" required></label>
+                <input type="hidden" id="typys" value="credit">
+                
+                <label>Source: <input type="text" id="sourcePeople" class="form-control"></label>
+                <label>Media: <input type="text" id="media" class="form-control"></label>
+                <label>Purpose: <input type="text" id="purpose" class="form-control"></label>
+                <label>Comment: <input type="text" id="comment" class="form-control"></label>
+                
+                <input type="hidden" id="approved">
+                
+                <div class="text-center my-4">
+                  <button class="btn btc px-4 py-2 text-white" type="submit">Send</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     
-    <!-- <h1 class="text-center">My Transaction List</h1> -->
-    <!-- <table class="container" id="myTransactionTable">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>TRX_ID</th>
-                <th>User_ID</th>
-                <th>Username</th>
-                <th>fullname</th>
-                <th>Reference</th>
-                <th>Amount</th>
-                <th>Type</th>
-                <th>Source</th>
-                <th>Media</th>
-                <th>Purpose</th>
-                <th>Comment</th>
-                <th>created_at</th>
-                <th>updated_at</th>
-                <th>Approved</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table> -->
-
-    
-    <form class="w-25 mx-auto mb-5" id="transactionForm">
+    <!-- <form class="w-25 mx-auto mb-5" id="transactionForm">
         <h3 class="text-center ">Donate</h3>
         <input type="hidden" id="transactionId">
         <label>TRX ID: <input type="text" id="trxId" required></label>
         <label>Reference: <input type="text" id="reference"></label>
         <label>Amount: <input type="number" id="amount" required></label>
         <input type="hidden" id="typys" value="credit">
-        <!-- <label>Type: 
-            <select id="typys" required>
-                <option value="credit">Credit</option>
-                <option value="debit">Debit</option>
-            </select>
-        </label><br> -->
+        
         <label>Source: <input type="text" id="sourcePeople"></label>
         <label>Media: <input type="text" id="media"></label>
         <label>Purpose: <input type="text" id="purpose"></label>
         <label>Comment: <input type="text" id="comment"></label>
-        <!-- <label>Approved: 
-            <input type="checkbox " id="approved">
-        </label><br> -->
         
         <input type="hidden" id="approved">
         
         <div class="w-25 m-auto my-4">
           <button class="btn btc px-4 py-2 text-white " type="submit">Send</button>
         </div>
-    </form>
-    <h5 class="text-center mb-5">My Transaction List</h5>
+    </form> -->
+    <div class="pb-5 container">
+    
+        
+      <div class="row justify-content-center m-auto gap-2">
+        <div style="border:1px solid #3BCF93;background-color: #FFFFFF; padding: 30px;" class=" col-lg-3 col-md-3 m-auto gap-2 mx-3 ">
+            <div ><img style="width: 70px; height: 85px;margin-left: 95px;" src="./Images/undraw_credit-card-payment_3zqz.png" alt=""></div>
+            <div class="text-center">
+              <h4>Bank</h4>
+              <h6>Sonali, DBBL, BRAC, ISLAMI</h6>
+             
+            </div>
+        </div>
+        <div style="border:1px solid #3BCF93;background-color: #FFFFFF; padding: 30px;" class=" col-lg-3 col-md-3 m-auto gap-2 mx-3">
+            <div ><img style="width: 70px; height: 85px;margin-left: 95px;" src="./Images/undraw_mobile-application_lhsq.png" alt=""></div>
+            <div class="text-center">
+              <h4>Mobile Banking</h4>
+              <h6>Rocket, Bkash, Nagad</h6>
+              
+            </div>
+        </div>
+        <div style="border:1px solid #3BCF93;background-color: #FFFFFF; padding: 30px;" class=" col-lg-3 col-md-3 m-auto gap-2 mx-3">
+            <div ><img style="width: 70px; height: 85px;margin-left: 95px;" src="./Images/undraw_wallet_8u45 (1).png" alt=""></div>
+            <div class="text-center">
+              <h4>Direct Cash</h4>
+              <h6>+880-2353-352-555</h6>
+              
+            </div>
+        </div>
+      </div>
+      
+    </div>
+    <h3 class="container mb-5">My Transaction List</h3>
     <div class="table-responsive  mb-5">
       <table id="myTransactionTable" class="container table table-bordered   table-striped" id="accountTable">
         <thead>
@@ -293,7 +327,7 @@
       </table>
     </div>
 
-    <h3 class="text-center mb-5">All Transaction List</h3>
+    <h3 class="container mb-5">All Transaction List</h3>
     
     <div class="table-responsive  mb-5">
       <table id="transactionTable" class="container table table-bordered   table-striped" id="accountTable">
@@ -301,15 +335,15 @@
           <tr class="winner__table">
               <th style="background-color: #3BCF93;">ID</th>
               <th style="background-color: #3BCF93;">TRX_ID</th>
-              <th style="background-color: #3BCF93;">User_ID</th>
+              <!-- <th style="background-color: #3BCF93;">User_ID</th> -->
               <th style="background-color: #3BCF93;">Username</th>
               <th style="background-color: #3BCF93;">fullname</th>
               <th style="background-color: #3BCF93;">Reference</th>
               <th style="background-color: #3BCF93;">Amount</th>
               <th style="background-color: #3BCF93;">Type</th>
-              <th style="background-color: #3BCF93;">Source</th>
+              <!-- <th style="background-color: #3BCF93;">Source</th> -->
               <th style="background-color: #3BCF93;">Media</th>
-              <th style="background-color: #3BCF93;">Purpose</th>
+              <!-- <th style="background-color: #3BCF93;">Purpose</th> -->
               <th style="background-color: #3BCF93;">Comment</th>
               <th style="background-color: #3BCF93;">created_at</th>
               <th style="background-color: #3BCF93;">updated_at</th>
@@ -368,18 +402,17 @@
                                     <tr>
                                         <td>${transaction.id}</td>
                                         <td>${transaction.trx_id}</td>
-                                        <td>${transaction.user}</td>
                                         <td>${username}</td>
                                         <td>${first_name} ${last_name}</td>
                                         <td>${transaction.reference || ''}</td>
                                         <td>${transaction.amount}</td>
                                         <td>${transaction.typys}</td>
-                                        <td>${transaction.source_people || ''}</td>
+                                        
                                         <td>${transaction.media || ''}</td>
-                                        <td>${transaction.purpose || ''}</td>
+                                        
                                         <td>${transaction.comment || ''}</td>
-                                        <td>${transaction.created_at || ''}</td>
-                                        <td>${transaction.updated_at || ''}</td>
+                                        <td>${new Date(transaction.created_at).toLocaleString()}</td>
+                                        <td>${new Date(transaction.updated_at).toLocaleString()}</td>
                                         <td>${transaction.approved ? "Yes" : "No"}</td>
                                     </tr>
                                 `;
@@ -445,8 +478,9 @@
                                             <td>${transaction.media || ''}</td>
                                             <td>${transaction.purpose || ''}</td>
                                             <td>${transaction.comment || ''}</td>
-                                            <td>${transaction.created_at || ''}</td>
-                                            <td>${transaction.updated_at || ''}</td>
+                                            <td>${new Date(transaction.created_at).toLocaleString()}</td>
+                                            <td>${new Date(transaction.updated_at).toLocaleString()}</td>
+                                            
                                             <td>${transaction.approved ? "Yes" : "No"}</td>
                                         </tr>
                                     `;

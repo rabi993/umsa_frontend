@@ -30,7 +30,7 @@ const fetchPosts = () => {
                 <td>${post.user}</td>
                 <td>${post.title}</td>
                 <td>${post.content}</td>
-                <td><img src="${post.image}" alt="${post.title}" style="width: 100px; height: 100px; object-fit: cover;"></td>
+                <td><img style="height:70px; width:70px;" src="${post.image}" alt="${post.title}" style="width: 100px; height: 100px; object-fit: cover;"></td>
                 <td>${post.category.join(", ")}</td>
                 
                 <td>

@@ -197,10 +197,55 @@
               </div>
         
             </div>
-            <div class="col-md-10 pt-1">
+            <div class="col-md-10 py-5">
               <!-- dashboard details -->
-              
-              <form class="w-25 m-auto" id="post_form" onsubmit="handleAddPost(event)">
+              <div class="d-flex justify-content-between container m-auto px-4 mb-4">
+                <h3>Event list Management</h3>
+                <button type="button" class="btn btc" data-bs-toggle="modal" data-bs-target="#donateModal">
+                  Add Event
+                </button>
+               </div>
+               <!-- Modal -->
+                <div class="modal fade" id="donateModal" tabindex="-1" aria-labelledby="donateModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title" id="donateModalLabel">Add Event</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form class="w-100 m-auto" id="post_form" onsubmit="handleAddPost(event)">
+                              
+                              <div>
+                                  <label for="postOwner">event Owner:</label>
+                                  <input type="text" id="postOwner" readonly>
+                              </div>
+                              <div>
+                                  <label for="postTitle">Title:</label>
+                                  <input type="text" id="postTitle" placeholder="Enter post title" required>
+                              </div>
+                              <div>
+                                  <label for="postContent">Content:</label>
+                                  <textarea style="width: 100%;" class="rounded" id="postContent" placeholder="Enter post description" required></textarea>
+                              </div>
+                              <div>
+                                  <label for="held_on">Held On:</label>
+                                  <input  type="datetime-local" id="held_on" required>
+                              </div>
+                              <div>
+                                  <label for="postImage">Image:</label>
+                                  <input type="file" id="postImage" accept="image/*" required>
+                              </div><br>
+                              <div class="d-flex justify-content-center w-100 m-auto">
+                                <button class="btn btc py-2 px-3"  type="submit">Add event</button>
+                              </div>
+                          </form>
+                          <div id="form-message"></div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              <!-- <form class="w-25 m-auto" id="post_form" onsubmit="handleAddPost(event)">
                 <h3 class="text-center m-3">Add Event</h3>
                 <div>
                     <label for="postOwner">event Owner:</label>
@@ -226,9 +271,9 @@
                   <button class="btn btc py-2 px-3"  type="submit">Add event</button>
                 </div>
             </form>
-            <div id="form-message"></div>
-              <h3 class="text-center my-4">Event list Management</h3>
-              <div class="table-responsive  ">
+            <div id="form-message"></div> -->
+              <!-- <h3 class="text-center my-4">Event list Management</h3> -->
+              <div class="table-responsive  px-3">
                 <table id="posts-table" class=" table table-bordered m-3 m-auto  table-striped">
                   <thead>
                     <tr class="winner__table text-center">

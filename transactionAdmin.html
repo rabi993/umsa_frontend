@@ -199,7 +199,63 @@
             </div>
             <div class="col-md-10 py-5">
               <!-- dashboard details -->
-              <h3 class="text-center mb-3">Add Credit/Debit</h3>
+               <div class="d-flex justify-content-between container m-auto px-4 mb-4">
+                <h3>Transaction list Management</h3>
+                <button type="button" class="btn btc" data-bs-toggle="modal" data-bs-target="#donateModal">
+                    Add Credit/Debit
+                </button>
+               </div>
+
+<!-- Modal -->
+<div class="modal fade" id="donateModal" tabindex="-1" aria-labelledby="donateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="donateModalLabel">Add Credit/Debit</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="w-100 pb-3" id="transactionForm">
+                    <input type="hidden" id="transactionId">
+                    
+                    <label>TRX ID: </label>
+                    <input type="text" id="trxId" class="form-control" required>
+
+                    <label>Reference: </label>
+                    <input type="text" id="reference" class="form-control">
+
+                    <label>Amount: </label>
+                    <input type="number" id="amount" class="form-control" required>
+
+                    <label>Type:</label>
+                    <select class="form-control p-2 rounded-2" id="typys" required>
+                        <option value="credit">Credit</option>
+                        <option value="debit">Debit</option>
+                    </select>
+
+                    <label>Source: </label>
+                    <input type="text" id="sourcePeople" class="form-control">
+
+                    <label>Media: </label>
+                    <input type="text" id="media" class="form-control">
+
+                    <label>Purpose: </label>
+                    <input type="text" id="purpose" class="form-control">
+
+                    <label>Comment: </label>
+                    <input type="text" id="comment" class="form-control">
+
+                    <input type="hidden" id="approved">
+
+                    <div class="d-flex justify-content-center py-3">
+                        <button class="btn btn-success px-3 py-2" type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+              <!-- <h3 class="text-center mb-3">Add Credit/Debit</h3>
               <form  class="w-25 m-auto pb-3" id="transactionForm">
                 <input type="hidden" id="transactionId">
                 <label>TRX ID: </label>
@@ -222,18 +278,16 @@
                 <input type="text" id="purpose">
                 <label>Comment: </label>
                 <input type="text" id="comment">
-                <!-- <label>Approved: 
-                    <input type="checkbox " id="approved">
-                </label><br> -->
+                
                 
                 <input type="hidden" id="approved">
                 
                 <div class="d-flex justify-content-center py-3">
                     <button class="btn btc px-3 py-2 " type="submit">Save</button>
                 </div>
-            </form>
-              <h3 class="text-center my-4">Transaction list Management</h3>
-              <div class="table-responsive  ">
+            </form> -->
+              
+              <div class="table-responsive container ">
                 <table id="transactionTable" class=" table table-bordered m-3 m-auto  table-striped">
                   <thead>
                     <tr class="winner__table text-center">
