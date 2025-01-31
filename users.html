@@ -121,7 +121,7 @@
                   <a style="border-bottom:1px solid gray;" class="btn  mt-1 mb-1 dash-btn" href="banner.html">Banner</a>
               </div>
               <div>
-                  <a style="border-bottom:1px solid gray;" class="btn btc mt-1 mb-1 dash-btn" href="users.html">All Users</a>
+                  <a style="border-bottom:1px solid gray;" class="btn btc text-white mt-1 mb-1 dash-btn" href="users.html">All Users</a>
               </div>
               <div>
                   <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="peopleAdmin.html">Members</a>
@@ -184,7 +184,7 @@
         } else {
             (async function verifyAdmin() {
                 try {
-                    const response = await fetch(`http://127.0.0.1:8000/users/${userId}`);
+                    const response = await fetch(`https://club-1-6len.onrender.com/users/${userId}`);
                     const user = await response.json();
     
                     if (user.is_superuser) {
@@ -202,7 +202,7 @@
     
         async function fetchUsers() {
             try {
-                const response = await fetch('http://127.0.0.1:8000/users/');
+                const response = await fetch('https://club-1-6len.onrender.com/users/');
                 const users = await response.json();
                 const tableBody = document.getElementById('userTableBody');
                 tableBody.innerHTML = '';
@@ -215,7 +215,7 @@
                         <td>${user.email}</td>
                         <td>${user.is_active ? 'Active' : 'Inactive'}</td>
                         <td>
-                            <button class=" btn btc" onclick="handlestatus(${user.id}, ${user.is_active})">
+                            <button class=" btn btc text-white" onclick="handlestatus(${user.id}, ${user.is_active})">
                                 ${user.is_active ? 'Deactivate' : 'Activate'}
                             </button>
                         </td>
@@ -230,7 +230,7 @@
     
         async function handlestatus(userId, isActive) {
             try {
-                const response = await fetch(`http://127.0.0.1:8000/users/${userId}/`, {
+                const response = await fetch(`https://club-1-6len.onrender.com/users/${userId}/`, {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json',
@@ -257,7 +257,7 @@
     
         // const handleStatus = async (userId, email, isActive) => {
         // try {
-        //     const response = await fetch(`http://127.0.0.1:8000/users/${userId}/`, {
+        //     const response = await fetch(`https://club-1-6len.onrender.com/users/${userId}/`, {
         //     method: 'PATCH',
         //     headers: {
         //         'Content-Type': 'application/json',
@@ -286,7 +286,7 @@
     
         // const sendEmailNotification = async (email, status) => {
         // try {
-        //     const response = await fetch('http://127.0.0.1:8000/users/send-email/', {
+        //     const response = await fetch('https://club-1-6len.onrender.com/users/send-email/', {
         //     method: 'POST',
         //     headers: {
         //         'Content-Type': 'application/json',
@@ -486,7 +486,7 @@
     } else {
         (async function verifyAdmin() {
             try {
-                const response = await fetch(`http://127.0.0.1:8000/users/${userId}`);
+                const response = await fetch(`https://club-1-6len.onrender.com/users/${userId}`);
                 const user = await response.json();
 
                 if (user.is_superuser) {
@@ -504,7 +504,7 @@
 
     async function fetchUsers() {
         try {
-            const response = await fetch('http://127.0.0.1:8000/users/');
+            const response = await fetch('https://club-1-6len.onrender.com/users/');
             const users = await response.json();
             const tableBody = document.getElementById('userTableBody');
             tableBody.innerHTML = '';
@@ -532,7 +532,7 @@
 
     async function handlestatus(userId, isActive) {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/users/${userId}/`, {
+            const response = await fetch(`https://club-1-6len.onrender.com/users/${userId}/`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -559,7 +559,7 @@
 
     // const handleStatus = async (userId, email, isActive) => {
     // try {
-    //     const response = await fetch(`http://127.0.0.1:8000/users/${userId}/`, {
+    //     const response = await fetch(`https://club-1-6len.onrender.com/users/${userId}/`, {
     //     method: 'PATCH',
     //     headers: {
     //         'Content-Type': 'application/json',
@@ -588,7 +588,7 @@
 
     // const sendEmailNotification = async (email, status) => {
     // try {
-    //     const response = await fetch('http://127.0.0.1:8000/users/send-email/', {
+    //     const response = await fetch('https://club-1-6len.onrender.com/users/send-email/', {
     //     method: 'POST',
     //     headers: {
     //         'Content-Type': 'application/json',
@@ -659,7 +659,7 @@
         } else {
             (async function verifyAdmin() {
                 try {
-                    const response = await fetch(`http://127.0.0.1:8000/users/${userId}`);
+                    const response = await fetch(`https://club-1-6len.onrender.com/users/${userId}`);
                     const user = await response.json();
 
                     if (user.is_superuser) {
@@ -677,7 +677,7 @@
 
         async function fetchUsers() {
             try {
-                const response = await fetch('http://127.0.0.1:8000/users/');
+                const response = await fetch('https://club-1-6len.onrender.com/users/');
                 const users = await response.json();
                 const tableBody = document.getElementById('userTableBody');
                 tableBody.innerHTML = '';
@@ -705,7 +705,7 @@
 
         async function handlestatus(userId, isActive) {
             try {
-                const response = await fetch(`http://127.0.0.1:8000/users/${userId}/`, {
+                const response = await fetch(`https://club-1-6len.onrender.com/users/${userId}/`, {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json',

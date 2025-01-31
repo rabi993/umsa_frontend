@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchServices(); // Load the services when the page loads
 });
 const fetchServices = () => {
-  fetch("http://127.0.0.1:8000/service/")
+  fetch("https://club-1-6len.onrender.com/service/")
     .then((response) => response.json())
     .then((services) => {
       const serviceList = document.getElementById("service-list");
@@ -23,8 +23,8 @@ const fetchServices = () => {
             <td>${service.name}</td>
             <td>${service.description}</td>
             <td>
-              <button class="btn btc btn-sm mx-1" onclick="handleEditService('${service.id}', '${service.name}', '${service.description}', '${service.image}')">Edit</button>
-              <button class="btn btc btn-sm mx-1" onclick="handleDeleteService('${service.id}')">Delete</button>
+              <button class="btn btc text-white btn-sm mx-1" onclick="handleEditService('${service.id}', '${service.name}', '${service.description}', '${service.image}')">Edit</button>
+              <button class="btn btc text-white btn-sm mx-1" onclick="handleDeleteService('${service.id}')">Delete</button>
             </td>
           `;
 
@@ -88,8 +88,8 @@ const handleAddService = async (event) => {
     // Determine HTTP method and URL
     const method = serviceId ? "PUT" : "POST"; // Update or add
     const url = serviceId
-      ? `http://127.0.0.1:8000/service/${serviceId}/`
-      : "http://127.0.0.1:8000/service/";
+      ? `https://club-1-6len.onrender.com/service/${serviceId}/`
+      : "https://club-1-6len.onrender.com/service/";
 
     // Send service data to backend
     const response = await fetch(url, {
@@ -131,7 +131,7 @@ const handleDeleteService = (id) => {
     return;
   }
 
-  fetch(`http://127.0.0.1:8000/service/${id}/`, {
+  fetch(`https://club-1-6len.onrender.com/service/${id}/`, {
     method: "DELETE", // Assuming the API uses DELETE for deletions
   })
     .then((response) => {

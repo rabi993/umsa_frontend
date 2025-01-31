@@ -13,7 +13,7 @@ const handlelogOut = () => {
   
   const token = localStorage.getItem("token");
 
-  fetch("http://127.0.0.1:8000/people/logout/", {
+  fetch("https://club-1-6len.onrender.com/people/logout/", {
     method: "POST",
     headers: {
       Authorization: `Token ${token}`,
@@ -35,7 +35,7 @@ const handlelogOut = () => {
       console.log("LocalStorage cleared successfully.");
 
       // Redirect to login page
-      window.location.href = "http://127.0.0.1:5500/login.html"; // Redirect to the login page
+      window.location.href = "https://rabi993.github.io/umsa_frontend/login.html"; // Redirect to the login page
     })
     .catch((err) => {
       console.error("Logout failed:", err);

@@ -1,5 +1,5 @@
-const API_URL = "http://127.0.0.1:8000/people/";
-const userAPI_URL = "http://127.0.0.1:8000/users/";
+const API_URL = "https://club-1-6len.onrender.com/people/";
+const userAPI_URL = "https://club-1-6len.onrender.com/users/";
 
 // Fetch users and filter people based on user ID
 function fetchPeople() {
@@ -44,10 +44,10 @@ function fetchPeople() {
                                     <td>
                                         <div class="d-flex gap-1">
                                             <div>
-                                                <a class="btn btc btn-sm" href="userProfileAdmin.html?personId=${person.id}" target="_blank">Profile</a>
+                                                <a class="btn btc text-white btn-sm" href="userProfileAdmin.html?personId=${person.id}" target="_blank">Profile</a>
                                             </div>
                                             <div>
-                                                <button class="btn btc btn-sm" onclick="deletePerson(${person.id})">Delete</button>
+                                                <button class="btn btc text-white btn-sm" onclick="deletePerson(${person.id})">Delete</button>
                                             </div>
                                         </div>
                                     </td>

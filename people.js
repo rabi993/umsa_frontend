@@ -1,5 +1,5 @@
-const API_URL = "http://127.0.0.1:8000/people/";
-const userAPI_URL = "http://127.0.0.1:8000/users/";
+const API_URL = "https://club-1-6len.onrender.com/people/";
+const userAPI_URL = "https://club-1-6len.onrender.com/users/";
 
 // Fetch users and filter people based on user ID
 function fetchPeople() {

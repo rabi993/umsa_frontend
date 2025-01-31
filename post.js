@@ -3,7 +3,7 @@ const fetchPosts = () => {
     const postsList = document.getElementById("posts-list");
     postsList.innerHTML = `<tr><td colspan="8" class="text-center">Loading posts...</td></tr>`;
   
-    fetch("http://127.0.0.1:8000/post/list/")
+    fetch("https://club-1-6len.onrender.com/post/list/")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch posts.");
@@ -32,8 +32,8 @@ const fetchPosts = () => {
               
               <td>
                 <div class ="d-flex ">
-                  <button class="btn btcn" onclick='handleEditpost(${JSON.stringify(post)})'>Edit</button>
-                  <button class="btn btc mx-3" onclick='handleDeletepost(${post.id})'>Delete</button>
+                  <button class="btn btcn text-white" onclick='handleEditpost(${JSON.stringify(post)})'>Edit</button>
+                  <button class="btn btc text-white mx-3" onclick='handleDeletepost(${post.id})'>Delete</button>
                 </div>
               </td>
             `;
@@ -52,7 +52,7 @@ const fetchPosts = () => {
   
 
   const fetchCategories = () => {
-    fetch("http://127.0.0.1:8000/category/")
+    fetch("https://club-1-6len.onrender.com/category/")
       .then((response) => {
         if (!response.ok) throw new Error("Failed to fetch categories");
         return response.json();
@@ -76,7 +76,7 @@ const fetchPosts = () => {
   document.addEventListener("DOMContentLoaded", () => {
     const userId = localStorage.getItem("user_id"); 
     
-    fetch(`http://127.0.0.1:8000/users/${userId}/`) 
+    fetch(`https://club-1-6len.onrender.com/users/${userId}/`) 
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch user details");
@@ -140,7 +140,7 @@ const fetchPosts = () => {
       };
   
       // Send post data to your backend
-      const response = await fetch("http://127.0.0.1:8000/post/list/", {
+      const response = await fetch("https://club-1-6len.onrender.com/post/list/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(postData),
@@ -210,7 +210,7 @@ const handleEditpost = (post) => {
         category: Array.from(categorySelect.selectedOptions).map(option => option.value),
       };
 
-      const response = await fetch(`http://127.0.0.1:8000/post/list/${post.id}/`, {
+      const response = await fetch(`https://club-1-6len.onrender.com/post/list/${post.id}/`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedpost),
@@ -234,7 +234,7 @@ const handleEditpost = (post) => {
 
   const handleDeletepost = (id) => {
     if (confirm("Are you sure you want to delete this post?")) {
-      fetch(`http://127.0.0.1:8000/post/list/${id}/`, {
+      fetch(`https://club-1-6len.onrender.com/post/list/${id}/`, {
         method: "DELETE",
       })
         .then(response => {

@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     const userId = localStorage.getItem('user_id'); // Get the user ID from local storage
-    const apiUrl = `http://127.0.0.1:8000/users/${userId}`; // Correctly interpolate the userId into the URL
+    const apiUrl = `https://club-1-6len.onrender.com/users/${userId}`; // Correctly interpolate the userId into the URL
     const cardContainer = document.getElementById("user-card-container");
 
     fetch(apiUrl)

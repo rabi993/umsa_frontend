@@ -1,6 +1,6 @@
 
 const fetchContactUs = () => {
-    fetch("http://127.0.0.1:8000/contact_us/")
+    fetch("https://club-1-6len.onrender.com/contact_us/")
       .then((response) => response.json())
       .then((contacts) => {
         const contactUsList = document.getElementById("contactus-list");
@@ -22,7 +22,7 @@ const fetchContactUs = () => {
               <td>${contact.address}</td>
               <td>${contact.content}</td>
               <td>
-                <button class="btn btc btn-sm" onclick="deleteContactUs(${contact.id})">Delete</button>
+                <button class="btn btc text-white btn-sm" onclick="deleteContactUs(${contact.id})">Delete</button>
               </td>
             `;
             contactUsList.appendChild(row);
@@ -52,7 +52,7 @@ const fetchContactUs = () => {
       content: content,
     };
   
-    fetch("http://127.0.0.1:8000/contact_us/", {
+    fetch("https://club-1-6len.onrender.com/contact_us/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -87,7 +87,7 @@ const fetchContactUs = () => {
 const deleteContactUs = (contactId) => {
   if (!confirm("Are you sure you want to delete this entry?")) return;
 
-  fetch(`http://127.0.0.1:8000/contact_us/${contactId}/`, {
+  fetch(`https://club-1-6len.onrender.com/contact_us/${contactId}/`, {
     method: "DELETE",
   })
     .then((response) => {

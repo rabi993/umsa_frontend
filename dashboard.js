@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const userId = localStorage.getItem('user_id'); // Get the user ID from local storage
 
 // Fetch the list of people and find the relevant person for the user
-fetch("http://127.0.0.1:8000/people/list/")
+fetch("https://club-1-6len.onrender.com/people/list/")
     .then((response) => {
     if (!response.ok) {
         throw new Error("Error fetching people list");
@@ -20,8 +20,8 @@ fetch("http://127.0.0.1:8000/people/list/")
     return person;
     })
     .then((person) => {
-    const userApiUrl = `http://127.0.0.1:8000/users/${userId}`;
-    const peopleApiUrl = `http://127.0.0.1:8000/people/list/${person.id}`;
+    const userApiUrl = `https://club-1-6len.onrender.com/users/${userId}`;
+    const peopleApiUrl = `https://club-1-6len.onrender.com/people/list/${person.id}`;
     const cardContainer = document.getElementById("user-card-container");
 
     // Fetch user and people data in parallel
@@ -112,8 +112,8 @@ fetch("http://127.0.0.1:8000/people/list/")
 });
 
 
-const apiUrl = "http://127.0.0.1:8000/transaction/";
-const apiUrlUser = "http://127.0.0.1:8000/users/";
+const apiUrl = "https://club-1-6len.onrender.com/transaction/";
+const apiUrlUser = "https://club-1-6len.onrender.com/users/";
 
 
 function fetchTransactions1() {

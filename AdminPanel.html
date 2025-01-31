@@ -94,7 +94,7 @@
         <div class="d-flex ">
           <div style="background-color: #E8E8E8;" class="col-md-2  px-2 ">
             <div>
-              <a style="border-bottom:1px solid gray;" class="btn btc mt-1 mb-1 dash-btn" href="adminPanel.html">Dashboard</a>
+              <a style="border-bottom:1px solid gray;" class="btn btc text-white mt-1 mb-1 dash-btn" href="adminPanel.html">Dashboard</a>
             </div>
               <div>
                 <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="accountAdmin.html">Exchequer</a>
@@ -268,15 +268,15 @@
       async function fetchDashboardData() {
           try {
               const [people, posts, events, notices, transactions, services, accounts, contacts, comments] = await Promise.all([
-                  fetch("http://127.0.0.1:8000/people/list/").then(res => res.json()),
-                  fetch("http://127.0.0.1:8000/post/list/").then(res => res.json()),
-                  fetch("http://127.0.0.1:8000/event/list/").then(res => res.json()),
-                  fetch("http://127.0.0.1:8000/notice/list/").then(res => res.json()),
-                  fetch("http://127.0.0.1:8000/transaction/").then(res => res.json()),
-                  fetch("http://127.0.0.1:8000/service/").then(res => res.json()),
-                  fetch("http://127.0.0.1:8000/account/").then(res => res.json()),
-                  fetch("http://127.0.0.1:8000/contact_us/").then(res => res.json()),
-                  fetch("http://127.0.0.1:8000/post/comments/").then(res => res.json())
+                  fetch("https://club-1-6len.onrender.com/people/list/").then(res => res.json()),
+                  fetch("https://club-1-6len.onrender.com/post/list/").then(res => res.json()),
+                  fetch("https://club-1-6len.onrender.com/event/list/").then(res => res.json()),
+                  fetch("https://club-1-6len.onrender.com/notice/list/").then(res => res.json()),
+                  fetch("https://club-1-6len.onrender.com/transaction/").then(res => res.json()),
+                  fetch("https://club-1-6len.onrender.com/service/").then(res => res.json()),
+                  fetch("https://club-1-6len.onrender.com/account/").then(res => res.json()),
+                  fetch("https://club-1-6len.onrender.com/contact_us/").then(res => res.json()),
+                  fetch("https://club-1-6len.onrender.com/post/comments/").then(res => res.json())
               ]);
 
               document.getElementById("totalPeople").innerText = people.length;

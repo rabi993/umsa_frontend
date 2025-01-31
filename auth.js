@@ -24,7 +24,7 @@ const handleRegistration = (event) => {
     ) {
       console.log(info);
 
-      fetch("http://127.0.0.1:8000/people/register/", {
+      fetch("https://club-1-6len.onrender.com/people/register/", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(info),
@@ -38,7 +38,7 @@ const handleRegistration = (event) => {
       .then((data) => {
         console.log(data);
         alert("Registration successful! Check Your Email and Activate your Account. After activated Then You can log in.");
-        window.location.href = "http://127.0.0.1:5500/login.html";
+        window.location.href = "https://rabi993.github.io/umsa_frontend/login.html";
       })
     } else {
       document.getElementById("error").innerText =
@@ -71,7 +71,7 @@ const handleLogin = (event) => {
   }
 
   // API call for login
-  fetch("http://127.0.0.1:8000/people/login/", {
+  fetch("https://club-1-6len.onrender.com/people/login/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password }),
@@ -98,7 +98,7 @@ const handleLogin = (event) => {
 
         // Use `user_id` to fetch user details
         const userId = data.user_id;
-        fetch(`http://127.0.0.1:8000/users/${userId}/`, {
+        fetch(`https://club-1-6len.onrender.com/users/${userId}/`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -116,9 +116,9 @@ const handleLogin = (event) => {
 
             localStorage.setItem("username", userData.username);
             if (userData.is_superuser) {
-              window.location.href = "http://127.0.0.1:5500/AdminPanel.html";
+              window.location.href = "https://rabi993.github.io/umsa_frontend/AdminPanel.html";
             } else {
-              window.location.href = "http://127.0.0.1:5500/index.html";
+              window.location.href = "https://rabi993.github.io/umsa_frontend/index.html";
               
             }
           })
@@ -148,7 +148,7 @@ function setPeople() {
   }
 
   // Fetch the list of people and find the relevant person for the user
-  fetch("http://127.0.0.1:8000/people/list/")
+  fetch("https://club-1-6len.onrender.com/people/list/")
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Error fetching people list: ${response.statusText}`);

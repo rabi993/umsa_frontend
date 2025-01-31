@@ -1,7 +1,7 @@
 // Fetch and display user and buyer data in a card
 document.addEventListener("DOMContentLoaded", function () {
     const userId = localStorage.getItem('user_id'); // Get the user ID from local storage
-    const userApiUrl = `http://127.0.0.1:8000/users/${userId}`; // User API URL
+    const userApiUrl = `https://club-1-6len.onrender.com/users/${userId}`; // User API URL
     const cardContainer = document.getElementById("user-card-container2");
 
     // Fetch user and buyer data in parallel
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     const userId = localStorage.getItem("user_id");
   
-    const userApiUrl = `http://127.0.0.1:8000/users/${userId}/`;
+    const userApiUrl = `https://club-1-6len.onrender.com/users/${userId}/`;
   
     const updateForm = document.getElementById("update-profile-form1");
   

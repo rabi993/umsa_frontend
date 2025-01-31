@@ -181,7 +181,7 @@
                   <a style="border-bottom:1px solid gray;" class="btn  mt-1 mb-1 dash-btn" href="peopleAdmin.html">Members</a>
               </div>
               <div>
-                  <a style="border-bottom:1px solid gray;" class="btn btc mt-1 mb-1 dash-btn" href="transactionAdmin.html">Transactions</a>
+                  <a style="border-bottom:1px solid gray;" class="btn btc text-white mt-1 mb-1 dash-btn" href="transactionAdmin.html">Transactions</a>
               </div>
               <div>
                   <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="profileAdmin.html">My Profile</a>
@@ -201,7 +201,7 @@
               <!-- dashboard details -->
                <div class="d-flex justify-content-between container m-auto px-4 mb-4">
                 <h3>Transaction list Management</h3>
-                <button type="button" class="btn btc" data-bs-toggle="modal" data-bs-target="#donateModal">
+                <button type="button" class="btn btc text-white" data-bs-toggle="modal" data-bs-target="#donateModal">
                     Add Credit/Debit
                 </button>
                </div>
@@ -324,7 +324,7 @@
         </p>
     </footer>
     <script>
-        const apiUrl = "http://127.0.0.1:8000/transaction/";
+        const apiUrl = "https://club-1-6len.onrender.com/transaction/";
     
         // Fetch and display transactions
         function fetchTransactions() {
@@ -349,9 +349,9 @@
                                 <td>${transaction.approved ? "Yes" : "No"} </td>
                                 <td>
                                     <div class="d-flex justify-content-center gap-2">
-                                        <button class="btn btc" onclick="approveTransaction(${transaction.id})">Approve</button>
-                                        <button class="btn btcn" onclick="editTransaction(${transaction.id})">Edit</button>
-                                        <button class="btn btc" onclick="deleteTransaction(${transaction.id})">Delete</button>
+                                        <button class="btn btc text-white" onclick="approveTransaction(${transaction.id})">Approve</button>
+                                        <button class="btn btcn text-white" onclick="editTransaction(${transaction.id})">Edit</button>
+                                        <button class="btn btc text-white" onclick="deleteTransaction(${transaction.id})">Delete</button>
                                     </div>
                                 </td>
                             </tr>
@@ -456,6 +456,7 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
       <script src="logout.js"></script>
       <script src="index.js"></script>
+      <script src="AdminPanel.js"></script>
     
 </body>
 </html>
@@ -671,7 +672,7 @@
   
 
 <script>
-    const apiUrl = "http://127.0.0.1:8000/transaction/";
+    const apiUrl = "https://club-1-6len.onrender.com/transaction/";
 
     // Fetch and display transactions
     function fetchTransactions() {
@@ -883,7 +884,7 @@
     </form>
 
     <script>
-        const apiUrl = "http://127.0.0.1:8000/transaction/";
+        const apiUrl = "https://club-1-6len.onrender.com/transaction/";
 
         // Fetch and display transactions
         function fetchTransactions() {

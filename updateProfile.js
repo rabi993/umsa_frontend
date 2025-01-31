@@ -2,8 +2,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const userId = localStorage.getItem('user_id'); // Get the user ID from local storage
     const peopleId = localStorage.getItem('people_id'); // Get the people ID from local storage
-    const userApiUrl = `http://127.0.0.1:8000/users/${userId}`; // User API URL
-    const peopleApiUrl = `http://127.0.0.1:8000/people/list/${peopleId}`; // people API URL
+    const userApiUrl = `https://club-1-6len.onrender.com/users/${userId}`; // User API URL
+    const peopleApiUrl = `https://club-1-6len.onrender.com/people/list/${peopleId}`; // people API URL
     const cardContainer = document.getElementById("user-card-container1");
 
     // Fetch user and people data in parallel
@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", function () {
 //   const peopleId = localStorage.getItem("people_id");
 //   const userId = localStorage.getItem("user_id");
 
-//   const peopleApiUrl = `http://127.0.0.1:8000/people/list/${peopleId}/`;
-//   const userApiUrl = `http://127.0.0.1:8000/users/${userId}/`;
+//   const peopleApiUrl = `https://club-1-6len.onrender.com/people/list/${peopleId}/`;
+//   const userApiUrl = `https://club-1-6len.onrender.com/users/${userId}/`;
 
 //   const updateForm = document.getElementById("update-profile-form");
 
@@ -216,8 +216,8 @@ document.addEventListener("DOMContentLoaded", function () {
 //   const peopleId = localStorage.getItem("people_id");
 //   const userId = localStorage.getItem("user_id");
 
-//   const peopleApiUrl = `http://127.0.0.1:8000/people/list/${peopleId}/`;
-//   const userApiUrl = `http://127.0.0.1:8000/users/${userId}/`;
+//   const peopleApiUrl = `https://club-1-6len.onrender.com/people/list/${peopleId}/`;
+//   const userApiUrl = `https://club-1-6len.onrender.com/users/${userId}/`;
 
 //   const updateForm = document.getElementById("update-profile-form");
 
@@ -333,8 +333,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const peopleId = localStorage.getItem("people_id");
   const userId = localStorage.getItem("user_id");
 
-  const peopleApiUrl = `http://127.0.0.1:8000/people/list/${peopleId}/`;
-  const userApiUrl = `http://127.0.0.1:8000/users/${userId}/`;
+  const peopleApiUrl = `https://club-1-6len.onrender.com/people/list/${peopleId}/`;
+  const userApiUrl = `https://club-1-6len.onrender.com/users/${userId}/`;
 
   const updateForm = document.getElementById("update-profile-form");
 
@@ -599,7 +599,7 @@ document.addEventListener("DOMContentLoaded", function () {
               .then((response) => {
                 if (response.ok) {
                   alert("Profile updated successfully.");
-                  window.location.href = "http://127.0.0.1:5500/dashboard.html";
+                  window.location.href = "https://rabi993.github.io/umsa_frontend/dashboard.html";
                 } else {
                   alert("Failed to update profile.");
                 }

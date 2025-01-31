@@ -44,7 +44,7 @@ if (localStorage.getItem("user_id")) {
     const peopleId = localStorage.getItem('people_id'); // Retrieve `people_id` from localStorage
   
     if (peopleId) {
-      fetch(`http://127.0.0.1:8000/people/list/${peopleId}`)
+      fetch(`https://club-1-6len.onrender.com/people/list/${peopleId}`)
         .then(response => {
           if (!response.ok) {
             throw new Error('Failed to fetch user data.');

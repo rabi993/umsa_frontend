@@ -289,7 +289,7 @@
           </div>
           <div class="modal-body">
           <form class="w-100 m-auto " id="transactionFormToDonate">
-                      <h3 class="text-center my-4">Donate</h3>
+                      <!-- <h3 class="text-center my-4">Donate</h3> -->
                       <input type="hidden" id="transactionId">
                       <label>TRX ID: <input type="text" id="trxId" required></label>
                       <label>Reference: <input type="text" id="reference"></label>
@@ -312,7 +312,7 @@
                       <input type="hidden" id="approved">
                       
                       <div class="d-flex justify-content-center py-4">
-                        <button class="btn btc px-3 py-2" type="submit">Send</button>
+                        <button class="btn btc text-white px-3 py-2" type="submit">Send</button>
                       </div>
                   </form>
           </div>
@@ -584,7 +584,7 @@
   </footer>
 
   <script>
-    const apiUrl = "http://127.0.0.1:8000/transaction/";
+    const apiUrl = "https://club-1-6len.onrender.com/transaction/";
 
     document.getElementById("transactionFormToDonate").addEventListener("submit", function (event) {
         event.preventDefault();

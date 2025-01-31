@@ -2,7 +2,7 @@ const fetchPosts = () => {
     const postsList = document.getElementById("posts-list");
     postsList.innerHTML = `<tr><td colspan="7">Loading posts...</td></tr>`;
   
-    fetch("http://127.0.0.1:8000/notice/list/")
+    fetch("https://club-1-6len.onrender.com/notice/list/")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch posts.");
@@ -33,8 +33,8 @@ const fetchPosts = () => {
                       <td>${new Date(post.created_at).toLocaleString()}</td>
                       <td>
                         <div class="d-flex justify-content-center gap-2">
-                          <button class="btn btcn" onclick='handleEditPost(${JSON.stringify(post)})'>Edit</button>
-                          <button class="btn btc" onclick='handleDeletePost(${post.id})'>Delete</button>
+                          <button class="btn btcn text-white" onclick='handleEditPost(${JSON.stringify(post)})'>Edit</button>
+                          <button class="btn btc text-white" onclick='handleDeletePost(${post.id})'>Delete</button>
                         </div>
                       </td>
                   `;
@@ -79,7 +79,7 @@ const handleAddPost = async (event) => {
       const fileUrl = imgbbData.data.url;
 
       const postData = { user, name: title, description: content, file: fileUrl };
-      const response = await fetch("http://127.0.0.1:8000/notice/", {
+      const response = await fetch("https://club-1-6len.onrender.com/notice/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(postData),
@@ -157,7 +157,7 @@ const handleEditPost = (post) => {
           };
 
           // Send the update request to the server with the existing post ID
-          const response = await fetch(`http://127.0.0.1:8000/notice/${post.id}/`, {
+          const response = await fetch(`https://club-1-6len.onrender.com/notice/${post.id}/`, {
               method: "PUT",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(updatedPost),
@@ -184,7 +184,7 @@ const handleEditPost = (post) => {
 
 const handleDeletePost = (id) => {
   if (confirm("Are you sure you want to delete this notice?")) {
-      fetch(`http://127.0.0.1:8000/notice/${id}/`, { method: "DELETE" })
+      fetch(`https://club-1-6len.onrender.com/notice/${id}/`, { method: "DELETE" })
           .then(response => {
               if (!response.ok) throw new Error("Failed to delete notice.");
               alert("Notice deleted successfully!");
@@ -200,7 +200,7 @@ const handleDeletePost = (id) => {
 // Fetch and set post owner on page load
 document.addEventListener("DOMContentLoaded", () => {
   const userId = localStorage.getItem("user_id");
-  fetch(`http://127.0.0.1:8000/users/${userId}/`)
+  fetch(`https://club-1-6len.onrender.com/users/${userId}/`)
       .then(response => response.json())
       .then(data => {
           document.getElementById("postOwner").value = data.username || "Anonymous";
