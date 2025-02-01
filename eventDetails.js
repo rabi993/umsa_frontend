@@ -54,7 +54,6 @@ const displayDetails = (flower) => {
   div.classList.add(
     "flower-details-container",
     "row",
-    "py-3",
     "gap-5",
     "d-flex",
     "justify-content-center"
@@ -63,8 +62,8 @@ const displayDetails = (flower) => {
     <div class="flower-img img-fluid col-md-6 col-lg-6">
       <img class="" src="${flower.image}" alt="Flower Image" />
     </div>
-    <div class="doc-info col-md-4 col-lg-4 py-4 px-4">
-      <h4>${flower.name}</h4>
+    <div class="doc-info col-md-4 col-lg-4  px-4">
+      <h5>${flower.name}</h5>
       
       <h6>Created at: ${flower.created_at}</h6>
       <h6>Author: ${flower.user}</h6>
@@ -209,5 +208,106 @@ document.addEventListener("DOMContentLoaded", getparams);
 //   reviewBodyElement.innerHTML = originalContent; // Revert to the original content
 // };
 
+
+const loadFlowers = (search = "") => {
+  const flowersContainer = document.getElementById("flowers");
+  const spinner = document.getElementById("spinner");
+  const noData = document.getElementById("nodata");
+
+  flowersContainer.innerHTML = "";
+  spinner.style.display = "block";
+  noData.style.display = "none";
+
+  const url = `https://club-1-6len.onrender.com/event/list/?search=${search}`;
+  console.log("Fetching data from:", url);
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      spinner.style.display = "none";
+      if (data.results && data.results.length > 0) {
+        displayFlowers(data.results);
+      } else {
+        noData.style.display = "block";
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching flowers:", error);
+      spinner.style.display = "none";
+      noData.style.display = "block";
+    });
+};
+
+
+  
+  const displayFlowers = (flowers) => {
+    // Sort flowers array by id in descending order
+    const sortedflowers = flowers.sort((a, b) => b.id - a.id);
+
+    const flowersContainer = document.getElementById("flowers");
+    flowersContainer.innerHTML = ""; // Clear previous content if any
+  
+    sortedflowers.forEach((flower, index) => {
+      const userApiUrl = `https://club-1-6len.onrender.com/users/`;
+    
+      // Create a div for each flower card first
+      const div = document.createElement("div");
+      div.classList.add("short-card","px-3");
+    
+      // Fetch user data for the flower's author
+      fetch(userApiUrl)
+        .then((userResponse) => {
+          if (!userResponse.ok) {
+            throw new Error("Error fetching user data");
+          }
+          return userResponse.json();
+        })
+        .then((users) => {
+          // Find the associated user
+          const user = users.find((u) => u.username === flower.user);
+    
+          if (user) {
+            const fullName = `${user.first_name} ${user.last_name}`;
+          div.innerHTML = `
+            <a style="text-decoration: none; color:black;" href="eventDetails.html?eventId=${flower.id}">
+              <img class="mt-2  img-fluid" src="${flower.image}" alt="${flower.name}" />
+              <p style="color: black; margin: 0px; font-size:15px;">${fullName}  </p>
+              <p style="color: #3BCF93; margin: 0px; font-weight: bold; font-size:13px;">Held On: ${formatDateTime(flower.held_on)}</p>
+              <div>
+                
+              </div>
+              </a>
+            
+          `;
+          } else {
+            console.error("No matching user found for the person.");
+          }
+    
+          // Append the flower card to the container after the fullName is set
+          flowersContainer.appendChild(div);
+        })
+        .catch((error) => {
+          console.error("Error fetching user details:", error);
+        });
+    });
+  };
+  
+
+  function formatDateTime(dateTimeString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
+    const date = new Date(dateTimeString);
+    return date.toLocaleDateString('en-US', options);
+  }
+  
+  
+  const handleSearch = () => {
+    const value = document.getElementById("search").value.trim();
+    loadFlowers(value);
+  };
+  
+  // Load initial data on page load
+  document.addEventListener("DOMContentLoaded", () => {
+    loadFlowers();
+  });
 
 

@@ -273,6 +273,23 @@ nav{
     height: 80px;
     border-radius:50px;
 }
+.short-card{
+    width: 300px;
+    height: 200px;
+    box-shadow: 4px 4px 8px  gray;
+    border-radius:5px;
+    /* text-align: center; */
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+    /* background: #bcccce; */
+}
+.short-card img{
+    width: 290px;
+    height: 130px;
+    /* border-radius:50px; */
+}
 
 footer{
     /* padding: 50px; */
@@ -427,16 +444,16 @@ border-radius:100px;
 }
 
 .nav-item:hover{
-    font-weight: 650;
+    /* font-weight: 650; */
     color: #3BCF93;
-    border-bottom:5px solid #3BCF93;
-    border-radius: 5%;
+    /* border-bottom:5px solid #3BCF93; */
+    /* border-radius: 5%; */
 
 }
-.activpage{
+/* .activpage{
     border-bottom:5px solid #3BCF93;
     border-radius: 5%;
-}
+} */
 .nav-item2{
     color:gray;
 

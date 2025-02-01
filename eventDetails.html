@@ -71,10 +71,10 @@
         <div style="width: 100%; " class="offcanvas-body  m-auto">
             <ul class="navbar-nav justify-content-end flex-grow-1 ms-auto gap-3">
               <li class="nav-item ">
-                <a class="nav-link "   href="index.html">Home</a>
+                <a class="nav-link  mt-1 "   href="index.html">Home</a>
               </li>
               <li class="nav-item dropdown activpage">
-                <a class="nav-link dropdown-toggle aut_menu4 textp" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a  style="color: #3BCF93;"  class="nav-link dropdown-toggle aut_menu4  mt-1 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Posts
                 </a>
                 <ul class="dropdown-menu">
@@ -90,7 +90,7 @@
                 <a class="nav-link aut_menu2" href="blood.html">Blood</a>
               </li> -->
               <li class="nav-item dropdown ">
-                <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a  style="color: gray;"  class="nav-link dropdown-toggle  mt-1 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Pages
                 </a>
                 <ul class="dropdown-menu">
@@ -107,18 +107,18 @@
                 <a style="background-color: #3BCF93 ; border-radius: 5px;" class="nav-link aut_menu3 text-white " href="transaction.html">Donate</a>
               </li>
               <li class="nav-item dropdown">
-                <a  class="nav-link pt-3 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a  class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <!-- <img class="obtnp" style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; border: 2px solid #3BCF93; border-radius:28px; background-color: #ffff;" src="./images/profile.png" alt=""> -->
                     
                     <img
                     id="profile_icon"
-                    style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; border: 2px solid #3BCF93; border-radius:28px; background-color: #ffff; "
+                    style="height: 32px; width: 32px; margin-left: 0px; border: 2px solid #3BCF93; border-radius:28px; background-color: #ffff; "
                     src="./images/profile.png"
                     alt="Default Profile"
                     />
                     <img
                     id="profile_icon2"
-                    style="height: 32px; width: 32px; margin-top: -15px; margin-left: 0px; display: none; border-radius: 50%; border: 2px solid #3BCF93"
+                    style="height: 32px; width: 32px;  margin-left: 0px; display: none; border-radius: 50%; border: 2px solid #3BCF93"
                     src=""
                     alt="User Profile"
                     />
@@ -138,7 +138,7 @@
       </div>
     </nav>
     
-     <div style="padding-top: 0px;" id="flower-details"></div>
+     <div style="padding-top: 0px;" class="mt-5" id="flower-details"></div>
  
      <!-- <div class="review-form-container container mt-4 w-50">
        <h5>Submit Your Comment</h5>
@@ -217,14 +217,34 @@
    </div>
     <div style="padding-top: 0px;"  class=" mt-3 px-5  ">
      
-      <div class=" mb-3 ps-5 w-75 m-auto">
+      <div class=" mb-3 ps-5 w-25 d-flex gap-2 m-auto">
          
         <input id="search" type="text" class="rounded-2  bg-light border" placeholder="Search..." onkeydown="if(event.key === 'Enter') handleSearch()" />
         <button class="btn rounded-2 btc text-white" onclick="handleSearch()">Search</button>
       </div>
    </div> 
    <hr style="height: 5px; background-color: #000; border: none;" />
-       <div id="flowers" class="flowers d-flex row gap-3 pb-3   justify-content-around"></div>
+        <div class="reviews">
+          <div
+            class="swiffy-slider slider-item-show4 slider-item-reveal slider-nav-outside  slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation  slider-item-first-visible"
+          >
+            <ul id="flowers" class="slider-container py-4"></ul>
+
+            <button
+              type="button"
+              class="slider-nav"
+              aria-label="Go left"
+            ></button>
+            <button
+              type="button"
+              class="slider-nav slider-nav-next"
+              aria-label="Go right"
+            ></button>
+
+            <div class="slider-indicators"></div>
+          </div>
+        </div>
+       <!-- <div id="flowers" class="flowers d-flex row gap-3 pb-3   justify-content-around"></div> -->
        <div id="nodata" class="nodata text-center" style="display: none;">
          <img src="./images/nodata.png" alt="No data" />
          <p>No results found</p>
@@ -298,7 +318,7 @@
         <small>Copyright © 2025 UMSA Family. All Rights Reserved</small>
       </p>
   </footer>
-    <script src="./allEvent.js"></script>
+    <!-- <script src="./allEvent.js"></script> -->
      <script
        src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
        crossorigin="anonymous"
