@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <h5 class="card-title text-center">${user.first_name || "N/A"} ${user.last_name || "N/A"}'s Profile</h5>
             <div class="card-text w-25 m-auto">
             
-              <img src="./Images/man.jpg" alt="Admin Image" class="img-fluid rounded mt-2" style="max-height: 200px;">
+              <img src="./images/man.jpg" alt="Admin Image" class="img-fluid rounded mt-2" style="max-height: 200px;">
                 
             
             </div>
