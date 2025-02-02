@@ -191,7 +191,7 @@
     <main>
         <div class="banner-container ">
             <div class=" row">
-              <div class=" dash_bar col-md-2 col-lg-2" style="padding: 5px 10px 10px 10px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+              <div class=" dash_bar col-md-2 col-lg-2 py-5" style="padding: 5px 10px 10px 10px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                 <div ><a class=""  href="dashboard.html">Profile</a></div>
                 <div ><a href="updateProfile.html">Update Profile</a></div>
                 <div><a href="changepass.html">Change Password</a></div>
@@ -204,28 +204,30 @@
                 <div class=" ">
                   
                     
-                    <form class="w-25 mx-auto my-5" id="transactionFormToDonate">
+                    <form class="w-50 mx-auto my-5 px-5" id="transactionFormToDonate">
                         <h3 class="text-center my-4">Donate</h3>
                         <input type="hidden" id="transactionId">
-                        <label>TRX ID: <input type="text" id="trxId" required></label>
-                        <label>Reference: <input type="text" id="reference"></label>
-                        <label>Amount: <input type="number" id="amount" required></label>
-                        <input type="hidden" id="typys" value="credit">
-                        <!-- <label>Type: 
-                            <select id="typys" required>
-                                <option value="credit">Credit</option>
-                                <option value="debit">Debit</option>
-                            </select>
-                        </label><br> -->
-                        <label>Source: <input type="text" id="sourcePeople"></label>
-                        <label>Media: <input type="text" id="media"></label>
-                        <label>Purpose: <input type="text" id="purpose"></label>
-                        <label>Comment: <input type="text" id="comment"></label>
-                        <!-- <label>Approved: 
-                            <input type="checkbox " id="approved">
-                        </label><br> -->
+                        <div class="d-flex justify-content-between row">
+                          <div class="col-lg-6 col-md-6">
+                            <label>TRX ID: <input type="text" id="trxId" required></label>
+                            <label>Reference: <input type="text" id="reference"></label>
+                            <label>Amount: <input type="number" id="amount" required></label>
+                            <input type="hidden" id="typys" value="credit">
+                            <label>Source: <input type="text" id="sourcePeople"></label>
+                          </div>
+                          <div class="col-lg-6 col-md-6">
+                            <label>Media: <input type="text" id="media"></label>
+                            <label>Purpose: <input type="text" id="purpose"></label>
+                            <label>Comment: <input type="text" id="comment"></label>
+                            <input type="hidden" id="approved">
+                          </div>
+
+                        </div>
                         
-                        <input type="hidden" id="approved">
+                        
+                        
+                        
+                        
                         
                         <div class="w-50 m-auto py-4">
                           <button class="btn btc px-3 text-white py-2" type="submit">Send</button>

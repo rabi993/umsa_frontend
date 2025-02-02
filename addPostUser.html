@@ -22,10 +22,10 @@
         /* max-width: 800px;  */
         /* margin: 0 auto; */
         padding: 20px;
-        background-color: #f9f9f9;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* background-color: #f9f9f9; */
+        /* border: 1px solid #ddd; */
+        /* border-radius: 5px; */
+        /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
       }
     
       /* Form group spacing */
@@ -202,7 +202,7 @@
     <main>
         <div class="banner-container ">
             <div class=" row">
-              <div class=" dash_bar col-md-2 col-lg-2" style="padding: 5px 10px 10px 10px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+              <div class=" dash_bar col-md-2 col-lg-2 py-5" style="padding: 5px 10px 10px 10px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                 <div ><a class=""  href="dashboard.html">Profile</a></div>
                 <div ><a  href="updateProfile.html">Update Profile</a></div>
                 <div ><a  href="changepass.html">Change Password</a></div>
@@ -226,7 +226,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        <form class="my-5 w-100 m-auto" id="post_form" onsubmit="handleAddPost(event)">
+                        <form class="my-2 w-100 m-auto px-5" id="post_form" onsubmit="handleAddPost(event)">
                           
                             <div class="mb-3">
                             <label for="postOwner" class="form-label">Post_Owner:</label>
@@ -257,8 +257,8 @@
                             <select id="postCategory" class="form-select" multiple required></select>
                             </div>
                             
-                            <div class="w-25 m-auto d-flex justify-content-center py-4">
-                              <button type="submit" class="btc text-white btn px-3 py-2 ">Add Post</button>
+                            <div class=" m-auto d-flex justify-content-center  py-4">
+                              <button type="submit" class="btc text-white btn px-5 py-2 ">Add Post</button>
                             </div>
                         </form>
                       </div>
