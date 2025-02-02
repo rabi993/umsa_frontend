@@ -16,11 +16,28 @@
       rel="stylesheet"
       crossorigin="anonymous"
     />
-    
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <style>
+      /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+      .row.content {height: 550px}
+      
+      /* Set gray background color and 100% height */
+      /* .sidenav {
+        background-color: #f1f1f1;
+        height: 100%;
+      } */
+          
+      /* On small screens, set height to 'auto' for the grid */
+      @media screen and (max-width: 767px) {
+        .row.content {height: auto;} 
+      }
+    </style>
 
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body >
     <div class="bg-dark align-text-center pt-3 align-middle">
       <div class="d-flex justify-content-around row   text-white container m-auto ">
         <div class="col-lg-4 col-md-4">
@@ -145,8 +162,99 @@
             </div>
             <div class="col-md-10 py-5">
               <!-- dashboard details -->
-              
-            <div class="row justify-content-center m-auto ">
+              <div class="well">
+                <h4>Dashboard</h4>
+                <p>Some text..</p>
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="well">
+                    <h4>Users</h4>
+                    <p>Total Member Count: <span id="totalPeople">Loading...</span></p> 
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="well">
+                    <h4>Pages</h4>
+                    <p>Total Post: <span id="totalPosts">Loading...</span></p> 
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="well">
+                    <h4>Sessions</h4>
+                    <p>Total Events: <span id="totalEvents">Loading...</span></p> 
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="well">
+                    <h4>Bounce</h4>
+                    <p>Total Noticesr: <span id="totalNotices">Loading...</span></p> 
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="well">
+                    <h4>Users</h4>
+                    <p>Total Transactions: <span id="totalTransactions">Loading...</span></p> 
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="well">
+                    <h4>Pages</h4>
+                    <p>Total Debit Transactions: <span id="totalDebitTransactions">Loading...</span></p> 
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="well">
+                    <h4>Sessions</h4>
+                    <p>Total Credit Transactions: <span id="totalCreditTransactions">Loading...</span></p> 
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="well">
+                    <h4>Bounce</h4>
+                    <p>Total Services: <span id="totalServices">Loading...</span></p> 
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="well">
+                    <p>Total Debit Amount: <span id="totalDebit">Loading...</span></p> 
+                    <p>Total Credit Amount: <span id="totalCredit">Loading...</span></p> 
+                    <p>Final Amount: <span class="" id="finalAmount">Loading...</span></p> 
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="well">
+                    <p>Total Post Comments: <span id="totalComments">Loading...</span></p> 
+                    <p>Total Event Comments: <span id="">Loading...</span></p> 
+                    <p>Total Notice Comments: <span id="">Loading...</span></p> 
+                    
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="well">
+                    <p>Total Post Comments: <span id="">Loading...</span></p> 
+                    <p>Total Post Comments: <span id="">Loading...</span></p> 
+                    <p>Total Contact form: <span id="totalContactUs">Loading...</span></p> 
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-8">
+                  <div class="well">
+                    <p>Text</p> 
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="well">
+                    <p>Total </p> 
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="row justify-content-center m-auto ">
                 <div style=" border:1px  solid #3BCF93 ;border-top: none;border-bottom: none; padding:10px;" class="col-lg-3 col-md-3 obtn ">
                   
                   <div class="text-center">
@@ -158,14 +266,14 @@
                   
                   <div class="text-center">
                     <h2><span id="totalPosts">Loading...</span>+</h2>
-                    <p>Total Post</p>
+                    <p>Total Post: <span id="totalPosts">Loading...</span></p>
                   </div>
                 </div>
                 <div style="  border: 1px solid #3BCF93 ; border-top: none;border-bottom: none; padding:10px;" class="col-lg-3 col-md-3 obtn ">
                   
                   <div class="text-center">
                     <h2><span id="totalEvents">Loading...</span>+</h2>
-                    <p>Total Events</p>
+                    <p>Total Events: </p>
                   </div>
                 </div>
                 <div style="  border: 1px solid #3BCF93 ; border-top: none;border-bottom: none; padding:10px;" class="col-lg-6 col-md-6  obtn">
@@ -241,7 +349,7 @@
                 
                 
                 
-            </div>
+            </div> -->
 
 
 

@@ -22,20 +22,21 @@ const loadServices = () => {
 
     services.forEach((service) => {
       const div = document.createElement("div");
-      div.classList.add("col-lg-6", "col-md-6", "col-sm-12", "my-5");
+      div.classList.add("col-lg-3", "col-md-3", "col-sm-12", "my-3",);
       div.innerHTML = `
-        <div class="  h-100" >
+        <div class="  " style=" width:350px;">
           <div class="ratio ratio-16x9">
             <img
+            
               src="${service.image}"
               class="card-img-top"
               loading="lazy"
               alt="${service.name || 'Service Image'}"
             />
           </div>
-          <div class="card-body">
-            <h6 class="card-title h5">${service.name || "Unnamed Service"}</h6>
-            <p class="card-text" style="font-size:14px;">
+          <div class="card-body py-3">
+            <h6 class="">${service.name || "Unnamed Service"}</h6>
+            <p class="card-text " style="font-size:12px;">
               ${service.description ? service.description : "No description available."}
             </p>
             
