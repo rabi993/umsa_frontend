@@ -23,11 +23,17 @@
       /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
       .row.content {height: 550px}
       
-      /* Set gray background color and 100% height */
-      /* .sidenav {
-        background-color: #f1f1f1;
-        height: 100%;
-      } */
+      .well{
+        border: 1px solid rgb(216, 216, 216); 
+        border-radius: 5px;
+        box-shadow: 1px 1px 1px 1px gray;
+        background-color: rgb(231, 229, 229);
+        margin:10px ;
+        padding: 20px 20px;
+      }
+      .well:hover{
+        color: #3BCF93;
+      }
           
       /* On small screens, set height to 'auto' for the grid */
       @media screen and (max-width: 767px) {
@@ -37,7 +43,7 @@
 
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body >
+  <body class="">
     <div class="bg-dark align-text-center pt-3 align-middle">
       <div class="d-flex justify-content-around row   text-white container m-auto ">
         <div class="col-lg-4 col-md-4">
@@ -107,9 +113,9 @@
       </div>
     </nav>
      
-      <main class="pt-3">
+      <main class=" bg-white">
         <div class="d-flex ">
-          <div style="background-color: #E8E8E8;" class="col-md-2  px-2 ">
+          <div style="background-color: #E8E8E8;" class="col-md-2 py-3 px-2 ">
             <div>
               <a style="border-bottom:1px solid gray;" class="btn btc text-white mt-1 mb-1 dash-btn" href="adminPanel.html">Dashboard</a>
             </div>
@@ -162,56 +168,56 @@
             </div>
             <div class="col-md-10 py-5">
               <!-- dashboard details -->
-              <div class="well">
-                <h4>Dashboard</h4>
-                <p>Some text..</p>
+              <div class="well py-3 textp text-center">
+                <h4>UMSA Admin Dashboard</h4>
+                <p>University and Medical Students Associassion, Gabtali, Bogra</p>
               </div>
               <div class="row">
                 <div class="col-sm-3">
                   <div class="well">
-                    <h4>Users</h4>
+                    <h4>Members</h4>
                     <p>Total Member Count: <span id="totalPeople">Loading...</span></p> 
                   </div>
                 </div>
                 <div class="col-sm-3">
                   <div class="well">
-                    <h4>Pages</h4>
+                    <h4>Posts</h4>
                     <p>Total Post: <span id="totalPosts">Loading...</span></p> 
                   </div>
                 </div>
                 <div class="col-sm-3">
                   <div class="well">
-                    <h4>Sessions</h4>
+                    <h4>Events</h4>
                     <p>Total Events: <span id="totalEvents">Loading...</span></p> 
                   </div>
                 </div>
                 <div class="col-sm-3">
                   <div class="well">
-                    <h4>Bounce</h4>
-                    <p>Total Noticesr: <span id="totalNotices">Loading...</span></p> 
+                    <h4>Notices</h4>
+                    <p>Total Notices: <span id="totalNotices">Loading...</span></p> 
                   </div>
                 </div>
                 <div class="col-sm-3">
                   <div class="well">
-                    <h4>Users</h4>
+                    <h4>Transactions</h4>
                     <p>Total Transactions: <span id="totalTransactions">Loading...</span></p> 
                   </div>
                 </div>
                 <div class="col-sm-3">
                   <div class="well">
-                    <h4>Pages</h4>
+                    <h4>Debit Transactions</h4>
                     <p>Total Debit Transactions: <span id="totalDebitTransactions">Loading...</span></p> 
                   </div>
                 </div>
                 <div class="col-sm-3">
                   <div class="well">
-                    <h4>Sessions</h4>
+                    <h4>Credit Transactions</h4>
                     <p>Total Credit Transactions: <span id="totalCreditTransactions">Loading...</span></p> 
                   </div>
                 </div>
                 <div class="col-sm-3">
                   <div class="well">
-                    <h4>Bounce</h4>
+                    <h4>Services</h4>
                     <p>Total Services: <span id="totalServices">Loading...</span></p> 
                   </div>
                 </div>
@@ -219,8 +225,8 @@
               <div class="row">
                 <div class="col-sm-4">
                   <div class="well">
-                    <p>Total Debit Amount: <span id="totalDebit">Loading...</span></p> 
                     <p>Total Credit Amount: <span id="totalCredit">Loading...</span></p> 
+                    <p>Total Debit Amount: <span id="totalDebit">Loading...</span></p> 
                     <p>Final Amount: <span class="" id="finalAmount">Loading...</span></p> 
                   </div>
                 </div>
@@ -244,12 +250,12 @@
               <div class="row">
                 <div class="col-sm-8">
                   <div class="well">
-                    <p>Text</p> 
+                    <p>Total Pending Transactions: 6</p> 
                   </div>
                 </div>
                 <div class="col-sm-4">
                   <div class="well">
-                    <p>Total </p> 
+                    <p>Total Active Member: 450 </p> 
                   </div>
                 </div>
               </div>

@@ -27,7 +27,7 @@ const fetchPosts = () => {
               <td>${new Date(post.held_on).toLocaleString()}</td>
               <td>
                 <div class="d-flex justify-content-center gap-2">
-                  <button class="btn btcn text-white" onclick='handleEditPost(${JSON.stringify(post)})'>Edit</button>
+                  <button class="btn btc text-white" onclick='handleEditPost(${JSON.stringify(post)})'>Edit</button>
                   <button class="btn btc text-white" onclick='handleDeletePost(${post.id})'>Delete</button>
                 </div>
                 

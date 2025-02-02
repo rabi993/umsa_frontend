@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
         card.innerHTML = `
           <div class="card-body">
             <h5 class="card-title text-center">${user.first_name || "N/A"} ${user.last_name || "N/A"}'s Profile</h5>
-            <div class="card-text w-50 m-auto">           
-              <img src="./images/man.jpg" alt="Admin Image" class="img-fluid rounded mt-2" style="max-height: 200px;">                          
+            <div class="card-text w-25 m-auto">           
+              <img src="./images/man.jpg" alt="Admin Image" class="img-fluid rounded " style="max-height: 200px;">                          
             </div>
             <h5 class="card-title text-center">Admin Details</h5>
             <p class="card-text"><strong>ID:</strong> ${user.id}</p>
