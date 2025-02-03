@@ -533,3 +533,9 @@ border-radius:100px;
     background-color: white !important; /* Change background to white */
     color: black !important;          /* Ensure text color is readable */
   }
+
+  @media only screen and (min-width: 400px) and (max-width: 767px) {
+    .mobile_none{
+        display: none;
+    }
+  }
