@@ -186,7 +186,7 @@
               <div>
                   <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="profileAdmin.html">My Profile</a>
               </div>
-              <div>
+              <!-- <div>
                   <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="PostComment.html">Post Comment</a>
               </div>
               <div>
@@ -194,7 +194,7 @@
               </div>
               <div>
                   <a style="border-bottom:1px solid gray;" class="btn mt-1 mb-1 dash-btn" href="NoticeComment.html">Notice Comment</a>
-              </div>
+              </div> -->
         
             </div>
             <div class="col-md-10 py-5">
@@ -217,37 +217,41 @@
             <div class="modal-body">
                 <form class="w-100 pb-3" id="transactionForm">
                     <input type="hidden" id="transactionId">
-                    
-                    <label>TRX ID: </label>
-                    <input type="text" id="trxId" class="form-control" required>
+                    <div class="d-flex justify-content-between row">
+                        <div class="col-lg-6 col-md-6">
+                            <label>TRX ID: </label>
+                            <input type="text" id="trxId" class="form-control" required>
 
-                    <label>Reference: </label>
-                    <input type="text" id="reference" class="form-control">
+                            <label>Reference: </label>
+                            <input type="text" id="reference" class="form-control">
 
-                    <label>Amount: </label>
-                    <input type="number" id="amount" class="form-control" required>
+                            <label>Amount: </label>
+                            <input type="number" id="amount" class="form-control" required>
 
-                    <label>Type:</label>
-                    <select class="form-control p-2 rounded-2" id="typys" required>
-                        <option value="credit">Credit</option>
-                        <option value="debit">Debit</option>
-                    </select>
+                            <label>Type:</label>
+                            <select class="form-control p-2 rounded-2" id="typys" required>
+                                <option value="credit">Credit</option>
+                                <option value="debit">Debit</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <label>Source: </label>
+                            <input type="text" id="sourcePeople" class="form-control">
 
-                    <label>Source: </label>
-                    <input type="text" id="sourcePeople" class="form-control">
+                            <label>Media: </label>
+                            <input type="text" id="media" class="form-control">
 
-                    <label>Media: </label>
-                    <input type="text" id="media" class="form-control">
+                            <label>Purpose: </label>
+                            <input type="text" id="purpose" class="form-control">
 
-                    <label>Purpose: </label>
-                    <input type="text" id="purpose" class="form-control">
+                            <label>Comment: </label>
+                            <input type="text" id="comment" class="form-control">
 
-                    <label>Comment: </label>
-                    <input type="text" id="comment" class="form-control">
+                            <input type="hidden" id="approved">
+                        </div>
+                    </div>
 
-                    <input type="hidden" id="approved">
-
-                    <div class="d-flex justify-content-center py-3">
+                    <div class="d-flex justify-content-center pt-4 pb-3">
                         <button class="btn btn-success px-5 py-2" type="submit">Save</button>
                     </div>
                 </form>
@@ -320,7 +324,7 @@
     
     <footer class="p-3 pt-4">
         <p class="text-center text-white">
-          <small>Copyright © Smartcare. All Rights Reserved</small>
+          <small>Made By <a class="textp" target="_blank" href="https://github.com/rabi993">Rabiul Islam</a>  |   Copyright © Umsa Family. All Rights Reserved</small>
         </p>
     </footer>
     <script>
@@ -666,7 +670,7 @@
 <footer class="">
   <hr />
   <p class="text-center mt-3">
-    <small>Copyright © Smartcare. All Rights Reserved</small>
+    <small>Made By <a class="textp" target="_blank" href="https://github.com/rabi993">Rabiul Islam</a>  |   Copyright © Umsa Family. All Rights Reserved</small>
   </p>
 </footer>
   

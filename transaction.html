@@ -231,17 +231,22 @@
             <div class="modal-body">
               <form id="transactionForm">
                 <input type="hidden" id="transactionId">
-                <label>TRX ID: <input type="text" id="trxId" class="form-control" required></label>
-                <label>Reference: <input type="text" id="reference" class="form-control"></label>
-                <label>Amount: <input type="number" id="amount" class="form-control" required></label>
-                <input type="hidden" id="typys" value="credit">
-                
-                <label>Source: <input type="text" id="sourcePeople" class="form-control"></label>
-                <label>Media: <input type="text" id="media" class="form-control"></label>
-                <label>Purpose: <input type="text" id="purpose" class="form-control"></label>
-                <label>Comment: <input type="text" id="comment" class="form-control"></label>
-                
-                <input type="hidden" id="approved">
+                <div class="d-flex justify-content-between row">
+                  <div class="col-lg-6 col-md-6">
+                    <label>TRX ID: <input type="text" id="trxId" required></label>
+                    <label>Reference: <input type="text" id="reference"></label>
+                    <label>Amount: <input type="number" id="amount" required></label>
+                    <input type="hidden" id="typys" value="credit">
+                    <label>Source: <input type="text" id="sourcePeople"></label>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                    <label>Media: <input type="text" id="media"></label>
+                    <label>Purpose: <input type="text" id="purpose"></label>
+                    <label>Comment: <input type="text" id="comment"></label>
+                    <input type="hidden" id="approved">
+                  </div>
+
+                </div>
                 
                 <div class="text-center my-4">
                   <button class="btn btc px-5 py-2 text-white" type="submit">Send</button>
@@ -355,8 +360,62 @@
       </table> 
     </div>
   
-    
-    <footer style="background-color: #222222; color: aliceblue;" class="pt-4 pb-2 ">
+    <footer style="background-color: #222222; color: white;" class="pt-4 pb-2">
+      <div  class="   ">
+        <div style="width: 100%;" class="d-flex justify-content-around row px-5 mx-5  m-auto my-5">
+          <div  class="col-md-2 col-lg-2  ">
+            <img style="width:60px; height: 60px;" class="   img-fluid" src="./images/umsal.png" alt="">
+            
+            <h3 class="pt-3 textp">UMSA Family</h3>
+            <p>Consectetur adipiscing elttid labereore Qweeuis ium suspen edisse ultrices.</p>
+          </div>
+          <div class="col-md-2 col-lg-2">
+            <h5 style="color: #3BCF93;">UMSA</h5><br>
+            <p>+880-2353-352-555</p>
+            <p>+880-2353-352547</p>
+            <p>UMSA45h65@gmail.com</p>
+            <p>512/B Lloyd Ladner Rd,</p>
+            <p>Christian, MS, 39571</p>
+          </div>
+          <div class="col-md-2 col-lg-2">
+            <h5 style="color: #3BCF93;">Education</h5><br>
+            <p>Admission Care</p>
+            <p>Vission/Mission</p>
+            <p>More Features</p>
+            <p>Vission/Mission</p>
+          </div>
+          <div class="col-md-2 col-lg-2">
+            <h5 style="color: #3BCF93;">Trustee Leadership</h5><br>
+            <p>Qweeuis ium</p>
+            <p>suspen edisse ultrices</p>
+            <p>Gabtali, Bogra</p>
+          </div>
+          <div class="col-md-2 col-lg-2">
+            <h5 style="color: #3BCF93;">Our Pages</h5><br>
+            <p>About Us Page</p>
+            <p>About Us Page</p>
+            <p>Service Page</p>
+            <p>Blood Doners Page</p>
+          </div>
+        </div>
+        <div  class="w-75 m-auto text-center">
+          <hr style="width: 100%;" class="m-auto my-5">
+          <div class="icons">
+            <img class="icon bg-white contact" src="./images/icon/email.png" alt="" />
+            <img class="icon bg-white contact" src="./images/icon/yt.png" alt="" />
+            <img class="icon bg-white contact" src="./images/icon/fb.png" alt="" />
+            <img class="icon bg-white contact" src="./images/icon/in.png" alt="" />
+            <img class="icon bg-white contact" src="./images/icon/telegram.png" alt="" />
+            <img class="icon bg-white contact" src="./images/icon/whatsapp.png" alt="" />
+          </div>
+        </div>
+        
+      </div>
+      <p class="text-center mt-3 mb-5">
+        <small>Copyright © 2025 UMSA Family. All Rights Reserved</small>
+      </p>
+    </footer>
+    <!-- <footer style="background-color: #222222; color: aliceblue;" class="pt-4 pb-2 ">
       <div  class="   ">
         <div  class="w-75 m-auto text-center">
           <img style="width: 10%;" class=" m-auto pb-3 img-fluid" src="./images/umsal.png" alt="">
@@ -374,7 +433,7 @@
       <p class="text-center mt-3">
         <small>Copyright © 2025 UMSA Family. All Rights Reserved</small>
       </p>
-  </footer>
+  </footer> -->
     <script>
         
         const apiUrl = "https://club-1-6len.onrender.com/transaction/";

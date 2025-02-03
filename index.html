@@ -291,25 +291,22 @@
           <form class="w-100 m-auto " id="transactionFormToDonate">
                       <!-- <h3 class="text-center my-4">Donate</h3> -->
                       <input type="hidden" id="transactionId">
-                      <label>TRX ID: <input type="text" id="trxId" required></label>
-                      <label>Reference: <input type="text" id="reference"></label>
-                      <label>Amount: <input type="number" id="amount" required></label>
-                      <input type="hidden" id="typys" value="credit">
-                      <!-- <label>Type: 
-                          <select id="typys" required>
-                              <option value="credit">Credit</option>
-                              <option value="debit">Debit</option>
-                          </select>
-                      </label><br> -->
-                      <label>Source: <input type="text" id="sourcePeople"></label>
-                      <label>Media: <input type="text" id="media"></label>
-                      <label>Purpose: <input type="text" id="purpose"></label>
-                      <label>Comment: <input type="text" id="comment"></label>
-                      <!-- <label>Approved: 
-                          <input type="checkbox " id="approved">
-                      </label><br> -->
-                      
-                      <input type="hidden" id="approved">
+                      <div class="d-flex justify-content-between row">
+                        <div class="col-lg-6 col-md-6">
+                          <label>TRX ID: <input type="text" id="trxId" required></label>
+                          <label>Reference: <input type="text" id="reference"></label>
+                          <label>Amount: <input type="number" id="amount" required></label>
+                          <input type="hidden" id="typys" value="credit">
+                          <label>Source: <input type="text" id="sourcePeople"></label>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                          <label>Media: <input type="text" id="media"></label>
+                          <label>Purpose: <input type="text" id="purpose"></label>
+                          <label>Comment: <input type="text" id="comment"></label>
+                          <input type="hidden" id="approved">
+                        </div>
+
+                      </div>
                       
                       <div class="d-flex justify-content-center py-4">
                         <button class="btn btc text-white px-5 py-2" type="submit">Send</button>
@@ -319,7 +316,7 @@
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-center row text-white">
+    <div class="d-flex justify-content-center row text-white w-100 m-auto">
       <div style="background-color: #3BCF93; padding: 80px 70px ;" class=" col-md-4 col-lg-4 ">
         <h3>We’ve been tackling poverty in communities to build better lives</h3>
       </div>
@@ -331,7 +328,7 @@
       </div>
 
     </div>
-    <div style="height: 400px;" class="row mt-5 mb-2 d-flex justify-content-center">
+    <div style="height: 400px;" class="row mt-5 mb-2 d-flex justify-content-center w-100 m-auto">
       <div style="padding: 80px; background-color: #3BCF93;" class="col-md-6 col-lg-6">
         <h2 style="font-weight: 700;">Our Core Value.<br>Our Foundation.</h2><br>
         <h5>Charity law within the UK varies among England and Wales, Scotland and Northern Ireland, but the fundamental principles are the same. Most organizations that are charities.</h5>
@@ -455,7 +452,7 @@
     </div>
     </div>
     <div  class="   py-3 " ></div>
-      <div style="height: 400px; " class="  d-flex justify-content-center row ">
+      <div style="height: 400px; " class="  d-flex justify-content-center row w-100 m-auto">
         <div class="col-md-6 col-lg-6 p-0">
           <img style="height: 400px; width: 100%;" class="img-fluid " src="./images/about/a4.jpg" alt="">
         </div>
@@ -465,7 +462,7 @@
         </div>
       
       </div>
-      <div style="height: 400px;  " class=" d-flex justify-content-center row   ">
+      <div style="height: 400px;  " class=" d-flex justify-content-center row  w-100 m-auto ">
         <div style="padding-right: 15px;padding-bottom: 50px; " class="bg-white py-5 px-5 col-md-6 col-lg-6">
           <h3  class="textp">Where does it come from?</h3>
           <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
@@ -475,7 +472,7 @@
         </div>
       
       </div>
-      <div style="height: 400px; " class=" d-flex justify-content-center row">
+      <div style="height: 400px; " class=" d-flex justify-content-center row w-100 m-auto">
         <div class="col-md-6 col-lg-6 p-0 ">
           <img style="height: 400px; width: 100%;" class="img-fluid " src="./images/about/a6.jpg" alt="">
         </div>
@@ -485,7 +482,7 @@
         </div>
       
       </div>
-      <div style="height: 400px; margin-bottom: 70px; " class=" d-flex justify-content-center row   ">
+      <div style="height: 400px; margin-bottom: 70px; " class=" d-flex justify-content-center row  w-100 m-auto ">
         <div style="padding-right: 15px;padding-bottom: 50px; " class="bg-white py-5 px-5 col-md-6 col-lg-6">
           <h3 class="textp">Where does it come from?</h3>
           <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
@@ -638,7 +635,7 @@
       <p class="text-center mt-3 mb-5">
         <small>Copyright © 2025 UMSA Family. All Rights Reserved</small>
       </p>
-  </footer>
+    </footer>
 
   <script>
     const apiUrl = "https://club-1-6len.onrender.com/transaction/";
