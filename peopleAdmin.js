@@ -82,4 +82,27 @@ function deletePerson(id) {
 }
 
 // Initialize
-fetchPeople();
+// fetchPeople();
+const userId = localStorage.getItem("user_id");
+    
+        if (!userId) {
+            alert('Please log in first.');
+            window.location.href = '/login.html';
+        } else {
+            (async function verifyAdmin() {
+                try {
+                    const response = await fetch(`https://club-1-6len.onrender.com/users/${userId}`);
+                    const user = await response.json();
+
+                    if (user.is_superuser) {
+                        fetchPeople();
+                    } else {
+                        alert('Please log in as Admin.');
+                        window.location.href = '/login.html';
+                    }
+                } catch (error) {
+                    console.error('Error verifying admin:', error);
+                    alert('Failed to verify admin. Please try again.');
+                }
+            })();
+        }

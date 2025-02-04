@@ -200,108 +200,131 @@
         </p>
     </footer>
     <script>
-        const tableBody = document.getElementById('category-table-body');
-        const form = document.getElementById('category-form');
+        
+        const userId = localStorage.getItem("user_id");
     
-        // Fetch and display categories
-        async function loadCategories() {
-            try {
-                const response = await fetch('https://club-1-6len.onrender.com/category/');
-                if (!response.ok) throw new Error('Failed to fetch categories');
-                const data = await response.json();
-    
-                // Clear the table body
-                tableBody.innerHTML = '';
-    
-                // Populate the table rows
-                data.forEach(category => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${category.id}</td>
-                        <td>${category.name}</td>
-                        <td>${category.slug}</td>
-                        <td>
-                            <button class="btn btc text-white  btn-sm" onclick="editCategory(${category.id})">Edit</button>
-                            <button class="btn btc text-white btn-sm" onclick="deleteCategory(${category.id})">Delete</button>
-                        </td>
-                    `;
-                    tableBody.appendChild(row);
-                });
-            } catch (error) {
-                console.error('Error fetching categories:', error);
-                alert('Failed to load categories.');
-            }
-        }
-    
-        // Add a new category
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const slug = document.getElementById('slug').value;
-    
-            try {
-                const response = await fetch('https://club-1-6len.onrender.com/category/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ name, slug }),
-                });
-    
-                if (!response.ok) throw new Error('Failed to add category');
-    
-                await loadCategories();
-                form.reset();
-            } catch (error) {
-                console.error('Error adding category:', error);
-                alert('Failed to add category.');
-            }
-        });
-    
-        // Edit a category
-        async function editCategory(id) {
-            const newName = prompt('Enter new name:');
-            const newSlug = prompt('Enter new slug:');
-            if (newName && newSlug) {
+        if (!userId) {
+            alert('Please log in first.');
+            window.location.href = '/login.html';
+        } else {
+            (async function verifyAdmin() {
                 try {
-                    const response = await fetch(`https://club-1-6len.onrender.com/category/${id}/`, {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ name: newName, slug: newSlug }),
-                    });
-    
-                    if (!response.ok) throw new Error('Failed to edit category');
-    
-                    await loadCategories();
+                    const response = await fetch(`https://club-1-6len.onrender.com/users/${userId}`);
+                    const user = await response.json();
+
+                    if (user.is_superuser) {
+                        const tableBody = document.getElementById('category-table-body');
+                        const form = document.getElementById('category-form');
+                    
+                        // Fetch and display categories
+                        async function loadCategories() {
+                            try {
+                                const response = await fetch('https://club-1-6len.onrender.com/category/');
+                                if (!response.ok) throw new Error('Failed to fetch categories');
+                                const data = await response.json();
+                    
+                                // Clear the table body
+                                tableBody.innerHTML = '';
+                    
+                                // Populate the table rows
+                                data.forEach(category => {
+                                    const row = document.createElement('tr');
+                                    row.innerHTML = `
+                                        <td>${category.id}</td>
+                                        <td>${category.name}</td>
+                                        <td>${category.slug}</td>
+                                        <td>
+                                            <button class="btn btc text-white  btn-sm" onclick="editCategory(${category.id})">Edit</button>
+                                            <button class="btn btc text-white btn-sm" onclick="deleteCategory(${category.id})">Delete</button>
+                                        </td>
+                                    `;
+                                    tableBody.appendChild(row);
+                                });
+                            } catch (error) {
+                                console.error('Error fetching categories:', error);
+                                alert('Failed to load categories.');
+                            }
+                        }
+                    
+                        // Add a new category
+                        form.addEventListener('submit', async (e) => {
+                            e.preventDefault();
+                            const name = document.getElementById('name').value;
+                            const slug = document.getElementById('slug').value;
+                    
+                            try {
+                                const response = await fetch('https://club-1-6len.onrender.com/category/', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                    body: JSON.stringify({ name, slug }),
+                                });
+                    
+                                if (!response.ok) throw new Error('Failed to add category');
+                    
+                                await loadCategories();
+                                form.reset();
+                            } catch (error) {
+                                console.error('Error adding category:', error);
+                                alert('Failed to add category.');
+                            }
+                        });
+                    
+                        // Edit a category
+                        async function editCategory(id) {
+                            const newName = prompt('Enter new name:');
+                            const newSlug = prompt('Enter new slug:');
+                            if (newName && newSlug) {
+                                try {
+                                    const response = await fetch(`https://club-1-6len.onrender.com/category/${id}/`, {
+                                        method: 'PUT',
+                                        headers: {
+                                            'Content-Type': 'application/json',
+                                        },
+                                        body: JSON.stringify({ name: newName, slug: newSlug }),
+                                    });
+                    
+                                    if (!response.ok) throw new Error('Failed to edit category');
+                    
+                                    await loadCategories();
+                                } catch (error) {
+                                    console.error('Error editing category:', error);
+                                    alert('Failed to edit category.');
+                                }
+                            }
+                        }
+                    
+                        // Delete a category
+                        async function deleteCategory(id) {
+                            if (confirm('Are you sure you want to delete this category?')) {
+                                try {
+                                    const response = await fetch(`https://club-1-6len.onrender.com/category/${id}/`, {
+                                        method: 'DELETE',
+                                    });
+                    
+                                    if (!response.ok) throw new Error('Failed to delete category');
+                    
+                                    await loadCategories();
+                                } catch (error) {
+                                    console.error('Error deleting category:', error);
+                                    alert('Failed to delete category.');
+                                }
+                            }
+                        }
+                    
+                        // Initial load
+                        loadCategories();
+                    } else {
+                        alert('Please log in as Admin.');
+                        window.location.href = '/login.html';
+                    }
                 } catch (error) {
-                    console.error('Error editing category:', error);
-                    alert('Failed to edit category.');
+                    console.error('Error verifying admin:', error);
+                    alert('Failed to verify admin. Please try again.');
                 }
-            }
+            })();
         }
-    
-        // Delete a category
-        async function deleteCategory(id) {
-            if (confirm('Are you sure you want to delete this category?')) {
-                try {
-                    const response = await fetch(`https://club-1-6len.onrender.com/category/${id}/`, {
-                        method: 'DELETE',
-                    });
-    
-                    if (!response.ok) throw new Error('Failed to delete category');
-    
-                    await loadCategories();
-                } catch (error) {
-                    console.error('Error deleting category:', error);
-                    alert('Failed to delete category.');
-                }
-            }
-        }
-    
-        // Initial load
-        loadCategories();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="./logout.js"></script>

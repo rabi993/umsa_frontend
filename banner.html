@@ -208,115 +208,138 @@
         </p>
     </footer>
     <script>
-        const tableBody = document.getElementById('banner-table-body');
-        const form = document.getElementById('banner-form');
+        const userId = localStorage.getItem("user_id");
     
-        // Fetch and display banners
-        async function loadBanners() {
-            try {
-                const response = await fetch('https://club-1-6len.onrender.com/banner/');
-                if (!response.ok) throw new Error('Failed to fetch banners');
-                const data = await response.json();
-    
-                // Clear table body
-                tableBody.innerHTML = '';
-    
-                // Populate table rows
-                data.forEach(banner => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${banner.id}</td>
-                        <td>${banner.name}</td>
-                        <td>${banner.description}</td>
-                        <td><img src="${banner.image}" alt="${banner.name}" style="width: 100px; height: auto;"></td>
-                        <td>
-                            <button class="btn btc text-white btn-sm" onclick="editBanner(${banner.id})">Edit</button>
-                            <button class="btn btc text-white btn-sm" onclick="deleteBanner(${banner.id})">Delete</button>
-                        </td>
-                    `;
-                    tableBody.appendChild(row);
-                });
-            } catch (error) {
-                console.error('Error fetching banners:', error);
-                alert('Failed to load banners.');
-            }
-        }
-    
-        // Add new banner
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const description = document.getElementById('description').value;
-            const image = document.getElementById('image').value;
-    
-            try {
-                const response = await fetch('https://club-1-6len.onrender.com/banner/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ name, description, image }),
-                });
-    
-                if (!response.ok) throw new Error('Failed to add banner');
-    
-                await loadBanners();
-                form.reset();
-            } catch (error) {
-                console.error('Error adding banner:', error);
-                alert('Failed to add banner.');
-            }
-        });
-    
-        // Edit banner
-        async function editBanner(id) {
-            const newName = prompt('Enter new name:');
-            const newDescription = prompt('Enter new description:');
-            const newImage = prompt('Enter new image URL:');
-            if (newName && newDescription && newImage) {
+        if (!userId) {
+            alert('Please log in first.');
+            window.location.href = '/login.html';
+        } else {
+            (async function verifyAdmin() {
                 try {
-                    const response = await fetch(`https://club-1-6len.onrender.com/banner/${id}/`, {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            name: newName,
-                            description: newDescription,
-                            image: newImage,
-                        }),
-                    });
-    
-                    if (!response.ok) throw new Error('Failed to edit banner');
-    
-                    await loadBanners();
+                    const response = await fetch(`https://club-1-6len.onrender.com/users/${userId}`);
+                    const user = await response.json();
+
+                    if (user.is_superuser) {
+                        const tableBody = document.getElementById('banner-table-body');
+                        const form = document.getElementById('banner-form');
+                    
+                        // Fetch and display banners
+                        async function loadBanners() {
+                            try {
+                                const response = await fetch('https://club-1-6len.onrender.com/banner/');
+                                if (!response.ok) throw new Error('Failed to fetch banners');
+                                const data = await response.json();
+                    
+                                // Clear table body
+                                tableBody.innerHTML = '';
+                    
+                                // Populate table rows
+                                data.forEach(banner => {
+                                    const row = document.createElement('tr');
+                                    row.innerHTML = `
+                                        <td>${banner.id}</td>
+                                        <td>${banner.name}</td>
+                                        <td>${banner.description}</td>
+                                        <td><img src="${banner.image}" alt="${banner.name}" style="width: 100px; height: auto;"></td>
+                                        <td>
+                                            <button class="btn btc text-white btn-sm" onclick="editBanner(${banner.id})">Edit</button>
+                                            <button class="btn btc text-white btn-sm" onclick="deleteBanner(${banner.id})">Delete</button>
+                                        </td>
+                                    `;
+                                    tableBody.appendChild(row);
+                                });
+                            } catch (error) {
+                                console.error('Error fetching banners:', error);
+                                alert('Failed to load banners.');
+                            }
+                        }
+                    
+                        // Add new banner
+                        form.addEventListener('submit', async (e) => {
+                            e.preventDefault();
+                            const name = document.getElementById('name').value;
+                            const description = document.getElementById('description').value;
+                            const image = document.getElementById('image').value;
+                    
+                            try {
+                                const response = await fetch('https://club-1-6len.onrender.com/banner/', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                    body: JSON.stringify({ name, description, image }),
+                                });
+                    
+                                if (!response.ok) throw new Error('Failed to add banner');
+                    
+                                await loadBanners();
+                                form.reset();
+                            } catch (error) {
+                                console.error('Error adding banner:', error);
+                                alert('Failed to add banner.');
+                            }
+                        });
+                    
+                        // Edit banner
+                        async function editBanner(id) {
+                            const newName = prompt('Enter new name:');
+                            const newDescription = prompt('Enter new description:');
+                            const newImage = prompt('Enter new image URL:');
+                            if (newName && newDescription && newImage) {
+                                try {
+                                    const response = await fetch(`https://club-1-6len.onrender.com/banner/${id}/`, {
+                                        method: 'PUT',
+                                        headers: {
+                                            'Content-Type': 'application/json',
+                                        },
+                                        body: JSON.stringify({
+                                            name: newName,
+                                            description: newDescription,
+                                            image: newImage,
+                                        }),
+                                    });
+                    
+                                    if (!response.ok) throw new Error('Failed to edit banner');
+                    
+                                    await loadBanners();
+                                } catch (error) {
+                                    console.error('Error editing banner:', error);
+                                    alert('Failed to edit banner.');
+                                }
+                            }
+                        }
+                    
+                        // Delete banner
+                        async function deleteBanner(id) {
+                            if (confirm('Are you sure you want to delete this banner?')) {
+                                try {
+                                    const response = await fetch(`https://club-1-6len.onrender.com/banner/${id}/`, {
+                                        method: 'DELETE',
+                                    });
+                    
+                                    if (!response.ok) throw new Error('Failed to delete banner');
+                    
+                                    await loadBanners();
+                                } catch (error) {
+                                    console.error('Error deleting banner:', error);
+                                    alert('Failed to delete banner.');
+                                }
+                            }
+                        }
+                    
+                        // Initial load
+                        loadBanners();
+                    } else {
+                        alert('Please log in as Admin.');
+                        window.location.href = '/login.html';
+                    }
                 } catch (error) {
-                    console.error('Error editing banner:', error);
-                    alert('Failed to edit banner.');
+                    console.error('Error verifying admin:', error);
+                    alert('Failed to verify admin. Please try again.');
                 }
-            }
+            })();
         }
-    
-        // Delete banner
-        async function deleteBanner(id) {
-            if (confirm('Are you sure you want to delete this banner?')) {
-                try {
-                    const response = await fetch(`https://club-1-6len.onrender.com/banner/${id}/`, {
-                        method: 'DELETE',
-                    });
-    
-                    if (!response.ok) throw new Error('Failed to delete banner');
-    
-                    await loadBanners();
-                } catch (error) {
-                    console.error('Error deleting banner:', error);
-                    alert('Failed to delete banner.');
-                }
-            }
-        }
-    
-        // Initial load
-        loadBanners();
+        
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="./logout.js"></script>
