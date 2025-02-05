@@ -146,7 +146,7 @@
      
       <main class="bg-white ">
         <div class="d-flex ">
-          <div style="background-color: #E8E8E8;" class="py-3 col-md-2  px-2 ">
+          <div  class="py-3 col-md-2  px-2 ">
             <div>
               <a style="border-bottom:1px solid gray;" class="btn  mt-1 mb-1 dash-btn" href="adminPanel.html">Dashboard</a>
             </div>
@@ -377,9 +377,9 @@
                                 <td>${transaction.approved ? "Yes" : "No"} </td>
                                 <td>
                                     <div class="d-flex justify-content-center gap-2">
-                                        <button class="btn btc text-white" onclick="approveTransaction(${transaction.id})">Approve</button>
-                                        <button class="btn btc text-white" onclick="editTransaction(${transaction.id})">Edit</button>
-                                        <button class="btn btc text-white" onclick="deleteTransaction(${transaction.id})">Delete</button>
+                                        <button class="btn  text-white" onclick="approveTransaction(${transaction.id})">✅</button>
+                                        <button class="btn  text-white" onclick="editTransaction(${transaction.id})">📝</button>
+                                        <button class="btn  text-white" onclick="deleteTransaction(${transaction.id})">🗑️</button>
                                     </div>
                                 </td>
                             </tr>

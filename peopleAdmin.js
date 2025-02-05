@@ -47,7 +47,7 @@ function fetchPeople() {
                                                 <a class="btn btc text-white btn-sm" href="userProfileAdmin.html?personId=${person.id}" target="_blank">Profile</a>
                                             </div>
                                             <div>
-                                                <button class="btn btc text-white btn-sm" onclick="deletePerson(${person.id})">Delete</button>
+                                                <button class="btn  text-white btn-sm" onclick="deletePerson(${person.id})">🗑️</button>
                                             </div>
                                         </div>
                                     </td>

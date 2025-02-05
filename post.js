@@ -41,13 +41,13 @@ if (!userId) {
                           <td>${post.user}</td>
                           <td>${post.title}</td>
                           <td>${post.content}</td>
-                          <td><img src="${post.image}" alt="${post.title}" style="width: 100px; height: 100px; object-fit: cover;"></td>
+                          <td><img src="${post.image}" alt="${post.title}" style="width: 70px; height: 70px; object-fit: cover;"></td>
                           <td>${post.category.join(", ")}</td>
                           
                           <td>
                             <div class ="d-flex ">
-                              <button class="btn btc text-white" onclick='handleEditpost(${JSON.stringify(post)})'>Edit</button>
-                              <button class="btn btc text-white mx-3" onclick='handleDeletepost(${post.id})'>Delete</button>
+                              <button class="btn  text-white" onclick='handleEditpost(${JSON.stringify(post)})'>📝</button>
+                              <button class="btn  text-white mx-3" onclick='handleDeletepost(${post.id})'>🗑️</button>
                             </div>
                           </td>
                         `;

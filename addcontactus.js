@@ -34,7 +34,7 @@ if (!userId) {
                           <td>${contact.address}</td>
                           <td>${contact.content}</td>
                           <td>
-                            <button class="btn btc text-white btn-sm" onclick="deleteContactUs(${contact.id})">Delete</button>
+                            <button class="btn  text-white btn-sm" onclick="deleteContactUs(${contact.id})">🗑️</button>
                           </td>
                         `;
                         contactUsList.appendChild(row);

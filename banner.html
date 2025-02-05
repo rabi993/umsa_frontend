@@ -92,7 +92,7 @@
      
       <main class="bg-white ">
         <div class="d-flex ">
-          <div style="background-color: #E8E8E8;" class="py-3 col-md-2  px-2 ">
+          <div class="py-3 col-md-2  px-2 ">
             <div>
               <a style="border-bottom:1px solid gray;" class="btn  mt-1 mb-1 dash-btn" href="adminPanel.html">Dashboard</a>
             </div>
@@ -240,10 +240,10 @@
                                         <td>${banner.id}</td>
                                         <td>${banner.name}</td>
                                         <td>${banner.description}</td>
-                                        <td><img src="${banner.image}" alt="${banner.name}" style="width: 100px; height: auto;"></td>
+                                        <td><img src="${banner.image}" alt="${banner.name}" style="width: 70px; height: auto;"></td>
                                         <td>
-                                            <button class="btn btc text-white btn-sm" onclick="editBanner(${banner.id})">Edit</button>
-                                            <button class="btn btc text-white btn-sm" onclick="deleteBanner(${banner.id})">Delete</button>
+                                            <button class="btn  text-white btn-sm" onclick="editBanner(${banner.id})">📝</button>
+                                            <button class="btn  text-white btn-sm" onclick="deleteBanner(${banner.id})">🗑️</button>
                                         </td>
                                     `;
                                     tableBody.appendChild(row);
