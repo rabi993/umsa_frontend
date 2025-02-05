@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Create the card element
         const card = document.createElement("div");
-        card.className = "card p-3 shadow-lg";
+        card.className = "bg-white p-3 shadow";
         card.style.width = "25rem";
 
         // Populate the card with user and people details

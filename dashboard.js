@@ -35,7 +35,7 @@ fetch("https://club-1-6len.onrender.com/people/list/")
 
         // Create the card element
         const card = document.createElement("div");
-        card.className = "card p-3 px-5 shadow-lg";
+        card.className = " p-3 px-5 shadow";
         // card.style.width = "25rem";
 
         // Populate the card with user and people details
