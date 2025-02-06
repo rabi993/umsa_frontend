@@ -49,9 +49,10 @@ const displayFlowers = (flowers, userMap) => {
         <h6 class="p-0 m-0">${flower.title}</h6>
         <p style="color: black; margin: 0px; font-size:15px;" >
           ${fullName}  
-          <small style="color: grey; margin: 0px; font-size:10px;"> ${formatDateTime(flower.created_at)}</small> 
-           <span style="color: gray;">${categories}</span>
+          
         </p>
+        <small style="color: grey; margin: 0px; font-size:10px;"> ${formatDateTime(flower.created_at)}  </small> 
+          
       </a>
     `;
 
@@ -114,8 +115,9 @@ function formatDateTime(dateTimeString) {
           <h6>${flower.name}</h6>
           <p style="color: black; margin: 0px; font-size:15px;">
             ${fullName}  
-            <small style="color: grey; margin: 0px; font-size:10px;">${formatDateTime(flower.created_at)}</small>
+            
           </p>
+          <small style="color: grey; margin: 0px; font-size:10px;">${formatDateTime(flower.created_at)}</small>
         </a>
       `;
   
