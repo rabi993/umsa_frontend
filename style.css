@@ -132,10 +132,10 @@ nav{
     text-align: center;
     transform: translate(-50%, -50%); 
     color: white;
-    font-size: 13px;
+    font-size: 25px;
     font-weight: bold;
     text-align: center;
-    padding: 10px 20px;
+    padding: 10px 0px;
     z-index: 1;
 }
 .banner-containerfirstt {
@@ -384,8 +384,9 @@ nav{
 }
 
 footer{
+    background-color: black;
     /* padding: 50px; */
-    background: linear-gradient(66deg, #222222 -5.25%, #4d4c4c 46.76%, #222222 98.77%);
+    /* background: linear-gradient(66deg, #222222 -5.25%, #4d4c4c 46.76%, #222222 98.77%); */
 }
 
 .flower-img img{
