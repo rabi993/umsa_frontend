@@ -2,8 +2,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const userId = localStorage.getItem('user_id'); // Get the user ID from local storage
     const peopleId = localStorage.getItem('people_id'); // Get the people ID from local storage
-    const userApiUrl = `https://club-1-6len.onrender.com/users/${userId}`; // User API URL
-    const peopleApiUrl = `https://club-1-6len.onrender.com/people/list/${peopleId}`; // people API URL
+    const userApiUrl = `https://club-wine.vercel.app/users/${userId}`; // User API URL
+    const peopleApiUrl = `https://club-wine.vercel.app/people/list/${peopleId}`; // people API URL
     const cardContainer = document.getElementById("user-card-container1");
 
     // Fetch user and people data in parallel
@@ -80,8 +80,8 @@ document.addEventListener("DOMContentLoaded", function () {
 //   const peopleId = localStorage.getItem("people_id");
 //   const userId = localStorage.getItem("user_id");
 
-//   const peopleApiUrl = `https://club-1-6len.onrender.com/people/list/${peopleId}/`;
-//   const userApiUrl = `https://club-1-6len.onrender.com/users/${userId}/`;
+//   const peopleApiUrl = `https://club-wine.vercel.app/people/list/${peopleId}/`;
+//   const userApiUrl = `https://club-wine.vercel.app/users/${userId}/`;
 
 //   const updateForm = document.getElementById("update-profile-form");
 
@@ -216,8 +216,8 @@ document.addEventListener("DOMContentLoaded", function () {
 //   const peopleId = localStorage.getItem("people_id");
 //   const userId = localStorage.getItem("user_id");
 
-//   const peopleApiUrl = `https://club-1-6len.onrender.com/people/list/${peopleId}/`;
-//   const userApiUrl = `https://club-1-6len.onrender.com/users/${userId}/`;
+//   const peopleApiUrl = `https://club-wine.vercel.app/people/list/${peopleId}/`;
+//   const userApiUrl = `https://club-wine.vercel.app/users/${userId}/`;
 
 //   const updateForm = document.getElementById("update-profile-form");
 
@@ -333,8 +333,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const peopleId = localStorage.getItem("people_id");
   const userId = localStorage.getItem("user_id");
 
-  const peopleApiUrl = `https://club-1-6len.onrender.com/people/list/${peopleId}/`;
-  const userApiUrl = `https://club-1-6len.onrender.com/users/${userId}/`;
+  const peopleApiUrl = `https://club-wine.vercel.app/people/list/${peopleId}/`;
+  const userApiUrl = `https://club-wine.vercel.app/users/${userId}/`;
 
   const updateForm = document.getElementById("update-profile-form");
 

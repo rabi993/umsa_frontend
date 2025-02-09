@@ -2,7 +2,7 @@ const fetchPosts = () => {
     const postsList = document.getElementById("posts-list");
     postsList.innerHTML = `<tr><td colspan="7">Loading posts...</td></tr>`;
     
-    fetch("https://club-1-6len.onrender.com/notice/list/")
+    fetch("https://club-wine.vercel.app/notice/list/")
         .then((response) => {
         if (!response.ok) {
             throw new Error("Failed to fetch posts.");
@@ -79,7 +79,7 @@ const handleAddPost = async (event) => {
         const fileUrl = imgbbData.data.url;
 
         const postData = { user, name: title, description: content, file: fileUrl };
-        const response = await fetch("https://club-1-6len.onrender.com/notice/", {
+        const response = await fetch("https://club-wine.vercel.app/notice/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(postData),
@@ -157,7 +157,7 @@ const handleEditPost = (post) => {
             };
 
             // Send the update request to the server with the existing post ID
-            const response = await fetch(`https://club-1-6len.onrender.com/notice/${post.id}/`, {
+            const response = await fetch(`https://club-wine.vercel.app/notice/${post.id}/`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(updatedPost),
@@ -184,7 +184,7 @@ const handleEditPost = (post) => {
 
 const handleDeletePost = (id) => {
     if (confirm("Are you sure you want to delete this notice?")) {
-        fetch(`https://club-1-6len.onrender.com/notice/${id}/`, { method: "DELETE" })
+        fetch(`https://club-wine.vercel.app/notice/${id}/`, { method: "DELETE" })
             .then(response => {
                 if (!response.ok) throw new Error("Failed to delete notice.");
                 alert("Notice deleted successfully!");
@@ -200,7 +200,7 @@ const handleDeletePost = (id) => {
 // Fetch and set post owner on page load
 document.addEventListener("DOMContentLoaded", () => {
     const userId = localStorage.getItem("user_id");
-    fetch(`https://club-1-6len.onrender.com/users/${userId}/`)
+    fetch(`https://club-wine.vercel.app/users/${userId}/`)
         .then(response => response.json())
         .then(data => {
             document.getElementById("postOwner").value = data.username || "Anonymous";

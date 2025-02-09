@@ -8,7 +8,7 @@ if (!userId) {
 } else {
     (async function verifyAdmin() {
         try {
-            const response = await fetch(`https://club-1-6len.onrender.com/users/${userId}`);
+            const response = await fetch(`https://club-wine.vercel.app/users/${userId}`);
             const user = await response.json();
 
             if (user.is_superuser) {
@@ -17,7 +17,7 @@ if (!userId) {
                 const postsList = document.getElementById("posts-list");
                 postsList.innerHTML = `<tr><td colspan="8" class="text-center">Loading posts...</td></tr>`;
 
-                fetch("https://club-1-6len.onrender.com/post/list/")
+                fetch("https://club-wine.vercel.app/post/list/")
                   .then((response) => {
                     if (!response.ok) {
                       throw new Error("Failed to fetch posts.");
@@ -66,7 +66,7 @@ if (!userId) {
 
 
               const fetchCategories = () => {
-                fetch("https://club-1-6len.onrender.com/category/")
+                fetch("https://club-wine.vercel.app/category/")
                   .then((response) => {
                     if (!response.ok) throw new Error("Failed to fetch categories");
                     return response.json();
@@ -90,7 +90,7 @@ if (!userId) {
               document.addEventListener("DOMContentLoaded", () => {
                 const userId = localStorage.getItem("user_id"); 
                 
-                fetch(`https://club-1-6len.onrender.com/users/${userId}/`) 
+                fetch(`https://club-wine.vercel.app/users/${userId}/`) 
                   .then((response) => {
                     if (!response.ok) {
                       throw new Error("Failed to fetch user details");
@@ -154,7 +154,7 @@ if (!userId) {
                   };
 
                   // Send post data to your backend
-                  const response = await fetch("https://club-1-6len.onrender.com/post/list/", {
+                  const response = await fetch("https://club-wine.vercel.app/post/list/", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(postData),
@@ -224,7 +224,7 @@ if (!userId) {
                     category: Array.from(categorySelect.selectedOptions).map(option => option.value),
                   };
 
-                  const response = await fetch(`https://club-1-6len.onrender.com/post/list/${post.id}/`, {
+                  const response = await fetch(`https://club-wine.vercel.app/post/list/${post.id}/`, {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(updatedpost),
@@ -248,7 +248,7 @@ if (!userId) {
 
               const handleDeletepost = (id) => {
                 if (confirm("Are you sure you want to delete this post?")) {
-                  fetch(`https://club-1-6len.onrender.com/post/list/${id}/`, {
+                  fetch(`https://club-wine.vercel.app/post/list/${id}/`, {
                     method: "DELETE",
                   })
                     .then(response => {

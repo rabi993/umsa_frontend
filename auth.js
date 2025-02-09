@@ -24,7 +24,7 @@ const handleRegistration = (event) => {
     ) {
       console.log(info);
 
-      fetch("https://club-1-6len.onrender.com/people/register/", {
+      fetch("https://club-wine.vercel.app/people/register/", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(info),
@@ -71,7 +71,7 @@ const handleLogin = (event) => {
   }
 
   // API call for login
-  fetch("https://club-1-6len.onrender.com/people/login/", {
+  fetch("https://club-wine.vercel.app/people/login/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, password }),
@@ -98,7 +98,7 @@ const handleLogin = (event) => {
 
         // Use `user_id` to fetch user details
         const userId = data.user_id;
-        fetch(`https://club-1-6len.onrender.com/users/${userId}/`, {
+        fetch(`https://club-wine.vercel.app/users/${userId}/`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -148,7 +148,7 @@ function setPeople() {
   }
 
   // Fetch the list of people and find the relevant person for the user
-  fetch("https://club-1-6len.onrender.com/people/list/")
+  fetch("https://club-wine.vercel.app/people/list/")
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Error fetching people list: ${response.statusText}`);

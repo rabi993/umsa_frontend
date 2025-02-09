@@ -278,7 +278,7 @@
   <script>
     // Fetch account data and populate the table
     async function fetchAccounts() {
-      const response = await fetch('https://club-1-6len.onrender.com/account/');
+      const response = await fetch('https://club-wine.vercel.app/account/');
       const data = await response.json();
 
       const tableBody = document.getElementById('accountTable').querySelector('tbody');
@@ -462,7 +462,7 @@
   <script>
     // Fetch account data and populate the table
     async function fetchAccounts() {
-      const response = await fetch('https://club-1-6len.onrender.com/account/');
+      const response = await fetch('https://club-wine.vercel.app/account/');
       const data = await response.json();
 
       const tableBody = document.getElementById('accountTable').querySelector('tbody');
@@ -496,7 +496,7 @@
     async function deleteAccount(accountId) {
       const confirmDelete = confirm(`Are you sure you want to delete account ID: ${accountId}?`);
       if (confirmDelete) {
-        const response = await fetch(`https://club-1-6len.onrender.com/account/${accountId}/`, {
+        const response = await fetch(`https://club-wine.vercel.app/account/${accountId}/`, {
           method: 'DELETE',
         });
 

@@ -8,12 +8,12 @@ const getparams = () => {
   }
 
   // Fetch post details and comments
-  fetch(`https://club-1-6len.onrender.com/post/list/${postId}`)
+  fetch(`https://club-wine.vercel.app/post/list/${postId}`)
     .then((res) => res.json())
     .then((data) => displayDetails(data))
     .catch((err) => console.error("Error fetching post details:", err));
 
-  fetch(`https://club-1-6len.onrender.com/post/comments/?post_id=${postId}`)
+  fetch(`https://club-wine.vercel.app/post/comments/?post_id=${postId}`)
     .then((res) => res.json())
     .then((data) => flowerReview(data))
     .catch((err) => console.error("Error fetching comments:", err));
@@ -26,7 +26,7 @@ const flowerReview = async (reviews) => {
   for (const review of reviews) {
     try {
       // Fetch user details
-      const userRes = await fetch(`https://club-1-6len.onrender.com/users/${review.commentor}`);
+      const userRes = await fetch(`https://club-wine.vercel.app/users/${review.commentor}`);
       const userData = await userRes.json();
       const fullName = `${userData.first_name || "Admin"} ${userData.last_name || "User"}`;
 
@@ -89,7 +89,7 @@ const handleReviewSubmission = (event) => {
 
   const reviewBody = document.getElementById("reviewBody").value;
 
-  fetch("https://club-1-6len.onrender.com/post/comments/", {
+  fetch("https://club-wine.vercel.app/post/comments/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -109,7 +109,7 @@ const handleReviewSubmission = (event) => {
     .then(() => {
       alert("Review submitted successfully!");
       document.getElementById("review-form").reset();
-      fetch(`https://club-1-6len.onrender.com/post/comments/?post_id=${postId}`)
+      fetch(`https://club-wine.vercel.app/post/comments/?post_id=${postId}`)
         .then((res) => res.json())
         .then((data) => flowerReview(data));
     })
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", getparams);
 //   for (const review of reviews) {
 //     try {
 //       // Fetch user data
-//       const buyerResponse = await fetch(`https://club-1-6len.onrender.com/users/${review.commentor}`);
+//       const buyerResponse = await fetch(`https://club-wine.vercel.app/users/${review.commentor}`);
 //       const userData = await buyerResponse.json();
 //       const fullName = `${userData.first_name || "admin"} ${userData.last_name || "islam"}`;
 
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", getparams);
 // const saveEditedReview = (reviewId) => {
 //   const editedReview = document.getElementById(`edit-review-${reviewId}`).value;
 
-//   fetch(`https://club-1-6len.onrender.com/post/reviews/${reviewId}/`, {
+//   fetch(`https://club-wine.vercel.app/post/reviews/${reviewId}/`, {
 //     method: "PUT",
 //     headers: {
 //       "Content-Type": "application/json",
@@ -220,7 +220,7 @@ const loadFlowers = (search = "") => {
   spinner.style.display = "block";
   noData.style.display = "none";
 
-  const url = `https://club-1-6len.onrender.com/post/list/?search=${search}`;
+  const url = `https://club-wine.vercel.app/post/list/?search=${search}`;
   console.log("Fetching data from:", url);
 
   fetch(url)
@@ -275,7 +275,7 @@ const loadFlowers = (search = "") => {
     //   flowersContainer.appendChild(div);
     // });
     sortedflowers.forEach((flower, index) => {
-      const userApiUrl = `https://club-1-6len.onrender.com/users/`;
+      const userApiUrl = `https://club-wine.vercel.app/users/`;
     
       // Create a div for each flower card first
       const div = document.createElement("div");
@@ -324,7 +324,7 @@ const loadFlowers = (search = "") => {
 
   
   const loadCategory = () => {
-    fetch("https://club-1-6len.onrender.com/category/")
+    fetch("https://club-wine.vercel.app/category/")
       .then((res) => res.json())
       .then((data) => {
         const parent = document.getElementById("drop-cat");

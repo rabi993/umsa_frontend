@@ -1,5 +1,5 @@
-const API_URL = "https://club-1-6len.onrender.com/people/";
-const userAPI_URL = "https://club-1-6len.onrender.com/users/";
+const API_URL = "https://club-wine.vercel.app/people/";
+const userAPI_URL = "https://club-wine.vercel.app/users/";
 
 // Fetch users and filter people based on user ID
 function fetchPeople() {
@@ -91,7 +91,7 @@ const userId = localStorage.getItem("user_id");
         } else {
             (async function verifyAdmin() {
                 try {
-                    const response = await fetch(`https://club-1-6len.onrender.com/users/${userId}`);
+                    const response = await fetch(`https://club-wine.vercel.app/users/${userId}`);
                     const user = await response.json();
 
                     if (user.is_superuser) {

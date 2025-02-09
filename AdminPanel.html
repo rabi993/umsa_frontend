@@ -383,15 +383,15 @@
       async function fetchDashboardData() {
           try {
               const [people, posts, events, notices, transactions, services, accounts, contacts, comments] = await Promise.all([
-                  fetch("https://club-1-6len.onrender.com/people/list/").then(res => res.json()),
-                  fetch("https://club-1-6len.onrender.com/post/list/").then(res => res.json()),
-                  fetch("https://club-1-6len.onrender.com/event/list/").then(res => res.json()),
-                  fetch("https://club-1-6len.onrender.com/notice/list/").then(res => res.json()),
-                  fetch("https://club-1-6len.onrender.com/transaction/").then(res => res.json()),
-                  fetch("https://club-1-6len.onrender.com/service/").then(res => res.json()),
-                  fetch("https://club-1-6len.onrender.com/account/").then(res => res.json()),
-                  fetch("https://club-1-6len.onrender.com/contact_us/").then(res => res.json()),
-                  fetch("https://club-1-6len.onrender.com/post/comments/").then(res => res.json())
+                  fetch("https://club-wine.vercel.app/people/list/").then(res => res.json()),
+                  fetch("https://club-wine.vercel.app/post/list/").then(res => res.json()),
+                  fetch("https://club-wine.vercel.app/event/list/").then(res => res.json()),
+                  fetch("https://club-wine.vercel.app/notice/list/").then(res => res.json()),
+                  fetch("https://club-wine.vercel.app/transaction/").then(res => res.json()),
+                  fetch("https://club-wine.vercel.app/service/").then(res => res.json()),
+                  fetch("https://club-wine.vercel.app/account/").then(res => res.json()),
+                  fetch("https://club-wine.vercel.app/contact_us/").then(res => res.json()),
+                  fetch("https://club-wine.vercel.app/post/comments/").then(res => res.json())
               ]);
 
               document.getElementById("totalPeople").innerText = people.length;
@@ -430,7 +430,7 @@
       } else {
           (async function verifyAdmin() {
               try {
-                  const response = await fetch(`https://club-1-6len.onrender.com/users/${userId}`);
+                  const response = await fetch(`https://club-wine.vercel.app/users/${userId}`);
                   const user = await response.json();
 
                   if (user.is_superuser) {

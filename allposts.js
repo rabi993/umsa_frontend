@@ -7,7 +7,7 @@ const loadFlowers = (search = "") => {
   spinner.style.display = "block";
   noData.style.display = "none";
 
-  const url = `https://club-1-6len.onrender.com/post/list/?search=${search}`;
+  const url = `https://club-wine.vercel.app/post/list/?search=${search}`;
   console.log("Fetching data from:", url);
 
   fetch(url)
@@ -62,7 +62,7 @@ const loadFlowers = (search = "") => {
     //   flowersContainer.appendChild(div);
     // });
     sortedflowers.forEach((flower, index) => {
-      const userApiUrl = `https://club-1-6len.onrender.com/users/`;
+      const userApiUrl = `https://club-wine.vercel.app/users/`;
     
       // Create a div for each flower card first
       const div = document.createElement("div");
@@ -110,7 +110,7 @@ const loadFlowers = (search = "") => {
 
   
   const loadCategory = () => {
-    fetch("https://club-1-6len.onrender.com/category/")
+    fetch("https://club-wine.vercel.app/category/")
       .then((res) => res.json())
       .then((data) => {
         const parent = document.getElementById("drop-cat");

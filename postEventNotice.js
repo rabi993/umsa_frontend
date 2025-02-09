@@ -1,4 +1,4 @@
-const url = `https://club-1-6len.onrender.com/post/list`; 
+const url = `https://club-wine.vercel.app/post/list`; 
 console.log("Fetching data from:", url);
 
 fetch(url)
@@ -16,7 +16,7 @@ fetch(url)
   });
 
 const fetchUsersAndDisplay = (flowers) => {
-  const userApiUrl = `https://club-1-6len.onrender.com/users/`;
+  const userApiUrl = `https://club-wine.vercel.app/users/`;
   fetch(userApiUrl)
     .then((res) => res.json())
     .then((users) => {
@@ -73,8 +73,8 @@ function formatDateTime(dateTimeString) {
 
 
   const loadFlowers = () => {
-    const noticeUrl = `https://club-1-6len.onrender.com/notice/list/`;
-    const userUrl = `https://club-1-6len.onrender.com/users/`;
+    const noticeUrl = `https://club-wine.vercel.app/notice/list/`;
+    const userUrl = `https://club-wine.vercel.app/users/`;
   
     console.log("Fetching data from:", noticeUrl);
   

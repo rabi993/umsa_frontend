@@ -6,13 +6,13 @@ if (!userId) {
 } else {
     (async function verifyAdmin() {
         try {
-            const response = await fetch(`https://club-1-6len.onrender.com/users/${userId}`);
+            const response = await fetch(`https://club-wine.vercel.app/users/${userId}`);
             const user = await response.json();
 
             if (user.is_superuser) {
               
               const fetchContactUs = () => {
-                fetch("https://club-1-6len.onrender.com/contact_us/")
+                fetch("https://club-wine.vercel.app/contact_us/")
                   .then((response) => response.json())
                   .then((contacts) => {
                     const contactUsList = document.getElementById("contactus-list");
@@ -64,7 +64,7 @@ if (!userId) {
                   content: content,
                 };
 
-                fetch("https://club-1-6len.onrender.com/contact_us/", {
+                fetch("https://club-wine.vercel.app/contact_us/", {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",
@@ -99,7 +99,7 @@ if (!userId) {
               const deleteContactUs = (contactId) => {
               if (!confirm("Are you sure you want to delete this entry?")) return;
 
-              fetch(`https://club-1-6len.onrender.com/contact_us/${contactId}/`, {
+              fetch(`https://club-wine.vercel.app/contact_us/${contactId}/`, {
                 method: "DELETE",
               })
                 .then((response) => {

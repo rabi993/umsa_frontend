@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchServices(); // Load the services when the page loads
 });
 const fetchServices = () => {
-  fetch("https://club-1-6len.onrender.com/service/")
+  fetch("https://club-wine.vercel.app/service/")
     .then((response) => response.json())
     .then((services) => {
       const serviceList = document.getElementById("service-list");
@@ -88,8 +88,8 @@ const handleAddService = async (event) => {
     // Determine HTTP method and URL
     const method = serviceId ? "PUT" : "POST"; // Update or add
     const url = serviceId
-      ? `https://club-1-6len.onrender.com/service/${serviceId}/`
-      : "https://club-1-6len.onrender.com/service/";
+      ? `https://club-wine.vercel.app/service/${serviceId}/`
+      : "https://club-wine.vercel.app/service/";
 
     // Send service data to backend
     const response = await fetch(url, {
@@ -131,7 +131,7 @@ const handleDeleteService = (id) => {
     return;
   }
 
-  fetch(`https://club-1-6len.onrender.com/service/${id}/`, {
+  fetch(`https://club-wine.vercel.app/service/${id}/`, {
     method: "DELETE", // Assuming the API uses DELETE for deletions
   })
     .then((response) => {

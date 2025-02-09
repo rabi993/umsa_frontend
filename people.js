@@ -1,5 +1,5 @@
-const API_URL = "https://club-1-6len.onrender.com/people/";
-const userAPI_URL = "https://club-1-6len.onrender.com/users/";
+const API_URL = "https://club-wine.vercel.app/people/";
+const userAPI_URL = "https://club-wine.vercel.app/users/";
 
 // Fetch users and filter people based on user ID
 function fetchPeople() {

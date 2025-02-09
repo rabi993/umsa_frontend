@@ -243,7 +243,7 @@
         const userId = localStorage.getItem('user_id'); // Get the user ID from local storage
 
         // Fetch the list of people and find the relevant person for the user
-        fetch("https://club-1-6len.onrender.com/people/list/")
+        fetch("https://club-wine.vercel.app/people/list/")
           .then((response) => {
             if (!response.ok) {
               throw new Error("Error fetching people list");
@@ -259,8 +259,8 @@
             return person;
           })
           .then((person) => {
-            const userApiUrl = `https://club-1-6len.onrender.com/users/${userId}`;
-            const peopleApiUrl = `https://club-1-6len.onrender.com/people/list/${person.id}`;
+            const userApiUrl = `https://club-wine.vercel.app/users/${userId}`;
+            const peopleApiUrl = `https://club-wine.vercel.app/people/list/${person.id}`;
             const cardContainer = document.getElementById("user-card-container");
 
             // Fetch user and people data in parallel
@@ -352,8 +352,8 @@
     </script>
     <script>
         
-      const apiUrl = "https://club-1-6len.onrender.com/transaction/";
-      const apiUrlUser = "https://club-1-6len.onrender.com/users/";
+      const apiUrl = "https://club-wine.vercel.app/transaction/";
+      const apiUrlUser = "https://club-wine.vercel.app/users/";
 
        
       function fetchTransactions1() {

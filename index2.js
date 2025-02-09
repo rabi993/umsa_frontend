@@ -1,6 +1,6 @@
 const loadServices = () => {
     // Fetch services from the API
-    fetch('https://club-1-6len.onrender.com/service/')
+    fetch('https://club-wine.vercel.app/service/')
       .then((res) => {
         if (!res.ok) {
           throw new Error("Network response was not ok");

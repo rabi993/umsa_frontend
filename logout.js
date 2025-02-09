@@ -13,7 +13,7 @@ const handlelogOut = () => {
   
   const token = localStorage.getItem("token");
 
-  fetch("https://club-1-6len.onrender.com/people/logout/", {
+  fetch("https://club-wine.vercel.app/people/logout/", {
     method: "POST",
     headers: {
       Authorization: `Token ${token}`,
