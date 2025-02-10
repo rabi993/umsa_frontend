@@ -157,7 +157,7 @@ const handleEditPost = (post) => {
             };
 
             // Send the update request to the server with the existing post ID
-            const response = await fetch(`https://club-wine.vercel.app/notice/${post.id}/`, {
+            const response = await fetch(`https://club-wine.vercel.app/notice/list/${post.id}/`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(updatedPost),
@@ -184,7 +184,7 @@ const handleEditPost = (post) => {
 
 const handleDeletePost = (id) => {
     if (confirm("Are you sure you want to delete this notice?")) {
-        fetch(`https://club-wine.vercel.app/notice/${id}/`, { method: "DELETE" })
+        fetch(`https://club-wine.vercel.app/notice/list/${id}/`, { method: "DELETE" })
             .then(response => {
                 if (!response.ok) throw new Error("Failed to delete notice.");
                 alert("Notice deleted successfully!");

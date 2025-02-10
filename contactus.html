@@ -190,27 +190,27 @@
     <div class="py-5">
       <div style="width: 75%;" class=" d-flex justify-content-center  m-auto">
           
-          <div class="col-md-5 col-lg-5 ms-5 ps-5 pt-4 ms-auto">
-            <div style="background-color: #FFFFFF; padding: 10px; " class="  m-auto  mb-1">
-                <div class="d-flex justify-content-center"><img style="width: 30px; height: 30px;" class="img-fluid" src="./images/phone-call.png" alt=""></div>
+          <div class="col-md-5 col-lg-5 ms-5 ps-5 pt-5 ms-auto">
+            <div style="background-color: #FFFFFF; padding: 10px; " class="  m-auto  mb-2">
+                <div class="d-flex justify-content-center"><img style="width: 40px; height: 40px;" class="img-fluid" src="./images/phone-call.png" alt=""></div>
                 <div class="text-center">
-                  <h5 class="textp">Phone</h5>
+                  <h4 class="textp">Phone</h4>
                   <p class="mb-0">Toll-Free: 0000 - 123 - 456789</p>
                   <p class="mb-0">Fax: 0000 - 123 - 456789</p>
                 </div>
             </div>
-            <div style="background-color: #FFFFFF; padding: 10px; " class="  m-auto mb-1">
-                <div class="d-flex justify-content-center" ><img style="width: 30px; height: 30px; " class="img-fluid" src="./images/email.png" alt=""></div>
+            <div style="background-color: #FFFFFF; padding: 10px; " class="  m-auto mb-2">
+                <div class="d-flex justify-content-center" ><img style="width: 40px; height: 40px; " class="img-fluid" src="./images/email.png" alt=""></div>
                 <div class="text-center">
-                  <h5 class="textp">Email</h5>
+                  <h4 class="textp">Email</h4>
                   <p class="mb-0">info@example.com</p>
                   <p class="mb-0">support@example.com</p>
                 </div>
             </div>
             <div style="background-color: #FFFFFF; padding: 10px; " class="  m-auto">
-                <div class="d-flex justify-content-center"><img style="width: 30px; height: 30px;" class="img-fluid" src="./images/pin.png" alt=""></div>
+                <div class="d-flex justify-content-center"><img style="width: 40px; height: 40px;" class="img-fluid" src="./images/pin.png" alt=""></div>
                 <div class="text-center">
-                  <h5 class="textp">Address</h5>
+                  <h4 class="textp">Address</h4>
                   <p class="mb-0">No: 58 A, East Madison Street,</p>
                   <p class="mb-0">Baltimore, MD, USA 4508</p>
                 </div>
@@ -219,16 +219,16 @@
               
           </div>
           <div style="border-right: 5px solid #3BCF93;
-  height: 375px;width: 10px; align-items: center; margin-top: 35px;" class="col-md-1 col-lg-1  " ></div>
+  height: 470px;width: 10px; align-items: center; margin-top: 35px;" class="col-md-1 col-lg-1  " ></div>
           <div style="margin-top: -20px; align-items: center;" class="mb-5 login-container col-lg-8 col-md-8 row d-flex justify-content-center ms-auto">
             <div class="col-lg-6 col-md-6">
               <h4 class=" mt-5 px-2">Please write to us</h4>
-              <form action="" onsubmit="handlecontact(event)">
+              <form action="" id="contactus_form" onsubmit="handleAddContactUs(event)">
                 <p id="error" class="text-danger"></p>
-                <input id="name" type="text" class="input" placeholder="Name" required />
+                <input id="contactName" type="text" class="input" placeholder="Name" required />
                 
                 <input
-                  id="phone"
+                  id="contactPhone"
                   type="text"
                   class="input"
                   placeholder="Phone"
@@ -236,7 +236,8 @@
                   title="Enter a valid 10-digit phone number"
                   required
                 />
-                <textarea id="content" class="input" placeholder="Message" rows="4" required></textarea>
+                <textarea id="contactAddress" class="input" placeholder="Address" rows="2" required></textarea>
+                <textarea id="contactContent" class="input" placeholder="Message" rows="4" required></textarea>
                 <input type="submit" style="font-size: 20px;"  class="btc input text-white" value="Submit" />
               </form>
               
@@ -424,48 +425,53 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
     <script>
       // Function to get the value of an input field by its ID
-      const getValue = (id) => document.getElementById(id).value;
-  
-      // Function to handle the contact form submission
-      const handleContact = (event) => {
-        event.preventDefault(); // Prevent default form submission
-  
-        const name = getValue("name");
-        const phone = getValue("phone");
-        const address = getValue("address");
-        const content = getValue("content");
-  
-        if (!name || !phone || !address || !content) {
-          document.getElementById("error").innerText = "All fields are required!";
-          return;
-        }
-  
-        const info = { name, phone, address, content };
-  
-        // Send form data to the server
-        fetch("https://club-wine.vercel.app/contact_us/", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(info),
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Failed to submit the form. Please try again.");
-            }
-            return response.json();
-          })
-          .then((data) => {
-            console.log(data); // Log the server's response
-            alert("Contact form submitted successfully!");
-            document.querySelector("form").reset(); // Reset form fields
-            document.getElementById("error").innerText = ""; // Clear error message
-          })
-          .catch((error) => {
-            console.error(error);
-            document.getElementById("error").innerText =
-              "An error occurred. Please try again.";
-          });
-      };
+        
+  const handleAddContactUs = (event) => {
+  event.preventDefault();
+
+  const name = document.getElementById("contactName").value.trim();
+  const phone = document.getElementById("contactPhone").value.trim();
+  const address = document.getElementById("contactAddress").value.trim();
+  const content = document.getElementById("contactContent").value.trim();
+
+  if (!name || !phone || !address || !content) {
+    alert("All fields are required.");
+    return;
+  }
+
+  const contactData = {
+    name: name,
+    phone: phone,
+    address: address,
+    content: content,
+  };
+
+  fetch("https://club-wine.vercel.app/contact_us/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(contactData),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        return response.json().then((errorData) => {
+          console.error("Server error:", errorData);
+          throw new Error(errorData.detail || "Failed to submit Contact Us entry.");
+        });
+      }
+      return response.json();
+    })
+    .then((data) => {
+      alert("Contact Us entry submitted successfully!");
+      document.getElementById("contactus_form").reset();
+      fetchContactUs(); // Refresh the table
+    })
+    .catch((error) => {
+      console.error("Error submitting Contact Us entry:", error.message);
+      // alert(`Error: ${error.message}`);
+    });
+};
     </script>
    
     

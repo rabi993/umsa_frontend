@@ -1,280 +1,248 @@
+const fetchPosts = () => {
+  const postsList = document.getElementById("posts-list");
+  postsList.innerHTML = `<tr><td colspan="8" class="text-center">Loading posts...</td></tr>`;
+
+  fetch("https://club-wine.vercel.app/post/list/")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch posts.");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const posts = data.results;
+      postsList.innerHTML = ""; 
+
+      if (posts.length === 0) {
+        postsList.innerHTML = `
+          <tr>
+            <td colspan="8" class="text-center">No posts available.</td>
+          </tr>`;
+      } else {
+        posts.forEach((post) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${post.id}</td>
+            <td>${post.user}</td>
+            <td>${post.title}</td>
+            <td>${post.content}</td>
+            <td><img src="${post.image}" alt="${post.title}" style="width: 70px; height: 70px; object-fit: cover;"></td>
+            <td>${post.category.join(", ")}</td>
+            
+            <td>
+              <div class ="d-flex ">
+                <button class="btn  text-white" onclick='handleEditpost(${JSON.stringify(post)})'>📝</button>
+                <button class="btn  text-white mx-3" onclick='handleDeletepost(${post.id})'>🗑️</button>
+              </div>
+            </td>
+          `;
+          postsList.appendChild(row);
+        });
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching posts:", error);
+      postsList.innerHTML = `
+        <tr>
+          <td colspan="8" class="text-center text-danger">Error loading posts.</td>
+        </tr>`;
+    });
+};
 
 
-const userId = localStorage.getItem("user_id");
-
-if (!userId) {
-    alert('Please log in first.');
-    window.location.href = '/login.html';
-} else {
-    (async function verifyAdmin() {
-        try {
-            const response = await fetch(`https://club-wine.vercel.app/users/${userId}`);
-            const user = await response.json();
-
-            if (user.is_superuser) {
-              
-              const fetchPosts = () => {
-                const postsList = document.getElementById("posts-list");
-                postsList.innerHTML = `<tr><td colspan="8" class="text-center">Loading posts...</td></tr>`;
-
-                fetch("https://club-wine.vercel.app/post/list/")
-                  .then((response) => {
-                    if (!response.ok) {
-                      throw new Error("Failed to fetch posts.");
-                    }
-                    return response.json();
-                  })
-                  .then((data) => {
-                    const posts = data.results;
-                    postsList.innerHTML = ""; 
-
-                    if (posts.length === 0) {
-                      postsList.innerHTML = `
-                        <tr>
-                          <td colspan="8" class="text-center">No posts available.</td>
-                        </tr>`;
-                    } else {
-                      posts.forEach((post) => {
-                        const row = document.createElement("tr");
-                        row.innerHTML = `
-                          <td>${post.id}</td>
-                          <td>${post.user}</td>
-                          <td>${post.title}</td>
-                          <td>${post.content}</td>
-                          <td><img src="${post.image}" alt="${post.title}" style="width: 70px; height: 70px; object-fit: cover;"></td>
-                          <td>${post.category.join(", ")}</td>
-                          
-                          <td>
-                            <div class ="d-flex ">
-                              <button class="btn  text-white" onclick='handleEditpost(${JSON.stringify(post)})'>📝</button>
-                              <button class="btn  text-white mx-3" onclick='handleDeletepost(${post.id})'>🗑️</button>
-                            </div>
-                          </td>
-                        `;
-                        postsList.appendChild(row);
-                      });
-                    }
-                  })
-                  .catch((error) => {
-                    console.error("Error fetching posts:", error);
-                    postsList.innerHTML = `
-                      <tr>
-                        <td colspan="8" class="text-center text-danger">Error loading posts.</td>
-                      </tr>`;
-                  });
-              };
+const fetchCategories = () => {
+  fetch("https://club-wine.vercel.app/category/")
+    .then((response) => {
+      if (!response.ok) throw new Error("Failed to fetch categories");
+      return response.json();
+    })
+    .then((data) => {
+      const categorySelect = document.getElementById("postCategory");
+      categorySelect.innerHTML = ""; // Clear previous options
+      data.forEach((category) => {
+        const option = document.createElement("option");
+        option.value = category.slug; // Use slug as the value
+        option.textContent = category.name;
+        categorySelect.appendChild(option);
+      });
+    })
+    .catch((error) => console.error("Error fetching categories:", error));
+};
 
 
-              const fetchCategories = () => {
-                fetch("https://club-wine.vercel.app/category/")
-                  .then((response) => {
-                    if (!response.ok) throw new Error("Failed to fetch categories");
-                    return response.json();
-                  })
-                  .then((data) => {
-                    const categorySelect = document.getElementById("postCategory");
-                    categorySelect.innerHTML = ""; // Clear previous options
-                    data.forEach((category) => {
-                      const option = document.createElement("option");
-                      option.value = category.slug; // Use slug as the value
-                      option.textContent = category.name;
-                      categorySelect.appendChild(option);
-                    });
-                  })
-                  .catch((error) => console.error("Error fetching categories:", error));
-              };
+fetchCategories();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const userId = localStorage.getItem("user_id"); 
+  
+  fetch(`https://club-wine.vercel.app/users/${userId}/`) 
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch user details");
+      }
+      return response.json();
+    })
+    .then((userData) => {
+      const postOwnerInput = document.getElementById("postOwner");
+      postOwnerInput.value = userData.username ;
+    })
+    .catch((error) => {
+      console.error(error);
+      // alert("Failed to retrieve user details.");
+    });
+
+  
+});
+const handleAddPost = async (event) => {
+  event.preventDefault();
+  const formMessage = document.getElementById("form-message");
+  formMessage.innerHTML = "";
+
+  const user = document.getElementById("postOwner").value.trim();
+  const title = document.getElementById("postTitle").value.trim();
+  const content = document.getElementById("postContent").value.trim();
+  const image = document.getElementById("postImage").files[0];
+  const category = Array.from(document.getElementById("postCategory").selectedOptions).map(option => option.value);
+  
+
+  if (!user || !title || !content || !image || !category.length) {
+    alert("All fields are required.");
+    return;
+  }
+
+  try {
+    // Upload image to imgbb
+    const imgbbAPIKey = "6b0c007afbf8da08520a75fb493991aa"; // Replace with your actual API key
+    const imgbbFormData = new FormData();
+    imgbbFormData.append("image", image);
+
+    const imgbbResponse = await fetch(`https://api.imgbb.com/1/upload?key=${imgbbAPIKey}`, {
+      method: "POST",
+      body: imgbbFormData,
+    });
+
+    if (!imgbbResponse.ok) {
+      throw new Error("Failed to upload image to imgbb.");
+    }
+
+    const imgbbData = await imgbbResponse.json();
+    const imageUrl = imgbbData.data.url;
+
+    // Prepare form data
+    const postData = {
+      user,
+      title,
+      content,
+      image: imageUrl,
+      category,
+      
+    };
+
+    // Send post data to your backend
+    const response = await fetch("https://club-wine.vercel.app/post/list/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(postData),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.detail || "Failed to add post.");
+    }
+
+    alert("post added successfully!");
+    document.getElementById("post_form").reset();
+    fetchPosts(); // Refresh the table
+  } catch (error) {
+    console.error("Error adding post:", error.message);
+    formMessage.innerHTML = `<div class="alert alert-danger">${error.message}</div>`;
+  }
+};
 
 
-              fetchCategories();
-
-              document.addEventListener("DOMContentLoaded", () => {
-                const userId = localStorage.getItem("user_id"); 
-                
-                fetch(`https://club-wine.vercel.app/users/${userId}/`) 
-                  .then((response) => {
-                    if (!response.ok) {
-                      throw new Error("Failed to fetch user details");
-                    }
-                    return response.json();
-                  })
-                  .then((userData) => {
-                    const postOwnerInput = document.getElementById("postOwner");
-                    postOwnerInput.value = userData.username ;
-                  })
-                  .catch((error) => {
-                    console.error(error);
-                    // alert("Failed to retrieve user details.");
-                  });
-
-                
-              });
-              const handleAddPost = async (event) => {
-                event.preventDefault();
-                const formMessage = document.getElementById("form-message");
-                formMessage.innerHTML = "";
-
-                const user = document.getElementById("postOwner").value.trim();
-                const title = document.getElementById("postTitle").value.trim();
-                const content = document.getElementById("postContent").value.trim();
-                const image = document.getElementById("postImage").files[0];
-                const category = Array.from(document.getElementById("postCategory").selectedOptions).map(option => option.value);
-                
-
-                if (!user || !title || !content || !image || !category.length) {
-                  alert("All fields are required.");
-                  return;
-                }
-
-                try {
-                  // Upload image to imgbb
-                  const imgbbAPIKey = "6b0c007afbf8da08520a75fb493991aa"; // Replace with your actual API key
-                  const imgbbFormData = new FormData();
-                  imgbbFormData.append("image", image);
-
-                  const imgbbResponse = await fetch(`https://api.imgbb.com/1/upload?key=${imgbbAPIKey}`, {
-                    method: "POST",
-                    body: imgbbFormData,
-                  });
-
-                  if (!imgbbResponse.ok) {
-                    throw new Error("Failed to upload image to imgbb.");
-                  }
-
-                  const imgbbData = await imgbbResponse.json();
-                  const imageUrl = imgbbData.data.url;
-
-                  // Prepare form data
-                  const postData = {
-                    user,
-                    title,
-                    content,
-                    image: imageUrl,
-                    category,
-                    
-                  };
-
-                  // Send post data to your backend
-                  const response = await fetch("https://club-wine.vercel.app/post/list/", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(postData),
-                  });
-
-                  if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.detail || "Failed to add post.");
-                  }
-
-                  alert("post added successfully!");
-                  document.getElementById("post_form").reset();
-                  fetchPosts(); // Refresh the table
-                } catch (error) {
-                  console.error("Error adding post:", error.message);
-                  formMessage.innerHTML = `<div class="alert alert-danger">${error.message}</div>`;
-                }
-              };
+// Initial fetch to populate the table
+fetchPosts();
 
 
-              // Initial fetch to populate the table
-              fetchPosts();
+const handleEditpost = (post) => {
+document.getElementById("postTitle").value = post.title;
+document.getElementById("postContent").value = post.content;
 
 
-              const handleEditpost = (post) => {
-              document.getElementById("postTitle").value = post.title;
-              document.getElementById("postContent").value = post.content;
-
-
-              const categorySelect = document.getElementById("postCategory");
-              Array.from(categorySelect.options).forEach(option => {
-                option.selected = post.category.includes(option.value);
-              });
+const categorySelect = document.getElementById("postCategory");
+Array.from(categorySelect.options).forEach(option => {
+  option.selected = post.category.includes(option.value);
+});
 
 
 
-              const postForm = document.getElementById("post_form");
-              postForm.onsubmit = async (event) => {
-                event.preventDefault();
+const postForm = document.getElementById("post_form");
+postForm.onsubmit = async (event) => {
+  event.preventDefault();
 
-                try {
-                  const imgbbAPIKey = "6b0c007afbf8da08520a75fb493991aa"; 
-                  const fileInput = document.getElementById("postImage");
-                  let imageUrl = post.image;
+  try {
+    const imgbbAPIKey = "6b0c007afbf8da08520a75fb493991aa"; 
+    const fileInput = document.getElementById("postImage");
+    let imageUrl = post.image;
 
-                  if (fileInput.files.length > 0) {
-                    const imgbbFormData = new FormData();
-                    imgbbFormData.append("image", fileInput.files[0]);
+    if (fileInput.files.length > 0) {
+      const imgbbFormData = new FormData();
+      imgbbFormData.append("image", fileInput.files[0]);
 
-                    const imgbbResponse = await fetch(`https://api.imgbb.com/1/upload?key=${imgbbAPIKey}`, {
-                      method: "POST",
-                      body: imgbbFormData,
-                    });
+      const imgbbResponse = await fetch(`https://api.imgbb.com/1/upload?key=${imgbbAPIKey}`, {
+        method: "POST",
+        body: imgbbFormData,
+      });
 
-                    if (!imgbbResponse.ok) {
-                      throw new Error("Failed to upload image to imgbb.");
-                    }
+      if (!imgbbResponse.ok) {
+        throw new Error("Failed to upload image to imgbb.");
+      }
 
-                    const imgbbData = await imgbbResponse.json();
-                    imageUrl = imgbbData.data.url;
-                  }
+      const imgbbData = await imgbbResponse.json();
+      imageUrl = imgbbData.data.url;
+    }
 
-                  const updatedpost = {
-                    title: postForm.elements["postTitle"].value,
-                    content: postForm.elements["postContent"].value, 
-                    image: imageUrl,
-                    category: Array.from(categorySelect.selectedOptions).map(option => option.value),
-                  };
+    const updatedpost = {
+      title: postForm.elements["postTitle"].value,
+      content: postForm.elements["postContent"].value, 
+      image: imageUrl,
+      category: Array.from(categorySelect.selectedOptions).map(option => option.value),
+    };
 
-                  const response = await fetch(`https://club-wine.vercel.app/post/list/${post.id}/`, {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(updatedpost),
-                  });
+    const response = await fetch(`https://club-wine.vercel.app/post/list/${post.id}/`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedpost),
+    });
 
-                  if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.detail || "Failed to update post.");
-                  }
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.detail || "Failed to update post.");
+    }
 
-                  alert("post updated successfully!");
-                  fetchPosts(); // Refresh the list
-                } catch (error) {
-                  console.error("Error updating post:", error.message);
-                  alert(`Error updating post: ${error.message}`);
-                }
-              };
-              };
-
-
-
-              const handleDeletepost = (id) => {
-                if (confirm("Are you sure you want to delete this post?")) {
-                  fetch(`https://club-wine.vercel.app/post/list/${id}/`, {
-                    method: "DELETE",
-                  })
-                    .then(response => {
-                      if (!response.ok) throw new Error("Failed to delete post.");
-                      alert("post deleted successfully!");
-                      fetchPosts(); // Refresh the table
-                    })
-                    .catch(error => {
-                      console.error("Error deleting post:", error.message);
-                    });
-                }
-              };
-
-
-            } else {
-                alert('Please log in as Admin.');
-                window.location.href = '/login.html';
-            }
-        } catch (error) {
-            console.error('Error verifying admin:', error);
-            alert('Failed to verify admin. Please try again.');
-        }
-    })();
-}
+    alert("post updated successfully!");
+    fetchPosts(); // Refresh the list
+  } catch (error) {
+    console.error("Error updating post:", error.message);
+    alert(`Error updating post: ${error.message}`);
+  }
+};
+};
 
 
 
-
-
+const handleDeletepost = (id) => {
+  if (confirm("Are you sure you want to delete this post?")) {
+    fetch(`https://club-wine.vercel.app/post/list/${id}/`, {
+      method: "DELETE",
+    })
+      .then(response => {
+        if (!response.ok) throw new Error("Failed to delete post.");
+        alert("post deleted successfully!");
+        fetchPosts(); // Refresh the table
+      })
+      .catch(error => {
+        console.error("Error deleting post:", error.message);
+      });
+  }
+};
