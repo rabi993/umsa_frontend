@@ -79,7 +79,7 @@ const handleAddPost = async (event) => {
         const fileUrl = imgbbData.data.url;
 
         const postData = { user, name: title, description: content, file: fileUrl };
-        const response = await fetch("https://club-wine.vercel.app/notice/", {
+        const response = await fetch("https://club-wine.vercel.app/notice/list/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(postData),
