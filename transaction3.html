@@ -263,6 +263,29 @@
             </tbody>
           </table>
       </div>
+      <form class="w-50 mx-auto my-5 px-5" id="transactionFormToDonate">
+        <h3 class="text-center my-4">Donate</h3>
+        <div class="d-flex justify-content-between row">
+            <div class="col-lg-6 col-md-6">
+                <label>Reference: <input type="text" id="reference"></label>
+                <label>Amount: <input type="number" id="amount" required></label>
+                <input type="hidden" id="typys" value="credit">
+                <label>Source: <input type="text" id="sourcePeople"></label>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <label>Purpose: <input type="text" id="purpose"></label>
+                <label>Comment: <input type="text" id="comment"></label>
+                <select id="media">
+                    <option value="Bank">Bank</option>
+                    <option value="Card">Card</option>
+                    <option value="Mobile Banking">Mobile Banking</option>
+                </select>
+                <label>Account No: <input type="number" id="accountNo"></label>
+                <input type="hidden" id="approved">
+            </div>
+        </div>
+        <button type="submit">Donate</button>
+      </form>
       
       <div class="modal fade" id="donateModal" tabindex="-1" aria-labelledby="donateModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -673,6 +696,61 @@
     
         // Fetch accounts on page load
         fetchAccounts();
+
+        document.getElementById("transactionFormToDonate").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const transactionData = {
+                user: localStorage.getItem("user_id"),
+                reference: document.getElementById("reference").value,
+                amount: document.getElementById("amount").value,
+                typys: document.getElementById("typys").value,
+                source_people: document.getElementById("sourcePeople").value,
+                purpose: document.getElementById("purpose").value,
+                comment: document.getElementById("comment").value,
+                media: document.getElementById("media").value,
+                accountNo: document.getElementById("accountNo").value,
+                approved: document.getElementById("approved").checked
+            };
+
+            // Send the data to the backend to create a payment session
+            // fetch("http://127.0.0.1:8000/payment/", {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json"
+            //     },
+            //     body: JSON.stringify(transactionData)
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     if (data.url) {
+            //         window.location.href = data.url;  // Redirect to SSLCommerz payment gateway
+            //     } else {
+            //         alert("Payment session creation failed");
+            //     }
+            // })
+            // .catch(error => console.error("Error:", error));
+            fetch("http://127.0.0.1:8000/payment/payment/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(transactionData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Response from backend:", data);  // Log response for debugging
+                console.log("Response url:",data.url)
+                if (data.url) {
+                    window.location.href = data.url;
+                } else {
+                    alert("Payment session creation failed: " + data.error);
+                }
+            })
+            .catch(error => console.error("Error:", error));
+
+        });
+
       </script>
     
     <script src="./logout.js"></script>
