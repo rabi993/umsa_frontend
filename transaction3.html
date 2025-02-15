@@ -282,6 +282,7 @@
                 </select>
                 <label>Account No: <input type="number" id="accountNo"></label>
                 <input type="hidden" id="approved">
+                <!-- <input type="hidden" id="urlgetway" value=""> -->
             </div>
         </div>
         <button type="submit">Donate</button>
@@ -711,25 +712,9 @@
                 media: document.getElementById("media").value,
                 accountNo: document.getElementById("accountNo").value,
                 approved: document.getElementById("approved").checked
+                // urlgetway: document.getElementById("urlgetway").value
             };
 
-            // Send the data to the backend to create a payment session
-            // fetch("http://127.0.0.1:8000/payment/", {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type": "application/json"
-            //     },
-            //     body: JSON.stringify(transactionData)
-            // })
-            // .then(response => response.json())
-            // .then(data => {
-            //     if (data.url) {
-            //         window.location.href = data.url;  // Redirect to SSLCommerz payment gateway
-            //     } else {
-            //         alert("Payment session creation failed");
-            //     }
-            // })
-            // .catch(error => console.error("Error:", error));
             fetch("http://127.0.0.1:8000/payment/payment/", {
                 method: "POST",
                 headers: {
@@ -738,11 +723,12 @@
                 body: JSON.stringify(transactionData)
             })
             .then(response => response.json())
+
             .then(data => {
                 console.log("Response from backend:", data);  // Log response for debugging
-                console.log("Response url:",data.url)
-                if (data.url) {
-                    window.location.href = data.url;
+                
+                if (data) {
+                  window.open(data, "_self");
                 } else {
                     alert("Payment session creation failed: " + data.error);
                 }
