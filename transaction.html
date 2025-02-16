@@ -62,6 +62,27 @@
           font-size: 14px;
           box-sizing: border-box;
         }
+        form select{
+          width: 100%;
+          padding: 5px;
+          margin-bottom: 5px;
+          margin-top: 2px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 14px;
+          box-sizing: border-box;
+        }
+        .pay{
+          width: 100%;
+          padding: 5px;
+          margin-top: 23px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 14px;
+          box-sizing: border-box;
+          background-color: #3BCF93;
+          color: white;
+        }
       
         /* Button styling */
         /* form button {
@@ -205,7 +226,7 @@
         <img class="img-fluid" src="./images/teach1.jpg" alt="">
       </div>
       <div class="col-md-4 col-lg-4">
-        <h3>Providing access to safe water, sanitation, and hygiene</h3>
+        <h3>Best & Less published their supplier lists</h3>
         <p class="pt-3">The legal definition of a charitable organization (and of charity) varies between countries</p>
         <div class="btc"><hr style=" border-bottom: 5px solid #3BCF93;" class="textp"></div>
         <div class="d-flex justify-content-between">
@@ -238,11 +259,39 @@
           </div>
           
         </div>
-        <button style="border: none; font-weight: 600;" class="py-3 px-5 text-white btc" data-bs-toggle="modal" data-bs-target="#donateModal">DONATE NOW</button>
-
+        <!-- <button style="border: none; font-weight: 600;" class="py-3 px-5 text-white btc" data-bs-toggle="modal" data-bs-target="#donateModal">DONATE NOW</button> -->
+        <a href="transaction3.html">
+          <button style="border: none; font-weight: 600;" class="py-3 px-5 text-white btc" data-bs-toggle="modal" data-bs-target="#donateModal">DONATE NOW</button>
+        </a>
       </div>
     </div>
   </div>
+  <form style="box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;" class="w-50 mx-auto my-3 px-5 pb-5" id="transactionFormToDonate">
+    <h3 class="text-center mt-3 mb-5">Donate</h3>
+    <div class="d-flex justify-content-between row">
+        <div class="col-lg-6 col-md-6">
+            <label>Reference: <input type="text" id="reference"></label>
+            <label>Amount: <input type="number" id="amount" required></label>
+            <input type="hidden" id="typys" value="credit">
+            <label>Source: <input type="text" id="sourcePeople"></label>
+            <label>Purpose: <input type="text" id="purpose"></label>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <label>Comment: <input type="text" id="comment"></label>
+            <label >Media:
+              <select  id="media">
+                  <option value="Bank">Bank</option>
+                  <option value="Card">Card</option>
+                  <option value="Mobile Banking">Mobile Banking</option>
+              </select>
+            </label>
+            <label>Account No: <input type="number" id="accountNo"></label>
+            <input type="hidden" id="approved">
+            <button class="pay" type="submit">Payment</button>
+        </div>
+    </div>
+    
+  </form>
       <div class="d-flex justify-content-center mt-5 mb-4 container m-auto">
         <h3  class="text-center ">Latest Exchequer!</h3>
         <!-- <button type="button" class="btn btc text-white" data-bs-toggle="modal" data-bs-target="#donateModal">Donation Form</button>      -->
@@ -263,6 +312,7 @@
             </tbody>
           </table>
       </div>
+      
       
       <div class="modal fade" id="donateModal" tabindex="-1" aria-labelledby="donateModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -673,6 +723,46 @@
     
         // Fetch accounts on page load
         fetchAccounts();
+
+        document.getElementById("transactionFormToDonate").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const transactionData = {
+                user: localStorage.getItem("user_id"),
+                reference: document.getElementById("reference").value,
+                amount: document.getElementById("amount").value,
+                typys: document.getElementById("typys").value,
+                source_people: document.getElementById("sourcePeople").value,
+                purpose: document.getElementById("purpose").value,
+                comment: document.getElementById("comment").value,
+                media: document.getElementById("media").value,
+                accountNo: document.getElementById("accountNo").value,
+                approved: document.getElementById("approved").checked
+                // urlgetway: document.getElementById("urlgetway").value
+            };
+
+            fetch("https://club-wine.vercel.app/payment/payment/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(transactionData)
+            })
+            .then(response => response.json())
+
+            .then(data => {
+                console.log("Response from backend:", data);  // Log response for debugging
+                
+                if (data) {
+                  window.open(data, "_self");
+                } else {
+                    alert("Payment session creation failed: " + data.error);
+                }
+            })
+            .catch(error => console.error("Error:", error));
+
+        });
+
       </script>
     
     <script src="./logout.js"></script>

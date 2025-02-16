@@ -17,60 +17,100 @@
       crossorigin="anonymous"
     />
     <style>
-        /* General form styling */
-        form {
+      table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+      table, th, td {
+          border: 1px solid black;
+      }
+      th, td {
           padding: 10px;
-          /* background-color: #f9f9f9; */
-          /* border: 1px solid #ddd; */
-          border-radius: 10px;
-          /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-        }
-        /* Labels */
-        form label {
-          display: block;
-          font-weight: bold;
-          font-size: 14px;
-          margin-bottom: 0px;
-          color: #555;
-        }
+          text-align: center;
+
+
+      }
+      td {
+        font-size: 13px;
+      }
+      #transactionForm {
+          margin-top: 20px;
+      }
       
-        /* Inputs */
-        form input[type="text"],
-        form input[type="number"],
-        form input[type="hidden"] {
-          width: 100%;
-          padding: 5px;
-          margin-bottom: 5px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          font-size: 14px;
-          box-sizing: border-box;
-        }
-      
-        /* Button styling */
-        form button {
-          width: 100%;
-          padding: 10px 15px;
-          font-size: 16px;
-          color: #fff;
-          background-color: #3BCF93;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-        }
-      
-        form button:hover {
-          background-color: mediumsea#3BCF93;
-        }
-      
-        /* Add spacing for better alignment */
-        form label,
-        form input {
-          margin-top: 2px;
-        }
-    </style>
+      /* General form styling */
+      form {
+        padding: 10px;
+        /* background-color: #f9f9f9; */
+        /* border: 1px solid #ddd; */
+        /* border-radius: 5px; */
+        /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+      }
+      /* Labels */
+      form label {
+        display: block;
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 10px;
+        color: #555;
+      }
+    
+      /* Inputs */
+      form input[type="text"],
+      form input[type="number"],
+      form input[type="hidden"] {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+      form select{
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 5px;
+        margin-top: 2px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+      .pay{
+        width: 100%;
+        padding: 5px;
+        margin-top: 23px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        box-sizing: border-box;
+        background-color: #3BCF93;
+        color: white;
+      }
+    
+      /* Button styling */
+      /* form button {
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #3BCF93;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      } */
+    
+      form button:hover {
+        background-color: mediumsea#3BCF93;
+      }
+    
+      /* Add spacing for better alignment */
+      form label,
+      form input {
+        margin-top: 2px;
+      }
+  </style>
       
     
 
@@ -192,7 +232,7 @@
     <main class="bg-white">
         <div class="banner-container ">
             <div class=" row w-100 m-auto">
-              <div class=" dash_bar col-md-2 col-lg-2 py-5" style="padding: 5px 10px 10px 10px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+              <div class=" dash_bar col-md-2 col-lg-2 py-5" style="padding: 5px 10px 10px 10px;  ">
                 <div ><a class=""  href="dashboard.html">Profile</a></div>
                 <div ><a href="updateProfile.html">Update Profile</a></div>
                 <div><a href="changepass.html">Change Password</a></div>
@@ -202,10 +242,36 @@
                 
               </div>
               <div class="  col-md-10 col-lg-10">
-                <div class=" ">
+                <div class=" pb-5">
+                  <form style="box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;" class="w-50 mx-auto my-3 px-5 pb-5" id="transactionFormToDonate">
+                    <h3 class="text-center mt-3 mb-5">Donate</h3>
+                    <div class="d-flex justify-content-between row">
+                        <div class="col-lg-6 col-md-6">
+                            <label>Reference: <input type="text" id="reference"></label>
+                            <label>Amount: <input type="number" id="amount" required></label>
+                            <input type="hidden" id="typys" value="credit">
+                            <label>Source: <input type="text" id="sourcePeople"></label>
+                            <label>Purpose: <input type="text" id="purpose"></label>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <label>Comment: <input type="text" id="comment"></label>
+                            <label >Media:
+                              <select  id="media">
+                                  <option value="Bank">Bank</option>
+                                  <option value="Card">Card</option>
+                                  <option value="Mobile Banking">Mobile Banking</option>
+                              </select>
+                            </label>
+                            <label>Account No: <input type="number" id="accountNo"></label>
+                            <input type="hidden" id="approved">
+                            <button class="pay" type="submit">Payment</button>
+                        </div>
+                    </div>
+                    
+                  </form>
                   
                     
-                    <form class="w-50 mx-auto my-5 px-5" id="transactionFormToDonate">
+                    <!-- <form class="w-50 mx-auto my-5 px-5" id="transactionFormToDonate">
                         <h3 class="text-center my-4">Donate</h3>
                         <input type="hidden" id="transactionId">
                         <div class="d-flex justify-content-between row">
@@ -233,7 +299,7 @@
                         <div class="w-50 m-auto py-4">
                           <button class="btn btc px-3 text-white py-2" type="submit">Send</button>
                         </div>
-                    </form>
+                    </form> -->
                   </div>
                 </div>
               </div>
@@ -489,6 +555,45 @@
             }
         });
     });
+
+    document.getElementById("transactionFormToDonate").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const transactionData = {
+                user: localStorage.getItem("user_id"),
+                reference: document.getElementById("reference").value,
+                amount: document.getElementById("amount").value,
+                typys: document.getElementById("typys").value,
+                source_people: document.getElementById("sourcePeople").value,
+                purpose: document.getElementById("purpose").value,
+                comment: document.getElementById("comment").value,
+                media: document.getElementById("media").value,
+                accountNo: document.getElementById("accountNo").value,
+                approved: document.getElementById("approved").checked
+                // urlgetway: document.getElementById("urlgetway").value
+            };
+
+            fetch("https://club-wine.vercel.app/payment/payment/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(transactionData)
+            })
+            .then(response => response.json())
+
+            .then(data => {
+                console.log("Response from backend:", data);  // Log response for debugging
+                
+                if (data) {
+                  window.open(data, "_self");
+                } else {
+                    alert("Payment session creation failed: " + data.error);
+                }
+            })
+            .catch(error => console.error("Error:", error));
+
+        });
     </script>
     
     
