@@ -242,8 +242,10 @@
                                         <td>${banner.description}</td>
                                         <td><img src="${banner.image}" alt="${banner.name}" style="width: 70px; height: auto;"></td>
                                         <td>
-                                            <button class="btn  text-white btn-sm" onclick="editBanner(${banner.id})">📝</button>
-                                            <button class="btn  text-white btn-sm" onclick="deleteBanner(${banner.id})">🗑️</button>
+                                            <div class="d-flex ">
+                                                <button class="btn  text-white btn-sm" onclick="editBanner(${banner.id})">📝</button>
+                                                <button class="btn  text-white btn-sm" onclick="deleteBanner(${banner.id})">🗑️</button>
+                                            </div>
                                         </td>
                                     `;
                                     tableBody.appendChild(row);
