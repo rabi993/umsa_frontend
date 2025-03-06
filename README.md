@@ -43,5 +43,8 @@ Used Tools And Technologies:
   Tools:
     Visual Studio Code, Supabase for database, imgbb for image store.
   
-  
+  Live Link:
+
+  Frontend: https://rabi993.github.io/umsa_frontend/
+  Backend: https://club-wine.vercel.app/
   
