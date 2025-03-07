@@ -44,55 +44,65 @@ fetch("https://club-wine.vercel.app/people/list/")
             <h4 class="card-title  pb-3 text-center">${user.first_name || "N/A"} ${user.last_name || "N/A"}'s Profile</h4>
             <hr/>
             <div class="d-flex flex-wrap justify-content-around">
-                <div class="col-12 col-md-4 col-lg-4">
+                <div class="col-12 col-md-3 col-lg-3">
                 <div class="card-text w-100 m-auto">
-                    ${
+                ${
                     people.image
                         ? `<img src="${people.image}" alt="Profile Image" class="img-fluid rounded mt-2" style="max-height: 100px;">`
                         : "<p class='text-muted'>No image available</p>"
                     }
                 </div>
-                <h6 class="mt-3">User Details:</h6>
+                <h5 class="mt-3 textp">User Details:</h5>
                 <p class="card-text"><strong>ID:</strong> ${user.id}</p>
                 <p class="card-text"><strong>Username:</strong> ${user.username}</p>
                 <p class="card-text"><strong>First Name:</strong> ${user.first_name || "N/A"}</p>
                 <p class="card-text"><strong>Last Name:</strong> ${user.last_name || "N/A"}</p>
-                <p class="card-text"><strong>Email:</strong> ${user.email}</p>
                 <p class="card-text"><strong>Role:</strong> ${user.is_superuser ? "Admin/Superuser" : "User"}</p>
-                </div>
-
-                <div class="col-12 col-md-4 col-lg-4">
-                <h6 class="mt-3">Profile Details:</h6>
                 <p class="card-text"><strong>Profile ID:</strong> ${people.id}</p>
-                <p class="card-text"><strong>Mobile:</strong> ${people.mobile_no || "N/A"}</p>
-                <p class="card-text"><strong>Village:</strong> ${people.village || "N/A"}</p>
-                <p class="card-text"><strong>Union:</strong> ${people.union || "N/A"}</p>
-                <p class="card-text"><strong>Ward:</strong> ${people.word || "N/A"}</p>
-                <p class="card-text"><strong>City:</strong> ${people.livesIn || "N/A"}</p>
-                <p class="card-text"><strong>Marital Status:</strong> ${people.marital_status || "N/A"}</p>
-                <p class="card-text"><strong>Job Title:</strong> ${people.designation || "N/A"}</p>
-                <p class="card-text"><strong>Works At:</strong> ${people.worksat || "N/A"}</p>
-
                 
                 </div>
-
-                <div class="col-12 col-md-4 col-lg-4">
+                
+                <div class="col-12 col-md-3 col-lg-3">
+                <h5 class="mt-3 textp">Bio:</h5>
+                <p class="card-text"><strong>Marital Status:</strong> ${people.marital_status || "N/A"}</p>
                 <p class="card-text"><strong>Date of Birth:</strong> ${people.birth_date || "N/A"}</p>
                 <p class="card-text"><strong>Blood Group:</strong> ${people.blood_group || "N/A"}</p>
                 <p class="card-text"><strong>Last Donation:</strong> ${people.last_blood_donate_date || "N/A"}</p>
                 <p class="card-text"><strong>Next Eligible Donation:</strong> ${people.available_for_donate_date || "N/A"}</p>
+                
+                <h5 class="mt-3 textp">Contact:</h5>
+                <p class="card-text"><strong>Email:</strong> ${user.email}</p>
+                <p class="card-text"><strong>Mobile:</strong> ${people.mobile_no || "N/A"}</p>
+                </div>
+                <div class="col-12 col-md-3 col-lg-3">
+                <h5 class="mt-3 textp">Permanent Address:</h5>
+                <p class="card-text"><strong>Village:</strong> ${people.village || "N/A"}</p>
+                <p class="card-text"><strong>Union:</strong> ${people.union || "N/A"}</p>
+                <p class="card-text"><strong>Ward:</strong> ${people.word || "N/A"}</p>
+                
+                <p class="card-text"><strong>Lives in:</strong> ${people.livesIn || "N/A"}</p>
+                
+                <h5 class="mt-3 textp">Proffession:</h5>
+                <p class="card-text"><strong>Job Title:</strong> ${people.designation || "N/A"}</p>
+                <p class="card-text"><strong>Works At:</strong> ${people.worksat || "N/A"}</p>
+                
+                </div>
+                
+                <div class="col-12 col-md-3 col-lg-3">
+                <h5 class="mt-3 textp">Education:</h5>
                 <p class="card-text"><strong>University:</strong> ${people.varsity || "N/A"}</p>
                 <p class="card-text"><strong>Subject:</strong> ${people.subject || "N/A"}</p>
                 <p class="card-text"><strong>Session:</strong> ${people.session || "N/A"}</p>
                 <p class="card-text"><strong>Edu Complete:</strong> ${people.complete ? "Yes" : "No"}</p>
                 <p class="card-text"><strong>CV:</strong> <a href="${people.cv}" target="_blank">Download CV</a></p>
                 <p class="card-text"><strong>Association Post:</strong> ${people.association_post || "N/A"}</p>
+                
                 </div>
-            </div>
-            <hr/>
-
-            
-            </div>
+                </div>
+                <hr/>
+                
+                
+                </div>
 
         `;
 
