@@ -24,7 +24,7 @@ const loadServices = () => {
       const div = document.createElement("div");
       div.classList.add("col-lg-4", "col-md-4", "col-sm-12", "mb-4");
       div.innerHTML = `
-        <div class="card shadow h-100" style="width: 400px; height: 300px; margin: 0 auto;">
+        <div class=" shadow h-100" style="width: 450px; height: 350px; margin: 0 auto;">
           <div class="ratio ratio-16x9">
             <img
               src="${service.image}"
