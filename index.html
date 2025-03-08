@@ -395,29 +395,29 @@
       <div class="col-lg-3 col-md-3  ">
         <!-- <div ><img  src="./images/icon/Group 10 (3).png" alt=""></div> -->
         <div>
-          <h4 style="font-size: 60px; font-weight: 700;"  class="">1M</h4>
-          <h5>Monthly Visitors</h5>
+          <h4 style="font-size: 60px; font-weight: 700;"  class=""><span id="totalPeople"  >Loading...</span></h4>
+          <h5>Total Member Count</h5>
         </div>
       </div>
       <div class="col-lg-3 col-md-3    ">
         <!-- <div><img src="./images/icon/Group 10 (2).png" alt=""></div> -->
         <div>
-          <h4 style="font-size: 60px; font-weight: 700;" class="">20M</h4>
-          <h5>Volunteers Connected</h5>
+          <h4 style="font-size: 60px; font-weight: 700;" class=""><span id="totalPosts" >Loading...</span></h4>
+          <h5>Total Post</h5>
         </div>
       </div>
       <div class=" col-lg-3 col-md-3   ">
         <!-- <div><img  src="./images/icon/Group 10 (1).png" alt=""></div> -->
         <div>
-          <h4 style="font-size: 60px; font-weight: 700;" class="">80</h4>
-          <h5>Countries Worldwide</h5>
+          <h4 style="font-size: 60px; font-weight: 700;" class=""><span id="totalEvents" >Loading...</span></h4>
+          <h5>Total Event</h5>
         </div>
       </div>
       <div class="col-lg-3 col-md-3    ">
         <!-- <div><img src="./images/icon/Group 10.png" alt=""></div> -->
         <div>
-          <h4 style="font-size: 60px; font-weight: 700;" class="">2M</h4>
-          <h5>Volunteers Needed</h5>
+          <h4 style="font-size: 60px; font-weight: 700;" class=""><span id="totalNotices" >Loading...</span></h4>
+          <h5>Total Notice</h5>
         </div>
       </div>
       
@@ -592,29 +592,29 @@
         <div class="col-lg-3 col-md-3 mb-1 ">
           <div ><img style="height: 60px; width: 60px;" class="img-fluid pb-3" src="./images/icon/icon1.png" alt=""></div>
           <div>
-            <h4 style="font-size: 60px; font-weight: 700;"  class="text-white">30M</h4>
-            <h5 class="text-secondary">Number of suppoters</h5>
+            <h4 style="font-size: 60px; font-weight: 700;"  class="text-white">$<span id="totalCreditt" >11029</span></h4>
+            <h5 class="text-secondary">Total Donate</h5>
           </div>
         </div>
         <div class="col-lg-3 col-md-3   mb-1 ">
           <div><img style="height: 60px; width: 60px;" class="img-fluid pb-3" src="./images/icon/icon2.png" alt=""></div>
           <div>
-            <h4 style="font-size: 60px; font-weight: 700;" class="text-white">$100M</h4>
-            <h5 class="text-secondary">Fund raised</h5>
+            <h4 style="font-size: 60px; font-weight: 700;" class="text-white">$<span  id="finalAmountt" >7832</span></h4>
+            <h5 class="text-secondary">Final Cash</h5>
           </div>
         </div>
         <div class=" col-lg-3 col-md-3   mb-1 ">
           <div><img style="height: 60px; width: 60px;" class="img-fluid pb-3" src="./images/icon/icon3.png" alt=""></div>
           <div>
-            <h4 style="font-size: 60px; font-weight: 700;" class="text-white">80M</h4>
-            <h5 class="text-secondary">Children Helped</h5>
+            <h4 style="font-size: 60px; font-weight: 700;" class="text-white"><span id="totalCreditTransactionss">24</span></h4>
+            <h5 class="text-secondary">Total Credit Transactions</h5>
           </div>
         </div>
         <div class="col-lg-3 col-md-3   mb-1 ">
           <div ><img style="height: 60px; width: 60px;" class="img-fluid pb-3" src="./images/icon/icon4.png" alt=""></div>
           <div>
-            <h4 style="font-size: 60px; font-weight: 700;" class="text-white">18,000</h4>
-            <h5 class="text-secondary">Volunteers Worldwide</h5>
+            <h4 style="font-size: 60px; font-weight: 700;" class="text-white"><span id="totalDebitt" >$3197</span></h4>
+            <h5 class="text-secondary">Total Debit Amount</h5>
           </div>
         </div>
         
@@ -1157,6 +1157,52 @@
       }
   });
 </script>
+<script>
+  async function fetchDashboardData() {
+      try {
+          const [people, posts, events, notices, transactions, services, accounts, contacts, comments] = await Promise.all([
+              fetch("https://club-wine.vercel.app/people/list/").then(res => res.json()),
+              fetch("https://club-wine.vercel.app/post/list/").then(res => res.json()),
+              fetch("https://club-wine.vercel.app/event/list/").then(res => res.json()),
+              fetch("https://club-wine.vercel.app/notice/list/").then(res => res.json()),
+              fetch("https://club-wine.vercel.app/transaction/").then(res => res.json()),
+              fetch("https://club-wine.vercel.app/service/").then(res => res.json()),
+              fetch("https://club-wine.vercel.app/account/").then(res => res.json()),
+              fetch("https://club-wine.vercel.app/contact_us/").then(res => res.json()),
+              fetch("https://club-wine.vercel.app/post/comments/").then(res => res.json())
+          ]);
+
+          document.getElementById("totalPeople").innerText = people.length;
+          document.getElementById("totalPosts").innerText = posts.count;
+          document.getElementById("totalEvents").innerText = events.count;
+          document.getElementById("totalNotices").innerText = notices.count;
+          document.getElementById("totalTransactions").innerText = transactions.length;
+          document.getElementById("totalServices").innerText = services.length;
+          document.getElementById("totalComments").innerText = comments.length;
+          document.getElementById("totalContactUs").innerText = contacts.length;
+          
+          // Calculate total debit & credit transactions
+          const debitTransactions = transactions.filter(trx => trx.typys === "debit");
+          const creditTransactions = transactions.filter(trx => trx.typys === "credit");
+
+          document.getElementById("totalDebitTransactions").innerText = debitTransactions.length;
+          document.getElementById("totalCreditTransactionss").innerText = creditTransactions.length;
+
+          // Get total debit, total credit, and final amount
+          const account = accounts[0]; // Assuming only one account
+          document.getElementById("totalDebitt").innerText = `$${account.total_debit}`;
+          document.getElementById("totalCreditt").innerText = `$${account.total_credit}`;
+          document.getElementById("finalAmountt").innerText = `$${account.final_cash}`;
+
+      } catch (error) {
+          console.error("Error fetching data:", error);
+      }
+  }
+
+  fetchDashboardData();
+  
+
+</script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
@@ -1171,6 +1217,7 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
+
 
    
     
